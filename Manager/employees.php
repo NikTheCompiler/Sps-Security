@@ -138,8 +138,6 @@
         </a>
       </li><!-- End Profile Page Nav -->
 
-      
-
     </ul>
 
   </aside><!-- End Sidebar-->
@@ -171,12 +169,11 @@
                   <tr>
                     <th scope="col">#</th>
                     <th scope="col">Name</th>
-					
                     <th scope="col">Position</th>
                     <th scope="col">ID</th>
                     <th scope="col"></th>
-					<th scope="col"></th>
-					<th scope="col"></th>
+					          <th scope="col"></th>
+					          <th scope="col"></th>
 					
                   </tr>
                 </thead>
@@ -190,8 +187,8 @@
                     <td>Designer</td>
                     <td>28</td>
                     <td style="color:blue">Remove</td>
-					<td style="color:blue">Update</td>
-					<td style="color:blue">Details</td>
+					          <td style="color:blue">Update</td>
+					          <td style="color:blue">Details</td>
 					
 					
                   </tr>
@@ -202,8 +199,8 @@
                     <td>Developer</td>
                     <td>35</td>
                     <td style="color:blue">Remove</td>
-					<td style="color:blue">Update</td>
-					<td style="color:blue">Details</td>
+					          <td style="color:blue">Update</td>
+					          <td style="color:blue">Details</td>
 					
                   </tr>
                   <tr>
@@ -213,8 +210,8 @@
                     <td>Finance</td>
                     <td>45</td>
                     <td style="color:blue">Remove</td>
-					<td style="color:blue">Update</td>
-					<td style="color:blue">Details</td>
+					          <td style="color:blue">Update</td>
+					          <td style="color:blue">Details</td>
 					
                   </tr>
                   <tr>
@@ -224,8 +221,8 @@
                     <td>HR</td>
                     <td>34</td>
                     <td style="color:blue">Remove</td>
-					<td style="color:blue">Update</td>
-					<td style="color:blue">Details</td>
+					          <td style="color:blue">Update</td>
+					          <td style="color:blue">Details</td>
 					
                   </tr>
                   <tr>
@@ -235,8 +232,8 @@
                     <td>Dynamic Division Officer</td>
                     <td>47</td>
                     <td style="color:blue">Remove</td>
-					<td style="color:blue">Update</td>
-					<td style="color:blue">Details</td>
+					          <td style="color:blue">Update</td>
+					          <td style="color:blue">Details</td>
 					
                   </tr>
                 </tbody>

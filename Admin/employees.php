@@ -181,7 +181,15 @@
                     </div>
 					
                     <div class="modal-body">
-                      Full Name
+                       Name
+                    </div>
+					<center><input size="30"></input></center>
+          <div class="modal-body">
+                       Surname
+                    </div>
+					<center><input size="30"></input></center>
+					<div class="modal-body">
+                      Department
                     </div>
 					<center><input size="30"></input></center>
 					<div class="modal-body">
@@ -189,19 +197,11 @@
                     </div>
 					<center><input size="30"></input></center>
 					<div class="modal-body">
-                      Country
-                    </div>
-					<center><input size="30"></input></center>
-					<div class="modal-body">
-                      Address
-                    </div>
-					<center><input size="30"></input></center>
-					<div class="modal-body">
-                      Phone
-                    </div>
-					<center><input size="30"></input></center>
-					<div class="modal-body">
                       Email
+                    </div>
+					<center><input size="30"></input></center>
+          <div class="modal-body">
+                      Username
                     </div>
 					<center><input size="30"></input></center><br>
 				
