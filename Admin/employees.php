@@ -1,3 +1,10 @@
+
+<?php
+session_start();
+include_once('../php/connect.php');
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -220,76 +227,46 @@
                 <thead>
 				
                   <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Name</th>
-					<th scope="col">Department</th>
-                    <th scope="col">Position</th>
                     <th scope="col">ID</th>
-                    <th scope="col"></th>
-					<th scope="col"></th>
-					<th scope="col"></th>
-					<th scope="col"></th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Surname</th>
+					          <th scope="col">Department</th>
+                    <th scope="col">Position</th>
+                    <th></th>
                   </tr>
                 </thead>
 				
                 <tbody>
-				
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Brandon Jacob</td>
-					<td>Department 1</td>
-                    <td>Designer</td>
-                    <td>28</td>
-                    <td style="color:blue">Remove</td>
-					<td style="color:blue">Update</td>
-					<td style="color:blue">Details</td>
-					<td style="color:blue">Generate Password</td>
-					
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Bridie Kessler</td>
-					<td>Department 2</td>
-                    <td>Developer</td>
-                    <td>35</td>
-                    <td style="color:blue">Remove</td>
-					<td style="color:blue">Update</td>
-					<td style="color:blue">Details</td>
-					<td style="color:blue">Generate Password</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td>Ashleigh Langosh</td>
-					<td>Department 3</td>
-                    <td>Finance</td>
-                    <td>45</td>
-                    <td style="color:blue">Remove</td>
-					<td style="color:blue">Update</td>
-					<td style="color:blue">Details</td>
-					<td style="color:blue">Generate Password</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">4</th>
-                    <td>Angus Grady</td>
-					<td>Department 4</td>
-                    <td>HR</td>
-                    <td>34</td>
-                    <td style="color:blue">Remove</td>
-					<td style="color:blue">Update</td>
-					<td style="color:blue">Details</td>
-					<td style="color:blue">Generate Password</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">5</th>
-                    <td>Raheem Lehner</td>
-					<td>Department 2</td>
-                    <td>Dynamic Division Officer</td>
-                    <td>47</td>
-                    <td style="color:blue">Remove</td>
-					<td style="color:blue">Update</td>
-					<td style="color:blue">Details</td>
-					<td style="color:blue">Generate Password</td>
-                  </tr>
+                <?php
+                      include_once('../php/connect.php');
+                      $result = sqlsrv_query($conn, "SELECT * FROM Users WHERE 'type' = '1' ");
+                      $bool = sqlsrv_num_rows($result);
+                      if($bool != 0) {
+                        // output data of each row
+                        $i = 0;
+                        while ($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)) {
+                          $i++;
+                          $id = $row['UserID'];
+                          $name = $row['name'];
+                          $surname = $row['surname'];
+                          $dept= $row['dept'];
+                          $position=$row['position'];
+                          $type = $row['type'];
+                          echo '
+                          <tr> 
+                            <td>' . $id .'</td>
+                            <td>' . $name . '</td>
+                            <td>' . $surname . '</td>
+                            <td>' . $dept . '</td>
+                            <td>' . $position . '</td>
+                            <td hidden>' . $type . '</td>
+                            
+                          </tr>
+                          ';
+                        }
+                      }                   
+                      ?>
+                  
                 </tbody>
 				
               </table>

@@ -1,14 +1,21 @@
 <?php   
-$server_nm="DESKTOP-FCR3KJC";
-$connection=array("Database"=>"SpsSecurity","UID"=>"","PWD"=>"");
-$conn= sqlsrv_connect($server_nm,$connection);
-if($conn){
-   //echo "Connection established!";
-}
-else{
-   echo"Connection could not be established";
-   die(print_r(sqlsrv_errors(),true));
-}
+$serverName = "DESKTOP-FCR3KJC";   
+$uid = "";     
+$pwd = "";    
+$databaseName = "SpsSecurity";   
+
+$connectionInfo = array( "UID"=>$uid,                              
+                     "PWD"=>$pwd,                              
+                     "Database"=>$databaseName);   
+
+/* Connect using SQL Server Authentication. */    
+$conn = sqlsrv_connect( $serverName, $connectionInfo);  
+if( $conn === false ) 
+{
+ die( print_r( sqlsrv_errors(), true));
+}   
+
+
 ?>     
 
 <?php  
