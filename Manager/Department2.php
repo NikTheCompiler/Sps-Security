@@ -117,14 +117,33 @@ session_start();
           <span>Dashboard</span>
         </a>
       </li><!-- End Dashboard Nav -->
-
-
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="Grades.php">
+          <i class="bi bi-calculator"></i>
+          <span>Grades</span>
+        </a>
+      </li><!-- End Dashboard Nav -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="employees.php">
+          <i class="bi bi-layout-text-sidebar"></i>
+          <span>Employees</span>
+        </a>
+      </li><!-- End Dashboard Nav -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="questions.php">
+          <i class="bi bi-question-lg"></i>
+          <span>Questions</span>
+        </a>
+      </li><!-- End Dashboard Nav --> 
       <li class="nav-item">
         <a class="nav-link collapsed" href="profile.php">
           <i class="bi bi-person"></i>
           <span>Profile</span>
         </a>
       </li><!-- End Profile Page Nav -->
+
+      
+
     </ul>
 
   </aside><!-- End Sidebar-->

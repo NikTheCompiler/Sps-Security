@@ -59,12 +59,6 @@ session_start();
     <nav class="header-nav ms-auto">
       <ul class="d-flex align-items-center">
 
-        
-
-        
-
-        
-
         <li class="nav-item dropdown pe-3">
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
@@ -123,6 +117,30 @@ session_start();
           <span>Dashboard</span>
         </a>
       </li><!-- End Dashboard Nav -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="Department1.php">
+          <i class="bi bi-card-list"></i>
+          <span>Department 1</span>
+        </a>
+      </li><!-- End Dashboard Nav -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="Department2.php">
+          <i class="bi bi-card-list"></i>
+          <span>Department 2</span>
+        </a>
+      </li><!-- End Dashboard Nav -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="employees.php">
+          <i class="bi bi-layout-text-sidebar"></i>
+          <span>Employees</span>
+        </a>
+      </li><!-- End Dashboard Nav -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="questions.php">
+          <i class="bi bi-question-lg"></i>
+          <span>Questions</span>
+        </a>
+      </li><!-- End Dashboard Nav -->
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="profile.php">
@@ -132,7 +150,6 @@ session_start();
       </li><!-- End Profile Page Nav -->
 
     </ul>
-
   </aside><!-- End Sidebar-->
 
   <main id="main" class="main">
