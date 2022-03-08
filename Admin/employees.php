@@ -2,7 +2,7 @@
 <?php
 session_start();
 include_once('../php/connect.php');
-
+include_once '../php/addUser.php'
 
 ?>
 <!DOCTYPE html>
@@ -186,37 +186,59 @@ include_once('../php/connect.php');
                     <div class="modal-header">
                       <h5 class="modal-title">Add Employee</h5>
                     </div>
-					
+                    <?php include_once '../php/addUser.php' ?>
+                    <form action="" method="POST">
                     <div class="modal-body">
                        Name
                     </div>
-					            <center><input size="30"></input></center>
+					            <center><input type="text" name="name" size="30"></input></center>
+                      
                     <div class="modal-body">
                        Surname
                     </div>
-					            <center><input size="30"></input></center>
+					            <center><input type="text" name="surname" size="30"></input></center>
+                      <div class="modal-body">
+                       Email
+                    </div>
+					            <center><input type="email" name="email" size="30"></input></center>
 					          <div class="modal-body">
                       Department
                     </div>
-					            <center><input size="30"></input></center>
+					            <center><input type="text" name="dept" size="30"></input></center>
 					          <div class="modal-body">
-                      Position
+                      Type
                     </div>
-					            <center><input size="30"></input></center>
+					            <center><select name="type" >
+                              <option value="Secretary"> Secretary</option>
+                              <option value="Manager"> Manager</option>
+                              <option value="User"> User</option>
+                              </select>
+                      </center>
 					          <div class="modal-body">
-                      Email
-                    </div>
-					            <center><input size="30"></input></center>
-                    <div class="modal-body">
                       Username
                     </div>
+					            <center><input type="text" name="username" size="30"></input></center>
+                    <div class="modal-body">
+                      Police Certification
+                    </div>
+                    <center><select name="policecert" >
+                              <option value="Yes"> Yes</option>
+                              <option value="No"> No</option>
+                              </select>
+                      </center>
+                      <div class="modal-body">
+                       Position
+                    </div>
 					            <center><input size="30"></input></center><br>
+                     
+                    
 				
                     <div class="modal-footer">
-						          <button type="button" class="btn btn-primary">Add</button>
-                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button  type="submit" class="btn btn-primary" onclick="location.href='employees.php'">Add</button>
+
+                      
                     </div>
-					
+                    </form>
                   </div>
                 </div>
               </div><!-- End Basic Modal-->
