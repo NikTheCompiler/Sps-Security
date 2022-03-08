@@ -227,6 +227,7 @@ include_once('../php/connect.php');
                 <thead>
 				
                   <tr>
+                    <th scope="col">#</th>
                     <th scope="col">ID</th>
                     <th scope="col">Name</th>
                     <th scope="col">Surname</th>
@@ -239,32 +240,36 @@ include_once('../php/connect.php');
                 <tbody>
                 <?php
                       include_once('../php/connect.php');
-                      $result = sqlsrv_query($conn, "SELECT * FROM Users WHERE 'type' = '1' ");
-                      $bool = sqlsrv_num_rows($result);
-                      if($bool != 0) {
-                        // output data of each row
+                      $result = sqlsrv_query($conn, "SELECT * FROM Users WHERE type = 1 or type=2 or type=0");
+                      
                         $i = 0;
-                        while ($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)) {
+                        while ($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_NUMERIC)) {
                           $i++;
-                          $id = $row['UserID'];
-                          $name = $row['name'];
-                          $surname = $row['surname'];
-                          $dept= $row['dept'];
-                          $position=$row['position'];
-                          $type = $row['type'];
+                          $id = $row[0];
+                          $name = $row[1];
+                          $surname = $row[2];
+                          $dept= $row[4];
+                          $position=$row[9];
+                          $type = $row[5];
                           echo '
                           <tr> 
+                            <td>' . $i .'</td>
                             <td>' . $id .'</td>
                             <td>' . $name . '</td>
                             <td>' . $surname . '</td>
                             <td>' . $dept . '</td>
                             <td>' . $position . '</td>
                             <td hidden>' . $type . '</td>
-                            
+                            <td class="text-right py-0 align-middle">
+                              <div class="btn-group btn-group-sm">                       
+                                <button class="btn btn-info" type="submit" data-toggle="modal" data-target="#modal-Edit-User" onclick="modalGetData(this.parentNode.parentNode.parentNode)"><i class="bi bi-collection"></i></button>
+                                <button class="btn btn-danger" type="submit" onclick="deleteUser(this.parentNode.parentNode.parentNode);"><i class="bi bi-exclamation-triangle"></i></button>
+                              </div>
+                            </td>
                           </tr>
                           ';
                         }
-                      }                   
+                                       
                       ?>
                   
                 </tbody>
