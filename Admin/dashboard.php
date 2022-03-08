@@ -89,7 +89,7 @@ session_start();
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="profile-Admin.php">
+              <a class="dropdown-item d-flex align-items-center" href="profile.php">
                 <i class="bi bi-person"></i>
                 <span>My Profile</span>
               </a>
@@ -146,8 +146,6 @@ session_start();
           <span>Questions</span>
         </a>
       </li><!-- End Dashboard Nav -->
-
-      
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="profile.php">

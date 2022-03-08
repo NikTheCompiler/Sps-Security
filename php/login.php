@@ -29,6 +29,8 @@ if(isset($_POST) && !empty($_POST['username']) && !empty($_POST['password']))
             if($_SESSION['type']== $admin){
                 $_SESSION['surname'] = $data['surname'];
                 $_SESSION['name'] = $data['name'];
+                $_SESSION['email'] = $data['email'];
+                $_SESSION['dept'] = $data['dept'];
                 $_SESSION['username'] = $username;
                 $_SESSION['position'] = $data['position'];
                 header('Location: ../Admin/dashboard.php');
@@ -36,6 +38,8 @@ if(isset($_POST) && !empty($_POST['username']) && !empty($_POST['password']))
             else if($_SESSION['type']==$secretary){
                 $_SESSION['surname'] = $data['surname'];
                 $_SESSION['name'] = $data['name'];
+                $_SESSION['email'] = $data['email'];
+                $_SESSION['dept'] = $data['dept'];
                 $_SESSION['username'] = $username;
                 $_SESSION['position'] = $data['position'];
                 header('Location: ../Secretary/dashboard.php');
@@ -43,6 +47,8 @@ if(isset($_POST) && !empty($_POST['username']) && !empty($_POST['password']))
             else if($_SESSION['type']== $manager){
                 $_SESSION['surname'] = $data['surname'];
                 $_SESSION['name'] = $data['name'];
+                $_SESSION['email'] = $data['email'];
+                $_SESSION['dept'] = $data['dept'];
                 $_SESSION['username'] = $username;
                 $_SESSION['position'] = $data['position'];
                 header('Location: ../Manager/dashboard.php');
@@ -50,6 +56,8 @@ if(isset($_POST) && !empty($_POST['username']) && !empty($_POST['password']))
             else if($_SESSION['type']== $user){
                 $_SESSION['surname'] = $data['surname'];
                 $_SESSION['name'] = $data['name'];
+                $_SESSION['email'] = $data['email'];
+                $_SESSION['dept'] = $data['dept'];
                 $_SESSION['username'] = $username;
                 $_SESSION['position'] = $data['position'];
                 header('Location: ../User/dashboard.php');
