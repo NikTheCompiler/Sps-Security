@@ -1,3 +1,10 @@
+<?php 
+session_start();
+
+if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
+
+ ?>
+ +
 <!DOCTYPE html>
 <html lang="en">
 
@@ -61,26 +68,26 @@
 						<h4>  You have to change your password to continue!</h4>
 					</div><!-- End Page Title -->
 				
-                  <form>
+                  <form method="post" action="php/newuser.php" >
 
                     <div class="row mb-3">
-                      <label for="currentPassword" class="col-md-1 col-lg-5 col-form-label">Current Password</label>
+                      <label for="pass" class="col-md-1 col-lg-5 col-form-label">Current Password</label>
                       <div class="col-md-1 col-lg-6">
-                        <input name="password" type="password" class="form-control" id="currentPassword">
+                        <input name="pass" type="password" class="form-control" id="pass" required>
                       </div>
                     </div>
 
                     <div class="row mb-3">
-                      <label for="newPassword" class="col-md-1 col-lg-5 col-form-label">New Password</label>
+                      <label for="newpass" class="col-md-1 col-lg-5 col-form-label">New Password</label>
                       <div class="col-md-1 col-lg-6">
-                        <input name="newpassword" type="password" class="form-control" id="newPassword">
+                        <input name="newpass" type="password" class="form-control" id="newpass" required>
                       </div>
                     </div>
 
                     <div class="row mb-3">
-                      <label for="renewPassword" class="col-md-1 col-lg-5 col-form-label">Re-enter New Password</label>
+                      <label for="confirmpass" class="col-md-1 col-lg-5 col-form-label">Re-enter New Password</label>
                       <div class="col-md-1 col-lg-6">
-                        <input name="renewpassword" type="password" class="form-control" id="renewPassword">
+                        <input name="confirmpass" type="password" class="form-control" id="confirmpass" required>
                       </div>
                     </div>
 

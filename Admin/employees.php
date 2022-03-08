@@ -190,30 +190,30 @@ include_once('../php/connect.php');
                     <div class="modal-body">
                        Name
                     </div>
-					<center><input size="30"></input></center>
-          <div class="modal-body">
+					            <center><input size="30"></input></center>
+                    <div class="modal-body">
                        Surname
                     </div>
-					<center><input size="30"></input></center>
-					<div class="modal-body">
+					            <center><input size="30"></input></center>
+					          <div class="modal-body">
                       Department
                     </div>
-					<center><input size="30"></input></center>
-					<div class="modal-body">
+					            <center><input size="30"></input></center>
+					          <div class="modal-body">
                       Position
                     </div>
-					<center><input size="30"></input></center>
-					<div class="modal-body">
+					            <center><input size="30"></input></center>
+					          <div class="modal-body">
                       Email
                     </div>
-					<center><input size="30"></input></center>
-          <div class="modal-body">
+					            <center><input size="30"></input></center>
+                    <div class="modal-body">
                       Username
                     </div>
-					<center><input size="30"></input></center><br>
+					            <center><input size="30"></input></center><br>
 				
                     <div class="modal-footer">
-						<button type="button" class="btn btn-primary">Add</button>
+						          <button type="button" class="btn btn-primary">Add</button>
                       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     </div>
 					
@@ -221,6 +221,7 @@ include_once('../php/connect.php');
                 </div>
               </div><!-- End Basic Modal-->
 			<p align="right">
+        
               <!-- Table with stripped rows -->
               <table class="table datatable">
 			  
@@ -262,22 +263,24 @@ include_once('../php/connect.php');
                             <td hidden>' . $type . '</td>
                             <td class="text-right py-0 align-middle">
                               <div class="btn-group btn-group-sm">                       
-                                <button class="btn btn-info" type="submit" data-toggle="modal" data-target="#modal-Edit-User" onclick="modalGetData(this.parentNode.parentNode.parentNode)"><i class="bi bi-collection"></i></button>
-                                <button class="btn btn-danger" type="submit" onclick="deleteUser(this.parentNode.parentNode.parentNode);"><i class="bi bi-exclamation-triangle"></i></button>
+                                <button class="btn btn-info" type="submit" data-toggle="modal" data-target="#modal-Edit-User" onclick="modalGetData(this.parentNode.parentNode.parentNode)"></i>Edit</button>
+                                <button class="btn btn-danger" type="submit" onclick="deleteUser(this.parentNode.parentNode.parentNode);"></i>Remove</button>
+                                <button type="button" class="btn btn-dark"></i>Generate Pass</button>
                               </div>
+                              
                             </td>
                           </tr>
                           ';
                         }
                                        
-                      ?>
+                ?>
                   
                 </tbody>
 				
               </table>
 			  
               <!-- End Table with stripped rows -->
-
+              
             </div>
           </div>
 
@@ -287,6 +290,8 @@ include_once('../php/connect.php');
 
   </main><!-- End #main -->
 
+
+  
   <!-- ======= Footer ======= -->
   <footer id="footer" class="footer">
     
