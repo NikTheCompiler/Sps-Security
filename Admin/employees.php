@@ -270,7 +270,7 @@ include_once '../php/addUser.php'
 				
                     <div class="modal-footer">
                     <button  type="submit" class="btn btn-primary" onclick="location.href='employees.php'">Add</button>
-
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                       
                     </div>
                     </form>
