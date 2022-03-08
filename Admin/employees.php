@@ -72,7 +72,7 @@ include_once '../php/addUser.php'
         <li class="nav-item dropdown pe-3">
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-            <img src="../assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
+            <img src="../assets/img/1234.jpg" alt="Profile" class="rounded-circle">
             <span class="d-none d-md-block dropdown-toggle ps-2"><?php
                 echo $_SESSION["name"];
                 echo " ";
@@ -185,59 +185,86 @@ include_once '../php/addUser.php'
 				
 				<!-- Basic Modal -->
 				<p align="right">
-              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#smallModal">
+              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#basicModal">
                 Add Employee
               </button>
-              <div class="modal fade" id="smallModal" tabindex="-1">
-                <div class="modal-dialog modal-sm">
+              <div class="modal fade" id="basicModal" tabindex="-1">
+                <div class="modal-dialog ">
                   <div class="modal-content">
                     <div class="modal-header">
                       <h5 class="modal-title">Add Employee</h5>
                     </div>
                     <?php include_once '../php/addUser.php' ?>
                     <form action="" method="POST">
-                    <div class="modal-body">
-                       Name
+                    <div class="row mb-3">
+                  <label for="inputText" class="col-sm-3 col-form-label">Name</label>
+                  <div class="col-sm-8">
+                    <input type="text" class="form-control">
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="inputEmail" class="col-sm-3 col-form-label">Surname</label>
+                  <div class="col-sm-8">
+                    <input type="email" class="form-control">
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="inputNumber" class="col-sm-3 col-form-label">Position</label>
+                  <div class="col-sm-8">
+                    <input type="text" class="form-control">
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="inputPassword" class="col-sm-3 col-form-label">Username</label>
+                  <div class="col-sm-8">
+                    <input type="text" class="form-control">
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="inputNumber" class="col-sm-3 col-form-label">Email</label>
+                  <div class="col-sm-8">
+                    <input type="text" class="form-control">
+                  </div>
+                </div>
+					          
+                <div class="row mb-4">
+                      <label class="col-sm-3 col-form-label">Department</label>
+                      <div class="col-sm-8">
+                        <select class="form-select" aria-label="Default select example">
+                          <option selected>Choose type</option>
+                          <option value="0">Dept</option>
+                          <option value="1">Dept</option>
+                          <option value="2">Dept</option>
+                        </select>
+                      </div>
                     </div>
-					            <center><input type="text" name="name" size="30"></input></center>
+                    <div class="row mb-4">
+                      <label class="col-sm-3 col-form-label">Type</label>
+                      <div class="col-sm-8">
+                        <select class="form-select" aria-label="Default select example">
+                          <option selected>Choose type</option>
+                          <option value="0">User</option>
+                          <option value="1">Manager</option>
+                          <option value="2">Secretary</option>
+                        </select>
+                      </div>
+                    </div>
+					          
+					            
+                <div class="row mb-4">
+                      <label class="col-sm-3 col-form-label">Police Certificate</label>
+                      <div class="col-sm-8">
+                        <select class="form-select" aria-label="Default select example">
+                          <option selected>Yes/No</option>
+                          <option value="0">No</option>
+                          <option value="1">Yes</option>
+                          
+                        </select>
+                      </div>
+                    </div>
+                    
                       
-                    <div class="modal-body">
-                       Surname
-                    </div>
-					            <center><input type="text" name="surname" size="30"></input></center>
-                      <div class="modal-body">
-                       Email
-                    </div>
-					            <center><input type="email" name="email" size="30"></input></center>
-					          <div class="modal-body">
-                      Department
-                    </div>
-					            <center><input type="text" name="dept" size="30"></input></center>
-					          <div class="modal-body">
-                      Type
-                    </div>
-					            <center><select name="type" >
-                              <option value="Secretary"> Secretary</option>
-                              <option value="Manager"> Manager</option>
-                              <option value="User"> User</option>
-                              </select>
-                      </center>
-					          <div class="modal-body">
-                      Username
-                    </div>
-					            <center><input type="text" name="username" size="30"></input></center>
-                    <div class="modal-body">
-                      Police Certification
-                    </div>
-                    <center><select name="policecert" >
-                              <option value="Yes"> Yes</option>
-                              <option value="No"> No</option>
-                              </select>
-                      </center>
-                      <div class="modal-body">
-                       Position
-                    </div>
-					            <center><input size="30"></input></center><br>
+					           
                      
                     
 				
