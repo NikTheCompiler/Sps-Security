@@ -166,12 +166,6 @@ session_start();
 <center><button type="button" class="btn btn-primary">Start QUIZ</button><center>
 
 
-
-
-	
-    
-
-	
 </div>
 
   </main><!-- End #main -->

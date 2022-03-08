@@ -1,3 +1,7 @@
+<?php 
+include_once('../php/connect.php');
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -66,13 +70,21 @@
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
             <img src="../assets/img/1234.jpg" alt="Profile" class="rounded-circle">
-            <span class="d-none d-md-block dropdown-toggle ps-2">A. Andreou</span>
+            <span class="d-none d-md-block dropdown-toggle ps-2"><?php
+                echo $_SESSION["name"];
+                echo " ";
+                echo $_SESSION["surname"]; ?></span>
           </a><!-- End Profile Iamge Icon -->
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
             <li class="dropdown-header">
-              <h6>Andreas Andreou</h6>
-              <span>General Manager</span>
+              <h6><?php
+                echo $_SESSION["name"];
+                echo " ";
+                echo $_SESSION["surname"]; ?></h6>
+              <span><?php
+                echo $_SESSION["position"];
+                 ?></span>
             </li>
             <li>
               <hr class="dropdown-divider">
@@ -165,8 +177,13 @@
             <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
 
               <img src="../assets/img/1234.jpg" alt="Profile" class="rounded-circle">
-              <h2>Andreas Andreou </h2>
-              <h3>General Manager</h3>
+              <h2><?php
+                echo $_SESSION["name"];
+                echo " ";
+                echo $_SESSION["surname"]; ?> </h2>
+              <h3><?php
+                echo $_SESSION["position"];
+                 ?></h3>
               
             </div>
           </div>
@@ -206,25 +223,35 @@
 
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label ">Name</div>
-                    <div class="col-lg-9 col-md-8">Andreas Andreou</div>
+                    <div class="col-lg-9 col-md-8"><?php
+                echo $_SESSION["name"];
+                 ?></div>
                   </div>
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label ">Surname</div>
-                    <div class="col-lg-9 col-md-8">Andreas Andreou</div>
+                    <div class="col-lg-9 col-md-8"><?php
+                echo $_SESSION["surname"];
+                 ?></div>
                   </div>
                   
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label">Department</div>
-                    <div class="col-lg-9 col-md-8">Department 1</div>
+                    <div class="col-lg-9 col-md-8"><?php
+                echo $_SESSION["dept"];
+                 ?></div>
                   </div>
 					<div class="row">
                     <div class="col-lg-3 col-md-4 label">Position</div>
-                    <div class="col-lg-9 col-md-8">General Manager</div>
+                    <div class="col-lg-9 col-md-8"><?php
+                echo $_SESSION["position"];
+                 ?></div>
                   </div>
 
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label">Email</div>
-                    <div class="col-lg-9 col-md-8">andreas.andreou@cut.ac.cy</div>
+                    <div class="col-lg-9 col-md-8"><?php
+                echo $_SESSION["email"];
+                 ?></div>
                   </div>
 
                 </div>
@@ -247,33 +274,43 @@
                     <div class="row mb-3">
                       <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Name</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="fullName" type="text" class="form-control" id="fullName" value="Andreas Andreou">
+                        <input name="fullName" type="text" class="form-control" id="fullName" value="<?php
+                echo $_SESSION["name"];
+                 ?>">
                       </div>
                     </div>
                     <div class="row mb-3">
                       <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Surname</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="fullName" type="text" class="form-control" id="fullName" value="Andreas Andreou">
+                        <input name="fullName" type="text" class="form-control" id="fullName" value="<?php
+                echo $_SESSION["surname"];
+                 ?>">
                       </div>
                     </div>
   
                     <div class="row mb-3">
                       <label for="Job" class="col-md-4 col-lg-3 col-form-label">Department</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="job" type="text" class="form-control" id="Job" value="Department 1">
+                        <input name="job" type="text" class="form-control" id="Job" value="<?php
+                echo $_SESSION["dept"];
+                 ?>">
                       </div>
                     </div>
 					<div class="row mb-3">
                       <label for="Job" class="col-md-4 col-lg-3 col-form-label">Position</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="job" type="text" class="form-control" id="Job" value="General Manager">
+                        <input name="job" type="text" class="form-control" id="Job" value="<?php
+                echo $_SESSION["position"];
+                 ?>">
                       </div>
                     </div>
 
                     <div class="row mb-3">
                       <label for="Email" class="col-md-4 col-lg-3 col-form-label">Email</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="email" type="email" class="form-control" id="Email" value="andreas.andreou@cut.ac.cy">
+                        <input name="email" type="email" class="form-control" id="Email" value="<?php
+                echo $_SESSION["email"];
+                 ?>">
                       </div>
                     </div>
 
