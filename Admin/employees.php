@@ -2,7 +2,7 @@
 <?php
 session_start();
 include_once('../php/connect.php');
-include_once '../php/addUser.php'
+include_once ('../php/addUser.php');
 
 ?>
 <!DOCTYPE html>
@@ -195,43 +195,42 @@ include_once '../php/addUser.php'
                       <h5 class="modal-title">Add Employee</h5>
                     </div>
                     <?php include_once '../php/addUser.php' ?>
-                    <form action="" method="POST">
+                    <form action="../php/addUser.php" method="POST">
                     <div class="row mb-3">
-                  <label for="inputText" class="col-sm-3 col-form-label">Name</label>
+                  <label for="inputText" class="col-sm-3 col-form-label"> Name</label>
                   <div class="col-sm-8">
-                    <input type="text" class="form-control">
+                    <input type="text" name= "name" class="form-control">
                   </div>
                 </div>
                 <div class="row mb-3">
-                  <label for="inputEmail" class="col-sm-3 col-form-label">Surname</label>
+                  <label for="inputEmail" class="col-sm-3 col-form-label">  Surname</label>
                   <div class="col-sm-8">
-                    <input type="email" class="form-control">
+                    <input type="text" name= "surname"class="form-control">
                   </div>
                 </div>
                 <div class="row mb-3">
                   <label for="inputNumber" class="col-sm-3 col-form-label">Position</label>
                   <div class="col-sm-8">
-                    <input type="text" class="form-control">
+                    <input type="text" name= "position"class="form-control">
                   </div>
                 </div>
                 <div class="row mb-3">
                   <label for="inputPassword" class="col-sm-3 col-form-label">Username</label>
                   <div class="col-sm-8">
-                    <input type="text" class="form-control">
+                    <input type="text" name= "username"class="form-control">
                   </div>
                 </div>
                 <div class="row mb-3">
                   <label for="inputNumber" class="col-sm-3 col-form-label">Email</label>
                   <div class="col-sm-8">
-                    <input type="text" class="form-control">
+                    <input type="email" name= "email"class="form-control">
                   </div>
                 </div>
 					          
                 <div class="row mb-4">
                       <label class="col-sm-3 col-form-label">Department</label>
                       <div class="col-sm-8">
-                        <select class="form-select" aria-label="Default select example">
-                          <option selected>Choose type</option>
+                        <select name= "dept" class="form-select" aria-label="Default select example">
                           <option value="0">Dept</option>
                           <option value="1">Dept</option>
                           <option value="2">Dept</option>
@@ -241,8 +240,7 @@ include_once '../php/addUser.php'
                     <div class="row mb-4">
                       <label class="col-sm-3 col-form-label">Type</label>
                       <div class="col-sm-8">
-                        <select class="form-select" aria-label="Default select example">
-                          <option selected>Choose type</option>
+                        <select name= "type"class="form-select" aria-label="Default select example">
                           <option value="0">User</option>
                           <option value="1">Manager</option>
                           <option value="2">Secretary</option>
@@ -252,10 +250,9 @@ include_once '../php/addUser.php'
 					          
 					            
                 <div class="row mb-4">
-                      <label class="col-sm-3 col-form-label">Police Certificate</label>
+                      <label class="col-sm-3 col-form-label">Πιστοποιητικο Αστυνομίας</label>
                       <div class="col-sm-8">
-                        <select class="form-select" aria-label="Default select example">
-                          <option selected>Yes/No</option>
+                        <select name= "policecert" class="form-select" aria-label="Default select example">
                           <option value="0">No</option>
                           <option value="1">Yes</option>
                           
@@ -269,7 +266,7 @@ include_once '../php/addUser.php'
                     
 				
                     <div class="modal-footer">
-                    <button  type="submit" class="btn btn-primary" onclick="location.href='employees.php'">Add</button>
+                    <button  type="submit" name="add" class="btn btn-primary">Add</button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                       
                     </div>
