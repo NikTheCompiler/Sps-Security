@@ -197,38 +197,38 @@ include_once ('../php/addUser.php');
                     <?php include_once '../php/addUser.php' ?>
                     <form action="../php/addUser.php" method="POST">
                     <div class="row mb-3">
-                  <label for="inputText" class="col-sm-3 col-form-label"> Name</label>
+                  <label for="inputText" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Name</label>
                   <div class="col-sm-8">
                     <input type="text" required name= "name" class="form-control">
                   </div>
                 </div>
                 <div class="row mb-3">
-                  <label for="inputEmail" class="col-sm-3 col-form-label">  Surname</label>
+                  <label for="inputEmail" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Surname</label>
                   <div class="col-sm-8">
                     <input type="text" required name= "surname"class="form-control">
                   </div>
                 </div>
                 <div class="row mb-3">
-                  <label for="inputNumber" class="col-sm-3 col-form-label">Position</label>
+                  <label for="inputNumber" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Position</label>
                   <div class="col-sm-8">
                     <input type="text" required name= "position"class="form-control">
                   </div>
                 </div>
                 <div class="row mb-3">
-                  <label for="inputPassword" class="col-sm-3 col-form-label">Username</label>
+                  <label for="inputPassword" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Username</label>
                   <div class="col-sm-8">
                     <input type="text" required name= "username"class="form-control">
                   </div>
                 </div>
                 <div class="row mb-3">
-                  <label for="inputNumber" class="col-sm-3 col-form-label">Email</label>
+                  <label for="inputNumber" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Email</label>
                   <div class="col-sm-8">
                     <input type="email" name= "email"class="form-control">
                   </div>
                 </div>
 					          
                 <div class="row mb-4">
-                      <label class="col-sm-3 col-form-label">Department</label>
+                      <label class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;Department</label>
                       <div class="col-sm-8">
                         <select name= "dept" required class="form-select" aria-label="Default select example">
                           <option value="1">Χρηματαποστολών</option>
@@ -240,7 +240,7 @@ include_once ('../php/addUser.php');
                       </div>
                     </div>
                     <div class="row mb-4">
-                      <label class="col-sm-3 col-form-label">Type</label>
+                      <label class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Type</label>
                       <div class="col-sm-8">
                         <select name= "type" required class="form-select" aria-label="Default select example">
                           <option value="0">User</option>
@@ -252,7 +252,7 @@ include_once ('../php/addUser.php');
 					          
 					            
                 <div class="row mb-4">
-                      <label class="col-sm-3 col-form-label">Police Certificate</label>
+                      <label class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Police &nbsp;&nbsp;&nbsp;&nbsp;Certificate</label>
                       <div class="col-sm-8">
                         <select name= "policecert" required class="form-select" aria-label="Default select example">
                           <option value="0">No</option>
