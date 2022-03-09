@@ -3,7 +3,6 @@ include_once('connect.php');
 
 
 
-
 if(isset($_POST['add'])){
 
     $name = $_POST['name'];
@@ -15,6 +14,8 @@ if(isset($_POST['add'])){
     $policecert = $_POST['policecert'];
     $position = $_POST['position'];
     $newuser = 0;
+include_once('passgenerator.php');
+    $password = $pass;
 $tsql = "INSERT INTO Users   
         ( name,   
          surname,
@@ -31,7 +32,7 @@ $tsql = "INSERT INTO Users
         (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";  
   
 /* Set parameter values. */  
-$params = array($name, $surname,$email , $dept, $type, $username, '123' ,$policecert, $position, $newuser);  
+$params = array($name, $surname,$email , $dept, $type, $username, $password ,$policecert, $position, $newuser);  
   
 /* Prepare and execute the query. */  
 $stmt = sqlsrv_query($conn, $tsql, $params);  
