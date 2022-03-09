@@ -214,25 +214,35 @@ session_start();
 
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label ">Name</div>
-                    <div class="col-lg-9 col-md-8">Andreas Andreou</div>
+                    <div class="col-lg-9 col-md-8"><?php
+                echo $_SESSION["name"];
+                 ?></div>
                   </div>
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label ">Surname</div>
-                    <div class="col-lg-9 col-md-8">Andreas Andreou</div>
+                    <div class="col-lg-9 col-md-8"><?php
+                echo $_SESSION["surname"];
+                 ?></div>
                   </div>
                   
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label">Department</div>
-                    <div class="col-lg-9 col-md-8">Department 1</div>
+                    <div class="col-lg-9 col-md-8"><?php
+                echo $_SESSION["dept"];
+                 ?></div>
                   </div>
 					<div class="row">
                     <div class="col-lg-3 col-md-4 label">Position</div>
-                    <div class="col-lg-9 col-md-8">General Manager</div>
+                    <div class="col-lg-9 col-md-8"><?php
+                echo $_SESSION["position"];
+                 ?></div>
                   </div>
                   
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label">Email</div>
-                    <div class="col-lg-9 col-md-8">andreas.andreou@cut.ac.cy</div>
+                    <div class="col-lg-9 col-md-8"><?php
+                echo $_SESSION["email"];
+                 ?></div>
                   </div>
 
                 </div>
