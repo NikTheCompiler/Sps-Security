@@ -199,25 +199,25 @@ include_once ('../php/addUser.php');
                     <div class="row mb-3">
                   <label for="inputText" class="col-sm-3 col-form-label"> Name</label>
                   <div class="col-sm-8">
-                    <input type="text" name= "name" class="form-control">
+                    <input type="text" required name= "name" class="form-control">
                   </div>
                 </div>
                 <div class="row mb-3">
                   <label for="inputEmail" class="col-sm-3 col-form-label">  Surname</label>
                   <div class="col-sm-8">
-                    <input type="text" name= "surname"class="form-control">
+                    <input type="text" required name= "surname"class="form-control">
                   </div>
                 </div>
                 <div class="row mb-3">
                   <label for="inputNumber" class="col-sm-3 col-form-label">Position</label>
                   <div class="col-sm-8">
-                    <input type="text" name= "position"class="form-control">
+                    <input type="text" required name= "position"class="form-control">
                   </div>
                 </div>
                 <div class="row mb-3">
                   <label for="inputPassword" class="col-sm-3 col-form-label">Username</label>
                   <div class="col-sm-8">
-                    <input type="text" name= "username"class="form-control">
+                    <input type="text" required name= "username"class="form-control">
                   </div>
                 </div>
                 <div class="row mb-3">
@@ -230,17 +230,19 @@ include_once ('../php/addUser.php');
                 <div class="row mb-4">
                       <label class="col-sm-3 col-form-label">Department</label>
                       <div class="col-sm-8">
-                        <select name= "dept" class="form-select" aria-label="Default select example">
-                          <option value="0">Dept</option>
-                          <option value="1">Dept</option>
-                          <option value="2">Dept</option>
+                        <select name= "dept" required class="form-select" aria-label="Default select example">
+                          <option value="1">Χρηματαποστολών</option>
+                          <option value="2">Κεντρικού Σταθμού και Λήψης Σημάτων</option>
+                          <option value="3">Φύλαξης Μετρητών και Αξιών</option>
+                          <option value="4">Καταμέτρησης και Επεξεργασίας Μετρητών</option>
+                          <option value="5">Περιπόλων</option>
                         </select>
                       </div>
                     </div>
                     <div class="row mb-4">
                       <label class="col-sm-3 col-form-label">Type</label>
                       <div class="col-sm-8">
-                        <select name= "type"class="form-select" aria-label="Default select example">
+                        <select name= "type" required class="form-select" aria-label="Default select example">
                           <option value="0">User</option>
                           <option value="1">Manager</option>
                           <option value="2">Secretary</option>
@@ -250,9 +252,9 @@ include_once ('../php/addUser.php');
 					          
 					            
                 <div class="row mb-4">
-                      <label class="col-sm-3 col-form-label">Πιστοποιητικο Αστυνομίας</label>
+                      <label class="col-sm-3 col-form-label">Police Certificate</label>
                       <div class="col-sm-8">
-                        <select name= "policecert" class="form-select" aria-label="Default select example">
+                        <select name= "policecert" required class="form-select" aria-label="Default select example">
                           <option value="0">No</option>
                           <option value="1">Yes</option>
                           
