@@ -398,6 +398,7 @@ include_once ('../php/addUser.php');
                           $dept= $row["dept"];
                           $position=$row["position"];
                           $type = $row["type"];
+                          $email = $row["email"];
                           echo '
                           <tr> 
                             <td>' . $i .'</td>
@@ -407,6 +408,7 @@ include_once ('../php/addUser.php');
                             <td>' . $dept . '</td>
                             <td>' . $position . '</td>
                             <td hidden>' . $type . '</td>
+                            <td hidden>' . $email . '</td>
                             <td class="text-right py-0 align-middle col-sm-3">
                               <div class="btn-group btn-group-sm col-sm-11" >
                                 <button class="btn btn-info" type="submit"  data-bs-toggle="modal" data-bs-target="#modal-Edit-User" onclick="modalGetData(this.parentNode.parentNode.parentNode)"   ></i>Edit</button>
@@ -474,26 +476,28 @@ include_once ('../php/addUser.php');
   <script>
     function AddUser()
     {
-      var id = $("#id")[0].value;
+      var id = $("#UserID")[0].value;
       var name = $("#name")[0].value;
       var surname = $("#surname")[0].value;
-      var email = $("#email")[0].value;
-      var address = $("#address")[0].value;
-      var phone = $("#phone")[0].value;
-      var role = $("#role")[0].value;
+      var username = $("#username")[0].value;
+      var dept = $("#dept")[0].value;
+      var position = $("#position")[0].value;
+      var type = $("#type")[0].value;
+      var email=$("#email")[0].value;
       
-      $.post("../Php/userEdit.php", {
+      $.post("../php/editUser.php", {
           id: id,
           name: name,
           surname: surname,
+          username: username,
+          dept: dept,
+          position: position,
           email: email,
-          address: address,
-          phone: phone,
-          role: role
+          type: type
           
         })
         .done(function(data) {
-          if (data == "TRUE") {
+          if (data == 1) {
             Swal.fire({
               icon: 'success',
               title: 'User updated successfully!',
@@ -501,7 +505,7 @@ include_once ('../php/addUser.php');
               location.reload();             
             })
 
-          } else {
+          } else if (data == 0){
             alert("Failed!");
           }
         });
@@ -576,6 +580,7 @@ include_once ('../php/addUser.php');
       var dept = row.cells[4].innerHTML;
       var position = row.cells[5].innerHTML;
       var type = row.cells[6].innerHTML;
+      var email = row.cells[7].innerHTML;
 
 
       document.getElementById("UserID").value=id;
@@ -584,6 +589,7 @@ include_once ('../php/addUser.php');
       document.getElementById("dept").value=dept;
       document.getElementById("position").value=position;
       document.getElementById("type").value=type;
+      document.getElementById("email").value=email;
   </script>
   
 
