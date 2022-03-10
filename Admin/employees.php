@@ -197,26 +197,27 @@ include_once ('../php/addUser.php');
                     </div>
                     <?php include_once '../php/addUser.php' ?>
                     <form action="../php/addUser.php" method="POST">
+                    <form >
                     <div class="row mb-3">
-                  <label for="inputText" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Name</label>
+                  <label for="inputText" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Name*</label>
                   <div class="col-sm-8">
                     <input type="text" required name= "name" class="form-control">
                   </div>
                 </div>
                 <div class="row mb-3">
-                  <label for="inputEmail" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Surname</label>
+                  <label for="inputEmail" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Surname*</label>
                   <div class="col-sm-8">
                     <input type="text" required name= "surname"class="form-control">
                   </div>
                 </div>
                 <div class="row mb-3">
-                  <label for="inputNumber" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Position</label>
+                  <label for="inputNumber" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Position*</label>
                   <div class="col-sm-8">
                     <input type="text" required name= "position"class="form-control">
                   </div>
                 </div>
                 <div class="row mb-3">
-                  <label for="inputPassword" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Username</label>
+                  <label for="inputPassword" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Username*</label>
                   <div class="col-sm-8">
                     <input type="text" required name= "username"class="form-control">
                   </div>
@@ -229,9 +230,10 @@ include_once ('../php/addUser.php');
                 </div>
 					          
                 <div class="row mb-4">
-                      <label class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;Department</label>
+                      <label class="col-sm-3 col-form-label">&nbsp;Department*</label>
                       <div class="col-sm-8">
                         <select name= "dept" required class="form-select" aria-label="Default select example">
+                          <option disabled selected>Choose Department </option>
                           <option value="1">Χρηματαποστολών</option>
                           <option value="2">Κεντρικού Σταθμού και Λήψης Σημάτων</option>
                           <option value="3">Φύλαξης Μετρητών και Αξιών</option>
@@ -241,9 +243,10 @@ include_once ('../php/addUser.php');
                       </div>
                     </div>
                     <div class="row mb-4">
-                      <label class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Type</label>
+                      <label class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Type*</label>
                       <div class="col-sm-8">
                         <select name= "type" required class="form-select" aria-label="Default select example">
+                        <option disabled selected>Choose Type </option>
                           <option value="0">User</option>
                           <option value="1">Manager</option>
                           <option value="2">Secretary</option>
@@ -253,18 +256,19 @@ include_once ('../php/addUser.php');
 					          
 					            
                 <div class="row mb-4">
-                      <label class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Police &nbsp;&nbsp;&nbsp;&nbsp;Certificate</label>
+                      <label class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Police &nbsp;&nbsp;&nbsp;&nbsp;Certificate*</label>
                       <div class="col-sm-8">
                         <select name= "policecert" required class="form-select" aria-label="Default select example">
+                        <option disabled selected>Choose Yes or No </option>
                           <option value="0">No</option>
                           <option value="1">Yes</option>
                           
                         </select>
                       </div>
                     </div>
-
+                    <h6>&nbsp;&nbsp;&nbsp;&nbsp;* Indicates a required field</h6>
                     <div class="modal-footer">
-                    <button  type="submit" name="add" class="btn btn-primary">Add</button>
+                    <button  type="submit" name="add" class="btn btn-primary" >Add</button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                       
                     </div>
@@ -272,6 +276,8 @@ include_once ('../php/addUser.php');
                   </div>
                 </div>
               </div><!-- End Basic Modal-->
+              
+
 			<p align="right">
         
               <!-- Table with stripped rows -->
@@ -296,14 +302,14 @@ include_once ('../php/addUser.php');
                       $result = sqlsrv_query($conn, "SELECT * FROM Users WHERE type = 1 or type=2 or type=0");
                       
                         $i = 0;
-                        while ($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_NUMERIC)) {
+                        while ($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)) {
                           $i++;
-                          $id = $row[0];
-                          $name = $row[1];
-                          $surname = $row[2];
-                          $dept= $row[4];
-                          $position=$row[9];
-                          $type = $row[5];
+                          $id = $row["UserID"];
+                          $name = $row["name"];
+                          $surname = $row["surname"];
+                          $dept= $row["dept"];
+                          $position=$row["position"];
+                          $type = $row["type"];
                           echo '
                           <tr> 
                             <td>' . $i .'</td>
@@ -367,9 +373,131 @@ include_once ('../php/addUser.php');
   <script src="../assets/vendor/chart.js/chart.min.js"></script>
   <script src="../assets/vendor/apexcharts/apexcharts.min.js"></script>
   <script src="../assets/vendor/echarts/echarts.min.js"></script>
-
+  <!-- jQuery -->
+  <script src="../jss/jquery/jquery.min.js"></script>
+  <!-- Bootstrap 4 -->
+  <script src="../jss/bootstrap/js/bootstrap.bundle.min.js"></script>
   <!-- Template Main JS File -->
   <script src="../assets/js/main.js"></script>
+  <script src="../jss/dist/js/adminlte.js"></script>
+
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+  <script>
+    function EditUser()
+    {
+      var id = $("#id")[0].value;
+      var name = $("#name")[0].value;
+      var surname = $("#surname")[0].value;
+      var email = $("#email")[0].value;
+      var address = $("#address")[0].value;
+      var phone = $("#phone")[0].value;
+      var role = $("#role")[0].value;
+      
+      $.post("../Php/userEdit.php", {
+          id: id,
+          name: name,
+          surname: surname,
+          email: email,
+          address: address,
+          phone: phone,
+          role: role
+          
+        })
+        .done(function(data) {
+          if (data == "TRUE") {
+            Swal.fire({
+              icon: 'success',
+              title: 'User updated successfully!',
+            }).then((result) => {
+              location.reload();             
+            })
+
+          } else {
+            alert("Failed!");
+          }
+        });
+    }
+  </script>
+  <script>
+  function deleteUser(row) {
+    var id = row.cells[1].innerHTML;
+      Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        reverseButtons: true,
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Confirm'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          $.post("../php/deleteUser.php", {
+              id: id,
+            })
+            .done(function(data) {
+              if (data == 1) {
+                Swal.fire(
+                  'Deleted!',
+                  'The user has been deleted.',
+                  'success'
+                );
+                row.parentNode.removeChild(row);
+              
+              }else if(data==0) {
+                alert(data);
+              }
+            });
+        }
+      });
+    }
+  </script>
+  <script>
+    function Search(){
+        // Declare variables
+        var input, filter, table, tr, td, i ;
+        input = document.getElementById("SearchField");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("userTable");
+        tr = table.getElementsByTagName("tr"),
+        th = table.getElementsByTagName("th");
+
+        // Loop through all table rows, and hide those who don't match the search query
+        for (i = 1; i < tr.length; i++) {
+                    tr[i].style.display = "none";
+                    for(var j=0; j<th.length; j++){
+                td = tr[i].getElementsByTagName("td")[j];      
+                if (td) {
+                    if (td.innerHTML.toUpperCase().indexOf(filter.toUpperCase()) > -1)                               {
+                        tr[i].style.display = "";
+                        break;
+                    }
+                }
+            }
+        }
+
+        input.value="";
+    }
+  </script>
+  <script>
+    function modalGetData(row)
+    {
+      var id = row.cells[1].innerHTML;
+      var name = row.cells[2].innerHTML;
+      var surname = row.cells[3].innerHTML;
+      var dept = row.cells[4].innerHTML;
+      var position = row.cells[5].innerHTML;
+      var type = row.cells[6].innerHTML;
+
+
+      document.getElementById("UserID").value=id;
+      document.getElementById("name").value=name;
+      document.getElementById("surname").value=surname;
+      document.getElementById("dept").value=dept;
+      document.getElementById("position").value=position;
+      document.getElementById("type").value=type;
+  </script>
+  
 
 </body>
 

@@ -1,11 +1,11 @@
 <?php
 include_once('connect.php');
 
-$id = $_POST["UserID"];
-$stmt = _prepare($con, "DELETE FROM `Users` WHERE `id`=?");
+$id = $_POST["id"];
+$stmt = sqlsrv_prepare($conn, "DELETE FROM Users WHERE UserID=?",array(&$id));
+
 if (sqlsrv_execute($stmt)) {
-    echo "TRUE";
+    echo 1;
 } else {
-    
-    echo $sql;
+    echo 0;
 }

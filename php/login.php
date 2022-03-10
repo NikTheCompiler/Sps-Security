@@ -14,11 +14,11 @@ if(isset($_POST) && !empty($_POST['username']) && !empty($_POST['password']))
 
     $sql = "SELECT * FROM Users WHERE username='".$username."'";
     $req =  sqlsrv_query($conn, $sql) or die(print_r(sqlsrv_errors(),true));
-    $data = sqlsrv_fetch_array($req, SQLSRV_FETCH_ASSOC);
+    $row = sqlsrv_fetch_array($req, SQLSRV_FETCH_ASSOC);
     
-    $_SESSION['type']=$data['type'];
+    $_SESSION['type']=$row['type'];
 
-    if($password !== $data['password'])
+    if($password !== $row['password'])
         {
         
         header('Location: ../login.php'); 
@@ -27,39 +27,43 @@ if(isset($_POST) && !empty($_POST['username']) && !empty($_POST['password']))
     else
         {
             if($_SESSION['type']== $admin){
-                $_SESSION['surname'] = $data['surname'];
-                $_SESSION['name'] = $data['name'];
-                $_SESSION['email'] = $data['email'];
-                $_SESSION['dept'] = $data['dept'];
+                $_SESSION['surname'] = $row['surname'];
+                $_SESSION['name'] = $row['name'];
+                $_SESSION['email'] = $row['email'];
+                $_SESSION['dept'] = $row['dept'];
                 $_SESSION['username'] = $username;
-                $_SESSION['position'] = $data['position'];
+                $_SESSION['position'] = $row['position'];
+                $_SESSION['UserID'] = $row['UserID'];
                 header('Location: ../Admin/dashboard.php');
             }
             else if($_SESSION['type']==$secretary){
-                $_SESSION['surname'] = $data['surname'];
-                $_SESSION['name'] = $data['name'];
-                $_SESSION['email'] = $data['email'];
-                $_SESSION['dept'] = $data['dept'];
+                $_SESSION['surname'] = $row['surname'];
+                $_SESSION['name'] = $row['name'];
+                $_SESSION['email'] = $row['email'];
+                $_SESSION['dept'] = $row['dept'];
                 $_SESSION['username'] = $username;
-                $_SESSION['position'] = $data['position'];
+                $_SESSION['position'] = $row['position'];
+                $_SESSION['UserID'] = $row['UserID'];
                 header('Location: ../Secretary/dashboard.php');
             }
             else if($_SESSION['type']== $manager){
-                $_SESSION['surname'] = $data['surname'];
-                $_SESSION['name'] = $data['name'];
-                $_SESSION['email'] = $data['email'];
-                $_SESSION['dept'] = $data['dept'];
+                $_SESSION['surname'] = $row['surname'];
+                $_SESSION['name'] = $row['name'];
+                $_SESSION['email'] = $row['email'];
+                $_SESSION['dept'] = $row['dept'];
                 $_SESSION['username'] = $username;
-                $_SESSION['position'] = $data['position'];
+                $_SESSION['position'] = $row['position'];
+                $_SESSION['UserID'] = $row['UserID'];
                 header('Location: ../Manager/dashboard.php');
             }
             else if($_SESSION['type']== $user){
-                $_SESSION['surname'] = $data['surname'];
-                $_SESSION['name'] = $data['name'];
-                $_SESSION['email'] = $data['email'];
-                $_SESSION['dept'] = $data['dept'];
+                $_SESSION['surname'] = $row['surname'];
+                $_SESSION['name'] = $row['name'];
+                $_SESSION['email'] = $row['email'];
+                $_SESSION['dept'] = $row['dept'];
                 $_SESSION['username'] = $username;
-                $_SESSION['position'] = $data['position'];
+                $_SESSION['position'] = $row['position'];
+                $_SESSION['UserID'] = $row['UserID'];
                 header('Location: ../User/dashboard.php');
             }
         
