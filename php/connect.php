@@ -1,5 +1,5 @@
 <?php   
-$serverName = "DESKTOP-FCR3KJC";   
+$serverName = "GEROLEMOU";   
 $uid = "";     
 $pwd = "";    
 $databaseName = "SpsSecurity";   

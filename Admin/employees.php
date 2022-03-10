@@ -276,6 +276,94 @@ include_once ('../php/addUser.php');
                   </div>
                 </div>
               </div><!-- End Basic Modal-->
+              <!-- Edit User Modal-->
+              <div class="modal fade" id="modal-Edit-User" tabindex="-1">
+                <div class="modal-dialog ">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title">Edit Employee</h5>
+                    </div>
+                    <?php include_once '../php/editUser.php' ?>
+                    <form action="../php/editUser.php" method="POST">
+                    <form >
+                    <div class="row mb-3">
+                  <label for="inputText" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Name*</label>
+                  <div class="col-sm-8">
+                    <input type="text" required name= "name" class="form-control">
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="inputEmail" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Surname*</label>
+                  <div class="col-sm-8">
+                    <input type="text" required name= "surname"class="form-control">
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="inputNumber" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Position*</label>
+                  <div class="col-sm-8">
+                    <input type="text" required name= "position"class="form-control">
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="inputPassword" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Username*</label>
+                  <div class="col-sm-8">
+                    <input type="text" required name= "username"class="form-control">
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="inputNumber" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Email</label>
+                  <div class="col-sm-8">
+                    <input type="email" name= "email"class="form-control">
+                  </div>
+                </div>
+					          
+                <div class="row mb-4">
+                      <label class="col-sm-3 col-form-label">&nbsp;Department*</label>
+                      <div class="col-sm-8">
+                        <select name= "dept" required class="form-select" aria-label="Default select example">
+                          <option disabled selected value="">Choose Department </option>
+                          <option value="1">Χρηματαποστολών</option>
+                          <option value="2">Κεντρικού Σταθμού και Λήψης Σημάτων</option>
+                          <option value="3">Φύλαξης Μετρητών και Αξιών</option>
+                          <option value="4">Καταμέτρησης και Επεξεργασίας Μετρητών</option>
+                          <option value="5">Περιπόλων</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="row mb-4">
+                      <label class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Type*</label>
+                      <div class="col-sm-8">
+                        <select name= "type" required class="form-select" aria-label="Default select example" >
+                        <option disabled selected value="">Choose Type </option>
+                          <option value="0">User</option>
+                          <option value="1">Manager</option>
+                          <option value="2">Secretary</option>
+                        </select>
+                      </div>
+                    </div>
+					          
+					            
+                <div class="row mb-4">
+                      <label class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Police &nbsp;&nbsp;&nbsp;&nbsp;Certificate*</label>
+                      <div class="col-sm-8">
+                        <select name= "policecert" required class="form-select" aria-label="Default select example">
+                        <option disabled selected value="" >Choose Yes or No </option>
+                          <option value="0">No</option>
+                          <option value="1">Yes</option>
+                          
+                        </select>
+                      </div>
+                    </div>
+                    <h6>&nbsp;&nbsp;&nbsp;&nbsp;* Indicates a required field</h6>
+                    <div class="modal-footer">
+                    <button  type="submit" name="edit" class="btn btn-primary" >Save Changes</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      
+                    </div>
+                    </form>
+                  </div>
+                </div>
+              </div><!-- End Edit_User_Modal-->
               
 
 			<p align="right">
@@ -321,7 +409,7 @@ include_once ('../php/addUser.php');
                             <td hidden>' . $type . '</td>
                             <td class="text-right py-0 align-middle col-sm-3">
                               <div class="btn-group btn-group-sm col-sm-11" >
-                                <button class="btn btn-info" type="submit" data-toggle="modal" data-target="#modal-Edit-User" onclick="modalGetData(this.parentNode.parentNode.parentNode)"></i>Edit</button>
+                                <button class="btn btn-info" type="submit"  data-bs-toggle="modal" data-bs-target="#modal-Edit-User" onclick="modalGetData(this.parentNode.parentNode.parentNode)"   ></i>Edit</button>
                                 <button class="btn btn-danger" type="submit" onclick="deleteUser(this.parentNode.parentNode.parentNode);"></i>Remove</button>
                                 <button type="button" class="btn btn-dark"></i>Generate Pass</button>
                               </div>
