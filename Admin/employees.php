@@ -233,7 +233,7 @@ include_once ('../php/addUser.php');
                       <label class="col-sm-3 col-form-label">&nbsp;Department*</label>
                       <div class="col-sm-8">
                         <select name= "dept" required class="form-select" aria-label="Default select example">
-                          <option disabled selected>Choose Department </option>
+                          <option disabled selected value="">Choose Department </option>
                           <option value="1">Χρηματαποστολών</option>
                           <option value="2">Κεντρικού Σταθμού και Λήψης Σημάτων</option>
                           <option value="3">Φύλαξης Μετρητών και Αξιών</option>
@@ -245,8 +245,8 @@ include_once ('../php/addUser.php');
                     <div class="row mb-4">
                       <label class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Type*</label>
                       <div class="col-sm-8">
-                        <select name= "type" required class="form-select" aria-label="Default select example">
-                        <option disabled selected>Choose Type </option>
+                        <select name= "type" required class="form-select" aria-label="Default select example" >
+                        <option disabled selected value="">Choose Type </option>
                           <option value="0">User</option>
                           <option value="1">Manager</option>
                           <option value="2">Secretary</option>
@@ -259,7 +259,7 @@ include_once ('../php/addUser.php');
                       <label class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Police &nbsp;&nbsp;&nbsp;&nbsp;Certificate*</label>
                       <div class="col-sm-8">
                         <select name= "policecert" required class="form-select" aria-label="Default select example">
-                        <option disabled selected>Choose Yes or No </option>
+                        <option disabled selected value="" >Choose Yes or No </option>
                           <option value="0">No</option>
                           <option value="1">Yes</option>
                           
@@ -384,7 +384,7 @@ include_once ('../php/addUser.php');
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
   <script>
-    function EditUser()
+    function AddUser()
     {
       var id = $("#id")[0].value;
       var name = $("#name")[0].value;
