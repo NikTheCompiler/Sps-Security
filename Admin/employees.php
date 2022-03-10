@@ -9,6 +9,7 @@ include_once ('../php/addUser.php');
 <html lang="en">
 
 <head>
+  
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
@@ -261,12 +262,7 @@ include_once ('../php/addUser.php');
                         </select>
                       </div>
                     </div>
-                    
-                      
-					           
-                     
-                    
-				
+
                     <div class="modal-footer">
                     <button  type="submit" name="add" class="btn btn-primary">Add</button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -317,8 +313,8 @@ include_once ('../php/addUser.php');
                             <td>' . $dept . '</td>
                             <td>' . $position . '</td>
                             <td hidden>' . $type . '</td>
-                            <td class="text-right py-0 align-middle">
-                              <div class="btn-group btn-group-sm">                       
+                            <td class="text-right py-0 align-middle col-sm-3">
+                              <div class="btn-group btn-group-sm col-sm-11" >
                                 <button class="btn btn-info" type="submit" data-toggle="modal" data-target="#modal-Edit-User" onclick="modalGetData(this.parentNode.parentNode.parentNode)"></i>Edit</button>
                                 <button class="btn btn-danger" type="submit" onclick="deleteUser(this.parentNode.parentNode.parentNode);"></i>Remove</button>
                                 <button type="button" class="btn btn-dark"></i>Generate Pass</button>
