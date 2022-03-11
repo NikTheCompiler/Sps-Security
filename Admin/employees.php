@@ -287,25 +287,25 @@ include_once('../php/connect.php');
                     <div class="row mb-3">
                   <label for="name" class="col-sm-3 col-form-label">Name*</label>
                   <div class="col-sm-8">
-                    <input type="text"   class="form-control"  id= "name" value="" >
+                    <input type="text"  required class="form-control"  id= "name" value="" >
                   </div>
                 </div>
                 <div class="row mb-3">
                   <label for="surname" class="col-sm-3 col-form-label">Surname*</label>
                   <div class="col-sm-8">
-                    <input type="text"  class="form-control"   id= "surname"  value="" >
+                    <input type="text" required class="form-control"   id= "surname"  value="" >
                   </div>
                 </div>
                 <div class="row mb-3">
                   <label for="position" class="col-sm-3 col-form-label">Position*</label>
                   <div class="col-sm-8">
-                    <input type="text" class="form-control"   id= "position"  value="">
+                    <input type="text" required class="form-control"   id= "position"  value="">
                   </div>
                 </div>
                 <div class="row mb-3">
                   <label for="username" class="col-sm-3 col-form-label">Username*</label>
                   <div class="col-sm-8">
-                    <input type="text" class="form-control"  id="username"  value="">
+                    <input type="text" required class="form-control"  id="username"  value="">
                   </div>
                 </div>
                 <div class="row mb-3">
@@ -318,7 +318,7 @@ include_once('../php/connect.php');
                 <div class="row mb-4">
                       <label class="col-sm-3 col-form-label">&nbsp;Department*</label>
                       <div class="col-sm-8">
-                        <select id= "dept" class="form-select" aria-label="Default select example">
+                        <select id= "dept" required class="form-select" aria-label="Default select example">
                           <option disabled selected value="">Choose Department </option>
                           <option value="1">Χρηματαποστολών</option>
                           <option value="2">Κεντρικού Σταθμού και Λήψης Σημάτων</option>
@@ -331,7 +331,7 @@ include_once('../php/connect.php');
                     <div class="row mb-4">
                       <label class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Type*</label>
                       <div class="col-sm-8">
-                        <select id= "type" class="form-select" aria-label="Default select example" >
+                        <select id= "type" required class="form-select" aria-label="Default select example" >
                         <option disabled selected value="">Choose Type </option>
                           <option value="0">User</option>
                           <option value="1">Manager</option>
@@ -343,7 +343,7 @@ include_once('../php/connect.php');
                 <div class="row mb-4">
                       <label class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Police &nbsp;&nbsp;&nbsp;&nbsp;Certificate*</label>
                       <div class="col-sm-8">
-                        <select id= "policecert"  class="form-select" aria-label="Default select example">
+                        <select id= "policecert" required class="form-select" aria-label="Default select example">
                         <option disabled selected value="" >Choose Yes or No </option>
                           <option value="0">No</option>
                           <option value="1">Yes</option>
