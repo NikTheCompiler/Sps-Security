@@ -285,31 +285,31 @@ include_once('../php/connect.php');
                     <form >
                     
                     <div class="row mb-3">
-                  <label for="name" class="col-sm-3 col-form-label">Name*</label>
+                  <label for="name" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Name*</label>
                   <div class="col-sm-8">
                     <input type="text"  required class="form-control"  id= "name" value="" >
                   </div>
                 </div>
                 <div class="row mb-3">
-                  <label for="surname" class="col-sm-3 col-form-label">Surname*</label>
+                  <label for="surname" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Surname*</label>
                   <div class="col-sm-8">
                     <input type="text" required class="form-control"   id= "surname"  value="" >
                   </div>
                 </div>
                 <div class="row mb-3">
-                  <label for="position" class="col-sm-3 col-form-label">Position*</label>
+                  <label for="position" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Position*</label>
                   <div class="col-sm-8">
                     <input type="text" required class="form-control"   id= "position"  value="">
                   </div>
                 </div>
                 <div class="row mb-3">
-                  <label for="username" class="col-sm-3 col-form-label">Username*</label>
+                  <label for="username" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Username*</label>
                   <div class="col-sm-8">
                     <input type="text" required class="form-control"  id="username"  value="">
                   </div>
                 </div>
                 <div class="row mb-3">
-                  <label for="email" class="col-sm-3 col-form-label">Email</label>
+                  <label for="email" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Email</label>
                   <div class="col-sm-8">
                     <input type="email" class="form-control"  id="email"  value="">
                   </div>
