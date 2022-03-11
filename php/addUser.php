@@ -3,7 +3,7 @@ include_once('connect.php');
 
 
 
-if(isset($_POST['add'])){
+
 
     $name = $_POST['name'];
     $surname = $_POST['surname'];
@@ -37,10 +37,12 @@ $params = array($name, $surname,$email , $dept, $type, $username, $password ,$po
 /* Prepare and execute the query. */  
 $stmt = sqlsrv_query($conn, $tsql, $params);  
 if ($stmt) {  
-    header('Location: ../Admin/employees.php');
+    echo 1;
+    //header('Location: ../Admin/employees.php');
 } else {  
+    echo 0;
     echo "Row insertion failed.\n";  
     die(print_r(sqlsrv_errors(), true));  
 }  
-}
+
 ?>
