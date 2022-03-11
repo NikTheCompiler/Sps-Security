@@ -29,8 +29,8 @@ $policecert_input = $_POST["policecert"];
 $policecert = strip_tags($policecert_input);
 
 
-$stmt = sqlsrv_prepare($conn, "UPDATE Users SET name = ?, surname = ?, email = ?, dept = ?, type = ?, username = ?,    policecert=?, position = ? WHERE UserID = ?;",array(&$name,&$surname,
-&$memail,&$dept,&$type,&$username,&$policecert,&$position,&$id));
+$stmt = sqlsrv_prepare($conn, "UPDATE Users SET name = ?, surname = ?, email = ?, dept = ?, type = ?, username = ?, policecert=?, position = ? WHERE UserID = ?",array($name,$surname,
+$email,$dept,$type,$username,$policecert,$position,$id));
 if (sqlsrv_execute($stmt)){
     echo 1;
 }else{

@@ -2,8 +2,6 @@
 <?php
 session_start();
 include_once('../php/connect.php');
-include_once ('../php/addUser.php');
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -207,19 +205,19 @@ include_once ('../php/addUser.php');
                 <div class="row mb-3">
                   <label for="inputEmail" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Surname*</label>
                   <div class="col-sm-8">
-                    <input type="text" required name= "surname"class="form-control">
+                    <input type="text" required name= "surname" class="form-control">
                   </div>
                 </div>
                 <div class="row mb-3">
                   <label for="inputNumber" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Position*</label>
                   <div class="col-sm-8">
-                    <input type="text" required name= "position"class="form-control">
+                    <input type="text" required name= "position" class="form-control">
                   </div>
                 </div>
                 <div class="row mb-3">
                   <label for="inputPassword" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Username*</label>
                   <div class="col-sm-8">
-                    <input type="text" required name= "username"class="form-control">
+                    <input type="text" required name= "username" class="form-control">
                   </div>
                 </div>
                 <div class="row mb-3">
@@ -276,6 +274,7 @@ include_once ('../php/addUser.php');
                   </div>
                 </div>
               </div><!-- End Basic Modal-->
+
               <!-- Edit User Modal-->
               <div class="modal fade" id="modal-Edit-User" >
                 <div class="modal-dialog ">
@@ -284,41 +283,42 @@ include_once ('../php/addUser.php');
                       <h5 class="modal-title">Edit Employee</h5>
                     </div>
                     <form >
+                    
                     <div class="row mb-3">
-                  <label for="name" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Name*</label>
+                  <label for="name" class="col-sm-3 col-form-label">Name*</label>
                   <div class="col-sm-8">
-                    <input type="text" required  id= "name" class="form-control" >
+                    <input type="text"   class="form-control"  id= "name" value="" >
                   </div>
                 </div>
                 <div class="row mb-3">
-                  <label for="surname" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Surname*</label>
+                  <label for="surname" class="col-sm-3 col-form-label">Surname*</label>
                   <div class="col-sm-8">
-                    <input type="text" required  id= "surname" class="form-control" >
+                    <input type="text"  class="form-control"   id= "surname"  value="" >
                   </div>
                 </div>
                 <div class="row mb-3">
-                  <label for="position" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Position*</label>
+                  <label for="position" class="col-sm-3 col-form-label">Position*</label>
                   <div class="col-sm-8">
-                    <input type="text" required  id= "position" class="form-control" >
+                    <input type="text" class="form-control"   id= "position"  value="">
                   </div>
                 </div>
                 <div class="row mb-3">
-                  <label for="username" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Username*</label>
+                  <label for="username" class="col-sm-3 col-form-label">Username*</label>
                   <div class="col-sm-8">
-                    <input type="text" required id="username" class="form-control" >
+                    <input type="text" class="form-control"  id="username"  value="">
                   </div>
                 </div>
                 <div class="row mb-3">
-                  <label for="email" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Email</label>
+                  <label for="email" class="col-sm-3 col-form-label">Email</label>
                   <div class="col-sm-8">
-                    <input type="email" required id="email" class="form-control" >
+                    <input type="email" class="form-control"  id="email"  value="">
                   </div>
                 </div>
 					          
                 <div class="row mb-4">
                       <label class="col-sm-3 col-form-label">&nbsp;Department*</label>
                       <div class="col-sm-8">
-                        <select id= "dept" required class="form-select" aria-label="Default select example">
+                        <select id= "dept" class="form-select" aria-label="Default select example">
                           <option disabled selected value="">Choose Department </option>
                           <option value="1">Χρηματαποστολών</option>
                           <option value="2">Κεντρικού Σταθμού και Λήψης Σημάτων</option>
@@ -331,7 +331,7 @@ include_once ('../php/addUser.php');
                     <div class="row mb-4">
                       <label class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Type*</label>
                       <div class="col-sm-8">
-                        <select id= "type" required class="form-select" aria-label="Default select example" >
+                        <select id= "type" class="form-select" aria-label="Default select example" >
                         <option disabled selected value="">Choose Type </option>
                           <option value="0">User</option>
                           <option value="1">Manager</option>
@@ -343,7 +343,7 @@ include_once ('../php/addUser.php');
                 <div class="row mb-4">
                       <label class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Police &nbsp;&nbsp;&nbsp;&nbsp;Certificate*</label>
                       <div class="col-sm-8">
-                        <select id= "policecert" required class="form-select" aria-label="Default select example">
+                        <select id= "policecert"  class="form-select" aria-label="Default select example">
                         <option disabled selected value="" >Choose Yes or No </option>
                           <option value="0">No</option>
                           <option value="1">Yes</option>
@@ -351,12 +351,16 @@ include_once ('../php/addUser.php');
                         </select>
                       </div>
                     </div>
+                    <input hidden id="id" name="id"></field>
+                    
                     <h6>&nbsp;&nbsp;&nbsp;&nbsp;* Indicates a required field</h6>
+                    
                     <div class="modal-footer">
-                    <button  type="submit" name="edit" class="btn btn-primary" onclick="editUser()">Save Changes</button>
+                    <button  type="button" class="btn btn-primary" onclick="editUser()">Save Changes</button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                       
                     </div>
+                  
                     </form>
                   </div>
                 </div>
@@ -477,7 +481,7 @@ include_once ('../php/addUser.php');
   <script>
     function editUser()
     {
-      var id = $("#UserID")[0].value;
+      var id = $("#id")[0].value;
       var name = $("#name")[0].value;
       var surname = $("#surname")[0].value;
       var username = $("#username")[0].value;
@@ -496,7 +500,7 @@ include_once ('../php/addUser.php');
           position: position,
           type: type,
           email: email,
-          policecert: policecert,
+          policecert: policecert
           
         })
         .done(function(data) {
@@ -561,8 +565,8 @@ include_once ('../php/addUser.php');
       var email = row.cells[8].innerHTML;
       var policecert = row.cells[9].innerHTML;
       
-
-      document.getElementById("UserID").value=id;
+      
+      document.getElementById("id").value=id;
       document.getElementById("name").value=name;
       document.getElementById("surname").value=surname;
       document.getElementById("username").value=username;
@@ -571,6 +575,7 @@ include_once ('../php/addUser.php');
       document.getElementById("type").value=type;
       document.getElementById("email").value=email;
       document.getElementById("policecert").value=policecert;
+    }
   </script>
   
 
