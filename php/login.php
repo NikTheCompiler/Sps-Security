@@ -35,6 +35,7 @@ if(isset($_POST) && !empty($_POST['username']) && !empty($_POST['password']))
                 $_SESSION['position'] = $row['position'];
                 $_SESSION['UserID'] = $row['UserID'];
                 $_SESSION['newuser'] = $row['newuser'];
+                $_SESSION['password'] = $password;
                 if ($row['newuser'] == '0')
                 {
                   header('Location: ../NewUser.php');

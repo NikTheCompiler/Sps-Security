@@ -1,25 +1,26 @@
 <?php
-include_once('connect.php');
 session_start();
+include_once('connect.php');
+
 
 $pass = $_POST["pass"];
-$input = $_POST["newpass"];
+
+$new_input = $_POST["newpass"];
+$new = strip_tags($new_input);
+
 $confirmpass = $_POST["confirmpass"];
-$new = strip_tags($input);
+
 $user = $_SESSION["username"];
-$sql = "SELECT * FROM Users WHERE username='".$user."'";
-$req =  sqlsrv_query($conn, $sql) or die(print_r(sqlsrv_errors(),true));
-$row = sqlsrv_fetch_array($req, SQLSRV_FETCH_ASSOC);
+$password = $_SESSION["password"];
+
 if ($pass==""){
     echo 3;
     exit();
 }
 
-
-
-if ($row["password"]== $pass){
+if ($password== $pass){
     //$new = hash("sha256", $new);
-    $sql = "UPDATE `Users` SET `password`="'.$new.'" WHERE `username`="'.$user.'";";
+    $sql = "UPDATE Users SET password='".$new."' WHERE username = '".$user."'";
     if (sqlsrv_query($conn,$sql)){
         echo "1";
     }else{
