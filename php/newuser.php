@@ -7,16 +7,20 @@ $input = $_POST["newpass"];
 $confirmpass = $_POST["confirmpass"];
 $new = strip_tags($input);
 $user = $_SESSION["username"];
+$sql = "SELECT * FROM Users WHERE username='".$user."'";
+$req =  sqlsrv_query($conn, $sql) or die(print_r(sqlsrv_errors(),true));
+$row = sqlsrv_fetch_array($req, SQLSRV_FETCH_ASSOC);
 if ($pass==""){
     echo 3;
     exit();
 }
-if($row=sqlsrv_fetch_array(sqlsrv_query($conn,'SELECT * FROM `Users` WHERE `username`="'.$user.'"'))){
+
+
 
 if ($row["password"]== $pass){
     //$new = hash("sha256", $new);
-    $sql = 'UPDATE `Users` SET `password`="'.$new.'" WHERE `username`="'.$user.'";';
-    if (sqlsrv_query($con,$sql)){
+    $sql = "UPDATE `Users` SET `password`="'.$new.'" WHERE `username`="'.$user.'";";
+    if (sqlsrv_query($conn,$sql)){
         echo "1";
     }else{
         echo $sql;
@@ -24,7 +28,4 @@ if ($row["password"]== $pass){
 
 }else {
     echo 2;
-}
-}else{
-    echo "SQL 1 PROBLEM";
-}
+}?>

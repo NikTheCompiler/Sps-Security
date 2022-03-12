@@ -1,10 +1,10 @@
-<?php 
+<?php
 session_start();
 
-if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) 
+if (isset($_SESSION['UserID']) && isset($_SESSION['username']))
 
  ?>
- 
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -62,12 +62,12 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name']))
               </div><!-- End Logo -->
 
               <div class="card mb-6">
-				
+
                 <div class="card-body">
 					<div class="pagetitle">
 						<h4>  You have to change your password to continue!</h4>
 					</div><!-- End Page Title -->
-				
+
                   <form method="post" action="php/newuser.php" >
 
                     <div class="row mb-3">
@@ -97,8 +97,8 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name']))
 					  </div>
                     </div>
                   </form><!-- End Change Password Form -->
-                    
-                  
+
+
 
                 </div>
               </div>
@@ -108,7 +108,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name']))
                 <!-- You can delete the links only if you purchased the pro version. -->
                 <!-- Licensing information: https://bootstrapmade.com/license/ -->
                 <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
-                
+
               </div>
 
             </div>
