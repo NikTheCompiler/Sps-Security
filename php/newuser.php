@@ -16,6 +16,10 @@ $confirmpass = $_POST["confirmpass"];
 $user = $_SESSION["username"];
 $password = $_SESSION["password"];
 
+$sql1 = "SELECT * FROM Users WHERE username='".$user."'";
+    $req =  sqlsrv_query($conn, $sql1) or die(print_r(sqlsrv_errors(),true));
+    $row = sqlsrv_fetch_array($req, SQLSRV_FETCH_ASSOC);
+
 if ($pass==""){
     echo 3;
     exit();
@@ -59,7 +63,7 @@ if ($password== $pass){
           $_SESSION['UserID'] = $row['UserID'];
           header('Location: ../Manager/dashboard.php');
       }
-      else if($_SESSION['type']== $user)
+      else
       {
           $_SESSION['surname'] = $row['surname'];
           $_SESSION['name'] = $row['name'];
@@ -70,7 +74,8 @@ if ($password== $pass){
           $_SESSION['UserID'] = $row['UserID'];
           header('Location: ../User/dashboard.php');
       }
-    }else{
+    }
+    else{
         echo $sql;
     }
 
