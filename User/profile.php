@@ -1,4 +1,4 @@
-<?php 
+<?php
 include_once('../php/connect.php');
 session_start();
 ?>
@@ -51,10 +51,10 @@ session_start();
         <img src="../assets/img/logo.png" alt="">
         <span class="d-none d-lg-block">SPS Security</span>
       </a>
-      
+
     </div><!-- End Logo -->
 
-    
+
 
     <nav class="header-nav ms-auto">
       <ul class="d-flex align-items-center">
@@ -96,7 +96,7 @@ session_start();
                 <span>My Profile</span>
               </a>
             </li>
- 
+
             <li>
               <a class="dropdown-item d-flex align-items-center" href="../php/signout.php">
                 <i class="bi bi-box-arrow-right"></i>
@@ -133,10 +133,10 @@ session_start();
         <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="grades.php">
           <i class="bi bi-layout-text-window-reverse"></i><span>Grades</span><i ></i>
         </a>
-        
+
       </li><!-- End Tables Nav -->
 
-      
+
 
       <li class="nav-item">
         <a class="nav-link " href="profile.php">
@@ -145,7 +145,7 @@ session_start();
         </a>
       </li><!-- End Profile Page Nav -->
 
-      
+
 
     </ul>
 
@@ -179,7 +179,7 @@ session_start();
               <h3><?php
                 echo $_SESSION["position"];
                  ?></h3>
-              
+
             </div>
           </div>
 
@@ -196,9 +196,9 @@ session_start();
                   <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">Overview</button>
                 </li>
 
-                
 
-                
+
+
 
                 <li class="nav-item">
                   <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-change-password">Change Password</button>
@@ -208,7 +208,7 @@ session_start();
               <div class="tab-content pt-2">
 
                 <div class="tab-pane fade show active profile-overview" id="profile-overview">
-                  
+
 
                   <h5 class="card-title">Profile Details</h5>
 
@@ -224,7 +224,7 @@ session_start();
                 echo $_SESSION["surname"];
                  ?></div>
                   </div>
-                  
+
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label">Department</div>
                     <div class="col-lg-9 col-md-8"><?php
@@ -237,7 +237,7 @@ session_start();
                 echo $_SESSION["position"];
                  ?></div>
                   </div>
-                  
+
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label">Email</div>
                     <div class="col-lg-9 col-md-8"><?php
@@ -249,26 +249,26 @@ session_start();
 
                 <div class="tab-pane fade pt-3" id="profile-change-password">
                   <!-- Change Password Form -->
-                  <form>
+                  <form method="post" action="../php/passwordchange.php">
 
                     <div class="row mb-3">
                       <label for="currentPassword" class="col-md-4 col-lg-3 col-form-label">Current Password</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="password" type="password" class="form-control" id="currentPassword">
+                        <input name="pass" type="password" class="form-control" id="pass">
                       </div>
                     </div>
 
                     <div class="row mb-3">
                       <label for="newPassword" class="col-md-4 col-lg-3 col-form-label">New Password</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="newpassword" type="password" class="form-control" id="newPassword">
+                        <input name="newpass" type="password" class="form-control" id="newpass">
                       </div>
                     </div>
 
                     <div class="row mb-3">
                       <label for="renewPassword" class="col-md-4 col-lg-3 col-form-label">Re-enter New Password</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="renewpassword" type="password" class="form-control" id="renewPassword">
+                        <input name="confirmpass" type="password" class="form-control" id="confirmpass">
                       </div>
                     </div>
 
@@ -292,13 +292,13 @@ session_start();
 
   <!-- ======= Footer ======= -->
   <footer id="footer" class="footer">
-    
+
     <div class="credits">
       <!-- All the links in the footer should remain intact. -->
       <!-- You can delete the links only if you purchased the pro version. -->
       <!-- Licensing information: https://bootstrapmade.com/license/ -->
       <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
-      
+
     </div>
   </footer><!-- End Footer -->
 
