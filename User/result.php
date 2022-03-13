@@ -1,3 +1,9 @@
+<?php
+session_start();
+include_once('../php/connect.php');
+include_once('../php/security.php');
+Secure(0);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
