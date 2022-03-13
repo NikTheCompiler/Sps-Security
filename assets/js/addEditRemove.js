@@ -108,6 +108,38 @@ var id = row.cells[1].innerHTML;
   });
 }
 
+  function generatePass(row) {
+    var id = row.cells[1].innerHTML;
+      Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        reverseButtons: true,
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Confirm'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          $.post("../php/generatepass.php", {
+              id: id,
+            })
+            .done(function(data) {
+              if (data != 1) {
+                Swal.fire(
+                  'Generated!',
+                  'New generated password: '+ data,
+                  'success'
+                );
+                
+              
+              }else if(data==0) {
+                alert(data);
+              }
+            });
+        }
+      });
+    }
+    
 function modalGetData(row)
 {
   var id = row.cells[1].innerHTML;

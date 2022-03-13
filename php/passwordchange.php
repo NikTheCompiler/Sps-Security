@@ -11,9 +11,6 @@ $confirmpass = $_POST["confirmpass"];
 $user = $_SESSION["username"];
 $password = $_SESSION["password"];
 
-$sql1 = "SELECT * FROM Users WHERE username='".$user."' AND password='".$pass."'";
-$req =  sqlsrv_query($conn, $sql1) or die(print_r(sqlsrv_errors(),true));
-$row = sqlsrv_fetch_array($req, SQLSRV_FETCH_ASSOC);
 
 if ($password==$pass){
     //$new = hash("sha256", $new);
@@ -25,7 +22,7 @@ if (sqlsrv_query($conn,$sql))
 }
 else
 {
-  echo $sql;
+  echo 0; 
 }
 }
 ?>

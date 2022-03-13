@@ -1,5 +1,6 @@
 <?php
 include_once('connect.php');
+include_once('passgenerator.php');
 
     $name = $_POST['name'];
     $surname = $_POST['surname'];
@@ -10,7 +11,7 @@ include_once('connect.php');
     $policecert = $_POST['policecert'];
     $position = $_POST['position'];
     $newuser = 0;
-include_once('passgenerator.php');
+
     $password = $pass;
 $tsql = "INSERT INTO Users   
         ( name,   
