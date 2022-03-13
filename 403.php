@@ -17,7 +17,7 @@
             </div>
             <div class="col-md-10"style="left: 20%;">
                 <h3>Sorry..</h3>
-                <p>Access denied you dont have the right permissions to view this page.<br />Log-In to Continue.</p>
+                <p>Access denied you don&#39;t have the right permissions to view this page.<br />Log-In to Continue.</p>
                 <a class="btn btn-danger" href="login.php">Go Back</a>
             </div>
         </div>
