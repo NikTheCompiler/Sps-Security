@@ -181,7 +181,7 @@ Secure(3);
 
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Datatables</h5>
+              
               <p> <a href="https://github.com/fiduswriter/Simple-DataTables" target="_blank"></a>  <code></code> </p>
 				
 				<!-- Basic Modal -->
@@ -438,7 +438,7 @@ Secure(3);
                               <div class="btn-group btn-group-sm col-sm-11" >
                                 <button class="btn btn-info" type="submit"  data-bs-toggle="modal" data-bs-target="#modal-Edit-User" onclick="modalGetData(this.parentNode.parentNode.parentNode)"></i>Edit</button>
                                 <button class="btn btn-danger" type="submit" onclick="deleteUser(this.parentNode.parentNode.parentNode);"></i>Remove</button>
-                                <button type="button" id="password" class="btn btn-dark"></i>Generate Pass</button>
+                                <button class="btn btn-dark" type="submit"  onclick="generatePass(this.parentNode.parentNode.parentNode);"></i>Generate Pass</button>
                               </div>
                               
                             </td>
