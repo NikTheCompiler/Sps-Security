@@ -173,89 +173,272 @@ Secure(1);
             <div class="card-body">
               <h5 class="card-title">Department 1</h5>
               <p> <a href="https://github.com/fiduswriter/Simple-DataTables" target="_blank"></a>  <code></code> </p>
-				<p align="right"><button type="button" class="btn btn-primary">Add Employee</button><p align="right">
+					<!-- Basic Modal -->
+          <p align="right">
+              <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#basicModal" >
+                Add Employee
+              </button>
+              <div class="modal fade" id="basicModal" tabindex="-1">
+                <div class="modal-dialog ">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title">Add Employee</h5>
+                    </div>
+                    
+                    <form  method="POST">
+                    <form >
+                    <div class="row mb-3">
+                  <label for="inputText" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Name*</label>
+                  <div class="col-sm-8">
+                    <input type="text" required name= "name" id= "name1" class="form-control">
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="inputEmail" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Surname*</label>
+                  <div class="col-sm-8">
+                    <input type="text" required name= "surname" id= "surname1"class="form-control">
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="inputNumber" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Position*</label>
+                  <div class="col-sm-8">
+                    <input type="text" required name= "position" id= "position1"class="form-control">
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="inputPassword" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Username*</label>
+                  <div class="col-sm-8">
+                    <input type="text" required name= "username" id= "username1"class="form-control">
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="inputNumber" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Email</label>
+                  <div class="col-sm-8">
+                    <input type="email" name= "email" id= "email1" class="form-control">
+                  </div>
+                </div>
+					          
+                <div class="row mb-4">
+                      <label class="col-sm-3 col-form-label">&nbsp;Department*</label>
+                      <div class="col-sm-8">
+                        <select name= "dept" required class="form-select" id= "dept1" aria-label="Default select example">
+                          <option disabled selected value="">Choose Department </option>
+                          <option value="1">Χρηματαποστολών</option>
+                          <option value="2">Κεντρικού Σταθμού και Λήψης Σημάτων</option>
+                          <option value="3">Φύλαξης Μετρητών και Αξιών</option>
+                          <option value="4">Καταμέτρησης και Επεξεργασίας Μετρητών</option>
+                          <option value="5">Περιπόλων</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="row mb-4">
+                      <label class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Type*</label>
+                      <div class="col-sm-8">
+                        <select name= "type" required class="form-select" id= "type1" aria-label="Default select example" >
+                        <option disabled selected value="">Choose Type </option>
+                          <option value="0">User</option>
+                          <option value="1">Manager</option>
+                          <option value="2">Secretary</option>
+                        </select>
+                      </div>
+                    </div>
+					          
+					            
+                <div class="row mb-4">
+                      <label class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Police &nbsp;&nbsp;&nbsp;&nbsp;Certificate*</label>
+                      <div class="col-sm-8">
+                        <select name= "policecert" required class="form-select" id= "policecert1" aria-label="Default select example">
+                        <option disabled selected value="" >Choose Yes or No </option>
+                          <option value="0">No</option>
+                          <option value="1">Yes</option>
+                          
+                        </select>
+                      </div>
+                    </div>
+                    <h6>&nbsp;&nbsp;&nbsp;&nbsp;* Indicates a required field</h6>
+                    <div class="modal-footer">
+                    <button  type="button"  class="btn btn-primary" data-bs-target="#modal" onclick="addUser()" >Add</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      
+                    </div>
+                    </form>
+                  </div>
+                </div>
+              </div><!-- End Basic Modal-->
+              <!-- Edit User Modal-->
+              <div class="modal fade" id="modal-Edit-User" >
+                <div class="modal-dialog ">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title">Edit Employee</h5>
+                    </div>
+                    <form >
+                    
+                    <div class="row mb-3">
+                  <label for="name" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Name*</label>
+                  <div class="col-sm-8">
+                    <input type="text"  required class="form-control"  id= "name" value="" >
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="surname" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Surname*</label>
+                  <div class="col-sm-8">
+                    <input type="text" required class="form-control"   id= "surname"  value="" >
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="position" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Position*</label>
+                  <div class="col-sm-8">
+                    <input type="text" required class="form-control"   id= "position"  value="">
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="username" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Username*</label>
+                  <div class="col-sm-8">
+                    <input type="text" required class="form-control"  id="username"  value="">
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="email" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Email</label>
+                  <div class="col-sm-8">
+                    <input type="email" class="form-control"  id="email"  value="">
+                  </div>
+                </div>
+					          
+                <div class="row mb-4">
+                      <label class="col-sm-3 col-form-label">&nbsp;Department*</label>
+                      <div class="col-sm-8">
+                        <select id= "dept" required class="form-select" aria-label="Default select example">
+                          <option disabled selected value="">Choose Department </option>
+                          <option value="1">Χρηματαποστολών</option>
+                          <option value="2">Κεντρικού Σταθμού και Λήψης Σημάτων</option>
+                          <option value="3">Φύλαξης Μετρητών και Αξιών</option>
+                          <option value="4">Καταμέτρησης και Επεξεργασίας Μετρητών</option>
+                          <option value="5">Περιπόλων</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="row mb-4">
+                      <label class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Type*</label>
+                      <div class="col-sm-8">
+                        <select id= "type" required class="form-select" aria-label="Default select example" >
+                        <option disabled selected value="">Choose Type </option>
+                          <option value="0">User</option>
+                          <option value="1">Manager</option>
+                          <option value="2">Secretary</option>
+                        </select>
+                      </div>
+                    </div>
 
-              <!-- Table with stripped rows -->
-              <table class="table datatable">
-			  
-                <thead>
-				
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Position</th>
-                    <th scope="col">ID</th>
-                    <th scope="col"></th>
-					          <th scope="col"></th>
-					          <th scope="col"></th>
-					
-                  </tr>
-                </thead>
-				
-                <tbody>
-				
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Brandon Jacob</td>
-					
-                    <td>Designer</td>
-                    <td>28</td>
-                    <td style="color:blue">Remove</td>
-					          <td style="color:blue">Update</td>
-					          <td style="color:blue">Details</td>
-					
-					
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Bridie Kessler</td>
-					
-                    <td>Developer</td>
-                    <td>35</td>
-                    <td style="color:blue">Remove</td>
-					          <td style="color:blue">Update</td>
-					          <td style="color:blue">Details</td>
-					
-                  </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td>Ashleigh Langosh</td>
-					
-                    <td>Finance</td>
-                    <td>45</td>
-                    <td style="color:blue">Remove</td>
-					          <td style="color:blue">Update</td>
-					          <td style="color:blue">Details</td>
-					
-                  </tr>
-                  <tr>
-                    <th scope="row">4</th>
-                    <td>Angus Grady</td>
-					
-                    <td>HR</td>
-                    <td>34</td>
-                    <td style="color:blue">Remove</td>
-					          <td style="color:blue">Update</td>
-					          <td style="color:blue">Details</td>
-					
-                  </tr>
-                  <tr>
-                    <th scope="row">5</th>
-                    <td>Raheem Lehner</td>
-					
-                    <td>Dynamic Division Officer</td>
-                    <td>47</td>
-                    <td style="color:blue">Remove</td>
-					          <td style="color:blue">Update</td>
-					          <td style="color:blue">Details</td>
-					
-                  </tr>
-                </tbody>
-				
-              </table>
-			  
-              <!-- End Table with stripped rows -->
+                <div class="row mb-4">
+                      <label class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Police &nbsp;&nbsp;&nbsp;&nbsp;Certificate*</label>
+                      <div class="col-sm-8">
+                        <select id= "policecert" required class="form-select" aria-label="Default select example">
+                        <option disabled selected value="" >Choose Yes or No </option>
+                          <option value="0">No</option>
+                          <option value="1">Yes</option>
+                          
+                        </select>
+                      </div>
+                    </div>
+                    <input hidden id="id" name="id"></field>
+                    
+                    <h6>&nbsp;&nbsp;&nbsp;&nbsp;* Indicates a required field</h6>
+                    
+                    <div class="modal-footer">
+                    <button  type="button" class="btn btn-primary" onclick="editUser()">Save Changes</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      
+                    </div>
+                  
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <!-- End Edit_User_Modal-->
 
+ <!-- Table with stripped rows -->
+ <table class="table datatable">
+			  
+        <thead>
+
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Surname</th>
+            <th scope="col">Department</th>
+            <th scope="col">Position</th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody>
+        <?php
+              include_once('../php/connect.php');
+              $result = sqlsrv_query($conn, "SELECT * FROM Users WHERE type = 1 or type=2 or type=0");
+              
+                $i = 0;
+                while ($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)) {
+                  $i++;
+                  $id = $row["UserID"];
+                  $name = $row["name"];
+                  $surname = $row["surname"];
+                  $username = $row["username"];
+                  $dept= $row["dept"];
+                  switch ($dept){
+                    case 0:
+                        $deptA = "Χρηματαποστολών";
+                        break;
+                    case 1:
+                        $deptA = "Κεντρικού Σταθμού και Λήψης Σημάτων";
+                        break;
+                    case 2:
+                        $deptA = "Φύλαξης Μετρητών και Αξιών";
+                        break;
+                    case 3:
+                        $deptA = "Καταμέτρησης και Επεξεργασίας Μετρητών";
+                        break;
+                    case 4:
+                        $deptA = "Περιπόλων";
+                        break;    
+                }
+                    
+                  $position=$row["position"];
+                  $type = $row["type"];
+                  $email = $row["email"];
+                  $policecert = $row["policecert"];
+                  echo '
+                  <tr> 
+                    <td>' . $i .'</td>
+                    <td>' . $id .'</td>
+                    <td>' . $name . '</td>
+                    <td>' . $surname . '</td>
+                    <td hidden>' . $username . '</td>
+                    <td>' . $deptA . '</td>
+                    <td>' . $position . '</td>
+                    <td hidden>' . $type . '</td>
+                    <td hidden>' . $email . '</td>
+                    <td hidden>' . $policecert . '</td>
+                    <td class="text-right py-0 align-middle col-sm-3">
+                      <div class="btn-group btn-group-sm col-sm-11" >
+                        <button class="btn btn-info" type="submit"  data-bs-toggle="modal" data-bs-target="#modal-Edit-User" onclick="modalGetData(this.parentNode.parentNode.parentNode)"></i>Edit</button>
+                        <button class="btn btn-danger" type="submit" onclick="deleteUser(this.parentNode.parentNode.parentNode);"></i>Remove</button>
+                        <button type="button" id="password" class="btn btn-dark"></i>Generate Pass</button>
+                      </div>
+                      
+                    </td>
+                  </tr>
+                  ';
+                }
+                               
+        ?>
+          
+        </tbody>
+
+      </table>
+
+      <!-- End Table with stripped rows -->
             </div>
           </div>
 
@@ -291,6 +474,9 @@ Secure(1);
 
   <!-- Template Main JS File -->
   <script src="../assets/js/main.js"></script>
+  <!-- Add Edit Delete functions -->
+  <script src="../assets/js/addEditRemove.js"></script>
+  
 
 </body>
 

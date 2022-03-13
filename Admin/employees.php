@@ -322,11 +322,11 @@ Secure(3);
                       <div class="col-sm-8">
                         <select id= "dept" required class="form-select" aria-label="Default select example">
                           <option disabled selected value="">Choose Department </option>
-                          <option value="1">Χρηματαποστολών</option>
-                          <option value="2">Κεντρικού Σταθμού και Λήψης Σημάτων</option>
-                          <option value="3">Φύλαξης Μετρητών και Αξιών</option>
-                          <option value="4">Καταμέτρησης και Επεξεργασίας Μετρητών</option>
-                          <option value="5">Περιπόλων</option>
+                          <option value="0">Χρηματαποστολών</option>
+                          <option value="1">Κεντρικού Σταθμού και Λήψης Σημάτων</option>
+                          <option value="2">Φύλαξης Μετρητών και Αξιών</option>
+                          <option value="3">Καταμέτρησης και Επεξεργασίας Μετρητών</option>
+                          <option value="4">Περιπόλων</option>
                         </select>
                       </div>
                     </div>
@@ -400,6 +400,24 @@ Secure(3);
                           $surname = $row["surname"];
                           $username = $row["username"];
                           $dept= $row["dept"];
+                          switch ($dept){
+                            case 0:
+                                $deptA = "Χρηματαποστολών";
+                                break;
+                            case 1:
+                                $deptA = "Κεντρικού Σταθμού και Λήψης Σημάτων";
+                                break;
+                            case 2:
+                                $deptA = "Φύλαξης Μετρητών και Αξιών";
+                                break;
+                            case 3:
+                                $deptA = "Καταμέτρησης και Επεξεργασίας Μετρητών";
+                                break;
+                            case 4:
+                                $deptA = "Περιπόλων";
+                                break;    
+                        }
+                            
                           $position=$row["position"];
                           $type = $row["type"];
                           $email = $row["email"];
@@ -411,7 +429,7 @@ Secure(3);
                             <td>' . $name . '</td>
                             <td>' . $surname . '</td>
                             <td hidden>' . $username . '</td>
-                            <td>' . $dept . '</td>
+                            <td>' . $deptA . '</td>
                             <td>' . $position . '</td>
                             <td hidden>' . $type . '</td>
                             <td hidden>' . $email . '</td>
@@ -479,146 +497,8 @@ Secure(3);
   <script src="../jss/dist/js/adminlte.js"></script>
 
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+  <script src="../assets/js/addEditRemove.js"></script>
 
-  <script>
-    function addUser()
-    {
-      var name = document.getElementById("name1").value;
-      var surname = document.getElementById("surname1").value;
-      var email = document.getElementById("email1").value;
-      var dept = document.getElementById("dept1").value;
-      var type = document.getElementById("type1").value;
-      var username = document.getElementById("username1").value;
-      var policecert = document.getElementById("policecert1").value;
-      var position = document.getElementById("position1").value;
-
-      $.post("../php/addUser.php", {
-          name: name,
-          surname: surname,
-          username: username,
-          dept: dept,
-          position: position,
-          type: type,
-          email: email,
-          policecert: policecert
-          
-        })
-        .done(function(data) {
-          if (data != 1) {
-            Swal.fire({
-              icon: 'success',
-              title: 'User added successfully!  Password is: ' + data ,
-            }).then((result) => {
-              location.reload();             
-            })
-
-          } else if (data == 0){
-            alert("Failed");
-            
-          }
-        });
-    }
-  </script>
-
-  <script>
-    function editUser()
-    {
-      var id = $("#id")[0].value;
-      var name = $("#name")[0].value;
-      var surname = $("#surname")[0].value;
-      var username = $("#username")[0].value;
-      var dept = $("#dept")[0].value;
-      var position = $("#position")[0].value;
-      var type = $("#type")[0].value;
-      var email=$("#email")[0].value;
-      var policecert=$("#policecert")[0].value;
-      
-      $.post("../php/editUser.php", {
-          id: id,
-          name: name,
-          surname: surname,
-          username: username,
-          dept: dept,
-          position: position,
-          type: type,
-          email: email,
-          policecert: policecert
-          
-        })
-        .done(function(data) {
-          if (data == 1) {
-            Swal.fire({
-              icon: 'success',
-              title: 'User updated successfully!',
-            }).then((result) => {
-              location.reload();             
-            })
-
-          } else if (data == 0){
-            alert("Failed!");
-          }
-        });
-    }
-  </script>
-  <script>
-  function deleteUser(row) {
-    var id = row.cells[1].innerHTML;
-      Swal.fire({
-        title: 'Are you sure?',
-        text: "You won't be able to revert this!",
-        icon: 'warning',
-        showCancelButton: true,
-        reverseButtons: true,
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Confirm'
-      }).then((result) => {
-        if (result.isConfirmed) {
-          $.post("../php/deleteUser.php", {
-              id: id,
-            })
-            .done(function(data) {
-              if (data == 1) {
-                Swal.fire(
-                  'Deleted!',
-                  'The user has been deleted.',
-                  'success'
-                );
-                row.parentNode.removeChild(row);
-              
-              }else if(data==0) {
-                alert(data);
-              }
-            });
-        }
-      });
-    }
-  </script>
-  
-  <script>
-    function modalGetData(row)
-    {
-      var id = row.cells[1].innerHTML;
-      var name = row.cells[2].innerHTML;
-      var surname = row.cells[3].innerHTML;
-      var username = row.cells[4].innerHTML;
-      var dept = row.cells[5].innerHTML;
-      var position = row.cells[6].innerHTML;
-      var type = row.cells[7].innerHTML;
-      var email = row.cells[8].innerHTML;
-      var policecert = row.cells[9].innerHTML;
-      
-      
-      document.getElementById("id").value=id;
-      document.getElementById("name").value=name;
-      document.getElementById("surname").value=surname;
-      document.getElementById("username").value=username;
-      document.getElementById("dept").value=dept;
-      document.getElementById("position").value=position;
-      document.getElementById("type").value=type;
-      document.getElementById("email").value=email;
-      document.getElementById("policecert").value=policecert;
-    }
-  </script>
   
 
 </body>
