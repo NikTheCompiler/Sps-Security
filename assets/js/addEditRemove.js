@@ -139,7 +139,36 @@ var id = row.cells[1].innerHTML;
         }
       });
     }
-    
+
+    function changePass()
+    {
+      var pass = document.getElementById("pass").value;
+      var newpass = document.getElementById("newpass").value;
+      var confirmpass = document.getElementById("confirmpass").value;
+      
+
+      $.post("../php/passwordchange.php", {
+          pass: pass,
+          newpass: newpass,
+          confirmpass: confirmpass,
+
+        })
+        .done(function(data) {
+          if (data == 1) {
+            Swal.fire({
+              icon: 'success',
+              title: 'Password changed successfully!',
+            }).then((result) => {
+              location.reload();
+            })
+
+          } else if (data == 0){
+            alert("Failed");
+            
+          }
+        });
+    }
+ 
 function modalGetData(row)
 {
   var id = row.cells[1].innerHTML;

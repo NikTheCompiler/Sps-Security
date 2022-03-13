@@ -430,37 +430,9 @@ Secure(3);
   <script src="../jss/dist/js/adminlte.js"></script>
 
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-
-  <script>
-    function changePass()
-    {
-      var pass = document.getElementById("pass").value;
-      var newpass = document.getElementById("newpass").value;
-      var confirmpass = document.getElementById("confirmpass").value;
-      
-
-      $.post("../php/passwordchange.php", {
-          pass: pass,
-          newpass: newpass,
-          confirmpass: confirmpass,
-
-        })
-        .done(function(data) {
-          if (data == 1) {
-            Swal.fire({
-              icon: 'success',
-              title: 'Password changed successfully!',
-            }).then((result) => {
-              location.reload();
-            })
-
-          } else if (data == 0){
-            alert("Failed");
-            
-          }
-        });
-    }
-  </script>
+  
+  <script src="../assets/js/addEditRemove.js"></script>
+  
 </body>
 
 </html>
