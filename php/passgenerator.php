@@ -1,8 +1,8 @@
 <?php
 function randomstring () {
 
-    $chars = "0123456789abcdefghijklmnopqrstuvwxyz!@#$%^&*()ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    return substr(str_shuffle($chars),0,10);
+    $chars = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    return substr(str_shuffle($chars),0,5);
 
 }
 $pass = randomstring();

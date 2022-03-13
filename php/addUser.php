@@ -33,7 +33,7 @@ $params = array($name, $surname,$email , $dept, $type, $username, $password ,$po
 /* Prepare and execute the query. */  
 $stmt = sqlsrv_query($conn, $tsql, $params);  
 if ($stmt) {  
-    echo 1;
+    echo json_encode($password);
     //header('Location: ../Admin/employees.php');
 } else {  
     echo 0;

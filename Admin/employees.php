@@ -504,10 +504,10 @@ Secure(3);
           
         })
         .done(function(data) {
-          if (data == 1) {
+          if (data != 1) {
             Swal.fire({
               icon: 'success',
-              title: 'User added successfully!',
+              title: 'User added successfully!  Password is: ' + data ,
             }).then((result) => {
               location.reload();             
             })
