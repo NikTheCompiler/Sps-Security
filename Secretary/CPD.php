@@ -11,7 +11,7 @@ Secure(2);
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Dashboard</title>
+  <title>Department 1</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -56,16 +56,12 @@ Secure(2);
       
     </div><!-- End Logo -->
 
+    
 
     <nav class="header-nav ms-auto">
       <ul class="d-flex align-items-center">
 
-        <li class="nav-item d-block d-lg-none">
-          <a class="nav-link nav-icon search-bar-toggle " href="#">
-            <i class="bi bi-search"></i>
-          </a>
-        </li><!-- End Search Icon-->
-
+  
         <li class="nav-item dropdown pe-3">
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
@@ -161,6 +157,7 @@ Secure(2);
           </li>
         </ul>
       </li><!-- End Tables Nav -->
+      
       <li class="nav-item">
         <a class="nav-link collapsed" href="employees.php">
           <i class="bi bi-layout-text-sidebar"></i>
@@ -173,7 +170,7 @@ Secure(2);
           <span>Questions</span>
         </a>
       </li><!-- End Dashboard Nav -->
-
+      
       <li class="nav-item">
         <a class="nav-link collapsed" href="profile.php">
           <i class="bi bi-person"></i>
@@ -181,218 +178,26 @@ Secure(2);
         </a>
       </li><!-- End Profile Page Nav -->
 
+    
+
     </ul>
+
   </aside><!-- End Sidebar-->
 
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Dashboard</h1>
-      <nav>
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="dashboard.php">Home</a></li>
-          <li class="breadcrumb-item active">Dashboard</li>
-        </ol>
-      </nav>
+      <h1>  Table</h1>
+      
     </div><!-- End Page Title -->
-
-    <section class="section dashboard">
-      <div class="row">
-
-        <!-- Left side columns -->
-        
-<div class="col-lg-6">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Average grade of each Period of Tests</h5>
-
-              <!-- Bar Chart -->
-              <canvas id="barChart" style="max-height: 400px;"></canvas>
-              <script>
-                document.addEventListener("DOMContentLoaded", () => {
-                  new Chart(document.querySelector('#barChart'), {
-                    type: 'bar',
-                    data: {
-                      labels: ['Period 1', 'Period 2', 'Period 3', 'Period 4'],
-                      datasets: [{
-                        label: 'Average grades',
-                        data: [65, 59, 80, 81, 56, 55, 40],
-                        backgroundColor: [
-                          'rgba(255, 99, 132, 0.2)',
-                          'rgba(255, 159, 64, 0.2)',
-                          'rgba(255, 205, 86, 0.2)',
-                          'rgba(75, 192, 192, 0.2)',
-                          'rgba(54, 162, 235, 0.2)',
-                          'rgba(153, 102, 255, 0.2)',
-                          'rgba(201, 203, 207, 0.2)'
-                        ],
-                        borderColor: [
-                          'rgb(255, 99, 132)',
-                          'rgb(255, 159, 64)',
-                          'rgb(255, 205, 86)',
-                          'rgb(75, 192, 192)',
-                          'rgb(54, 162, 235)',
-                          'rgb(153, 102, 255)',
-                          'rgb(201, 203, 207)'
-                        ],
-                        borderWidth: 1
-                      }]
-                    },
-                    options: {
-                      scales: {
-                        y: {
-                          beginAtZero: true
-                        }
-                      }
-                    }
-                  });
-                });
-              </script>
-              <!-- End Bar Chart -->
-			  </div>
-          </div>
-        </div>
-<!-- Bar Chart -->
-<div class="col-lg-6">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Average grade of each SubSection of Questions</h5>
-			  
-              <canvas id="chart" style="max-height: 400px;"></canvas>
-              <script>
-                document.addEventListener("DOMContentLoaded", () => {
-                  new Chart(document.querySelector('#chart'), {
-                    type: 'bar',
-                    data: {
-                      labels: ['SubSection 1', 'SubSection 2', 'SubSection 3', 'SubSection 4'],
-                      datasets: [{
-                        label: 'Average grades',
-                        data: [65, 59, 80, 81, 56, 55, 40],
-                        backgroundColor: [
-                          'rgba(255, 99, 132, 0.2)',
-                          'rgba(255, 159, 64, 0.2)',
-                          'rgba(255, 205, 86, 0.2)',
-                          'rgba(75, 192, 192, 0.2)',
-                          'rgba(54, 162, 235, 0.2)',
-                          'rgba(153, 102, 255, 0.2)',
-                          'rgba(201, 203, 207, 0.2)'
-                        ],
-                        borderColor: [
-                          'rgb(255, 99, 132)',
-                          'rgb(255, 159, 64)',
-                          'rgb(255, 205, 86)',
-                          'rgb(75, 192, 192)',
-                          'rgb(54, 162, 235)',
-                          'rgb(153, 102, 255)',
-                          'rgb(201, 203, 207)'
-                        ],
-                        borderWidth: 1
-                      }]
-                    },
-                    options: {
-                      scales: {
-                        y: {
-                          beginAtZero: true
-                        }
-                      }
-                    }
-                  });
-                });
-              </script>
-              <!-- End Bar Chart -->
-
-            
-
-              
-
-                </div>
-
-              </div>
-            </div><!-- End Reports -->
-
-            <!-- Recent Tests -->
-            <div class="col-12">
-              <div class="card recent-sales">
-
-                <div class="filter">
-                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                    <li class="dropdown-header text-start">
-                      <h6>Filter</h6>
-                    </li>
-
-                    <li><a class="dropdown-item" href="#">Today</a></li>
-                    <li><a class="dropdown-item" href="#">This Month</a></li>
-                    <li><a class="dropdown-item" href="#">This Year</a></li>
-                  </ul>
-                </div>
-
-                <div class="card-body">
-                  <h5 class="card-title">Recent Tests <span>| Today</span></h5>
-
-                  <table class="table table-borderless datatable">
-                    <thead>
-                      <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">Employee</th>
-                        <th scope="col">Department</th>
-                        <th scope="col">Grade</th>
-                        <th scope="col">Status</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th scope="row"><a href="#">2457</a></th>
-                        <td>Brandon Jacob</td>
-                        <td>Department 1</a></td>
-                        <td>92</td>
-                        <td><span class="badge bg-success">Πολύ Καλό</span></td>
-                      </tr>
-                      <tr>
-                        <th scope="row"><a href="#">2147</a></th>
-                        <td>Bridie Kessler</td>
-                        <td>Department 3</a></td>
-                        <td>59</td>
-                        <td><span class="badge bg-success">Μέτριο</span></td>
-                      </tr>
-                      <tr>
-                        <th scope="row"><a href="#">2049</a></th>
-                        <td>Ashleigh Langosh</td>
-                        <td>Department 6</a></td>
-                        <td>65</td>
-                        <td><span class="badge bg-success">Μέτριο</span></td>
-                      </tr>
-                      <tr>
-                        <th scope="row"><a href="#">2644</a></th>
-                        <td>Angus Grady</td>
-                        <td>Department 2</a></td>
-                        <td>45</td>
-                        <td><span class="badge bg-danger">Αποτυχία</span></td>
-                      </tr>
-                      <tr>
-                        <th scope="row"><a href="#">2644</a></th>
-                        <td>Raheem Lehner</td>
-                        <td>Department 1</a></td>
-                        <td>70</td>
-                        <td><span class="badge bg-success">Καλό</span></td>
-                      </tr>
-                    </tbody>
-                  </table>
-
-                </div>
-
-              </div>
-            </div><!-- End Recent Tests -->
 <!-- Department 1 -->
             <div class="col-12">
               <div class="card recent-sales">
 
                 <div class="filter">
-                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                  
                   <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                    <li class="dropdown-header text-start">
-                      <h6>Filter</h6>
-                    </li>
+                    
 
                     <li><a class="dropdown-item" href="#">Today</a></li>
                     <li><a class="dropdown-item" href="#">This Month</a></li>
@@ -401,8 +206,17 @@ Secure(2);
                 </div>
 
                 <div class="card-body">
-                  <h5 class="card-title">Department 1 <span>| Today</span></h5>
+                  <h5 class="card-title">Department 2 <span></span></h5>
+					<label for="start">From:</label>
 
+<input type="date" id="start" name="trip-start"
+       value="2018-07-22"
+       min="2018-01-01" max="2018-12-31">
+	   <label for="start">To:</label>
+
+<input type="date" id="start" name="trip-start"
+       value="2018-07-22"
+       min="2018-01-01" max="2018-12-31">
                   <table class="table table-borderless datatable">
                     <thead>
                       <tr>
@@ -456,25 +270,15 @@ Secure(2);
 
               </div>
             </div><!-- End Department 1 -->
-            
 
-          </div>
-        </div><!-- End Left side columns -->
 
-        
 
-          
 
-          
+	
+    
 
-          
-
-            
-
-        
-
-      </div>
-    </section>
+	
+</div>
 
   </main><!-- End #main -->
 

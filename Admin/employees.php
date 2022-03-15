@@ -129,17 +129,43 @@ Secure(3);
         </a>
       </li><!-- End Dashboard Nav -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="Department1.php">
-          <i class="bi bi-card-list"></i>
-          <span>Department 1</span>
+        <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-layout-text-window-reverse"></i><span>Departments</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
-      </li><!-- End Dashboard Nav -->
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="Department2.php">
-          <i class="bi bi-card-list"></i>
-          <span>Department 2</span>
-        </a>
-      </li><!-- End Dashboard Nav -->
+        <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="CIT.php">
+              <i class="bi bi-circle-fill"></i><span>CIT</span>
+            </a>
+          </li>
+          <li>
+            <a href="MARC.php">
+              <i class="bi bi-circle-fill"></i><span>Monitoring & Alarm Receiving Center</span>
+            </a>
+          </li>
+          <li>
+            <a href="CVSD.php">
+              <i class="bi bi-circle-fill"></i><span>Cash & Valuables Storage Department</span>
+            </a>
+          </li>
+          <li>
+            <a href="CPD.php">
+              <i class="bi bi-circle-fill"></i><span>Cash Processing Department</span>
+            </a>
+          </li>
+          <li>
+            <a href="PD.php">
+              <i class="bi bi-circle-fill"></i><span>Patrol Department</span>
+            </a>
+          </li>
+          <li>
+            <a href="HS.php">
+              <i class="bi bi-circle-fill"></i><span>Health & Safety</span>
+            </a>
+          </li>
+        </ul>
+      </li><!-- End Tables Nav -->
+      
       <li class="nav-item">
         <a class="nav-link collapsed" href="employees.php">
           <i class="bi bi-layout-text-sidebar"></i>
@@ -196,43 +222,43 @@ Secure(3);
                       <h5 class="modal-title">Add Employee</h5>
                     </div>
                     
-                    <form  method="POST">
-                    <form >
+                    
+                    <form id="form">
                     <div class="row mb-3">
                   <label for="inputText" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Name<span style="color: red">*</span></label>
                   <div class="col-sm-8">
-                    <input type="text" required name= "name" id= "name1" class="form-control">
+                    <input type="text" autocomplete="off" required name= "name" id= "name1" class="form-control">
                   </div>
                 </div>
                 <div class="row mb-3">
                   <label for="inputEmail" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Surname<span style="color: red">*</span></label>
                   <div class="col-sm-8">
-                    <input type="text" required name= "surname" id= "surname1"class="form-control">
+                    <input type="text" autocomplete="off" name= "surname" id= "surname1"class="form-control">
                   </div>
                 </div>
                 <div class="row mb-3">
                   <label for="inputNumber" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Position<span style="color: red">*</span></label>
                   <div class="col-sm-8">
-                    <input type="text" required name= "position" id= "position1"class="form-control">
+                    <input type="text" autocomplete="off" name= "position" id= "position1"class="form-control">
                   </div>
                 </div>
                 <div class="row mb-3">
                   <label for="inputPassword" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Username<span style="color: red">*</span></label>
                   <div class="col-sm-8">
-                    <input type="text" required name= "username" id= "username1"class="form-control">
+                    <input type="text" autocomplete="off" name= "username" id= "username1"class="form-control">
                   </div>
                 </div>
                 <div class="row mb-3">
                   <label for="inputNumber" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Email</label>
                   <div class="col-sm-8">
-                    <input type="email" name= "email" id= "email1" class="form-control">
+                    <input type="email" autocomplete="off" name= "email" id= "email1" class="form-control">
                   </div>
                 </div>
 					          
                 <div class="row mb-4">
                       <label class="col-sm-3 col-form-label">&nbsp;Department<span style="color: red">*</span></label>
                       <div class="col-sm-8">
-                        <select name= "dept" required class="form-select" id= "dept1" aria-label="Default select example">
+                        <select name= "dept" autocomplete="off" class="form-select" id= "dept1" aria-label="Default select example">
                           <option disabled selected value="">Choose Department </option>
                           <option value="1">Χρηματαποστολών</option>
                           <option value="2">Κεντρικού Σταθμού και Λήψης Σημάτων</option>
@@ -245,7 +271,7 @@ Secure(3);
                     <div class="row mb-4">
                       <label class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Type<span style="color: red">*</span></label>
                       <div class="col-sm-8">
-                        <select name= "type" required class="form-select" id= "type1" aria-label="Default select example" >
+                        <select name= "type" autocomplete="off" class="form-select" id= "type1" aria-label="Default select example" >
                         <option disabled selected value="">Choose Type </option>
                           <option value="0">User</option>
                           <option value="1">Manager</option>
@@ -258,7 +284,7 @@ Secure(3);
                 <div class="row mb-4">
                       <label class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Police &nbsp;&nbsp;&nbsp;&nbsp;Certificate<span style="color: red">*</span></label>
                       <div class="col-sm-8">
-                        <select name= "policecert" required class="form-select" id= "policecert1" aria-label="Default select example">
+                        <select name= "policecert" autocomplete="off" class="form-select" id= "policecert1" aria-label="Default select example">
                         <option disabled selected value="" >Choose Yes or No </option>
                           <option value="0">No</option>
                           <option value="1">Yes</option>
@@ -268,7 +294,7 @@ Secure(3);
                     </div>
                     <h6>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: red">*</span> Indicates a required field</h6>
                     <div class="modal-footer">
-                    <button  type="button"  class="btn btn-primary" data-bs-target="#modal" onclick="addUser()" >Add</button>
+                    <button  type="submit"  class="btn btn-primary" data-bs-target="#modal" onclick="addUser()" >Add</button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                       
                     </div>
@@ -289,38 +315,38 @@ Secure(3);
                     <div class="row mb-3">
                   <label for="name" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Name<span style="color: red">*</span></label>
                   <div class="col-sm-8">
-                    <input type="text"  required class="form-control"  id= "name" value="" >
+                    <input type="text"  autocomplete="off" class="form-control"  id= "name" value="" >
                   </div>
                 </div>
                 <div class="row mb-3">
                   <label for="surname" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Surname<span style="color: red">*</span></label>
                   <div class="col-sm-8">
-                    <input type="text" required class="form-control"   id= "surname"  value="" >
+                    <input type="text" autocomplete="off" class="form-control"   id= "surname"  value="" >
                   </div>
                 </div>
                 <div class="row mb-3">
                   <label for="position" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Position<span style="color: red">*</span></label>
                   <div class="col-sm-8">
-                    <input type="text" required class="form-control"   id= "position"  value="">
+                    <input type="text" autocomplete="off" class="form-control"   id= "position"  value="">
                   </div>
                 </div>
                 <div class="row mb-3">
                   <label for="username" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Username<span style="color: red">*</span></label>
                   <div class="col-sm-8">
-                    <input type="text" required class="form-control"  id="username"  value="">
+                    <input type="text" autocomplete="off" class="form-control"  id="username"  value="">
                   </div>
                 </div>
                 <div class="row mb-3">
                   <label for="email" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Email</label>
                   <div class="col-sm-8">
-                    <input type="email" class="form-control"  id="email"  value="">
+                    <input type="email" autocomplete="off" class="form-control"  id="email"  value="">
                   </div>
                 </div>
 					          
                 <div class="row mb-4">
                       <label class="col-sm-3 col-form-label">&nbsp;Department<span style="color: red">*</span></label>
                       <div class="col-sm-8">
-                        <select id= "dept" required class="form-select" aria-label="Default select example">
+                        <select id= "dept" autocomplete="off" class="form-select" aria-label="Default select example">
                           <option disabled selected value="">Choose Department </option>
                           <option value="0">Χρηματαποστολών</option>
                           <option value="1">Κεντρικού Σταθμού και Λήψης Σημάτων</option>
@@ -333,7 +359,7 @@ Secure(3);
                     <div class="row mb-4">
                       <label class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Type<span style="color: red">*</span></label>
                       <div class="col-sm-8">
-                        <select id= "type" required class="form-select" aria-label="Default select example" >
+                        <select id= "type" autocomplete="off" class="form-select" aria-label="Default select example" >
                         <option disabled selected value="">Choose Type </option>
                           <option value="0">User</option>
                           <option value="1">Manager</option>
@@ -345,7 +371,7 @@ Secure(3);
                 <div class="row mb-4">
                       <label class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Police &nbsp;&nbsp;&nbsp;&nbsp;Certificate<span style="color: red">*</span></label>
                       <div class="col-sm-8">
-                        <select id= "policecert" required class="form-select" aria-label="Default select example">
+                        <select id= "policecert" autocomplete="off" class="form-select" aria-label="Default select example">
                         <option disabled selected value="" >Choose Yes or No </option>
                           <option value="0">No</option>
                           <option value="1">Yes</option>

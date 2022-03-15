@@ -127,17 +127,43 @@ Secure(3);
         </a>
       </li><!-- End Dashboard Nav -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="Department1.php">
-          <i class="bi bi-card-list"></i>
-          <span>Department 1</span>
+        <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-layout-text-window-reverse"></i><span>Departments</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
-      </li><!-- End Dashboard Nav -->
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="Department2.php">
-          <i class="bi bi-card-list"></i>
-          <span>Department 2</span>
-        </a>
-      </li><!-- End Dashboard Nav -->
+        <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="CIT.php">
+              <i class="bi bi-circle-fill"></i><span>CIT</span>
+            </a>
+          </li>
+          <li>
+            <a href="MARC.php">
+              <i class="bi bi-circle-fill"></i><span>Monitoring & Alarm Receiving Center</span>
+            </a>
+          </li>
+          <li>
+            <a href="CVSD.php">
+              <i class="bi bi-circle-fill"></i><span>Cash & Valuables Storage Department</span>
+            </a>
+          </li>
+          <li>
+            <a href="CPD.php">
+              <i class="bi bi-circle-fill"></i><span>Cash Processing Department</span>
+            </a>
+          </li>
+          <li>
+            <a href="PD.php">
+              <i class="bi bi-circle-fill"></i><span>Patrol Department</span>
+            </a>
+          </li>
+          <li>
+            <a href="HS.php">
+              <i class="bi bi-circle-fill"></i><span>Health & Safety</span>
+            </a>
+          </li>
+        </ul>
+      </li><!-- End Tables Nav -->
+      
       <li class="nav-item">
         <a class="nav-link collapsed" href="employees.php">
           <i class="bi bi-layout-text-sidebar"></i>

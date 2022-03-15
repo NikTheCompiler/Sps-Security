@@ -11,7 +11,7 @@ function Secure($type)
             if ($_SESSION["type"] != $type) {
                 //Access Denied Not Correct Privileges AKA AccType Different From permission variable of said page . 
                 session_destroy();
-                header('Location: ../403.php');
+                header('Location: ../404.php');
                 exit();
             }
         } else {

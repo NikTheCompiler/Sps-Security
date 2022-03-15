@@ -9,7 +9,22 @@ function addUser()
   var username = document.getElementById("username1").value;
   var policecert = document.getElementById("policecert1").value;
   var position = document.getElementById("position1").value;
-
+  
+  var nameErr = emailErr = mobileErr = countryErr = genderErr = true;
+    
+  // Validate name
+  if(name == "") {
+      printError("nameErr", "Please enter your name");
+  } else {
+      var regex = /^[a-zA-Z\s]+$/;                
+      if(regex.test(name) === false) {
+          printError("nameErr", "Please enter a valid name");
+      } else {
+          printError("nameErr", "");
+          nameErr = false;
+      }
+  }
+  
   $.post("../php/addUser.php", {
       name: name,
       surname: surname,
