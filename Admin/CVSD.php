@@ -187,7 +187,7 @@ Secure(3);
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>  Table</h1>
+      <h1>  Departments</h1>
       
     </div><!-- End Page Title -->
 <!-- Department 1 -->
@@ -206,7 +206,7 @@ Secure(3);
                 </div>
 
                 <div class="card-body">
-                  <h5 class="card-title">Department 2 <span></span></h5>
+                  <h5 class="card-title">Cash & Valuables Storage Department<span></span></h5>
 					<label for="start">From:</label>
 
 <input type="date" id="start" name="trip-start"

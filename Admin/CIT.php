@@ -187,7 +187,7 @@ Secure(3);
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>  Table</h1>
+      <h1>  Departments</h1>
       
     </div><!-- End Page Title -->
 <!-- Department 1 -->
