@@ -270,25 +270,25 @@ Secure(3);
                   <form>
                   <h5 class="card-title">Change Details</h5>
                     <div class="row mb-3">
-                      <label for="Name" class="col-md-4 col-lg-3 col-form-label">Name</label>
+                      <label for="name" class="col-md-4 col-lg-3 col-form-label">Name</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="Name" type="text" class="form-control" id="Name" value="<?php
+                        <input name="name" type="text" class="form-control" id="name" value="<?php
                 echo $_SESSION["name"];
                  ?>">
                       </div>
                     </div>
                     <div class="row mb-3">
-                      <label for="Surname" class="col-md-4 col-lg-3 col-form-label">Surname</label>
+                      <label for="surname" class="col-md-4 col-lg-3 col-form-label">Surname</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="Surname" type="text" class="form-control" id="Surname" value="<?php
+                        <input name="surname" type="text" class="form-control" id="surname" value="<?php
                 echo $_SESSION["surname"];
                  ?>">
                       </div>
                     </div>
                     <div class="row mb-3">
-                      <label for="Dept" class="col-md-4 col-lg-3 col-form-label">Department</label>
+                      <label for="dept" class="col-md-4 col-lg-3 col-form-label">Department</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="Dept" type="text" class="form-control" id="Dept" value="<?php
+                        <input name="dept" type="text" class="form-control" id="dept" value="<?php
                 echo $_SESSION["dept"];
                  ?>">
                       </div>
@@ -296,7 +296,7 @@ Secure(3);
 					<div class="row mb-3">
                       <label for="Position" class="col-md-4 col-lg-3 col-form-label">Position</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="Position" type="text" class="form-control" id="Position" value="<?php
+                        <input name="position" type="text" class="form-control" id="position" value="<?php
                 echo $_SESSION["position"];
                  ?>">
                       </div>
@@ -357,31 +357,31 @@ Secure(3);
 
                 <div class="tab-pane fade pt-3" id="profile-change-password">
                   <!-- Change Password Form -->
-                  <form >
+                  <form method="post">
 
                     <div class="row mb-3">
-                      <label for="currentPassword" class="col-md-4 col-lg-3 col-form-label">Current Password</label>
+                      <label for="pass" class="col-md-4 col-lg-3 col-form-label" required>Current Password </label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="pass" type="password" class="form-control" id="pass">
+                        <input name="pass" required type="password" class="form-control" id="pass">
                       </div>
                     </div>
 
                     <div class="row mb-3">
-                      <label for="newPassword" class="col-md-4 col-lg-3 col-form-label">New Password</label>
+                      <label for="newpass" class="col-md-4 col-lg-3 col-form-label">New Password</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="newpass" type="password" class="form-control" id="newpass">
+                        <input name="newpass" required type="password" class="form-control" id="newpass">
                       </div>
                     </div>
 
                     <div class="row mb-3">
-                      <label for="renewPassword" class="col-md-4 col-lg-3 col-form-label">Re-enter New Password</label>
+                      <label for="confirmpass" class="col-md-4 col-lg-3 col-form-label">Re-enter New Password</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="confirmpass" type="password" class="form-control" id="confirmpass">
+                        <input name="confirmpass" required type="password" class="form-control" id="confirmpass">
                       </div>
                     </div>
 
                     <div class="text-center">
-                      <button type="button" class="btn btn-primary" onclick="changePass()">Change Password</button>
+                      <button type="submit" class="btn btn-primary" onclick="changePass()">Change Password</button>
                     </div>
                   </form><!-- End Change Password Form -->
 

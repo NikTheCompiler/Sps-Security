@@ -199,25 +199,25 @@ Secure(3);
                     <form  method="POST">
                     <form >
                     <div class="row mb-3">
-                  <label for="inputText" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Name*</label>
+                  <label for="inputText" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Name<span style="color: red">*</span></label>
                   <div class="col-sm-8">
                     <input type="text" required name= "name" id= "name1" class="form-control">
                   </div>
                 </div>
                 <div class="row mb-3">
-                  <label for="inputEmail" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Surname*</label>
+                  <label for="inputEmail" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Surname<span style="color: red">*</span></label>
                   <div class="col-sm-8">
                     <input type="text" required name= "surname" id= "surname1"class="form-control">
                   </div>
                 </div>
                 <div class="row mb-3">
-                  <label for="inputNumber" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Position*</label>
+                  <label for="inputNumber" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Position<span style="color: red">*</span></label>
                   <div class="col-sm-8">
                     <input type="text" required name= "position" id= "position1"class="form-control">
                   </div>
                 </div>
                 <div class="row mb-3">
-                  <label for="inputPassword" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Username*</label>
+                  <label for="inputPassword" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Username<span style="color: red">*</span></label>
                   <div class="col-sm-8">
                     <input type="text" required name= "username" id= "username1"class="form-control">
                   </div>
@@ -230,7 +230,7 @@ Secure(3);
                 </div>
 					          
                 <div class="row mb-4">
-                      <label class="col-sm-3 col-form-label">&nbsp;Department*</label>
+                      <label class="col-sm-3 col-form-label">&nbsp;Department<span style="color: red">*</span></label>
                       <div class="col-sm-8">
                         <select name= "dept" required class="form-select" id= "dept1" aria-label="Default select example">
                           <option disabled selected value="">Choose Department </option>
@@ -243,7 +243,7 @@ Secure(3);
                       </div>
                     </div>
                     <div class="row mb-4">
-                      <label class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Type*</label>
+                      <label class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Type<span style="color: red">*</span></label>
                       <div class="col-sm-8">
                         <select name= "type" required class="form-select" id= "type1" aria-label="Default select example" >
                         <option disabled selected value="">Choose Type </option>
@@ -256,7 +256,7 @@ Secure(3);
 					          
 					            
                 <div class="row mb-4">
-                      <label class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Police &nbsp;&nbsp;&nbsp;&nbsp;Certificate*</label>
+                      <label class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Police &nbsp;&nbsp;&nbsp;&nbsp;Certificate<span style="color: red">*</span></label>
                       <div class="col-sm-8">
                         <select name= "policecert" required class="form-select" id= "policecert1" aria-label="Default select example">
                         <option disabled selected value="" >Choose Yes or No </option>
@@ -266,7 +266,7 @@ Secure(3);
                         </select>
                       </div>
                     </div>
-                    <h6>&nbsp;&nbsp;&nbsp;&nbsp;* Indicates a required field</h6>
+                    <h6>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: red">*</span> Indicates a required field</h6>
                     <div class="modal-footer">
                     <button  type="button"  class="btn btn-primary" data-bs-target="#modal" onclick="addUser()" >Add</button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -287,25 +287,25 @@ Secure(3);
                     <form >
                     
                     <div class="row mb-3">
-                  <label for="name" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Name*</label>
+                  <label for="name" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Name<span style="color: red">*</span></label>
                   <div class="col-sm-8">
                     <input type="text"  required class="form-control"  id= "name" value="" >
                   </div>
                 </div>
                 <div class="row mb-3">
-                  <label for="surname" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Surname*</label>
+                  <label for="surname" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Surname<span style="color: red">*</span></label>
                   <div class="col-sm-8">
                     <input type="text" required class="form-control"   id= "surname"  value="" >
                   </div>
                 </div>
                 <div class="row mb-3">
-                  <label for="position" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Position*</label>
+                  <label for="position" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Position<span style="color: red">*</span></label>
                   <div class="col-sm-8">
                     <input type="text" required class="form-control"   id= "position"  value="">
                   </div>
                 </div>
                 <div class="row mb-3">
-                  <label for="username" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Username*</label>
+                  <label for="username" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Username<span style="color: red">*</span></label>
                   <div class="col-sm-8">
                     <input type="text" required class="form-control"  id="username"  value="">
                   </div>
@@ -318,7 +318,7 @@ Secure(3);
                 </div>
 					          
                 <div class="row mb-4">
-                      <label class="col-sm-3 col-form-label">&nbsp;Department*</label>
+                      <label class="col-sm-3 col-form-label">&nbsp;Department<span style="color: red">*</span></label>
                       <div class="col-sm-8">
                         <select id= "dept" required class="form-select" aria-label="Default select example">
                           <option disabled selected value="">Choose Department </option>
@@ -331,7 +331,7 @@ Secure(3);
                       </div>
                     </div>
                     <div class="row mb-4">
-                      <label class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Type*</label>
+                      <label class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Type<span style="color: red">*</span></label>
                       <div class="col-sm-8">
                         <select id= "type" required class="form-select" aria-label="Default select example" >
                         <option disabled selected value="">Choose Type </option>
@@ -343,7 +343,7 @@ Secure(3);
                     </div>
 
                 <div class="row mb-4">
-                      <label class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Police &nbsp;&nbsp;&nbsp;&nbsp;Certificate*</label>
+                      <label class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Police &nbsp;&nbsp;&nbsp;&nbsp;Certificate<span style="color: red">*</span></label>
                       <div class="col-sm-8">
                         <select id= "policecert" required class="form-select" aria-label="Default select example">
                         <option disabled selected value="" >Choose Yes or No </option>
@@ -355,7 +355,7 @@ Secure(3);
                     </div>
                     <input hidden id="id" name="id"></field>
                     
-                    <h6>&nbsp;&nbsp;&nbsp;&nbsp;* Indicates a required field</h6>
+                    <h6>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: red">*</span> Indicates a required field</h6>
                     
                     <div class="modal-footer">
                     <button  type="button" class="btn btn-primary" onclick="editUser()">Save Changes</button>
