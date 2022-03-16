@@ -9,7 +9,7 @@ Secure(3);
 <html lang="en">
 
 <head>
-  
+
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
@@ -55,10 +55,10 @@ Secure(3);
         <img src="../assets/img/logo.png" alt="">
         <span class="d-none d-lg-block">SPS Security</span>
       </a>
-      
+
     </div><!-- End Logo -->
 
-    
+
 
     <nav class="header-nav ms-auto">
       <ul class="d-flex align-items-center">
@@ -67,7 +67,7 @@ Secure(3);
           <a class="nav-link nav-icon search-bar-toggle " href="#">
             <i class="bi bi-search"></i>
           </a>
-		  
+
         </li><!-- End Search Icon-->
 
         <li class="nav-item dropdown pe-3">
@@ -100,7 +100,7 @@ Secure(3);
                 <span>My Profile</span>
               </a>
             </li>
-            
+
 
             <li>
               <a class="dropdown-item d-flex align-items-center" href="../php/signout.php">
@@ -165,7 +165,7 @@ Secure(3);
           </li>
         </ul>
       </li><!-- End Tables Nav -->
-      
+
       <li class="nav-item">
         <a class="nav-link collapsed" href="employees.php">
           <i class="bi bi-layout-text-sidebar"></i>
@@ -186,7 +186,7 @@ Secure(3);
         </a>
       </li><!-- End Profile Page Nav -->
 
-      
+
 
     </ul>
 
@@ -197,7 +197,7 @@ Secure(3);
     <div class="pagetitle">
       <h1>Employees</h1>
       <nav>
-        
+
       </nav>
     </div><!-- End Page Title -->
 
@@ -207,9 +207,9 @@ Secure(3);
 
           <div class="card">
             <div class="card-body">
-              
+
               <p> <a href="https://github.com/fiduswriter/Simple-DataTables" target="_blank"></a>  <code></code> </p>
-				
+
 				<!-- Basic Modal -->
 				<p align="right">
               <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#basicModal" >
@@ -221,8 +221,8 @@ Secure(3);
                     <div class="modal-header">
                       <h5 class="modal-title">Add Employee</h5>
                     </div>
-                    
-                    
+
+
                     <form id="form">
                     <div class="row mb-3">
                   <label for="inputText" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Name<span style="color: red">*</span></label>
@@ -254,7 +254,7 @@ Secure(3);
                     <input type="email" autocomplete="off" name= "email" id= "email1" class="form-control">
                   </div>
                 </div>
-					          
+
                 <div class="row mb-4">
                       <label class="col-sm-3 col-form-label">&nbsp;Department<span style="color: red">*</span></label>
                       <div class="col-sm-8">
@@ -279,8 +279,8 @@ Secure(3);
                         </select>
                       </div>
                     </div>
-					          
-					            
+
+
                 <div class="row mb-4">
                       <label class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Police &nbsp;&nbsp;&nbsp;&nbsp;Certificate<span style="color: red">*</span></label>
                       <div class="col-sm-8">
@@ -288,7 +288,7 @@ Secure(3);
                         <option disabled selected value="" >Choose Yes or No </option>
                           <option value="0">No</option>
                           <option value="1">Yes</option>
-                          
+
                         </select>
                       </div>
                     </div>
@@ -296,7 +296,7 @@ Secure(3);
                     <div class="modal-footer">
                     <button  type="submit"  class="btn btn-primary" data-bs-target="#modal" onclick="addUser()" >Add</button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                      
+
                     </div>
                     </form>
                   </div>
@@ -311,7 +311,7 @@ Secure(3);
                       <h5 class="modal-title">Edit Employee</h5>
                     </div>
                     <form >
-                    
+
                     <div class="row mb-3">
                   <label for="name" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Name<span style="color: red">*</span></label>
                   <div class="col-sm-8">
@@ -342,7 +342,7 @@ Secure(3);
                     <input type="email" autocomplete="off" class="form-control"  id="email"  value="">
                   </div>
                 </div>
-					          
+
                 <div class="row mb-4">
                       <label class="col-sm-3 col-form-label">&nbsp;Department<span style="color: red">*</span></label>
                       <div class="col-sm-8">
@@ -375,33 +375,33 @@ Secure(3);
                         <option disabled selected value="" >Choose Yes or No </option>
                           <option value="0">No</option>
                           <option value="1">Yes</option>
-                          
+
                         </select>
                       </div>
                     </div>
                     <input hidden id="id" name="id"></field>
-                    
+
                     <h6>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: red">*</span> Indicates a required field</h6>
-                    
+
                     <div class="modal-footer">
                     <button  type="button" class="btn btn-primary" onclick="editUser()">Save Changes</button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                      
+
                     </div>
-                  
+
                     </form>
                   </div>
                 </div>
               </div><!-- End Edit_User_Modal-->
-              
+
 
 			<p align="right">
-        
+
               <!-- Table with stripped rows -->
               <table class="table datatable">
-			  
+
                 <thead>
-				
+
                   <tr>
                     <th scope="col">#</th>
                     <th scope="col">ID</th>
@@ -412,12 +412,12 @@ Secure(3);
                     <th></th>
                   </tr>
                 </thead>
-				
+
                 <tbody>
                 <?php
                       include_once('../php/connect.php');
                       $result = sqlsrv_query($conn, "SELECT * FROM Users WHERE type = 1 or type=2 or type=0");
-                      
+
                         $i = 0;
                         while ($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)) {
                           $i++;
@@ -441,15 +441,18 @@ Secure(3);
                                 break;
                             case 4:
                                 $deptA = "Περιπόλων";
-                                break;    
+                                break;
+                            case 5:
+                                $deptA = "Ασφάλειας και Υγείας";
+                                break;
                         }
-                            
+
                           $position=$row["position"];
                           $type = $row["type"];
                           $email = $row["email"];
                           $policecert = $row["policecert"];
                           echo '
-                          <tr> 
+                          <tr>
                             <td>' . $i .'</td>
                             <td>' . $id .'</td>
                             <td>' . $name . '</td>
@@ -466,20 +469,20 @@ Secure(3);
                                 <button class="btn btn-danger" type="submit" onclick="deleteUser(this.parentNode.parentNode.parentNode);"></i>Remove</button>
                                 <button class="btn btn-dark" type="submit"  onclick="generatePass(this.parentNode.parentNode.parentNode);"></i>Generate Pass</button>
                               </div>
-                              
+
                             </td>
                           </tr>
                           ';
                         }
-                                       
+
                 ?>
-                  
+
                 </tbody>
-				
+
               </table>
-			  
+
               <!-- End Table with stripped rows -->
-              
+
             </div>
           </div>
 
@@ -490,16 +493,16 @@ Secure(3);
   </main><!-- End #main -->
 
 
-  
+
   <!-- ======= Footer ======= -->
   <footer id="footer" class="footer">
-    
+
     <div class="credits">
       <!-- All the links in the footer should remain intact. -->
       <!-- You can delete fe links only if you purchased the pro version. -->
       <!-- Licensing information: https://bootstrapmade.com/license/ -->
       <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
-      
+
     </div>
   </footer><!-- End Footer -->
 
@@ -525,7 +528,7 @@ Secure(3);
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
   <script src="../assets/js/addEditRemove.js"></script>
 
-  
+
 
 </body>
 
