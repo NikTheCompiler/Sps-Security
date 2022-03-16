@@ -9,22 +9,7 @@ function addUser()
   var username = document.getElementById("username1").value;
   var policecert = document.getElementById("policecert1").value;
   var position = document.getElementById("position1").value;
-  
-  var nameErr = emailErr = mobileErr = countryErr = genderErr = true;
-    
-  // Validate name
-  if(name == "") {
-      printError("nameErr", "Please enter your name");
-  } else {
-      var regex = /^[a-zA-Z\s]+$/;                
-      if(regex.test(name) === false) {
-          printError("nameErr", "Please enter a valid name");
-      } else {
-          printError("nameErr", "");
-          nameErr = false;
-      }
-  }
-  
+
   $.post("../php/addUser.php", {
       name: name,
       surname: surname,
@@ -191,10 +176,10 @@ function modalGetData(row)
   var surname = row.cells[3].innerHTML;
   var username = row.cells[4].innerHTML;
   var dept = row.cells[5].innerHTML;
-  var position = row.cells[6].innerHTML;
-  var type = row.cells[7].innerHTML;
-  var email = row.cells[8].innerHTML;
-  var policecert = row.cells[9].innerHTML;
+  var position = row.cells[7].innerHTML;
+  var type = row.cells[8].innerHTML;
+  var email = row.cells[9].innerHTML;
+  var policecert = row.cells[10].innerHTML;
   
   
   document.getElementById("id").value=id;
