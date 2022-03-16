@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 include_once('../php/connect.php');
 include_once('../php/security.php');
@@ -53,15 +53,15 @@ Secure(2);
         <img src="../assets/img/logo.png" alt="">
         <span class="d-none d-lg-block">SPS Security</span>
       </a>
-      
+
     </div><!-- End Logo -->
 
-    
+
 
     <nav class="header-nav ms-auto">
       <ul class="d-flex align-items-center">
 
-  
+
         <li class="nav-item dropdown pe-3">
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
@@ -92,7 +92,7 @@ Secure(2);
                 <span>My Profile</span>
               </a>
             </li>
-            
+
 
             <li>
               <a class="dropdown-item d-flex align-items-center" href="../php/signout.php">
@@ -157,7 +157,7 @@ Secure(2);
           </li>
         </ul>
       </li><!-- End Tables Nav -->
-      
+
       <li class="nav-item">
         <a class="nav-link collapsed" href="employees.php">
           <i class="bi bi-layout-text-sidebar"></i>
@@ -170,7 +170,7 @@ Secure(2);
           <span>Questions</span>
         </a>
       </li><!-- End Dashboard Nav -->
-      
+
       <li class="nav-item">
         <a class="nav-link collapsed" href="profile.php">
           <i class="bi bi-person"></i>
@@ -178,7 +178,7 @@ Secure(2);
         </a>
       </li><!-- End Profile Page Nav -->
 
-    
+
 
     </ul>
 
@@ -188,16 +188,16 @@ Secure(2);
 
     <div class="pagetitle">
       <h1>  Departments</h1>
-      
+
     </div><!-- End Page Title -->
 <!-- Department 1 -->
             <div class="col-12">
               <div class="card recent-sales">
 
                 <div class="filter">
-                  
+
                   <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                    
+
 
                     <li><a class="dropdown-item" href="#">Today</a></li>
                     <li><a class="dropdown-item" href="#">This Month</a></li>
@@ -222,47 +222,81 @@ Secure(2);
                       <tr>
                         <th scope="col">ID</th>
                         <th scope="col">Employee</th>
-                        
+
                         <th scope="col">Grade</th>
                         <th scope="col">Status</th>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <th scope="row"><a href="#">2457</a></th>
-                        <td>Brandon Jacob</td>
-                        
-                        <td>92</td>
-                        <td><span class="badge bg-success">Πολύ Καλό</span></td>
-                      </tr>
-                      <tr>
-                        <th scope="row"><a href="#">2147</a></th>
-                        <td>Bridie Kessler</td>
-                        
-                        <td>59</td>
-                        <td><span class="badge bg-success">Μέτριο</span></td>
-                      </tr>
-                      <tr>
-                        <th scope="row"><a href="#">2049</a></th>
-                        <td>Ashleigh Langosh</td>
-                        
-                        <td>65</td>
-                        <td><span class="badge bg-success">Μέτριο</span></td>
-                      </tr>
-                      <tr>
-                        <th scope="row"><a href="#">2644</a></th>
-                        <td>Angus Grady</td>
-                        
-                        <td>45</td>
-                        <td><span class="badge bg-danger">Αποτυχία</span></td>
-                      </tr>
-                      <tr>
-                        <th scope="row"><a href="#">2644</a></th>
-                        <td>Raheem Lehner</td>
-                        
-                        <td>70</td>
-                        <td><span class="badge bg-success">Καλό</span></td>
-                      </tr>
+                      <!-- <tr>
+                                               <th scope="row"><a href="#">2457</a></th>
+                                               <td>Brandon Jacob</td>
+
+                                               <td>92</td>
+                                               <td><span class="badge bg-success">Πολύ Καλό</span></td>
+                                             </tr>
+                                             <tr>
+                                               <th scope="row"><a href="#">2147</a></th>
+                                               <td>Bridie Kessler</td>
+
+                                               <td>59</td>
+                                               <td><span class="badge bg-success">Μέτριο</span></td>
+                                             </tr>
+                                             <tr>
+                                               <th scope="row"><a href="#">2049</a></th>
+                                               <td>Ashleigh Langosh</td>
+
+                                               <td>65</td>
+                                               <td><span class="badge bg-success">Μέτριο</span></td>
+                                             </tr>
+                                             <tr>
+                                               <th scope="row"><a href="#">2644</a></th>
+                                               <td>Angus Grady</td>
+
+                                               <td>45</td>
+                                               <td><span class="badge bg-danger">Αποτυχία</span></td>
+                                             </tr>
+                                             <tr>
+                                               <th scope="row"><a href="#">2644</a></th>
+                                               <td>Raheem Lehner</td>
+
+                                               <td>70</td>
+                                               <td><span class="badge bg-success">Καλό</span></td>
+                                             </tr>-->
+
+                        <?php
+                              include_once('../php/connect.php');
+                              $result = sqlsrv_query($conn, "SELECT * FROM Users WHERE dept='1' ");
+
+                                $i = 0;
+                                while ($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)) {
+                                  $i++;
+                                  $id = $row["UserID"];
+                                  $name = $row["name"];
+                                  $surname = $row["surname"];
+                                  $username = $row["username"];
+                                  $dept= $row["dept"];
+
+                                  $position=$row["position"];
+                                  $type = $row["type"];
+                                  $email = $row["email"];
+                                  $policecert = $row["policecert"];
+                                  echo '
+                                  <tr>
+                                    <td>' . $id .'</td>
+                                    <td>' . $name . '</td>
+                                    <td>' . $surname . '</td>
+                                    <td hidden>' . $username . '</td>
+                                    <td>' . $position . '</td>
+                                    <td hidden>' . $type . '</td>
+                                    <td hidden>' . $email . '</td>
+                                    <td hidden>' . $policecert . '</td>
+
+                                  </tr>
+                                  ';
+                                }
+
+                        ?>
                     </tbody>
                   </table>
 
@@ -274,23 +308,23 @@ Secure(2);
 
 
 
-	
-    
 
-	
+
+
+
 </div>
 
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
   <footer id="footer" class="footer">
-    
+
     <div class="credits">
       <!-- All the links in the footer should remain intact. -->
       <!-- You can delete the links only if you purchased the pro version. -->
       <!-- Licensing information: https://bootstrapmade.com/license/ -->
       <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
-      
+
     </div>
   </footer><!-- End Footer -->
 
