@@ -9,7 +9,35 @@ function addUser()
   var username = document.getElementById("username1").value;
   var policecert = document.getElementById("policecert1").value;
   var position = document.getElementById("position1").value;
+  
+  
+  if(name==""){
+    alert('Name is required!')
+  }
+  else if(surname==""){
+    alert('Surname is required!')
+  }
+  else if(position==""){
+    alert('Position is required!')
+  }
+  else if(username==""||username.length<5){
+    alert('Username is required and must be at least 5 characters long!')
+  }
+  /*else if(){
+    alert('Email is required!')
+  }*/
+  else if(dept==""){
+    alert('Department is required!')
+  }
+  else if(type==""){
+    alert('Type is required!')
+  }
+  else if(policecert==""){
+    alert('Police Certificate is required!')
+  }
+  
 
+  else{
   $.post("../php/addUser.php", {
       name: name,
       surname: surname,
@@ -35,6 +63,7 @@ function addUser()
         
       }
     });
+  }
 }
 
 function editUser()
@@ -49,6 +78,31 @@ function editUser()
   var email=$("#email")[0].value;
   var policecert=$("#policecert")[0].value;
   
+  if(name==""){
+    alert('Name is required!')
+  }
+  else if(surname==""){
+    alert('Surname is required!')
+  }
+  else if(position==""){
+    alert('Position is required!')
+  }
+  else if(username==""||username.length<5){
+    alert('Username is required and must be at least 5 characters long!')
+  }
+  /*else if(){
+    alert('Email is required!')
+  }*/
+  else if(dept==""){
+    alert('Department is required!')
+  }
+  else if(type==""){
+    alert('Type is required!')
+  }
+  else if(policecert==""){
+    alert('Police Certificate is required!')
+  }
+  else{
   $.post("../php/editUser.php", {
       id: id,
       name: name,
@@ -74,6 +128,7 @@ function editUser()
         alert("Failed!");
       }
     });
+  }
 }
 
 function deleteUser(row) {
@@ -177,9 +232,9 @@ function modalGetData(row)
   var username = row.cells[4].innerHTML;
   var dept = row.cells[5].innerHTML;
   var position = row.cells[7].innerHTML;
-  var type = row.cells[8].innerHTML;
-  var email = row.cells[9].innerHTML;
-  var policecert = row.cells[10].innerHTML;
+  var type = row.cells[9].innerHTML;
+  var email = row.cells[10].innerHTML;
+  var policecert = row.cells[11].innerHTML;
   
   
   document.getElementById("id").value=id;

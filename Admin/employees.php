@@ -226,7 +226,7 @@ Secure(3);
                     <div class="row mb-3">
                   <label for="inputText" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Name<span style="color: red">*</span></label>
                   <div class="col-sm-8">
-                    <input type="text" required  autocomplete="off" name= "name" id= "name1" class="form-control">
+                    <input type="text" required  autocomplete="off" name= "name" id= "name1" class="form-control" >
                   </div>
                 </div>
                 <div class="row mb-3">
@@ -235,11 +235,16 @@ Secure(3);
                     <input type="text" required autocomplete="off" name= "surname" id= "surname1"class="form-control">
                   </div>
                 </div>
-                <div class="row mb-3">
-                  <label for="inputNumber" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Position<span style="color: red">*</span></label>
-                  <div class="col-sm-8">
-                    <input type="text" required autocomplete="off" name= "position" id= "position1"class="form-control">
-                  </div>
+                <div class="row mb-4">
+                      <label class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Position<span style="color: red">*</span></label>
+                      <div class="col-sm-8">
+                        <select name= "position" required  class="form-select" id= "position1" aria-label="Default select example" >
+                        <option disabled selected value="">Choose Position </option>
+                          <option value="0">Officer</option>
+                          <option value="1">Supervisor</option>
+                          <option value="2">Manager</option>
+                        </select>
+                      </div>
                 </div>
                 <div class="row mb-3">
                   <label for="inputPassword" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Username<span style="color: red">*</span></label>
@@ -324,11 +329,16 @@ Secure(3);
                     <input type="text" autocomplete="off" class="form-control"   id= "surname"  value="" >
                   </div>
                 </div>
-                <div class="row mb-3">
-                  <label for="position" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Position<span style="color: red">*</span></label>
-                  <div class="col-sm-8">
-                    <input type="text" autocomplete="off" class="form-control"   id= "position"  value="">
-                  </div>
+                <div class="row mb-4">
+                      <label class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Position<span style="color: red">*</span></label>
+                      <div class="col-sm-8">
+                        <select name= "position" required  class="form-select" id= "position" aria-label="Default select example" >
+                        <option disabled selected value="">Choose Position </option>
+                          <option value="0">Officer</option>
+                          <option value="1">Supervisor</option>
+                          <option value="2">Manager</option>
+                        </select>
+                      </div>
                 </div>
                 <div class="row mb-3">
                   <label for="username" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Username<span style="color: red">*</span></label>
@@ -442,9 +452,21 @@ Secure(3);
                             case 5:
                                 $deptA = "Patrol Department";
                                 break;
-                        }
+                          }
 
                           $position=$row["position"];
+                          switch ($position){
+                            case 0:
+                                $positionA = "Officer";
+                                break;
+                            case 1:
+                                $positionA = "Supervisor";
+                                break;
+                            case 2:
+                                $positionA = "Manager";
+                                break;
+                           
+                          }
                           $type = $row["type"];
                           $email = $row["email"];
                           $policecert = $row["policecert"];
@@ -457,7 +479,8 @@ Secure(3);
                             <td hidden>' . $username . '</td>
                             <td hidden>' . $dept . '</td>
                             <td>' . $deptA . '</td>
-                            <td>' . $position . '</td>
+                            <td hidden>' . $position . '</td>
+                            <td>' . $positionA . '</td>
                             <td hidden>' . $type . '</td>
                             <td hidden>' . $email . '</td>
                             <td hidden>' . $policecert . '</td>
