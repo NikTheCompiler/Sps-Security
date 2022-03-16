@@ -88,7 +88,7 @@ function editUser()
   
   var atSymbol = email.indexOf("@");
   var dot = email.indexOf(".");
-  
+
   if(name==""){
     alert('Name is required!')
   }
@@ -211,8 +211,13 @@ var id = row.cells[1].innerHTML;
       var pass = document.getElementById("pass").value;
       var newpass = document.getElementById("newpass").value;
       var confirmpass = document.getElementById("confirmpass").value;
-      
-
+      if (pass==""){
+        alert("Current password is required!")
+      }
+      else if(newpass!=confirmpass){
+        alert("New password and confirm password don't match!")
+      }
+      else{
       $.post("../php/passwordchange.php", {
           pass: pass,
           newpass: newpass,
@@ -233,6 +238,7 @@ var id = row.cells[1].innerHTML;
             
           }
         });
+      }
     }
  
 function modalGetData(row)

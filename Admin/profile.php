@@ -383,7 +383,7 @@ Secure(3);
 
                 <div class="tab-pane fade pt-3" id="profile-change-password">
                   <!-- Change Password Form -->
-                  <form method="post">
+                  <form >
 
                     <div class="row mb-3">
                       <label for="pass" class="col-md-4 col-lg-3 col-form-label" required>Current Password </label>
@@ -407,7 +407,7 @@ Secure(3);
                     </div>
 
                     <div class="text-center">
-                      <button type="submit" class="btn btn-primary" onclick="changePass()">Change Password</button>
+                      <button type="button" class="btn btn-primary" onclick="changePass()">Change Password</button>
                     </div>
                   </form><!-- End Change Password Form -->
 
