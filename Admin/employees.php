@@ -221,57 +221,56 @@ Secure(3);
                     <div class="modal-header">
                       <h5 class="modal-title">Add Employee</h5>
                     </div>
-
-
-                    <form id="form">
+                    <form  method="POST">
+                    <form >
                     <div class="row mb-3">
                   <label for="inputText" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Name<span style="color: red">*</span></label>
                   <div class="col-sm-8">
-                    <input type="text" autocomplete="off" required name= "name" id= "name1" class="form-control">
+                    <input type="text" required  autocomplete="off" name= "name" id= "name1" class="form-control">
                   </div>
                 </div>
                 <div class="row mb-3">
                   <label for="inputEmail" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Surname<span style="color: red">*</span></label>
                   <div class="col-sm-8">
-                    <input type="text" autocomplete="off" name= "surname" id= "surname1"class="form-control">
+                    <input type="text" required autocomplete="off" name= "surname" id= "surname1"class="form-control">
                   </div>
                 </div>
                 <div class="row mb-3">
                   <label for="inputNumber" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Position<span style="color: red">*</span></label>
                   <div class="col-sm-8">
-                    <input type="text" autocomplete="off" name= "position" id= "position1"class="form-control">
+                    <input type="text" required autocomplete="off" name= "position" id= "position1"class="form-control">
                   </div>
                 </div>
                 <div class="row mb-3">
                   <label for="inputPassword" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Username<span style="color: red">*</span></label>
                   <div class="col-sm-8">
-                    <input type="text" autocomplete="off" name= "username" id= "username1"class="form-control">
+                    <input type="text" required autocomplete="off" name= "username" id= "username1"class="form-control">
                   </div>
                 </div>
                 <div class="row mb-3">
                   <label for="inputNumber" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Email</label>
                   <div class="col-sm-8">
-                    <input type="email" autocomplete="off" name= "email" id= "email1" class="form-control">
+                    <input type="email"  autocomplete="off"  name= "email" id= "email1" class="form-control">
                   </div>
                 </div>
 
                 <div class="row mb-4">
                       <label class="col-sm-3 col-form-label">&nbsp;Department<span style="color: red">*</span></label>
                       <div class="col-sm-8">
-                        <select name= "dept" autocomplete="off" class="form-select" id= "dept1" aria-label="Default select example">
-                          <option disabled selected value="">Choose Department </option>
-                          <option value="1">Χρηματαποστολών</option>
-                          <option value="2">Κεντρικού Σταθμού και Λήψης Σημάτων</option>
-                          <option value="3">Φύλαξης Μετρητών και Αξιών</option>
-                          <option value="4">Καταμέτρησης και Επεξεργασίας Μετρητών</option>
-                          <option value="5">Περιπόλων</option>
+                        <select name= "dept" required class="form-select" id= "dept1" aria-label="Default select example">
+                          <option disabled selected value="">Choose Department</option>
+                          <option value="1">CIT</option>
+                          <option value="2">Monitoring & Alarm Receiving Center</option>
+                          <option value="3">Cash & Valuables Storage Department</option>
+                          <option value="4">Cash Processing Department</option>
+                          <option value="5">Patrol Department</option>
                         </select>
                       </div>
                     </div>
                     <div class="row mb-4">
                       <label class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Type<span style="color: red">*</span></label>
                       <div class="col-sm-8">
-                        <select name= "type" autocomplete="off" class="form-select" id= "type1" aria-label="Default select example" >
+                        <select name= "type" required  class="form-select" id= "type1" aria-label="Default select example" >
                         <option disabled selected value="">Choose Type </option>
                           <option value="0">User</option>
                           <option value="1">Manager</option>
@@ -284,7 +283,7 @@ Secure(3);
                 <div class="row mb-4">
                       <label class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Police &nbsp;&nbsp;&nbsp;&nbsp;Certificate<span style="color: red">*</span></label>
                       <div class="col-sm-8">
-                        <select name= "policecert" autocomplete="off" class="form-select" id= "policecert1" aria-label="Default select example">
+                        <select name= "policecert" required  class="form-select" id= "policecert1" aria-label="Default select example">
                         <option disabled selected value="" >Choose Yes or No </option>
                           <option value="0">No</option>
                           <option value="1">Yes</option>
@@ -293,8 +292,9 @@ Secure(3);
                       </div>
                     </div>
                     <h6>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: red">*</span> Indicates a required field</h6>
+
                     <div class="modal-footer">
-                    <button  type="submit"  class="btn btn-primary" data-bs-target="#modal" onclick="addUser()" >Add</button>
+                    <button  type="button"  class="btn btn-primary" data-bs-target="#modal" onclick="addUser()" >Add</button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
 
                     </div>
@@ -348,11 +348,11 @@ Secure(3);
                       <div class="col-sm-8">
                         <select id= "dept" autocomplete="off" class="form-select" aria-label="Default select example">
                           <option disabled selected value="">Choose Department </option>
-                          <option value="0">Χρηματαποστολών</option>
-                          <option value="1">Κεντρικού Σταθμού και Λήψης Σημάτων</option>
-                          <option value="2">Φύλαξης Μετρητών και Αξιών</option>
-                          <option value="3">Καταμέτρησης και Επεξεργασίας Μετρητών</option>
-                          <option value="4">Περιπόλων</option>
+                          <option value="1">CIT</option>
+                          <option value="2">Monitoring & Alarm Receiving Center</option>
+                          <option value="3">Cash & Valuables Storage Department</option>
+                          <option value="4">Cash Processing Department</option>
+                          <option value="5">Patrol Department</option>
                         </select>
                       </div>
                     </div>
@@ -427,23 +427,20 @@ Secure(3);
                           $username = $row["username"];
                           $dept= $row["dept"];
                           switch ($dept){
-                            case 0:
-                                $deptA = "Χρηματαποστολών";
-                                break;
                             case 1:
-                                $deptA = "Κεντρικού Σταθμού και Λήψης Σημάτων";
+                                $deptA = "CIT";
                                 break;
                             case 2:
-                                $deptA = "Φύλαξης Μετρητών και Αξιών";
+                                $deptA = "Monitoring & Alarm Receiving Center";
                                 break;
                             case 3:
-                                $deptA = "Καταμέτρησης και Επεξεργασίας Μετρητών";
+                                $deptA = "Cash & Valuables Storage Department";
                                 break;
                             case 4:
-                                $deptA = "Περιπόλων";
+                                $deptA = "Cash Processing Department";
                                 break;
                             case 5:
-                                $deptA = "Ασφάλειας και Υγείας";
+                                $deptA = "Patrol Department";
                                 break;
                         }
 
@@ -458,6 +455,7 @@ Secure(3);
                             <td>' . $name . '</td>
                             <td>' . $surname . '</td>
                             <td hidden>' . $username . '</td>
+                            <td hidden>' . $dept . '</td>
                             <td>' . $deptA . '</td>
                             <td>' . $position . '</td>
                             <td hidden>' . $type . '</td>
