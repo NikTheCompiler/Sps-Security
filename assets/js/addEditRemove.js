@@ -10,6 +10,9 @@ function addUser()
   var policecert = document.getElementById("policecert1").value;
   var position = document.getElementById("position1").value;
   
+  var atSymbol = email.indexOf("@");
+  var dot = email.indexOf(".");
+  
   
   if(name==""){
     alert('Name is required!')
@@ -23,9 +26,9 @@ function addUser()
   else if(username==""||username.length<5){
     alert('Username is required and must be at least 5 characters long!')
   }
-  /*else if(){
-    alert('Email is required!')
-  }*/
+  else if(email!="" && (atSymbol < 1||dot <= atSymbol + 2||dot === email.length - 1)){
+    alert('Wrong email format!')
+  }
   else if(dept==""){
     alert('Department is required!')
   }
@@ -64,7 +67,12 @@ function addUser()
       }
     });
   }
+  
+
 }
+
+
+
 
 function editUser()
 {
@@ -78,6 +86,9 @@ function editUser()
   var email=$("#email")[0].value;
   var policecert=$("#policecert")[0].value;
   
+  var atSymbol = email.indexOf("@");
+  var dot = email.indexOf(".");
+  
   if(name==""){
     alert('Name is required!')
   }
@@ -90,9 +101,9 @@ function editUser()
   else if(username==""||username.length<5){
     alert('Username is required and must be at least 5 characters long!')
   }
-  /*else if(){
-    alert('Email is required!')
-  }*/
+  else if(email!="" && (atSymbol < 1||dot <= atSymbol + 2||dot === email.length - 1)){
+    alert('Wrong email format!')
+  }
   else if(dept==""){
     alert('Department is required!')
   }
