@@ -338,7 +338,7 @@ Secure(1);
                         <option disabled selected value="">Choose Position </option>
                           <option value="0">Officer</option>
                           <option value="1">Supervisor</option>
-                          <option value="2">Manager</option>
+                          
                         </select>
                       </div>
                 </div>
@@ -393,8 +393,7 @@ Secure(1);
                         <select id= "type" autocomplete="off" class="form-select" aria-label="Default select example" >
                         <option disabled selected value="">Choose Type </option>
                           <option value="0">User</option>
-                          <option value="1">Manager</option>
-                          <option value="2">Secretary</option>
+
                         </select>
                       </div>
                     </div>
