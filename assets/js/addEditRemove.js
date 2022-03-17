@@ -53,7 +53,20 @@ function addUser()
       
     })
     .done(function(data) {
-      if (data != 1) {
+       
+      if (data == 0){
+        alert("Failed");
+      }
+      else if(data == 2){
+        alert("Username is already used!");
+      }
+      else if(data == 3){
+        alert("Username and email are already used!");
+      }
+      else if(data == 4){
+        alert("This email is already used!");
+      }
+      else if (data !=2) {
         Swal.fire({
           icon: 'success',
           title: 'User added successfully!  Password is: ' + data ,
@@ -61,18 +74,11 @@ function addUser()
           location.reload();             
         })
 
-      } else if (data == 0){
-        alert("Failed");
-        
       }
     });
   }
   
-
 }
-
-
-
 
 function editUser()
 {
