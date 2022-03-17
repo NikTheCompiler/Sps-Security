@@ -83,7 +83,20 @@ Secure(2);
                 echo " ";
                 echo $_SESSION["surname"]; ?></h6>
               <span><?php
-                echo $_SESSION["position"];
+                switch ($_SESSION["position"]){
+                  case 0:
+                      echo "Officer";
+                      break;
+                  case 1:
+                      echo "Supervisor";
+                      break;
+                  case 2:
+                      echo "Manager";
+                      break;
+                  default:
+                      echo $_SESSION["position"];
+                      break;
+                }
                  ?></span>
             </li>
             <li>

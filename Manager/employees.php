@@ -87,7 +87,20 @@ Secure(1);
                 echo " ";
                 echo $_SESSION["surname"]; ?></h6>
               <span><?php
-                echo $_SESSION["position"];
+                switch ($_SESSION["position"]){
+                  case 0:
+                      echo "Officer";
+                      break;
+                  case 1:
+                      echo "Supervisor";
+                      break;
+                  case 2:
+                      echo "Manager";
+                      break;
+                  default:
+                      echo $_SESSION["position"];
+                      break;
+                }
                  ?></span>
             </li>
             <li>
@@ -215,7 +228,7 @@ Secure(1);
                         <option disabled selected value="">Choose Position </option>
                           <option value="0">Officer</option>
                           <option value="1">Supervisor</option>
-                          <option value="2">Manager</option>
+                          
                         </select>
                       </div>
                 </div>
@@ -236,12 +249,29 @@ Secure(1);
                       <label class="col-sm-3 col-form-label">&nbsp;Department<span style="color: red">*</span></label>
                       <div class="col-sm-8">
                         <select name= "dept" required class="form-select" id= "dept1" aria-label="Default select example">
-                          <option disabled selected value="">Choose Department</option>
-                          <option value="1">CIT</option>
-                          <option value="2">Monitoring & Alarm Receiving Center</option>
-                          <option value="3">Cash & Valuables Storage Department</option>
-                          <option value="4">Cash Processing Department</option>
-                          <option value="5">Patrol Department</option>
+                        <option value= <?php echo $_SESSION["dept"] ?> >
+                            <?php
+                              include_once('../php/connect.php');
+                              $sessiondept = $_SESSION["dept"];
+                              switch ($sessiondept){
+                                case 1:
+                                    echo "CIT";
+                                    break;
+                                case 2:
+                                    echo "Monitoring & Alarm Receiving Center";
+                                    break;
+                                case 3:
+                                    echo "Cash & Valuables Storage Department";
+                                    break;
+                                case 4:
+                                    echo "Cash Processing Department";
+                                    break;
+                                case 5:
+                                    echo "Patrol Department";
+                                    break;
+                              }
+                            ?>
+                          </option>
                         </select>
                       </div>
                     </div>
@@ -251,8 +281,7 @@ Secure(1);
                         <select name= "type" required  class="form-select" id= "type1" aria-label="Default select example" >
                         <option disabled selected value="">Choose Type </option>
                           <option value="0">User</option>
-                          <option value="1">Manager</option>
-                          <option value="2">Secretary</option>
+
                         </select>
                       </div>
                     </div>
@@ -331,11 +360,30 @@ Secure(1);
                       <div class="col-sm-8">
                         <select id= "dept" autocomplete="off" class="form-select" aria-label="Default select example">
                           <option disabled selected value="">Choose Department </option>
-                          <option value="1">CIT</option>
-                          <option value="2">Monitoring & Alarm Receiving Center</option>
-                          <option value="3">Cash & Valuables Storage Department</option>
-                          <option value="4">Cash Processing Department</option>
-                          <option value="5">Patrol Department</option>
+                          <option value= <?php echo $_SESSION["dept"] ?> >
+                            <?php
+                              include_once('../php/connect.php');
+                              $sessiondept = $_SESSION["dept"];
+                              switch ($sessiondept){
+                                case 1:
+                                    echo "CIT";
+                                    break;
+                                case 2:
+                                    echo "Monitoring & Alarm Receiving Center";
+                                    break;
+                                case 3:
+                                    echo "Cash & Valuables Storage Department";
+                                    break;
+                                case 4:
+                                    echo "Cash Processing Department";
+                                    break;
+                                case 5:
+                                    echo "Patrol Department";
+                                    break;
+                              }
+                            ?>
+                          </option>
+
                         </select>
                       </div>
                     </div>
