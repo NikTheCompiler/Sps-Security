@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 include_once('../php/connect.php');
 include_once('../php/security.php');
@@ -53,10 +53,10 @@ Secure(2);
         <img src="../assets/img/logo.png" alt="">
         <span class="d-none d-lg-block">SPS Security</span>
       </a>
-      
+
     </div><!-- End Logo -->
 
-    
+
 
     <nav class="header-nav ms-auto">
       <ul class="d-flex align-items-center">
@@ -97,7 +97,7 @@ Secure(2);
                 <span>My Profile</span>
               </a>
             </li>
-            
+
             <li>
               <a class="dropdown-item d-flex align-items-center" href="../php/signout.php">
                 <i class="bi bi-box-arrow-right"></i>
@@ -179,6 +179,12 @@ Secure(2);
           <i class="bi bi-person"></i>
           <span>Profile</span>
         </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="aboutus.php">
+          <i class="bi bi-at"></i>
+          <span>About Us</span>
+        </a>
       </li><!-- End Profile Page Nav -->
 
     </ul>
@@ -212,7 +218,7 @@ Secure(2);
               <h3><?php
                 echo $_SESSION["position"];
                  ?></h3>
-              
+
             </div>
           </div>
 
@@ -245,7 +251,7 @@ Secure(2);
               <div class="tab-content pt-2">
 
                 <div class="tab-pane fade show active profile-overview" id="profile-overview">
-                  
+
 
                   <h5 class="card-title">Profile Details</h5>
 
@@ -261,7 +267,7 @@ Secure(2);
                 echo $_SESSION["surname"];
                  ?></div>
                   </div>
-                  
+
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label">Department</div>
                     <div class="col-lg-9 col-md-8"><?php
@@ -274,7 +280,7 @@ Secure(2);
                 echo $_SESSION["position"];
                  ?></div>
                   </div>
-                  
+
 
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label">Email</div>
@@ -322,7 +328,7 @@ Secure(2);
                  ?>">
                       </div>
                     </div>
-                    
+
                     <div class="row mb-3">
                       <label for="Email" class="col-md-4 col-lg-3 col-form-label">Email</label>
                       <div class="col-md-8 col-lg-9">
@@ -353,8 +359,8 @@ Secure(2);
                             Changes made to your account
                           </label>
                         </div>
-                        
-                        
+
+
                         <div class="form-check">
                           <input class="form-check-input" type="checkbox" id="securityNotify" checked disabled>
                           <label class="form-check-label" for="securityNotify">
@@ -416,13 +422,13 @@ Secure(2);
 
   <!-- ======= Footer ======= -->
   <footer id="footer" class="footer">
-    
+
     <div class="credits">
       <!-- All the links in the footer should remain intact. -->
       <!-- You can delete the links only if you purchased the pro version. -->
       <!-- Licensing information: https://bootstrapmade.com/license/ -->
       <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
-      
+
     </div>
   </footer><!-- End Footer -->
 

@@ -145,6 +145,12 @@ Secure(0);
           <i class="bi bi-person"></i>
           <span>Profile</span>
         </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="aboutus.php">
+          <i class="bi bi-at"></i>
+          <span>About Us</span>
+        </a>
       </li><!-- End Profile Page Nav -->
 
 

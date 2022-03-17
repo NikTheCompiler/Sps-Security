@@ -184,6 +184,12 @@ Secure(3);
           <i class="bi bi-person"></i>
           <span>Profile</span>
         </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="aboutus.php">
+          <i class="bi bi-at"></i>
+          <span>About Us</span>
+        </a>
       </li><!-- End Profile Page Nav -->
 
 
@@ -465,7 +471,7 @@ Secure(3);
                             case 2:
                                 $positionA = "Manager";
                                 break;
-                           
+
                           }
                           $type = $row["type"];
                           $email = $row["email"];

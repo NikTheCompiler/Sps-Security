@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 include_once('../php/connect.php');
 include_once('../php/security.php');
@@ -19,7 +19,7 @@ Secure(3);
   <link href="../assets/img/favicon.png" rel="icon">
   <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-  <!-- Google Fonts --> 
+  <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
@@ -53,10 +53,10 @@ Secure(3);
         <img src="../assets/img/logo.png" alt="">
         <span class="d-none d-lg-block">SPS Security</span>
       </a>
-      
+
     </div><!-- End Logo -->
 
-    
+
 
     <nav class="header-nav ms-auto">
       <ul class="d-flex align-items-center">
@@ -97,7 +97,7 @@ Secure(3);
                 <span>My Profile</span>
               </a>
             </li>
-            
+
 
             <li>
               <a class="dropdown-item d-flex align-items-center" href="../php/signout.php">
@@ -162,7 +162,7 @@ Secure(3);
           </li>
         </ul>
       </li><!-- End Tables Nav -->
-      
+
       <li class="nav-item">
         <a class="nav-link collapsed" href="employees.php">
           <i class="bi bi-layout-text-sidebar"></i>
@@ -175,7 +175,7 @@ Secure(3);
           <span>Questions</span>
         </a>
       </li><!-- End Dashboard Nav -->
-      
+
 
 
       <li class="nav-item">
@@ -183,9 +183,15 @@ Secure(3);
           <i class="bi bi-person"></i>
           <span>Profile</span>
         </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="aboutus.php">
+          <i class="bi bi-at"></i>
+          <span>About Us</span>
+        </a>
       </li><!-- End Profile Page Nav -->
 
-      
+
 
     </ul>
 
@@ -219,7 +225,7 @@ Secure(3);
               <h3><?php
                 echo $_SESSION["position"];
                  ?></h3>
-              
+
             </div>
           </div>
 
@@ -252,7 +258,7 @@ Secure(3);
               <div class="tab-content pt-2">
 
                 <div class="tab-pane fade show active profile-overview" id="profile-overview">
-                  
+
 
                   <h5 class="card-title">Profile Details</h5>
 
@@ -265,7 +271,7 @@ Secure(3);
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label ">Surname</div>
                     <div class="col-lg-9 col-md-8"><?php
-                
+
                     echo $_SESSION["surname"]; ?></div>
                   </div>
                   <div class="row">
@@ -280,7 +286,7 @@ Secure(3);
                 echo $_SESSION["position"];
                  ?></div>
                   </div>
- 
+
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label">Email</div>
                     <div class="col-lg-9 col-md-8"><?php
@@ -327,7 +333,7 @@ Secure(3);
                  ?>">
                       </div>
                     </div>
-                    
+
                     <div class="row mb-3">
                       <label for="Email" class="col-md-4 col-lg-3 col-form-label">Email</label>
                       <div class="col-md-8 col-lg-9">
@@ -364,7 +370,7 @@ Secure(3);
                             Test time limit reached
                           </label>
                         </div>
-                        
+
                         <div class="form-check">
                           <input class="form-check-input" type="checkbox" id="securityNotify" checked disabled>
                           <label class="form-check-label" for="securityNotify">
@@ -426,13 +432,13 @@ Secure(3);
 
   <!-- ======= Footer ======= -->
   <footer id="footer" class="footer">
-    
+
     <div class="credits">
       <!-- All the links in the footer should remain intact. -->
       <!-- You can delete the links only if you purchased the pro version. -->
       <!-- Licensing information: https://bootstrapmade.com/license/ -->
       <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
-      
+
     </div>
   </footer><!-- End Footer -->
 
@@ -456,9 +462,9 @@ Secure(3);
   <script src="../jss/dist/js/adminlte.js"></script>
 
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-  
+
   <script src="../assets/js/addEditRemove.js"></script>
-  
+
 </body>
 
 </html>

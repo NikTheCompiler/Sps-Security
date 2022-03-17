@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 include_once('../php/connect.php');
 include_once('../php/security.php');
@@ -53,10 +53,10 @@ Secure(1);
         <img src="../assets/img/logo.png" alt="">
         <span class="d-none d-lg-block">SPS Security</span>
       </a>
-      
+
     </div><!-- End Logo -->
 
-    
+
 
     <nav class="header-nav ms-auto">
       <ul class="d-flex align-items-center">
@@ -65,7 +65,7 @@ Secure(1);
           <a class="nav-link nav-icon search-bar-toggle " href="#">
             <i class="bi bi-search"></i>
           </a>
-		  
+
         </li><!-- End Search Icon-->
 
 
@@ -99,7 +99,7 @@ Secure(1);
                 <span>My Profile</span>
               </a>
             </li>
-            
+
 
             <li>
               <a class="dropdown-item d-flex align-items-center" href="../php/signout.php">
@@ -144,11 +144,17 @@ Secure(1);
           <i class="bi bi-question-lg"></i>
           <span>Questions</span>
         </a>
-      </li><!-- End Dashboard Nav --> 
+      </li><!-- End Dashboard Nav -->
       <li class="nav-item">
         <a class="nav-link collapsed" href="profile.php">
           <i class="bi bi-person"></i>
           <span>Profile</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="aboutus.php">
+          <i class="bi bi-at"></i>
+          <span>About Us</span>
         </a>
       </li><!-- End Profile Page Nav -->
 
@@ -161,7 +167,7 @@ Secure(1);
     <div class="pagetitle">
       <h1>Employees</h1>
       <nav>
-        
+
       </nav>
     </div><!-- End Page Title -->
 
@@ -184,7 +190,7 @@ Secure(1);
                     <div class="modal-header">
                       <h5 class="modal-title">Add Employee</h5>
                     </div>
-                    
+
                     <form  method="POST">
                     <form >
                     <div class="row mb-3">
@@ -217,7 +223,7 @@ Secure(1);
                     <input type="email" name= "email" id= "email1" class="form-control">
                   </div>
                 </div>
-					          
+
                 <div class="row mb-4">
                       <label class="col-sm-3 col-form-label">&nbsp;Department*</label>
                       <div class="col-sm-8">
@@ -242,8 +248,8 @@ Secure(1);
                         </select>
                       </div>
                     </div>
-					          
-					            
+
+
                 <div class="row mb-4">
                       <label class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Police &nbsp;&nbsp;&nbsp;&nbsp;Certificate*</label>
                       <div class="col-sm-8">
@@ -251,7 +257,7 @@ Secure(1);
                         <option disabled selected value="" >Choose Yes or No </option>
                           <option value="0">No</option>
                           <option value="1">Yes</option>
-                          
+
                         </select>
                       </div>
                     </div>
@@ -259,7 +265,7 @@ Secure(1);
                     <div class="modal-footer">
                     <button  type="button"  class="btn btn-primary" data-bs-target="#modal" onclick="addUser()" >Add</button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                      
+
                     </div>
                     </form>
                   </div>
@@ -273,7 +279,7 @@ Secure(1);
                       <h5 class="modal-title">Edit Employee</h5>
                     </div>
                     <form >
-                    
+
                     <div class="row mb-3">
                   <label for="name" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Name*</label>
                   <div class="col-sm-8">
@@ -304,7 +310,7 @@ Secure(1);
                     <input type="email" class="form-control"  id="email"  value="">
                   </div>
                 </div>
-					          
+
                 <div class="row mb-4">
                       <label class="col-sm-3 col-form-label">&nbsp;Department*</label>
                       <div class="col-sm-8">
@@ -337,20 +343,20 @@ Secure(1);
                         <option disabled selected value="" >Choose Yes or No </option>
                           <option value="0">No</option>
                           <option value="1">Yes</option>
-                          
+
                         </select>
                       </div>
                     </div>
                     <input hidden id="id" name="id"></field>
-                    
+
                     <h6>&nbsp;&nbsp;&nbsp;&nbsp;* Indicates a required field</h6>
-                    
+
                     <div class="modal-footer">
                     <button  type="button" class="btn btn-primary" onclick="editUser()">Save Changes</button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                      
+
                     </div>
-                  
+
                     </form>
                   </div>
                 </div>
@@ -359,7 +365,7 @@ Secure(1);
 
  <!-- Table with stripped rows -->
  <table class="table datatable">
-			  
+
         <thead>
 
           <tr>
@@ -377,7 +383,7 @@ Secure(1);
         <?php
               include_once('../php/connect.php');
               $result = sqlsrv_query($conn, "SELECT * FROM Users WHERE type = 1 or type=2 or type=0");
-              
+
                 $i = 0;
                 while ($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)) {
                   $i++;
@@ -401,15 +407,15 @@ Secure(1);
                         break;
                     case 4:
                         $deptA = "Περιπόλων";
-                        break;    
+                        break;
                 }
-                    
+
                   $position=$row["position"];
                   $type = $row["type"];
                   $email = $row["email"];
                   $policecert = $row["policecert"];
                   echo '
-                  <tr> 
+                  <tr>
                     <td>' . $i .'</td>
                     <td>' . $id .'</td>
                     <td>' . $name . '</td>
@@ -426,14 +432,14 @@ Secure(1);
                         <button class="btn btn-danger" type="submit" onclick="deleteUser(this.parentNode.parentNode.parentNode);"></i>Remove</button>
                         <button type="button" id="password" class="btn btn-dark"></i>Generate Pass</button>
                       </div>
-                      
+
                     </td>
                   </tr>
                   ';
                 }
-                               
+
         ?>
-          
+
         </tbody>
 
       </table>
@@ -450,13 +456,13 @@ Secure(1);
 
   <!-- ======= Footer ======= -->
   <footer id="footer" class="footer">
-    
+
     <div class="credits">
       <!-- All the links in the footer should remain intact. -->
       <!-- You can delete fe links only if you purchased the pro version. -->
       <!-- Licensing information: https://bootstrapmade.com/license/ -->
       <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
-      
+
     </div>
   </footer><!-- End Footer -->
 
@@ -476,7 +482,7 @@ Secure(1);
   <script src="../assets/js/main.js"></script>
   <!-- Add Edit Delete functions -->
   <script src="../assets/js/addEditRemove.js"></script>
-  
+
 
 </body>
 

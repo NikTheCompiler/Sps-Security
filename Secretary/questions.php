@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 include_once('../php/connect.php');
 include_once('../php/security.php');
@@ -53,10 +53,10 @@ Secure(2);
         <img src="../assets/img/logo.png" alt="">
         <span class="d-none d-lg-block">SPS Security</span>
       </a>
-      
+
     </div><!-- End Logo -->
 
-    
+
 
     <nav class="header-nav ms-auto">
       <ul class="d-flex align-items-center">
@@ -65,10 +65,10 @@ Secure(2);
           <a class="nav-link nav-icon search-bar-toggle " href="#">
             <i class="bi bi-search"></i>
           </a>
-		  
+
         </li><!-- End Search Icon-->
 
-        
+
 
         <li class="nav-item dropdown pe-3">
 
@@ -100,7 +100,7 @@ Secure(2);
                 <span>My Profile</span>
               </a>
             </li>
-            
+
 
             <li>
               <a class="dropdown-item d-flex align-items-center" href="../php/signout.php">
@@ -183,6 +183,12 @@ Secure(2);
           <i class="bi bi-person"></i>
           <span>Profile</span>
         </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="aboutus.php">
+          <i class="bi bi-at"></i>
+          <span>About Us</span>
+        </a>
       </li><!-- End Profile Page Nav -->
 
     </ul>
@@ -193,7 +199,7 @@ Secure(2);
     <div class="pagetitle">
       <h1>Questions </h1>
       <nav>
-        
+
       </nav>
     </div><!-- End Page Title -->
 
@@ -203,7 +209,7 @@ Secure(2);
 
           <div class="card">
             <div class="card-body">
-              
+
               <p> <a href="https://github.com/fiduswriter/Simple-DataTables" target="_blank"></a>  <code></code> </p>
 			  <select name="cars" id="cars">
   <option value="volvo">Department 1</option>
@@ -219,15 +225,15 @@ Secure(2);
   </select>
 				<p align="right">
   <button type="button" class="btn btn-primary" >Add Question</button></p>
-  
+
 
 </p>
 
               <!-- Table with stripped rows -->
               <table class="table datatable">
-			  
+
                 <thead>
-				
+
                   <tr>
                     <th scope="col">#</th>
                     <th scope="col">Question</th>
@@ -235,12 +241,12 @@ Secure(2);
 					<th scope="col">Options</th>
                     <th scope="col"></th>
 					<th scope="col"></th>
-					
+
                   </tr>
                 </thead>
-				
+
                 <tbody>
-				
+
                   <tr>
                     <th scope="row">1</th>
                     <td>Question 1</td>
@@ -248,8 +254,8 @@ Secure(2);
                     <td>Option 1,Option 2</td>
                     <td style="color:blue">remove</td>
 					<td style="color:blue">edit</td>
-					
-					
+
+
                   </tr>
                   <tr>
                     <th scope="row">2</th>
@@ -258,7 +264,7 @@ Secure(2);
                     <td>Option 1,Option 2,Option 3</td>
                     <td style="color:blue">remove</td>
 					<td style="color:blue">edit</td>
-					
+
                   </tr>
                   <tr>
                     <th scope="row">3</th>
@@ -267,7 +273,7 @@ Secure(2);
                     <td>Option 1,Option 2,Option 3,Option 4</td>
                     <td style="color:blue">remove</td>
 					<td style="color:blue">edit</td>
-					
+
                   </tr>
                   <tr>
                     <th scope="row">4</th>
@@ -276,7 +282,7 @@ Secure(2);
                     <td>Option 1,Option 2</td>
                     <td style="color:blue">remove</td>
 					<td style="color:blue">edit</td>
-					
+
                   </tr>
                   <tr>
                     <th scope="row">5</th>
@@ -285,12 +291,12 @@ Secure(2);
                     <td>Option 1,Option 2,Option 3,Option 4</td>
                     <td style="color:blue">remove</td>
 					<td style="color:blue">edit</td>
-					
+
                   </tr>
                 </tbody>
-				
+
               </table>
-			  
+
               <!-- End Table with stripped rows -->
 
             </div>
@@ -304,13 +310,13 @@ Secure(2);
 
   <!-- ======= Footer ======= -->
   <footer id="footer" class="footer">
-    
+
     <div class="credits">
       <!-- All the links in the footer should remain intact. -->
       <!-- You can delete fe links only if you purchased the pro version. -->
       <!-- Licensing information: https://bootstrapmade.com/license/ -->
       <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
-      
+
     </div>
   </footer><!-- End Footer -->
 

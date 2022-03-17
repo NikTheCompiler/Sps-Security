@@ -53,10 +53,10 @@ Secure(0);
         <img src="../assets/img/logo.png" alt="">
         <span class="d-none d-lg-block">SPS Security</span>
       </a>
-      
+
     </div><!-- End Logo -->
 
-    
+
 
     <nav class="header-nav ms-auto">
       <ul class="d-flex align-items-center">
@@ -92,7 +92,7 @@ Secure(0);
                 <span>My Profile</span>
               </a>
             </li>
-            
+
 
             <li>
               <a class="dropdown-item d-flex align-items-center" href="../php/signout.php">
@@ -132,13 +132,19 @@ Secure(0);
         <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="grades.php">
           <i class="bi bi-calculator"></i><span>Grades</span><i ></i>
         </a>
-        
+
       </li><!-- End Tables Nav -->
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="profile.php">
           <i class="bi bi-person"></i>
           <span>Profile</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="aboutus.php">
+          <i class="bi bi-at"></i>
+          <span>About Us</span>
         </a>
       </li><!-- End Tables Nav -->
 
@@ -150,38 +156,38 @@ Secure(0);
 
     <div class="pagetitle">
       <h1>  Test</h1>
-      
+
     </div><!-- End Page Title -->
 
 
 <style>
 timer {
-  
+
   font-size: 40px;
   margin-top: 0px;
 }
- 
+
 </style>
 <div class="w3-large" style="text-align:center"><h1>Result:</h1>6 of 20<p><b>30%</b></p><p><p><b>Time Spent</b><br>8:27</p></div>
 
 
-	
-    
 
-	
+
+
+
 </div>
 
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
   <footer id="footer" class="footer">
-    
+
     <div class="credits">
       <!-- All the links in the footer should remain intact. -->
       <!-- You can delete the links only if you purchased the pro version. -->
       <!-- Licensing information: https://bootstrapmade.com/license/ -->
       <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
-      
+
     </div>
   </footer><!-- End Footer -->
 

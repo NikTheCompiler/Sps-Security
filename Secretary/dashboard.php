@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 include_once('../php/connect.php');
 include_once('../php/security.php');
@@ -53,7 +53,7 @@ Secure(2);
         <img src="../assets/img/logo.png" alt="">
         <span class="d-none d-lg-block">SPS Security</span>
       </a>
-      
+
     </div><!-- End Logo -->
 
 
@@ -96,7 +96,7 @@ Secure(2);
                 <span>My Profile</span>
               </a>
             </li>
-            
+
 
             <li>
               <a class="dropdown-item d-flex align-items-center" href="../php/signout.php">
@@ -179,6 +179,12 @@ Secure(2);
           <i class="bi bi-person"></i>
           <span>Profile</span>
         </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="aboutus.php">
+          <i class="bi bi-at"></i>
+          <span>About Us</span>
+        </a>
       </li><!-- End Profile Page Nav -->
 
     </ul>
@@ -200,7 +206,7 @@ Secure(2);
       <div class="row">
 
         <!-- Left side columns -->
-        
+
 <div class="col-lg-6">
           <div class="card">
             <div class="card-body">
@@ -257,7 +263,7 @@ Secure(2);
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">Average grade of each SubSection of Questions</h5>
-			  
+
               <canvas id="chart" style="max-height: 400px;"></canvas>
               <script>
                 document.addEventListener("DOMContentLoaded", () => {
@@ -301,9 +307,9 @@ Secure(2);
               </script>
               <!-- End Bar Chart -->
 
-            
 
-              
+
+
 
                 </div>
 
@@ -408,7 +414,7 @@ Secure(2);
                       <tr>
                         <th scope="col">ID</th>
                         <th scope="col">Employee</th>
-                        
+
                         <th scope="col">Grade</th>
                         <th scope="col">Status</th>
                       </tr>
@@ -417,35 +423,35 @@ Secure(2);
                       <tr>
                         <th scope="row"><a href="#">2457</a></th>
                         <td>Brandon Jacob</td>
-                        
+
                         <td>92</td>
                         <td><span class="badge bg-success">Πολύ Καλό</span></td>
                       </tr>
                       <tr>
                         <th scope="row"><a href="#">2147</a></th>
                         <td>Bridie Kessler</td>
-                        
+
                         <td>59</td>
                         <td><span class="badge bg-success">Μέτριο</span></td>
                       </tr>
                       <tr>
                         <th scope="row"><a href="#">2049</a></th>
                         <td>Ashleigh Langosh</td>
-                        
+
                         <td>65</td>
                         <td><span class="badge bg-success">Μέτριο</span></td>
                       </tr>
                       <tr>
                         <th scope="row"><a href="#">2644</a></th>
                         <td>Angus Grady</td>
-                        
+
                         <td>45</td>
                         <td><span class="badge bg-danger">Αποτυχία</span></td>
                       </tr>
                       <tr>
                         <th scope="row"><a href="#">2644</a></th>
                         <td>Raheem Lehner</td>
-                        
+
                         <td>70</td>
                         <td><span class="badge bg-success">Καλό</span></td>
                       </tr>
@@ -456,22 +462,22 @@ Secure(2);
 
               </div>
             </div><!-- End Department 1 -->
-            
+
 
           </div>
         </div><!-- End Left side columns -->
 
-        
 
-          
 
-          
 
-          
 
-            
 
-        
+
+
+
+
+
+
 
       </div>
     </section>
@@ -480,13 +486,13 @@ Secure(2);
 
   <!-- ======= Footer ======= -->
   <footer id="footer" class="footer">
-    
+
     <div class="credits">
       <!-- All the links in the footer should remain intact. -->
       <!-- You can delete the links only if you purchased the pro version. -->
       <!-- Licensing information: https://bootstrapmade.com/license/ -->
       <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
-      
+
     </div>
   </footer><!-- End Footer -->
 
