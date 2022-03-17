@@ -129,43 +129,11 @@ Secure(1);
         </a>
       </li><!-- End Dashboard Nav -->
       <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-layout-text-window-reverse"></i><span>Departments</span><i class="bi bi-chevron-down ms-auto"></i>
+        <a class="nav-link collapsed" href="Grades.php">
+          <i class="bi bi-calculator"></i>
+          <span>Grades</span>
         </a>
-        <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="CIT.php">
-              <i class="bi bi-circle-fill"></i><span>CIT</span>
-            </a>
-          </li>
-          <li>
-            <a href="MARC.php">
-              <i class="bi bi-circle-fill"></i><span>Monitoring & Alarm Receiving Center</span>
-            </a>
-          </li>
-          <li>
-            <a href="CVSD.php">
-              <i class="bi bi-circle-fill"></i><span>Cash & Valuables Storage Department</span>
-            </a>
-          </li>
-          <li>
-            <a href="CPD.php">
-              <i class="bi bi-circle-fill"></i><span>Cash Processing Department</span>
-            </a>
-          </li>
-          <li>
-            <a href="PD.php">
-              <i class="bi bi-circle-fill"></i><span>Patrol Department</span>
-            </a>
-          </li>
-          <li>
-            <a href="HS.php">
-              <i class="bi bi-circle-fill"></i><span>Health & Safety</span>
-            </a>
-          </li>
-        </ul>
-      </li><!-- End Tables Nav -->
-
+      </li><!-- End Dashboard Nav -->
       <li class="nav-item">
         <a class="nav-link collapsed" href="employees.php">
           <i class="bi bi-layout-text-sidebar"></i>
@@ -178,7 +146,6 @@ Secure(1);
           <span>Questions</span>
         </a>
       </li><!-- End Dashboard Nav -->
-
       <li class="nav-item">
         <a class="nav-link collapsed" href="profile.php">
           <i class="bi bi-person"></i>
@@ -494,7 +461,7 @@ Secure(1);
                             <td class="text-right py-0 align-middle col-sm-3">
                               <div class="btn-group btn-group-sm col-sm-11" >
                                 <button class="btn btn-info" type="submit"  data-bs-toggle="modal" data-bs-target="#modal-Edit-User" onclick="modalGetData(this.parentNode.parentNode.parentNode)"></i>Edit</button>
-                                <button class="btn btn-danger" type="submit" onclick="deleteUser(this.parentNode.parentNode.parentNode);"></i>Remove</button>
+                                
                                 <button class="btn btn-dark" type="submit"  onclick="generatePass(this.parentNode.parentNode.parentNode);"></i>Generate Pass</button>
                               </div>
 
