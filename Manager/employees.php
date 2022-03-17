@@ -1,3 +1,4 @@
+
 <?php
 session_start();
 include_once('../php/connect.php');
@@ -8,6 +9,7 @@ Secure(1);
 <html lang="en">
 
 <head>
+
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
@@ -68,7 +70,6 @@ Secure(1);
 
         </li><!-- End Search Icon-->
 
-
         <li class="nav-item dropdown pe-3">
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
@@ -128,11 +129,43 @@ Secure(1);
         </a>
       </li><!-- End Dashboard Nav -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="Grades.php">
-          <i class="bi bi-calculator"></i>
-          <span>Grades</span>
+        <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-layout-text-window-reverse"></i><span>Departments</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
-      </li><!-- End Dashboard Nav -->
+        <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="CIT.php">
+              <i class="bi bi-circle-fill"></i><span>CIT</span>
+            </a>
+          </li>
+          <li>
+            <a href="MARC.php">
+              <i class="bi bi-circle-fill"></i><span>Monitoring & Alarm Receiving Center</span>
+            </a>
+          </li>
+          <li>
+            <a href="CVSD.php">
+              <i class="bi bi-circle-fill"></i><span>Cash & Valuables Storage Department</span>
+            </a>
+          </li>
+          <li>
+            <a href="CPD.php">
+              <i class="bi bi-circle-fill"></i><span>Cash Processing Department</span>
+            </a>
+          </li>
+          <li>
+            <a href="PD.php">
+              <i class="bi bi-circle-fill"></i><span>Patrol Department</span>
+            </a>
+          </li>
+          <li>
+            <a href="HS.php">
+              <i class="bi bi-circle-fill"></i><span>Health & Safety</span>
+            </a>
+          </li>
+        </ul>
+      </li><!-- End Tables Nav -->
+
       <li class="nav-item">
         <a class="nav-link collapsed" href="employees.php">
           <i class="bi bi-layout-text-sidebar"></i>
@@ -145,6 +178,7 @@ Secure(1);
           <span>Questions</span>
         </a>
       </li><!-- End Dashboard Nav -->
+
       <li class="nav-item">
         <a class="nav-link collapsed" href="profile.php">
           <i class="bi bi-person"></i>
@@ -157,6 +191,8 @@ Secure(1);
           <span>About Us</span>
         </a>
       </li><!-- End Profile Page Nav -->
+
+
 
     </ul>
 
@@ -173,14 +209,15 @@ Secure(1);
 
     <section class="section">
       <div class="row">
-        <div class="col-lg-10">
+        <div class="col-lg-12">
 
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Department 1</h5>
+
               <p> <a href="https://github.com/fiduswriter/Simple-DataTables" target="_blank"></a>  <code></code> </p>
-					<!-- Basic Modal -->
-          <p align="right">
+
+				<!-- Basic Modal -->
+				<p align="right">
               <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#basicModal" >
                 Add Employee
               </button>
@@ -190,57 +227,61 @@ Secure(1);
                     <div class="modal-header">
                       <h5 class="modal-title">Add Employee</h5>
                     </div>
-
                     <form  method="POST">
                     <form >
                     <div class="row mb-3">
-                  <label for="inputText" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Name*</label>
+                  <label for="inputText" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Name<span style="color: red">*</span></label>
                   <div class="col-sm-8">
-                    <input type="text" required name= "name" id= "name1" class="form-control">
+                    <input type="text" required  autocomplete="off" name= "name" id= "name1" class="form-control" >
                   </div>
                 </div>
                 <div class="row mb-3">
-                  <label for="inputEmail" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Surname*</label>
+                  <label for="inputEmail" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Surname<span style="color: red">*</span></label>
                   <div class="col-sm-8">
-                    <input type="text" required name= "surname" id= "surname1"class="form-control">
+                    <input type="text" required autocomplete="off" name= "surname" id= "surname1"class="form-control">
                   </div>
                 </div>
-                <div class="row mb-3">
-                  <label for="inputNumber" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Position*</label>
-                  <div class="col-sm-8">
-                    <input type="text" required name= "position" id= "position1"class="form-control">
-                  </div>
+                <div class="row mb-4">
+                      <label class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Position<span style="color: red">*</span></label>
+                      <div class="col-sm-8">
+                        <select name= "position" required  class="form-select" id= "position1" aria-label="Default select example" >
+                        <option disabled selected value="">Choose Position </option>
+                          <option value="0">Officer</option>
+                          <option value="1">Supervisor</option>
+                          <option value="2">Manager</option>
+                        </select>
+                      </div>
                 </div>
                 <div class="row mb-3">
-                  <label for="inputPassword" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Username*</label>
+                  <label for="inputPassword" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Username<span style="color: red">*</span></label>
                   <div class="col-sm-8">
-                    <input type="text" required name= "username" id= "username1"class="form-control">
+                    <input type="text" required autocomplete="off" name= "username" id= "username1"class="form-control">
                   </div>
                 </div>
                 <div class="row mb-3">
                   <label for="inputNumber" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Email</label>
                   <div class="col-sm-8">
-                    <input type="email" name= "email" id= "email1" class="form-control">
+                    <input type="email"  autocomplete="off"  name= "email" id= "email1" class="form-control">
                   </div>
                 </div>
 
                 <div class="row mb-4">
-                      <label class="col-sm-3 col-form-label">&nbsp;Department*</label>
+                      <label class="col-sm-3 col-form-label">&nbsp;Department<span style="color: red">*</span></label>
                       <div class="col-sm-8">
                         <select name= "dept" required class="form-select" id= "dept1" aria-label="Default select example">
-                          <option disabled selected value="">Choose Department </option>
-                          <option value="1">Χρηματαποστολών</option>
-                          <option value="2">Κεντρικού Σταθμού και Λήψης Σημάτων</option>
-                          <option value="3">Φύλαξης Μετρητών και Αξιών</option>
-                          <option value="4">Καταμέτρησης και Επεξεργασίας Μετρητών</option>
-                          <option value="5">Περιπόλων</option>
+                          <option disabled selected value="">Choose Department</option>
+                          <option value="1">CIT</option>
+                          <option value="2">Monitoring & Alarm Receiving Center</option>
+                          <option value="3">Cash & Valuables Storage Department</option>
+                          <option value="4">Cash Processing Department</option>
+                          <option value="5">Patrol Department</option>
                         </select>
                       </div>
                     </div>
                     <div class="row mb-4">
-                      <label class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Type*</label>
+                      <label class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Type<span style="color: red">*</span></label>
                       <div class="col-sm-8">
-                        <select name= "type" required class="form-select" id= "type1" aria-label="Default select example" >
+                        <select name= "type" required  class="form-select" id= "type1" aria-label="Default select example" >
                         <option disabled selected value="">Choose Type </option>
                           <option value="0">User</option>
                           <option value="1">Manager</option>
@@ -251,9 +292,9 @@ Secure(1);
 
 
                 <div class="row mb-4">
-                      <label class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Police &nbsp;&nbsp;&nbsp;&nbsp;Certificate*</label>
+                      <label class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Police &nbsp;&nbsp;&nbsp;&nbsp;Certificate<span style="color: red">*</span></label>
                       <div class="col-sm-8">
-                        <select name= "policecert" required class="form-select" id= "policecert1" aria-label="Default select example">
+                        <select name= "policecert" required  class="form-select" id= "policecert1" aria-label="Default select example">
                         <option disabled selected value="" >Choose Yes or No </option>
                           <option value="0">No</option>
                           <option value="1">Yes</option>
@@ -261,7 +302,8 @@ Secure(1);
                         </select>
                       </div>
                     </div>
-                    <h6>&nbsp;&nbsp;&nbsp;&nbsp;* Indicates a required field</h6>
+                    <h6>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: red">*</span> Indicates a required field</h6>
+
                     <div class="modal-footer">
                     <button  type="button"  class="btn btn-primary" data-bs-target="#modal" onclick="addUser()" >Add</button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -271,6 +313,7 @@ Secure(1);
                   </div>
                 </div>
               </div><!-- End Basic Modal-->
+
               <!-- Edit User Modal-->
               <div class="modal fade" id="modal-Edit-User" >
                 <div class="modal-dialog ">
@@ -281,53 +324,58 @@ Secure(1);
                     <form >
 
                     <div class="row mb-3">
-                  <label for="name" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Name*</label>
+                  <label for="name" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Name<span style="color: red">*</span></label>
                   <div class="col-sm-8">
-                    <input type="text"  required class="form-control"  id= "name" value="" >
+                    <input type="text"  autocomplete="off" class="form-control"  id= "name" value="" >
                   </div>
                 </div>
                 <div class="row mb-3">
-                  <label for="surname" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Surname*</label>
+                  <label for="surname" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Surname<span style="color: red">*</span></label>
                   <div class="col-sm-8">
-                    <input type="text" required class="form-control"   id= "surname"  value="" >
+                    <input type="text" autocomplete="off" class="form-control"   id= "surname"  value="" >
                   </div>
                 </div>
-                <div class="row mb-3">
-                  <label for="position" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Position*</label>
-                  <div class="col-sm-8">
-                    <input type="text" required class="form-control"   id= "position"  value="">
-                  </div>
+                <div class="row mb-4">
+                      <label class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Position<span style="color: red">*</span></label>
+                      <div class="col-sm-8">
+                        <select name= "position" required  class="form-select" id= "position" aria-label="Default select example" >
+                        <option disabled selected value="">Choose Position </option>
+                          <option value="0">Officer</option>
+                          <option value="1">Supervisor</option>
+                          <option value="2">Manager</option>
+                        </select>
+                      </div>
                 </div>
                 <div class="row mb-3">
-                  <label for="username" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Username*</label>
+                  <label for="username" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Username<span style="color: red">*</span></label>
                   <div class="col-sm-8">
-                    <input type="text" required class="form-control"  id="username"  value="">
+                    <input type="text" autocomplete="off" class="form-control"  id="username"  value="">
                   </div>
                 </div>
                 <div class="row mb-3">
                   <label for="email" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Email</label>
                   <div class="col-sm-8">
-                    <input type="email" class="form-control"  id="email"  value="">
+                    <input type="email" autocomplete="off" class="form-control"  id="email"  value="">
                   </div>
                 </div>
 
                 <div class="row mb-4">
-                      <label class="col-sm-3 col-form-label">&nbsp;Department*</label>
+                      <label class="col-sm-3 col-form-label">&nbsp;Department<span style="color: red">*</span></label>
                       <div class="col-sm-8">
-                        <select id= "dept" required class="form-select" aria-label="Default select example">
+                        <select id= "dept" autocomplete="off" class="form-select" aria-label="Default select example">
                           <option disabled selected value="">Choose Department </option>
-                          <option value="1">Χρηματαποστολών</option>
-                          <option value="2">Κεντρικού Σταθμού και Λήψης Σημάτων</option>
-                          <option value="3">Φύλαξης Μετρητών και Αξιών</option>
-                          <option value="4">Καταμέτρησης και Επεξεργασίας Μετρητών</option>
-                          <option value="5">Περιπόλων</option>
+                          <option value="1">CIT</option>
+                          <option value="2">Monitoring & Alarm Receiving Center</option>
+                          <option value="3">Cash & Valuables Storage Department</option>
+                          <option value="4">Cash Processing Department</option>
+                          <option value="5">Patrol Department</option>
                         </select>
                       </div>
                     </div>
                     <div class="row mb-4">
-                      <label class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Type*</label>
+                      <label class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Type<span style="color: red">*</span></label>
                       <div class="col-sm-8">
-                        <select id= "type" required class="form-select" aria-label="Default select example" >
+                        <select id= "type" autocomplete="off" class="form-select" aria-label="Default select example" >
                         <option disabled selected value="">Choose Type </option>
                           <option value="0">User</option>
                           <option value="1">Manager</option>
@@ -337,9 +385,9 @@ Secure(1);
                     </div>
 
                 <div class="row mb-4">
-                      <label class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Police &nbsp;&nbsp;&nbsp;&nbsp;Certificate*</label>
+                      <label class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Police &nbsp;&nbsp;&nbsp;&nbsp;Certificate<span style="color: red">*</span></label>
                       <div class="col-sm-8">
-                        <select id= "policecert" required class="form-select" aria-label="Default select example">
+                        <select id= "policecert" autocomplete="off" class="form-select" aria-label="Default select example">
                         <option disabled selected value="" >Choose Yes or No </option>
                           <option value="0">No</option>
                           <option value="1">Yes</option>
@@ -349,7 +397,7 @@ Secure(1);
                     </div>
                     <input hidden id="id" name="id"></field>
 
-                    <h6>&nbsp;&nbsp;&nbsp;&nbsp;* Indicates a required field</h6>
+                    <h6>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: red">*</span> Indicates a required field</h6>
 
                     <div class="modal-footer">
                     <button  type="button" class="btn btn-primary" onclick="editUser()">Save Changes</button>
@@ -360,91 +408,109 @@ Secure(1);
                     </form>
                   </div>
                 </div>
-              </div>
-              <!-- End Edit_User_Modal-->
+              </div><!-- End Edit_User_Modal-->
 
- <!-- Table with stripped rows -->
- <table class="table datatable">
 
-        <thead>
+			<p align="right">
 
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">ID</th>
-            <th scope="col">Name</th>
-            <th scope="col">Surname</th>
-            <th scope="col">Department</th>
-            <th scope="col">Position</th>
-            <th></th>
-          </tr>
-        </thead>
+              <!-- Table with stripped rows -->
+              <table class="table datatable">
 
-        <tbody>
-        <?php
-              include_once('../php/connect.php');
-              $result = sqlsrv_query($conn, "SELECT * FROM Users WHERE type = 1 or type=2 or type=0");
+                <thead>
 
-                $i = 0;
-                while ($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)) {
-                  $i++;
-                  $id = $row["UserID"];
-                  $name = $row["name"];
-                  $surname = $row["surname"];
-                  $username = $row["username"];
-                  $dept= $row["dept"];
-                  switch ($dept){
-                    case 0:
-                        $deptA = "Χρηματαποστολών";
-                        break;
-                    case 1:
-                        $deptA = "Κεντρικού Σταθμού και Λήψης Σημάτων";
-                        break;
-                    case 2:
-                        $deptA = "Φύλαξης Μετρητών και Αξιών";
-                        break;
-                    case 3:
-                        $deptA = "Καταμέτρησης και Επεξεργασίας Μετρητών";
-                        break;
-                    case 4:
-                        $deptA = "Περιπόλων";
-                        break;
-                }
-
-                  $position=$row["position"];
-                  $type = $row["type"];
-                  $email = $row["email"];
-                  $policecert = $row["policecert"];
-                  echo '
                   <tr>
-                    <td>' . $i .'</td>
-                    <td>' . $id .'</td>
-                    <td>' . $name . '</td>
-                    <td>' . $surname . '</td>
-                    <td hidden>' . $username . '</td>
-                    <td>' . $deptA . '</td>
-                    <td>' . $position . '</td>
-                    <td hidden>' . $type . '</td>
-                    <td hidden>' . $email . '</td>
-                    <td hidden>' . $policecert . '</td>
-                    <td class="text-right py-0 align-middle col-sm-3">
-                      <div class="btn-group btn-group-sm col-sm-11" >
-                        <button class="btn btn-info" type="submit"  data-bs-toggle="modal" data-bs-target="#modal-Edit-User" onclick="modalGetData(this.parentNode.parentNode.parentNode)"></i>Edit</button>
-                        <button class="btn btn-danger" type="submit" onclick="deleteUser(this.parentNode.parentNode.parentNode);"></i>Remove</button>
-                        <button type="button" id="password" class="btn btn-dark"></i>Generate Pass</button>
-                      </div>
-
-                    </td>
+                    <th scope="col">#</th>
+                    <th scope="col">ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Surname</th>
+					          <th scope="col">Department</th>
+                    <th scope="col">Position</th>
+                    <th></th>
                   </tr>
-                  ';
-                }
+                </thead>
 
-        ?>
+                <tbody>
+                <?php
+                      include_once('../php/connect.php');
+                      $sessiondept = $_SESSION["dept"];
+                      $result = sqlsrv_query($conn, "SELECT * FROM Users WHERE  (type = 0  and dept=$sessiondept)");
 
-        </tbody>
+                        $i = 0;
+                        while ($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)) {
+                          $i++;
+                          $id = $row["UserID"];
+                          $name = $row["name"];
+                          $surname = $row["surname"];
+                          $username = $row["username"];
+                          $dept= $row["dept"];
+                          switch ($dept){
+                            case 1:
+                                $deptA = "CIT";
+                                break;
+                            case 2:
+                                $deptA = "Monitoring & Alarm Receiving Center";
+                                break;
+                            case 3:
+                                $deptA = "Cash & Valuables Storage Department";
+                                break;
+                            case 4:
+                                $deptA = "Cash Processing Department";
+                                break;
+                            case 5:
+                                $deptA = "Patrol Department";
+                                break;
+                          }
 
-      </table>
+                          $position=$row["position"];
+                          switch ($position){
+                            case 0:
+                                $positionA = "Officer";
+                                break;
+                            case 1:
+                                $positionA = "Supervisor";
+                                break;
+                            case 2:
+                                $positionA = "Manager";
+                                break;
 
-      <!-- End Table with stripped rows -->
+                          }
+                          $type = $row["type"];
+                          $email = $row["email"];
+                          $policecert = $row["policecert"];
+                          echo '
+                          <tr>
+                            <td>' . $i .'</td>
+                            <td>' . $id .'</td>
+                            <td>' . $name . '</td>
+                            <td>' . $surname . '</td>
+                            <td hidden>' . $username . '</td>
+                            <td hidden>' . $dept . '</td>
+                            <td>' . $deptA . '</td>
+                            <td hidden>' . $position . '</td>
+                            <td>' . $positionA . '</td>
+                            <td hidden>' . $type . '</td>
+                            <td hidden>' . $email . '</td>
+                            <td hidden>' . $policecert . '</td>
+                            <td class="text-right py-0 align-middle col-sm-3">
+                              <div class="btn-group btn-group-sm col-sm-11" >
+                                <button class="btn btn-info" type="submit"  data-bs-toggle="modal" data-bs-target="#modal-Edit-User" onclick="modalGetData(this.parentNode.parentNode.parentNode)"></i>Edit</button>
+                                <button class="btn btn-danger" type="submit" onclick="deleteUser(this.parentNode.parentNode.parentNode);"></i>Remove</button>
+                                <button class="btn btn-dark" type="submit"  onclick="generatePass(this.parentNode.parentNode.parentNode);"></i>Generate Pass</button>
+                              </div>
+
+                            </td>
+                          </tr>
+                          ';
+                        }
+
+                ?>
+
+                </tbody>
+
+              </table>
+
+              <!-- End Table with stripped rows -->
+
             </div>
           </div>
 
@@ -453,6 +519,8 @@ Secure(1);
     </section>
 
   </main><!-- End #main -->
+
+
 
   <!-- ======= Footer ======= -->
   <footer id="footer" class="footer">
@@ -477,11 +545,17 @@ Secure(1);
   <script src="../assets/vendor/chart.js/chart.min.js"></script>
   <script src="../assets/vendor/apexcharts/apexcharts.min.js"></script>
   <script src="../assets/vendor/echarts/echarts.min.js"></script>
-
+  <!-- jQuery -->
+  <script src="../jss/jquery/jquery.min.js"></script>
+  <!-- Bootstrap 4 -->
+  <script src="../jss/bootstrap/js/bootstrap.bundle.min.js"></script>
   <!-- Template Main JS File -->
   <script src="../assets/js/main.js"></script>
-  <!-- Add Edit Delete functions -->
+  <script src="../jss/dist/js/adminlte.js"></script>
+
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
   <script src="../assets/js/addEditRemove.js"></script>
+
 
 
 </body>
