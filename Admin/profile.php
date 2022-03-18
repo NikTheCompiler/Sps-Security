@@ -84,21 +84,24 @@ Secure(3);
                 echo " ";
                 echo $_SESSION["surname"]; ?></h6>
               <span><?php
-                switch ($_SESSION["position"]){
-                  case 0:
-                      echo "Officer";
-                      break;
-                  case 1:
-                      echo "Supervisor";
-                      break;
-                  case 2:
-                      echo "Manager";
-                      break;
-                  default:
-                      echo $_SESSION["position"];
-                      break;
-                }
-                 ?></span>
+              switch ($_SESSION["position"]){
+                case 0:
+                    echo "Officer";
+                    break;
+                case 1:
+                    echo "Supervisor";
+                    break;
+                case 2:
+                    echo "Manager";
+                    break;
+                case 3:
+                    echo "Admin";
+                    break;
+                default:
+                    echo $_SESSION["position"];
+                    break;
+              }
+               ?></span>
             </li>
             <li>
               <hr class="dropdown-divider">
@@ -236,8 +239,24 @@ Secure(3);
                 echo " ";
                 echo $_SESSION["surname"]; ?></h2>
               <h3><?php
-                echo $_SESSION["position"];
-                 ?></h3>
+              switch ($_SESSION["position"]){
+                case 0:
+                    echo "Officer";
+                    break;
+                case 1:
+                    echo "Supervisor";
+                    break;
+                case 2:
+                    echo "Manager";
+                    break;
+                case 3:
+                    echo "Admin";
+                    break;
+                default:
+                    echo $_SESSION["position"];
+                    break;
+              }
+               ?></h3>
 
             </div>
           </div>
@@ -290,14 +309,50 @@ Secure(3);
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label">Department</div>
                     <div class="col-lg-9 col-md-8"><?php
-                      echo $_SESSION["dept"];
+                      switch ($_SESSION["dept"]){
+                        case 1:
+                            echo"CIT";
+                            break;
+                        case 2:
+                            echo "Monitoring & Alarm Receiving Center";
+                            break;
+                        case 3:
+                            echo "Cash & Valuables Storage Department";
+                            break;
+                        case 4:
+                            echo "Cash Processing Department";
+                            break;
+                        case 5:
+                            echo "Patrol Department";
+                            break;
+                        case 6:
+                            echo"Admin";
+                            break;
+
+                      }
                     ?></div>
                   </div>
 					<div class="row">
                     <div class="col-lg-3 col-md-4 label">Position</div>
                     <div class="col-lg-9 col-md-8"><?php
-                echo $_SESSION["position"];
-                 ?></div>
+              switch ($_SESSION["position"]){
+                case 0:
+                    echo "Officer";
+                    break;
+                case 1:
+                    echo "Supervisor";
+                    break;
+                case 2:
+                    echo "Manager";
+                    break;
+                case 3:
+                    echo "Admin";
+                    break;
+                default:
+                    echo $_SESSION["position"];
+                    break;
+              }
+               ?></div>
                   </div>
 
                   <div class="row">

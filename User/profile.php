@@ -85,7 +85,23 @@ Secure(0);
                 echo " ";
                 echo $_SESSION["surname"]; ?></h6>
               <span><?php
-                echo $_SESSION["position"];
+                switch ($_SESSION["position"]){
+                  case 0:
+                      echo "Officer";
+                      break;
+                  case 1:
+                      echo "Supervisor";
+                      break;
+                  case 2:
+                      echo "Manager";
+                      break;
+                  case 3:
+                      echo "Admin";
+                      break;
+                  default:
+                      echo $_SESSION["position"];
+                      break;
+                  }
                  ?></span>
             </li>
             <li>
@@ -118,30 +134,30 @@ Secure(0);
   <aside id="sidebar" class="sidebar">
 
     <ul class="sidebar-nav" id="sidebar-nav">
-	  <li class="nav-item">
-		<a class="nav-link collapsed" href="dashboard.php">
-		  <i class="bi bi-grid"></i>
-		  <span>Dashboard</span>
-		</a>
-	  </li><!-- End Dashboard Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="dashboard.php">
+          <i class="bi bi-grid"></i>
+          <span>Dashboard</span>
+        </a>
+      </li><!-- End Dashboard Nav -->
+
       <li class="nav-item">
         <a class="nav-link collapsed" href="quiz.php">
-          <i class="bi bi-grid"></i>
+          <i class="bi bi-card-checklist"></i>
           <span>Quiz</span>
         </a>
       </li><!-- End Dashboard Nav -->
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="grades.php">
-          <i class="bi bi-layout-text-window-reverse"></i><span>Grades</span><i ></i>
+          <i class="bi bi-calculator"></i><span>Grades</span><i ></i>
         </a>
 
       </li><!-- End Tables Nav -->
 
-
-
       <li class="nav-item">
-        <a class="nav-link " href="profile.php">
+        <a class="nav-link collapsed" href="profile.php">
           <i class="bi bi-person"></i>
           <span>Profile</span>
         </a>
@@ -151,9 +167,7 @@ Secure(0);
           <i class="bi bi-bank"></i>
           <span>About Us</span>
         </a>
-      </li><!-- End Profile Page Nav -->
-
-
+      </li><!-- End Tables Nav -->
 
     </ul>
 
@@ -185,7 +199,23 @@ Secure(0);
                 echo " ";
                 echo $_SESSION["surname"]; ?> </h2>
               <h3><?php
-                echo $_SESSION["position"];
+                switch ($_SESSION["position"]){
+                  case 0:
+                      echo "Officer";
+                      break;
+                  case 1:
+                      echo "Supervisor";
+                      break;
+                  case 2:
+                      echo "Manager";
+                      break;
+                  case 3:
+                      echo "Admin";
+                      break;
+                  default:
+                      echo $_SESSION["position"];
+                      break;
+                  }
                  ?></h3>
 
             </div>
@@ -238,13 +268,49 @@ Secure(0);
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label">Department</div>
                     <div class="col-lg-9 col-md-8"><?php
-                echo $_SESSION["dept"];
+                switch ($_SESSION["dept"]){
+                  case 1:
+                      echo"CIT";
+                      break;
+                  case 2:
+                      echo "Monitoring & Alarm Receiving Center";
+                      break;
+                  case 3:
+                      echo "Cash & Valuables Storage Department";
+                      break;
+                  case 4:
+                      echo "Cash Processing Department";
+                      break;
+                  case 5:
+                      echo "Patrol Department";
+                      break;
+                  case 6:
+                      echo"Admin";
+                      break;
+
+                }
                  ?></div>
                   </div>
 					<div class="row">
                     <div class="col-lg-3 col-md-4 label">Position</div>
                     <div class="col-lg-9 col-md-8"><?php
-                echo $_SESSION["position"];
+                switch ($_SESSION["position"]){
+                  case 0:
+                      echo "Officer";
+                      break;
+                  case 1:
+                      echo "Supervisor";
+                      break;
+                  case 2:
+                      echo "Manager";
+                      break;
+                  case 3:
+                      echo "Admin";
+                      break;
+                  default:
+                      echo $_SESSION["position"];
+                      break;
+                  }
                  ?></div>
                   </div>
 
@@ -289,9 +355,9 @@ Secure(0);
 					<div class="row mb-3">
                       <label for="Position" class="col-md-4 col-lg-3 col-form-label">Position</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="position" type="text" class="form-control" id="position" value="<?php
+                        <input name="position" type="text" class="form-control" id="position" value=""<?php
                 echo $_SESSION["position"];
-                 ?>">
+                 ?>>
                       </div>
                     </div>
 

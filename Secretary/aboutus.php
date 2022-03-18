@@ -2,7 +2,7 @@
 session_start();
 include_once('../php/connect.php');
 include_once('../php/security.php');
-Secure(3);
+Secure(2);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -235,35 +235,18 @@ Secure(3);
                 <h3>Who we are</h3>
                 <p>A group of 4 students located in Cyprus University of Technology created this project.<br>
                    This project was created within the course of the subject CEI_328 and to meet the needs
-                   of SPS Private Security Services LTD</p>
+                   of SPS Private Security Services LTD.</p>
                    
               </div>
             </div>
-            <!--<div class="col-lg-6">
-              <div class="info-box card">
-                <i class="bi bi-telephone"></i>
-                <h3>Call Us</h3>
-                <p>99176111</p>
-              </div>
-            </div>
-            <div class="col-lg-6">
-              <div class="info-box card">
-                <i class="bi bi-envelope"></i>
-                <h3>Email Us</h3>
-                <p>ae.evangelou@edu.cut.ac.cy</p>
-              </div>
-            </div>
-            <div class="col-lg-6">
-              <div class="info-box card">
-                <i class="bi bi-clock"></i>
-                <h3>Open Hours</h3>
-                <p></p>
-              </div>
-            </div> -->
+            
           </div>
 
         </div>
 
+      </section>
+
+</main><!-- End #main -->
 
 
     <footer id="footer" class="footer">

@@ -95,6 +95,9 @@ Secure(3);
                 case 2:
                     echo "Manager";
                     break;
+                case 3:
+                    echo "Admin";
+                    break;
                 default:
                     echo $_SESSION["position"];
                     break;
@@ -235,7 +238,7 @@ Secure(3);
                 <h3>Who we are</h3>
                 <p>A group of 4 students located in Cyprus University of Technology created this project.<br>
                    This project was created within the course of the subject CEI_328 and to meet the needs
-                   of SPS Private Security Services LTD</p>
+                   of SPS Private Security Services LTD.</p>
                    
               </div>
             </div>
@@ -243,7 +246,9 @@ Secure(3);
           </div>
 
         </div>
+      </section>
 
+</main><!-- End #main -->
 
 
     <footer id="footer" class="footer">
