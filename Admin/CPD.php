@@ -236,87 +236,49 @@ Secure(3);
 <input type="date" id="start" name="trip-start"
        value="2018-07-22"
        min="2018-01-01" max="2018-12-31">
-                  <table class="table table-borderless datatable">
-                    <thead>
-                      <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">Employee</th>
+       <table class="table table-borderless datatable">
+         <thead>
+           <tr>
+             <th scope="col">ID</th>
+             <th scope="col">Employee</th>
+             <th scope="col">Grade</th>
+             <th scope="col">Status</th>
+           </tr>
+         </thead>
+         <tbody>
+             <?php
+                   include_once('../php/connect.php');
+                   $result = sqlsrv_query($conn, "SELECT * FROM Users WHERE dept='3' ");
 
-                        <th scope="col">Grade</th>
-                        <th scope="col">Status</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <!-- <tr>
-                                               <th scope="row"><a href="#">2457</a></th>
-                                               <td>Brandon Jacob</td>
+                     $i = 0;
+                     while ($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)) {
+                       $i++;
+                       $id = $row["UserID"];
+                       $name = $row["name"];
+                       $surname = $row["surname"];
+                       $username = $row["username"];
+                       $dept= $row["dept"];
+                       $position=$row["position"];
+                       $type = $row["type"];
+                       $email = $row["email"];
+                       $policecert = $row["policecert"];
+                       echo '
+                       <tr>
+                         <td>' . $id .'</td>
+                         <td>' . $name . ' '.$surname.'</td>
+                         <td hidden>' . $username . '</td>
+                         <td hidden>' . $position . '</td>
+                         <td hidden>' . $type . '</td>
+                         <td hidden>' . $email . '</td>
+                         <td hidden>' . $policecert . '</td>
 
-                                               <td>92</td>
-                                               <td><span class="badge bg-success">Πολύ Καλό</span></td>
-                                             </tr>
-                                             <tr>
-                                               <th scope="row"><a href="#">2147</a></th>
-                                               <td>Bridie Kessler</td>
+                       </tr>
+                       ';
+                     }
 
-                                               <td>59</td>
-                                               <td><span class="badge bg-success">Μέτριο</span></td>
-                                             </tr>
-                                             <tr>
-                                               <th scope="row"><a href="#">2049</a></th>
-                                               <td>Ashleigh Langosh</td>
-
-                                               <td>65</td>
-                                               <td><span class="badge bg-success">Μέτριο</span></td>
-                                             </tr>
-                                             <tr>
-                                               <th scope="row"><a href="#">2644</a></th>
-                                               <td>Angus Grady</td>
-
-                                               <td>45</td>
-                                               <td><span class="badge bg-danger">Αποτυχία</span></td>
-                                             </tr>
-                                             <tr>
-                                               <th scope="row"><a href="#">2644</a></th>
-                                               <td>Raheem Lehner</td>
-
-                                               <td>70</td>
-                                               <td><span class="badge bg-success">Καλό</span></td>
-                                             </tr>-->
-
-                        <?php
-                              include_once('../php/connect.php');
-                              $result = sqlsrv_query($conn, "SELECT * FROM Users WHERE dept='3' ");
-
-                                $i = 0;
-                                while ($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)) {
-                                  $i++;
-                                  $id = $row["UserID"];
-                                  $name = $row["name"];
-                                  $surname = $row["surname"];
-                                  $username = $row["username"];
-                                  $dept= $row["dept"];
-
-                                  $position=$row["position"];
-                                  $type = $row["type"];
-                                  $email = $row["email"];
-                                  $policecert = $row["policecert"];
-                                  echo '
-                                  <tr>
-                                    <td>' . $id .'</td>
-                                    <td>' . $name . ' '.$surname.'</td>
-                                    <td hidden>' . $username . '</td>
-                                    <td>' . $position . '</td>
-                                    <td hidden>' . $type . '</td>
-                                    <td hidden>' . $email . '</td>
-                                    <td hidden>' . $policecert . '</td>
-
-                                  </tr>
-                                  ';
-                                }
-
-                        ?>
-                    </tbody>
-                  </table>
+             ?>
+         </tbody>
+       </table>
 
                 </div>
 

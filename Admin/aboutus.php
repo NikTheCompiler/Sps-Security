@@ -8,6 +8,12 @@ Secure(3);
 <html lang="en">
 
 <head>
+  <style>
+  div {
+  text-align: justify;
+  text-justify: auto;
+}
+  </style>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
@@ -83,7 +89,6 @@ Secure(3);
                 echo $_SESSION["name"];
                 echo " ";
                 echo $_SESSION["surname"]; ?></h6>
-              <span><?php
               <span><?php
               switch ($_SESSION["position"]){
                 case 0:
@@ -229,14 +234,17 @@ Secure(3);
         <div class="col-xl-6">
 
           <div class="row">
-            <div class="col-lg-6">
+            <div class="col-lg-10">
               <div class="info-box card">
-                <i class="bi bi-geo-alt"></i>
-                <h3>Address</h3>
-                <p>Cyprus University of Technology, Limassol</p>
+                <i class="bi bi-at"></i>
+                <h3>Who we are</h3>
+                <p>A group of 4 students located in Cyprus University of Technology created this project.<br>
+                   This project was created within the course of the subject CEI_328 and to meet the needs
+                   of SPS Private Security Services LTD</p>
+                   <img src="https://www.cut.ac.cy/digitalAssets/67/67940_1cut_logo_rgb_english_transparent_large.png" width="450" height="135" />
               </div>
             </div>
-            <div class="col-lg-6">
+            <!--<div class="col-lg-6">
               <div class="info-box card">
                 <i class="bi bi-telephone"></i>
                 <h3>Call Us</h3>
@@ -256,7 +264,7 @@ Secure(3);
                 <h3>Open Hours</h3>
                 <p></p>
               </div>
-            </div>
+            </div> -->
           </div>
 
         </div>
