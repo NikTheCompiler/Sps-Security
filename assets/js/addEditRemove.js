@@ -220,6 +220,9 @@ var id = row.cells[1].innerHTML;
       if (pass==""){
         alert("Current password is required!")
       }
+      else if(newpass==""){
+        alert("New password is required")
+      }
       else if(newpass!=confirmpass){
         alert("New password and confirm password don't match!")
       }
