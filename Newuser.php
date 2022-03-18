@@ -57,7 +57,7 @@ if (isset($_SESSION['UserID']) && isset($_SESSION['username']))
               <div class="d-flex justify-content-center py-4">
                 <a href="dashboard.php" class="logo d-flex align-items-center w-auto">
                   <img src="assets/img/logo.png" alt="">
-                  <span class="d-none d-lg-block">SPS Security</span>
+                  <span class="d-none d-lg-block">SPS Private Security Services LTD</span>
                 </a>
               </div><!-- End Logo -->
 

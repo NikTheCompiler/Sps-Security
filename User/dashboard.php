@@ -51,7 +51,7 @@ Secure(0);
     <div class="d-flex align-items-center justify-content-between">
       <a href="dashboard.php" class="logo d-flex align-items-center">
         <img src="../assets/img/logo.png" alt="">
-        <span class="d-none d-lg-block">SPS Security</span>
+        <span class="d-none d-lg-block">SPS Private Security Services LTD</span>
       </a>
 
     </div><!-- End Logo -->
@@ -143,7 +143,7 @@ Secure(0);
       </li>
       <li class="nav-item">
         <a class="nav-link collapsed" href="aboutus.php">
-          <i class="bi bi-at"></i>
+          <i class="bi bi-bank"></i>
           <span>About Us</span>
         </a>
       </li><!-- End Tables Nav -->
@@ -159,7 +159,7 @@ Secure(0);
 
     </div><!-- End Page Title -->
 <style>
-<h1 {
+h1 {
 
   font-size: 40px;
   margin-top: 0px;

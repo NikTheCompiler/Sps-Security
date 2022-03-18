@@ -8,12 +8,7 @@ Secure(3);
 <html lang="en">
 
 <head>
-  <style>
-  div {
-  text-align: justify;
-  text-justify: auto;
-}
-  </style>
+  
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
@@ -57,7 +52,7 @@ Secure(3);
     <div class="d-flex align-items-center justify-content-between">
       <a href="dashboard.php" class="logo d-flex align-items-center">
         <img src="../assets/img/logo.png" alt="">
-        <span class="d-none d-lg-block">SPS Security</span>
+        <span class="d-none d-lg-block">SPS Private Security Services LTD</span>
       </a>
 
     </div><!-- End Logo -->
@@ -204,7 +199,7 @@ Secure(3);
       </li>
       <li class="nav-item">
         <a class="nav-link collapsed" href="aboutus.php">
-          <i class="bi bi-at"></i>
+          <i class="bi bi-bank"></i>
           <span>About Us</span>
         </a>
       </li>
@@ -234,14 +229,14 @@ Secure(3);
         <div class="col-xl-6">
 
           <div class="row">
-            <div class="col-lg-10">
+            <div class="col-lg-12">
               <div class="info-box card">
-                <i class="bi bi-at"></i>
+              <img src="https://www.cut.ac.cy/digitalAssets/67/67940_1cut_logo_rgb_english_transparent_large.png" width="600" height="200" />
                 <h3>Who we are</h3>
                 <p>A group of 4 students located in Cyprus University of Technology created this project.<br>
                    This project was created within the course of the subject CEI_328 and to meet the needs
                    of SPS Private Security Services LTD</p>
-                   <img src="https://www.cut.ac.cy/digitalAssets/67/67940_1cut_logo_rgb_english_transparent_large.png" width="450" height="135" />
+                   
               </div>
             </div>
             <!--<div class="col-lg-6">
