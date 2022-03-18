@@ -18,6 +18,7 @@ if ($password==$pass){
 
 if (sqlsrv_query($conn,$sql))
 {
+  $_SESSION["password"]=$new;
   echo 1;
 }
 else
