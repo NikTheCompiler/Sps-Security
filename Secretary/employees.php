@@ -268,7 +268,7 @@ Secure(2);
                 <div class="row mb-3">
                   <label for="inputPassword" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Username<span style="color: red">*</span></label>
                   <div class="col-sm-8">
-                    <input type="text" required autocomplete="off" name= "username" id= "username1"class="form-control" disabled>
+                    <input type="text" required autocomplete="off" name= "username" id= "username1"class="form-control" >
                   </div>
                 </div>
                 <div class="row mb-3">
@@ -362,7 +362,7 @@ Secure(2);
                 <div class="row mb-3">
                   <label for="username" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Username<span style="color: red">*</span></label>
                   <div class="col-sm-8">
-                    <input type="text" autocomplete="off" class="form-control"  id="username"  value="">
+                    <input type="text" autocomplete="off" class="form-control"  id="username"  value="" disabled>
                   </div>
                 </div>
                 <div class="row mb-3">

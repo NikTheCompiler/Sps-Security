@@ -69,7 +69,9 @@ function addUser()
       else if (data !=2) {
         Swal.fire({
           icon: 'success',
-          title: 'User added successfully!  Password is: ' + data ,
+          title: 'User added successfully!',
+          text: 'Password is: ' + data ,
+          
         }).then((result) => {
           location.reload();             
         })
