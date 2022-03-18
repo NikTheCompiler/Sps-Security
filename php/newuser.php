@@ -38,6 +38,8 @@ if ($password== $pass){
           $_SESSION['username'] = $username;
           $_SESSION['position'] = $row['position'];
           $_SESSION['UserID'] = $row['UserID'];
+          $_SESSION['newuser'] = $row['newuser'];
+          $_SESSION['password'] = $new;
           header('Location: ../Admin/dashboard.php');
         }
 
@@ -50,6 +52,8 @@ if ($password== $pass){
           $_SESSION['username'] = $username;
           $_SESSION['position'] = $row['position'];
           $_SESSION['UserID'] = $row['UserID'];
+          $_SESSION['newuser'] = $row['newuser'];
+          $_SESSION['password'] = $new;
           header('Location: ../Secretary/dashboard.php');
       }
       else if($_SESSION['type']== $manager)
@@ -61,6 +65,8 @@ if ($password== $pass){
           $_SESSION['username'] = $username;
           $_SESSION['position'] = $row['position'];
           $_SESSION['UserID'] = $row['UserID'];
+          $_SESSION['newuser'] = $row['newuser'];
+          $_SESSION['password'] = $new;
           header('Location: ../Manager/dashboard.php');
       }
       else
@@ -72,6 +78,8 @@ if ($password== $pass){
           $_SESSION['username'] = $username;
           $_SESSION['position'] = $row['position'];
           $_SESSION['UserID'] = $row['UserID'];
+          $_SESSION['newuser'] = $row['newuser'];
+          $_SESSION['password'] = $new;
           header('Location: ../User/dashboard.php');
       }
     }
