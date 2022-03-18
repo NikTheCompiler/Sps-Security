@@ -205,7 +205,9 @@ Secure(0);
                 </li>
 
 
-
+                <li class="nav-item">
+                  <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit">Edit Profile</button>
+                </li>
 
 
                 <li class="nav-item">
@@ -255,33 +257,87 @@ Secure(0);
 
                 </div>
 
-                <div class="tab-pane fade pt-3" id="profile-change-password">
-                  <!-- Change Password Form -->
-                  <form method="post" action="../php/passwordchange.php">
+                <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
 
+                  <!-- Profile Edit Form -->
+                  <form>
+                  <h5 class="card-title">Change Details</h5>
                     <div class="row mb-3">
-                      <label for="currentPassword" class="col-md-4 col-lg-3 col-form-label">Current Password</label>
+                      <label for="name" class="col-md-4 col-lg-3 col-form-label">Name</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="pass" type="password" class="form-control" id="pass">
+                        <input name="name" type="text" class="form-control" id="name" value="<?php
+                echo $_SESSION["name"];
+                 ?>">
+                      </div>
+                    </div>
+                    <div class="row mb-3">
+                      <label for="surname" class="col-md-4 col-lg-3 col-form-label">Surname</label>
+                      <div class="col-md-8 col-lg-9">
+                        <input name="surname" type="text" class="form-control" id="surname" value="<?php
+                echo $_SESSION["surname"];
+                 ?>">
+                      </div>
+                    </div>
+                    <div class="row mb-3">
+                      <label for="dept" class="col-md-4 col-lg-3 col-form-label">Department</label>
+                      <div class="col-md-8 col-lg-9">
+                        <input name="dept" type="text" class="form-control" id="dept" value="<?php
+                echo $_SESSION["dept"];
+                 ?>">
+                      </div>
+                    </div>
+					<div class="row mb-3">
+                      <label for="Position" class="col-md-4 col-lg-3 col-form-label">Position</label>
+                      <div class="col-md-8 col-lg-9">
+                        <input name="position" type="text" class="form-control" id="position" value="<?php
+                echo $_SESSION["position"];
+                 ?>">
                       </div>
                     </div>
 
                     <div class="row mb-3">
-                      <label for="newPassword" class="col-md-4 col-lg-3 col-form-label">New Password</label>
+                      <label for="Email" class="col-md-4 col-lg-3 col-form-label">Email</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="newpass" type="password" class="form-control" id="newpass">
-                      </div>
-                    </div>
-
-                    <div class="row mb-3">
-                      <label for="renewPassword" class="col-md-4 col-lg-3 col-form-label">Re-enter New Password</label>
-                      <div class="col-md-8 col-lg-9">
-                        <input name="confirmpass" type="password" class="form-control" id="confirmpass">
+                        <input name="email" type="email" class="form-control" id="Email" value="<?php
+                echo $_SESSION["email"];
+                 ?>">
                       </div>
                     </div>
 
                     <div class="text-center">
-                      <button type="submit" class="btn btn-primary">Change Password</button>
+                      <button type="submit" class="btn btn-primary">Save Changes</button>
+                    </div>
+                  </form><!-- End Profile Edit Form -->
+
+                </div>
+
+                <div class="tab-pane fade pt-3" id="profile-change-password">
+                  <!-- Change Password Form -->
+                  <form >
+
+                    <div class="row mb-3">
+                      <label for="pass" class="col-md-4 col-lg-3 col-form-label" required>Current Password </label>
+                      <div class="col-md-8 col-lg-9">
+                        <input name="pass" required type="password" class="form-control" id="pass">
+                      </div>
+                    </div>
+
+                    <div class="row mb-3">
+                      <label for="newpass" class="col-md-4 col-lg-3 col-form-label">New Password</label>
+                      <div class="col-md-8 col-lg-9">
+                        <input name="newpass" required type="password" class="form-control" id="newpass">
+                      </div>
+                    </div>
+
+                    <div class="row mb-3">
+                      <label for="confirmpass" class="col-md-4 col-lg-3 col-form-label">Re-enter New Password</label>
+                      <div class="col-md-8 col-lg-9">
+                        <input name="confirmpass" required type="password" class="form-control" id="confirmpass">
+                      </div>
+                    </div>
+
+                    <div class="text-center">
+                      <button type="button" class="btn btn-primary" onclick="changePass()">Change Password</button>
                     </div>
                   </form><!-- End Change Password Form -->
 
@@ -312,6 +368,7 @@ Secure(0);
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
+
   <!-- Vendor JS Files -->
   <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
   <script src="../assets/vendor/php-email-form/validate.js"></script>
@@ -321,10 +378,17 @@ Secure(0);
   <script src="../assets/vendor/chart.js/chart.min.js"></script>
   <script src="../assets/vendor/apexcharts/apexcharts.min.js"></script>
   <script src="../assets/vendor/echarts/echarts.min.js"></script>
-
+  <!-- jQuery -->
+  <script src="../jss/jquery/jquery.min.js"></script>
+  <!-- Bootstrap 4 -->
+  <script src="../jss/bootstrap/js/bootstrap.bundle.min.js"></script>
   <!-- Template Main JS File -->
   <script src="../assets/js/main.js"></script>
+  <script src="../jss/dist/js/adminlte.js"></script>
 
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+  <script src="../assets/js/addEditRemove.js"></script>
 </body>
 
 </html>
