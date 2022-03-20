@@ -150,6 +150,33 @@ function editUser()
   }
 }
 
+function editProfile(){
+  var id = $("#id")[0].value;
+  var name = document.getElementById("name").value;
+  var surname = document.getElementById("surname").value;
+  var email = document.getElementById("email").value;
+
+  $.post("../php/editProfile.php", {
+    name: name,
+    surname: surname,
+    email: email,
+    id: id,
+    })
+    .done(function(data) {
+      if (data == 1) {
+        Swal.fire({
+          icon: 'success',
+          title: 'Profile updated successfully!',
+        }).then((result) => {
+          location.reload();             
+        })
+
+      } else if (data == 0){
+        alert("Failed!");
+      }
+    });
+}
+
 function deleteUser(row) {
 var id = row.cells[1].innerHTML;
   Swal.fire({

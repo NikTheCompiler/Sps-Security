@@ -347,7 +347,7 @@ Secure(0);
                     <div class="row mb-3">
                       <label for="dept" class="col-md-4 col-lg-3 col-form-label">Department</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="dept" type="text" class="form-control" id="dept" value="<?php
+                        <input name="dept" type="text" disabled class="form-control" id="dept" value="<?php
                 echo $_SESSION["dept"];
                  ?>">
                       </div>
@@ -355,7 +355,7 @@ Secure(0);
 					<div class="row mb-3">
                       <label for="Position" class="col-md-4 col-lg-3 col-form-label">Position</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="position" type="text" class="form-control" id="position" value=""<?php
+                        <input name="position" type="text" disabled class="form-control" id="position" value=""<?php
                 echo $_SESSION["position"];
                  ?>>
                       </div>
@@ -364,14 +364,14 @@ Secure(0);
                     <div class="row mb-3">
                       <label for="Email" class="col-md-4 col-lg-3 col-form-label">Email</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="email" type="email" class="form-control" id="Email" value="<?php
+                        <input name="email" type="email" class="form-control" id="email" value="<?php
                 echo $_SESSION["email"];
                  ?>">
                       </div>
                     </div>
 
                     <div class="text-center">
-                      <button type="submit" class="btn btn-primary">Save Changes</button>
+                      <button type="button" class="btn btn-primary" onclick="editProfile()">Save Changes</button>
                     </div>
                   </form><!-- End Profile Edit Form -->
 
@@ -435,8 +435,8 @@ Secure(0);
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
 
-  <!-- Vendor JS Files -->
-  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
+<!-- Vendor JS Files -->
+<script src="../assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
   <script src="../assets/vendor/php-email-form/validate.js"></script>
   <script src="../assets/vendor/quill/quill.min.js"></script>
   <script src="../assets/vendor/tinymce/tinymce.min.js"></script>
