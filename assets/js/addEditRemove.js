@@ -151,16 +151,30 @@ function editUser()
 }
 
 function editProfile(){
-  var id = $("#id")[0].value;
-  var name = document.getElementById("name").value;
-  var surname = document.getElementById("surname").value;
-  var email = document.getElementById("email").value;
+  var id = $("#id2")[0].value;
+  var name = $("#name2")[0].value;
+  var surname = $("#surname2")[0].value;
+  var email=$("#email2")[0].value;
 
+  var atSymbol = email.indexOf("@");
+  var dot = email.indexOf(".");
+
+  if(name==""){
+    alert('Name is required!')
+  }
+  else if(surname==""){
+    alert('Surname is required!')
+  }
+  else if(email!="" && (atSymbol < 1||dot <= atSymbol + 2||dot === email.length - 1)){
+    alert('Wrong email format!')
+  }
+  else{
   $.post("../php/editProfile.php", {
+    id: id,
     name: name,
     surname: surname,
     email: email,
-    id: id,
+    
     })
     .done(function(data) {
       if (data == 1) {
@@ -174,7 +188,9 @@ function editProfile(){
       } else if (data == 0){
         alert("Failed!");
       }
+      
     });
+  }
 }
 
 function deleteUser(row) {
@@ -272,9 +288,12 @@ var id = row.cells[1].innerHTML;
             })
 
           } else if (data == 0){
-            alert("Failed");
-            
+            alert("Wrong current password!");
           }
+          else{
+            alert("Something went wrong!")
+          }
+          
         });
       }
     }
