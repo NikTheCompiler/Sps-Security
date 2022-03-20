@@ -68,7 +68,21 @@ session_start();
                   </div>
 
                   <form action="php/login.php" class="row g-3 needs-validation" method="post" novalidate>
+                  <?php
+                  if (isset($_SESSION['LoginError'])){
 
+                  if($_SESSION['LoginError']=='1'){
+                      echo '<p class="login-box-msg" style="color: red;">Your username or password is incorrect.</p>';
+                  }
+
+                  if($_SESSION['LoginError']=='2'){
+                      echo '<p class="login-box-msg" style="color: red;">Account with this username does not exist.</p>';
+                  }
+
+                  unset($_SESSION['LoginError']);
+                  }
+        
+                  ?>
                     <div class="col-12">
                       <label for="username" class="form-label">Username</label>
                       <div class="input-group has-validation">

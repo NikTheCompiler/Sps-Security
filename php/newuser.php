@@ -24,8 +24,8 @@ if ($pass==""){
     echo 3;
     exit();
 }
-
-if ($row['password']== $pass){
+if($row['password']== $pass){
+if ($new==$confirmpass){
     //$new = hash("sha256", $new);
     $sql = "UPDATE Users SET password='".$new."' , newuser = '1' WHERE username = '".$user."'";
     if (sqlsrv_query($conn,$sql)){
@@ -84,10 +84,19 @@ if ($row['password']== $pass){
       }
     }
     else{
-        echo $sql;
+        $_SESSION['LoginError'] = "1";
+        header('Location: ../newuser.php');
     }
 
 }
 else{
-    echo 2;
-}?>
+    $_SESSION['LoginError'] = "2";
+    header('Location: ../newuser.php');
+}
+}
+else{
+    $_SESSION['LoginError'] = "3";
+    header('Location: ../newuser.php');
+}
+
+?>

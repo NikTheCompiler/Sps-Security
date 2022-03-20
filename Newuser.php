@@ -52,10 +52,10 @@ if (isset($_SESSION['UserID']) && isset($_SESSION['username']))
       <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
         <div class="container">
           <div class="row justify-content-center">
-            <div class="col-lg-4 col-md-10 d-flex flex-column align-items-center justify-content-center">
+            <div class="col-lg-6 col-md-12 d-flex flex-column align-items-center justify-content-center">
 
               <div class="d-flex justify-content-center py-4">
-                <a href="dashboard.php" class="logo d-flex align-items-center w-auto">
+                <a href="#" class="logo d-flex align-items-center w-auto">
                   <img src="assets/img/logo.png" alt="">
                   <span class="d-none d-lg-block">SPS Private Security Services LTD</span>
                 </a>
@@ -69,7 +69,23 @@ if (isset($_SESSION['UserID']) && isset($_SESSION['username']))
 					</div><!-- End Page Title -->
 
                   <form method="post" action="php/newuser.php" >
+                  <?php
+                    if (isset($_SESSION['LoginError'])){
 
+                      if($_SESSION['LoginError']=='1'){
+                        echo '<p class="login-box-msg" style="color: red;">Something went wrong!</p>';
+                      }
+
+                      if($_SESSION['LoginError']=='2'){
+                        echo '<p class="login-box-msg" style="color: red;">New password and re-entered password do not match!</p>';
+                      }
+                      if($_SESSION['LoginError']=='3'){
+                        echo '<p class="login-box-msg" style="color: red;">Current password is wrong!</p>';
+                      }
+                      unset($_SESSION['LoginError']);
+                    }
+        
+                  ?>
                     <div class="row mb-3">
                       <label for="pass" class="col-md-1 col-lg-5 col-form-label">Current Password</label>
                       <div class="col-md-1 col-lg-6">
