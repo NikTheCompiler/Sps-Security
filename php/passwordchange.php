@@ -9,16 +9,19 @@ $new = strip_tags($new_input);
 $confirmpass = $_POST["confirmpass"];
 
 $user = $_SESSION["username"];
-$password = $_SESSION["password"];
+
+$sql = "SELECT * FROM Users WHERE username='".$user."'";
+$req =  sqlsrv_query($conn, $sql) or die(print_r(sqlsrv_errors(),true));
+$row = sqlsrv_fetch_array($req, SQLSRV_FETCH_ASSOC);
 
 
-if ($password==$pass){
+
+if ($row['password']==$pass){
     //$new = hash("sha256", $new);
     $sql = "UPDATE Users SET password='".$new."' WHERE username = '".$user."'";
 
 if (sqlsrv_query($conn,$sql))
 {
-  $_SESSION["password"]=$new;
   echo 1;
 }
 else
@@ -26,4 +29,5 @@ else
   echo 0; 
 }
 }
+
 ?>

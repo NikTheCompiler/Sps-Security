@@ -14,18 +14,18 @@ $new = strip_tags($new_input);
 $confirmpass = $_POST["confirmpass"];
 
 $user = $_SESSION["username"];
-$password = $_SESSION["password"];
+
 
 $sql1 = "SELECT * FROM Users WHERE username='".$user."'";
-    $req =  sqlsrv_query($conn, $sql1) or die(print_r(sqlsrv_errors(),true));
-    $row = sqlsrv_fetch_array($req, SQLSRV_FETCH_ASSOC);
+$req =  sqlsrv_query($conn, $sql1) or die(print_r(sqlsrv_errors(),true));
+$row = sqlsrv_fetch_array($req, SQLSRV_FETCH_ASSOC);
 
 if ($pass==""){
     echo 3;
     exit();
 }
 
-if ($password== $pass){
+if ($row['password']== $pass){
     //$new = hash("sha256", $new);
     $sql = "UPDATE Users SET password='".$new."' , newuser = '1' WHERE username = '".$user."'";
     if (sqlsrv_query($conn,$sql)){
@@ -35,11 +35,11 @@ if ($password== $pass){
           $_SESSION['name'] = $row['name'];
           $_SESSION['email'] = $row['email'];
           $_SESSION['dept'] = $row['dept'];
-          $_SESSION['username'] = $username;
+          $_SESSION['username'] = $user;
           $_SESSION['position'] = $row['position'];
           $_SESSION['UserID'] = $row['UserID'];
           $_SESSION['newuser'] = $row['newuser'];
-          $_SESSION['password'] = $new;
+          
           header('Location: ../Admin/dashboard.php');
         }
 
@@ -49,11 +49,11 @@ if ($password== $pass){
           $_SESSION['name'] = $row['name'];
           $_SESSION['email'] = $row['email'];
           $_SESSION['dept'] = $row['dept'];
-          $_SESSION['username'] = $username;
+          $_SESSION['username'] = $user;
           $_SESSION['position'] = $row['position'];
           $_SESSION['UserID'] = $row['UserID'];
           $_SESSION['newuser'] = $row['newuser'];
-          $_SESSION['password'] = $new;
+          
           header('Location: ../Secretary/dashboard.php');
       }
       else if($_SESSION['type']== $manager)
@@ -62,11 +62,11 @@ if ($password== $pass){
           $_SESSION['name'] = $row['name'];
           $_SESSION['email'] = $row['email'];
           $_SESSION['dept'] = $row['dept'];
-          $_SESSION['username'] = $username;
+          $_SESSION['username'] = $user;
           $_SESSION['position'] = $row['position'];
           $_SESSION['UserID'] = $row['UserID'];
           $_SESSION['newuser'] = $row['newuser'];
-          $_SESSION['password'] = $new;
+          
           header('Location: ../Manager/dashboard.php');
       }
       else
@@ -75,11 +75,11 @@ if ($password== $pass){
           $_SESSION['name'] = $row['name'];
           $_SESSION['email'] = $row['email'];
           $_SESSION['dept'] = $row['dept'];
-          $_SESSION['username'] = $username;
+          $_SESSION['username'] = $user;
           $_SESSION['position'] = $row['position'];
           $_SESSION['UserID'] = $row['UserID'];
           $_SESSION['newuser'] = $row['newuser'];
-          $_SESSION['password'] = $new;
+          
           header('Location: ../User/dashboard.php');
       }
     }
