@@ -74,11 +74,7 @@ session_start();
                   if($_SESSION['LoginError']=='1'){
                       echo '<p class="login-box-msg" style="color: red;">Your username or password is incorrect.</p>';
                   }
-
-                  if($_SESSION['LoginError']=='2'){
-                      echo '<p class="login-box-msg" style="color: red;">Account with this username does not exist.</p>';
-                  }
-
+                  
                   unset($_SESSION['LoginError']);
                   }
         
