@@ -349,13 +349,13 @@ Secure(0);
                     <div class="row mb-3">
                       <label for="name" class="col-md-4 col-lg-3 col-form-label">Name</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="name" type="text" class="form-control" id="name2" value="<?php echo $name ?>">
+                        <input name="name" type="text" class="form-control" autocomplete="off" id="name2" value="<?php echo $name ?>">
                       </div>
                     </div>
                     <div class="row mb-3">
                       <label for="surname" class="col-md-4 col-lg-3 col-form-label">Surname</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="surname" type="text" class="form-control" id="surname2" value="<?php echo $surname ?>">
+                        <input name="surname" type="text" class="form-control" autocomplete="off" id="surname2" value="<?php echo $surname ?>">
                       </div>
                     </div>
                     <div class="row mb-3">
@@ -413,7 +413,7 @@ Secure(0);
                     <div class="row mb-3">
                       <label for="Email" class="col-md-4 col-lg-3 col-form-label">Email</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="email" type="email" class="form-control" id="email2" value="<?php echo $email ?>">
+                        <input name="email" type="email" class="form-control" autocomplete="" id="email2" value="<?php echo $email ?>">
                       </div>
                     </div>
                     <div class="form-group" hidden>

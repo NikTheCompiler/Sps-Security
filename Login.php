@@ -83,14 +83,14 @@ session_start();
                       <label for="username" class="form-label">Username</label>
                       <div class="input-group has-validation">
                         
-                        <input type="text" name="username" class="form-control" id="username" required>
+                        <input type="text" name="username" autocomplete="off" class="form-control" id="username" required>
                         <div class="invalid-feedback">Please enter your username.</div>
                       </div>
                     </div>
 
                     <div class="col-12">
                       <label for="password" class="form-label">Password</label>
-                      <input type="password" name="password" class="form-control" id="password" required>
+                      <input type="password" name="password" autocomplete="off" class="form-control" id="password" required>
                       <div class="invalid-feedback">Please enter your password!</div>
                     </div>
 

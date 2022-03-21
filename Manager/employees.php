@@ -57,7 +57,21 @@ Secure(1);
       </a>
 
     </div><!-- End Logo -->
-
+    <?php
+                  $id = $_SESSION['UserID'];
+                  $sql = "SELECT * FROM Users WHERE UserID = '".$id."'";
+                  $result = sqlsrv_query($conn, $sql);
+                  
+                    while ($row = sqlsrv_fetch_array($result,SQLSRV_FETCH_ASSOC)) {
+                      $id = $row["UserID"];
+                      $name = $row["name"];
+                      $surname = $row["surname"];
+                      $position=$row["position"];
+                      $dept=$row["dept"];
+                    
+                  
+                    }
+    ?>
 
 
     <nav class="header-nav ms-auto">
@@ -75,19 +89,19 @@ Secure(1);
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
             <img src="../assets/img/12345.jpg" alt="Profile" class="rounded-circle">
             <span class="d-none d-md-block dropdown-toggle ps-2"><?php
-                echo $_SESSION["name"];
+                echo $name;
                 echo " ";
-                echo $_SESSION["surname"]; ?></span>
+                echo $surname; ?></span>
           </a><!-- End Profile Iamge Icon -->
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
             <li class="dropdown-header">
               <h6><?php
-                echo $_SESSION["name"];
+                echo $name;
                 echo " ";
-                echo $_SESSION["surname"]; ?></h6>
+                echo $surname; ?></h6>
               <span><?php
-                switch ($_SESSION["position"]){
+                switch ($position){
                   case 0:
                       echo "Officer";
                       break;
@@ -98,7 +112,7 @@ Secure(1);
                       echo "Manager";
                       break;
                   default:
-                      echo $_SESSION["position"];
+                      echo $position;
                       break;
                 }
                  ?></span>
@@ -202,13 +216,15 @@ Secure(1);
                 Add Employee
               </button>
               <div class="modal fade" id="basicModal" tabindex="-1">
-                <div class="modal-dialog ">
+                <div class="modal-dialog " style="max-width: 30%;">
                   <div class="modal-content">
                     <div class="modal-header">
                       <h5 class="modal-title">Add Employee</h5>
                     </div>
-                    <form  method="POST">
+                    
+                    
                     <form >
+                    <label for="inputText" class="col-sm-3 col-form-label"></span></label>
                     <div class="row mb-3">
                   <label for="inputText" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Name<span style="color: red">*</span></label>
                   <div class="col-sm-8">
@@ -246,13 +262,13 @@ Secure(1);
                 </div>
 
                 <div class="row mb-4">
-                      <label class="col-sm-3 col-form-label">&nbsp;Department<span style="color: red">*</span></label>
+                      <label class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Department<span style="color: red">*</span></label>
                       <div class="col-sm-8">
                         <select name= "dept" required class="form-select" id= "dept1" aria-label="Default select example">
-                        <option value= <?php echo $_SESSION["dept"] ?> >
+                        <option value= <?php echo $dept ?> >
                             <?php
                               include_once('../php/connect.php');
-                              $sessiondept = $_SESSION["dept"];
+                              $sessiondept = $dept;
                               switch ($sessiondept){
                                 case 1:
                                     echo "CIT";
@@ -312,13 +328,13 @@ Secure(1);
 
               <!-- Edit User Modal-->
               <div class="modal fade" id="modal-Edit-User" >
-                <div class="modal-dialog ">
+                <div class="modal-dialog " style="max-width: 30%;">
                   <div class="modal-content">
                     <div class="modal-header">
                       <h5 class="modal-title">Edit Employee</h5>
                     </div>
                     <form >
-
+                    <label for="inputText" class="col-sm-3 col-form-label"></span></label>
                     <div class="row mb-3">
                   <label for="name" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Name<span style="color: red">*</span></label>
                   <div class="col-sm-8">
@@ -356,14 +372,14 @@ Secure(1);
                 </div>
 
                 <div class="row mb-4">
-                      <label class="col-sm-3 col-form-label">&nbsp;Department<span style="color: red">*</span></label>
+                      <label class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Department<span style="color: red">*</span></label>
                       <div class="col-sm-8">
                         <select id= "dept" autocomplete="off" class="form-select" aria-label="Default select example">
                           <option disabled selected value="">Choose Department </option>
-                          <option value= <?php echo $_SESSION["dept"] ?> >
+                          <option value= <?php echo $dept ?> >
                             <?php
                               include_once('../php/connect.php');
-                              $sessiondept = $_SESSION["dept"];
+                              $sessiondept = $dept;
                               switch ($sessiondept){
                                 case 1:
                                     echo "CIT";
@@ -446,7 +462,7 @@ Secure(1);
                 <tbody>
                 <?php
                       include_once('../php/connect.php');
-                      $sessiondept = $_SESSION["dept"];
+                      $sessiondept = $dept;
                       $result = sqlsrv_query($conn, "SELECT * FROM Users WHERE  (type = 0  and dept=$sessiondept)");
 
                         $i = 0;

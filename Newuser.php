@@ -65,7 +65,7 @@ if (isset($_SESSION['UserID']) && isset($_SESSION['username']))
 
                 <div class="card-body">
 					<div class="pagetitle">
-						<h4>  You have to change your password to continue!</h4>
+          <h5 class="card-title text-center pb-0 fs-4">You have to change your password to continue!</h5> 
 					</div><!-- End Page Title -->
 
                   <form method="post" action="php/newuser.php" >

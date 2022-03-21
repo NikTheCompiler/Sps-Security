@@ -56,7 +56,20 @@ Secure(3);
       </a>
 
     </div><!-- End Logo -->
-
+    <?php
+                  $id = $_SESSION['UserID'];
+                  $sql = "SELECT * FROM Users WHERE UserID = '".$id."'";
+                  $result = sqlsrv_query($conn, $sql);
+                  
+                    while ($row = sqlsrv_fetch_array($result,SQLSRV_FETCH_ASSOC)) {
+                      $id = $row["UserID"];
+                      $name = $row["name"];
+                      $surname = $row["surname"];
+                      $position=$row["position"];
+                    
+                  
+                    }
+    ?>
 
 
     <nav class="header-nav ms-auto">
@@ -73,19 +86,19 @@ Secure(3);
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
             <img src="../assets/img/12345.jpg" alt="Profile" class="rounded-circle">
             <span class="d-none d-md-block dropdown-toggle ps-2"><?php
-                echo $_SESSION["name"];
+                echo $name;
                 echo " ";
-                echo $_SESSION["surname"]; ?></span>
+                echo $surname; ?></span>
           </a><!-- End Profile Iamge Icon -->
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
             <li class="dropdown-header">
               <h6><?php
-                echo $_SESSION["name"];
+                echo $name;
                 echo " ";
-                echo $_SESSION["surname"]; ?></h6>
+                echo $surname; ?></h6>
               <span><?php
-              switch ($_SESSION["position"]){
+              switch ($position){
                 case 0:
                     echo "Officer";
                     break;
@@ -99,7 +112,7 @@ Secure(3);
                     echo "Admin";
                     break;
                 default:
-                    echo $_SESSION["position"];
+                    echo $position;
                     break;
               }
                ?></span>
