@@ -270,20 +270,20 @@ Secure(0);
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label ">Name</div>
                     <div class="col-lg-9 col-md-8"><?php
-                echo $name;
+                  echo $name;
                  ?></div>
                   </div>
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label ">Surname</div>
                     <div class="col-lg-9 col-md-8"><?php
-                echo $surname;
+                  echo $surname;
                  ?></div>
                   </div>
 
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label">Department</div>
                     <div class="col-lg-9 col-md-8"><?php
-                switch ($dept){
+                  switch ($dept){
                   case 1:
                       echo"CIT";
                       break;
@@ -303,13 +303,14 @@ Secure(0);
                       echo"Admin";
                       break;
 
-                }
-                 ?></div>
+                  }
+                 ?>
+                 </div>
                   </div>
-					<div class="row">
+					          <div class="row">
                     <div class="col-lg-3 col-md-4 label">Position</div>
                     <div class="col-lg-9 col-md-8"><?php
-                switch ($position){
+                  switch ($position){
                   case 0:
                       echo "Officer";
                       break;
@@ -332,7 +333,7 @@ Secure(0);
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label">Email</div>
                     <div class="col-lg-9 col-md-8"><?php
-                echo $_SESSION["email"];
+                   echo $email;
                  ?></div>
                   </div>
 
@@ -361,51 +362,51 @@ Secure(0);
                       <label for="dept" class="col-md-4 col-lg-3 col-form-label">Department</label>
                       <div class="col-md-8 col-lg-9">
                         <input name="dept" type="text" disabled class="form-control" id="dept2" value="<?php
-                switch ($dept){
-                case 1:
+                 switch ($dept){
+                 case 1:
                     echo "CIT";
                     break;
-                case 2:
+                 case 2:
                     echo "Monitoring & Alarm Receiving Center";
                     break;
-                case 3:
+                 case 3:
                     echo "Cash & Valuables Storage Department";
                     break;
-                case 4:
+                 case 4:
                     echo "Cash Processing Department";
                     break;
-                case 5:
+                 case 5:
                     echo "Patrol Department";
                     break;
-                default:
+                 default:
                     echo $dept;
                     break;
-              }
-               ?>">
+                    }
+                  ?>">
                       </div>
                     </div>
 					          <div class="row mb-3">
                       <label for="Position" class="col-md-4 col-lg-3 col-form-label">Position</label>
                       <div class="col-md-8 col-lg-9">
                         <input name="position" type="text" disabled class="form-control" id="position2" value="<?php
-                switch ($position){
-                case 0:
+                      switch ($position){
+                         case 0:
                     echo "Officer";
                     break;
-                case 1:
+                   case 1:
                     echo "Supervisor";
                     break;
-                case 2:
+                    case 2:
                     echo "Manager";
                     break;
-                case 3:
+                   case 3:
                     echo "Admin";
                     break;
-                default:
+                   default:
                     echo $position;
                     break;
-              }
-               ?>">
+                    }
+                     ?>">
                       </div>
                     </div>
 

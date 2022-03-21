@@ -55,6 +55,22 @@ Secure(1);
       </a>
 
     </div><!-- End Logo -->
+    <?php
+                  $id = $_SESSION['UserID'];
+                  $sql = "SELECT * FROM Users WHERE UserID = '".$id."'";
+                  $result = sqlsrv_query($conn, $sql);
+                  
+                    while ($row = sqlsrv_fetch_array($result,SQLSRV_FETCH_ASSOC)) {
+                      $id = $row["UserID"];
+                      $name = $row["name"];
+                      $surname = $row["surname"];
+                      $email=$row["email"];
+                      $dept=$row["dept"];
+                      $position=$row["position"];
+                    
+                  
+                }
+                ?>
 
 
 
@@ -73,32 +89,35 @@ Secure(1);
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
             <img src="../assets/img/12345.jpg" alt="Profile" class="rounded-circle">
             <span class="d-none d-md-block dropdown-toggle ps-2"><?php
-                echo $_SESSION["name"];
+                echo $name;
                 echo " ";
-                echo $_SESSION["surname"]; ?></span>
+                echo $surname; ?></span>
           </a><!-- End Profile Iamge Icon -->
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
             <li class="dropdown-header">
               <h6><?php
-                echo $_SESSION["name"];
+                echo $name;
                 echo " ";
-                echo $_SESSION["surname"]; ?></h6>
+                echo $surname; ?></h6>
               <span><?php
-                switch ($_SESSION["position"]){
-                  case 0:
-                      echo "Officer";
-                      break;
+               switch ($position){
+                 case 0:
+                     echo "Officer";
+                     break;
                   case 1:
-                      echo "Supervisor";
+                     echo "Supervisor";
+                     break;
+                 case 2:
+                     echo "Manager";
+                     break;
+                 case 3:
+                     echo "Admin";
                       break;
-                  case 2:
-                      echo "Manager";
+                 default:
+                     echo $position;
                       break;
-                  default:
-                      echo $_SESSION["position"];
-                      break;
-                }
+              }
                  ?></span>
             </li>
             <li>
@@ -199,11 +218,11 @@ Secure(1);
 
               <img src="../assets/img/12345.jpg" alt="Profile" class="rounded-circle">
               <h2><?php
-                echo $_SESSION["name"];
+                echo $name;
                 echo " ";
-                echo $_SESSION["surname"]; ?> </h2>
+                echo $surname; ?> </h2>
               <h3><?php
-                switch ($_SESSION["position"]){
+                switch ($position){
                   case 0:
                       echo "Officer";
                       break;
@@ -217,11 +236,10 @@ Secure(1);
                       echo "Admin";
                       break;
                   default:
-                      echo $_SESSION["position"];
+                      echo $position;
                       break;
                   }
-                 ?></h3>
-
+                  ?></h3>
             </div>
           </div>
 
@@ -243,181 +261,175 @@ Secure(1);
                 </li>
 
                 <li class="nav-item">
-                  <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-settings">Settings</button>
-                </li>
-
-                <li class="nav-item">
                   <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-change-password">Change Password</button>
                 </li>
 
               </ul>
               <div class="tab-content pt-2">
 
-                <div class="tab-pane fade show active profile-overview" id="profile-overview">
+              <div class="tab-pane fade show active profile-overview" id="profile-overview">
 
 
-                  <h5 class="card-title">Profile Details</h5>
+          <h5 class="card-title">Profile Details</h5>
 
-                  <div class="row">
-                    <div class="col-lg-3 col-md-4 label ">Name</div>
-                    <div class="col-lg-9 col-md-8"><?php
-                echo $_SESSION["name"];
-                 ?></div>
-                  </div>
-                  <div class="row">
-                    <div class="col-lg-3 col-md-4 label ">Surname</div>
-                    <div class="col-lg-9 col-md-8"><?php
-                echo $_SESSION["surname"];
-                 ?></div>
-                  </div>
+          <div class="row">
+            <div class="col-lg-3 col-md-4 label ">Name</div>
+            <div class="col-lg-9 col-md-8"><?php
+          echo $name;
+          ?></div>
+          </div>
+          <div class="row">
+            <div class="col-lg-3 col-md-4 label ">Surname</div>
+            <div class="col-lg-9 col-md-8"><?php
+          echo $surname;
+          ?></div>
+          </div>
 
-                  <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Department</div>
-                    <div class="col-lg-9 col-md-8"><?php
-                switch ($_SESSION["dept"]){
-                  case 1:
-                      echo"CIT";
-                      break;
-                  case 2:
-                      echo "Monitoring & Alarm Receiving Center";
-                      break;
-                  case 3:
-                      echo "Cash & Valuables Storage Department";
-                      break;
-                  case 4:
-                      echo "Cash Processing Department";
-                      break;
-                  case 5:
-                      echo "Patrol Department";
-                      break;
-                  case 6:
-                      echo"Admin";
-                      break;
+          <div class="row">
+            <div class="col-lg-3 col-md-4 label">Department</div>
+            <div class="col-lg-9 col-md-8"><?php
+          switch ($dept){
+          case 1:
+              echo"CIT";
+              break;
+          case 2:
+              echo "Monitoring & Alarm Receiving Center";
+              break;
+          case 3:
+              echo "Cash & Valuables Storage Department";
+              break;
+          case 4:
+              echo "Cash Processing Department";
+              break;
+          case 5:
+              echo "Patrol Department";
+              break;
+          case 6:
+              echo"Admin";
+              break;
 
-                }
-                 ?></div>
-                  </div>
-					<div class="row">
-                    <div class="col-lg-3 col-md-4 label">Position</div>
-                    <div class="col-lg-9 col-md-8"><?php
-                switch ($_SESSION["position"]){
-                  case 0:
-                      echo "Officer";
-                      break;
-                  case 1:
-                      echo "Supervisor";
-                      break;
-                  case 2:
-                      echo "Manager";
-                      break;
-                  case 3:
-                      echo "Admin";
-                      break;
-                  default:
-                      echo $_SESSION["position"];
-                      break;
-                  }
-                 ?></div>
-                  </div>
+          }
+          ?>
+          </div>
+          </div>
+            <div class="row">
+            <div class="col-lg-3 col-md-4 label">Position</div>
+            <div class="col-lg-9 col-md-8"><?php
+          switch ($position){
+          case 0:
+              echo "Officer";
+              break;
+          case 1:
+              echo "Supervisor";
+              break;
+          case 2:
+              echo "Manager";
+              break;
+          case 3:
+              echo "Admin";
+              break;
+          default:
+              echo $position;
+              break;
+          }
+          ?></div>
+          </div>
 
-                  <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Email</div>
-                    <div class="col-lg-9 col-md-8"><?php
-                echo $_SESSION["email"];
-                 ?></div>
-                  </div>
+          <div class="row">
+            <div class="col-lg-3 col-md-4 label">Email</div>
+            <div class="col-lg-9 col-md-8"><?php
+          echo $email;
+          ?></div>
+          </div>
 
-                </div>
+          </div>
 
-                <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
-                <h5 class="card-title">Change Details</h5>
-                  <!-- Profile Edit Form -->
-                  <form>
+                          <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
 
-                    <div class="row mb-3">
-                      <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Name</label>
-                      <div class="col-md-8 col-lg-9">
-                        <input name="fullName" type="text" class="form-control" id="fullName" value="<?php
-                echo $_SESSION["name"];
-                 ?>">
-                      </div>
-                    </div>
-                    <div class="row mb-3">
-                      <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Surname</label>
-                      <div class="col-md-8 col-lg-9">
-                        <input name="fullName" type="text" class="form-control" id="fullName" value="<?php
-                echo $_SESSION["surname"];
-                 ?>">
-                      </div>
-                    </div>
-
-                    <div class="row mb-3">
-                      <label for="Job" class="col-md-4 col-lg-3 col-form-label">Department</label>
-                      <div class="col-md-8 col-lg-9">
-                        <input name="job" type="text" class="form-control" id="Job" value="<?php
-                echo $_SESSION["dept"];
-                 ?>">
-                      </div>
-                    </div>
-					<div class="row mb-3">
-                      <label for="Job" class="col-md-4 col-lg-3 col-form-label">Position</label>
-                      <div class="col-md-8 col-lg-9">
-                        <input name="job" type="text" class="form-control" id="Job" value="<?php
-                echo $_SESSION["position"];
-                 ?>">
-                      </div>
-                    </div>
+                            <!-- Profile Edit Form -->
+                            
+                            <form>
+                            <h5 class="card-title">Change Details</h5>
+                            
+                              <div class="row mb-3">
+                                <label for="name" class="col-md-4 col-lg-3 col-form-label">Name</label>
+                                <div class="col-md-8 col-lg-9">
+                                  <input name="name" type="text" class="form-control" id="name2" value="<?php echo $name ?>">
+                                </div>
+                              </div>
+                              <div class="row mb-3">
+                                <label for="surname" class="col-md-4 col-lg-3 col-form-label">Surname</label>
+                                <div class="col-md-8 col-lg-9">
+                                  <input name="surname" type="text" class="form-control" id="surname2" value="<?php echo $surname ?>">
+                                </div>
+                              </div>
+                              <div class="row mb-3">
+                                <label for="dept" class="col-md-4 col-lg-3 col-form-label">Department</label>
+                                <div class="col-md-8 col-lg-9">
+                                  <input name="dept" type="text" disabled class="form-control" id="dept2" value="<?php
+                          switch ($dept){
+                          case 1:
+                              echo "CIT";
+                              break;
+                          case 2:
+                              echo "Monitoring & Alarm Receiving Center";
+                              break;
+                          case 3:
+                              echo "Cash & Valuables Storage Department";
+                              break;
+                          case 4:
+                              echo "Cash Processing Department";
+                              break;
+                          case 5:
+                              echo "Patrol Department";
+                              break;
+                          default:
+                              echo $dept;
+                              break;
+                        }
+                        ?>">
+                                </div>
+                              </div>
+                              <div class="row mb-3">
+                                <label for="Position" class="col-md-4 col-lg-3 col-form-label">Position</label>
+                                <div class="col-md-8 col-lg-9">
+                                  <input name="position" type="text" disabled class="form-control" id="position2" value="<?php
+                          switch ($position){
+                          case 0:
+                              echo "Officer";
+                              break;
+                          case 1:
+                              echo "Supervisor";
+                              break;
+                          case 2:
+                              echo "Manager";
+                              break;
+                          case 3:
+                              echo "Admin";
+                              break;
+                          default:
+                              echo $position;
+                              break;
+                        }
+                        ?>">
+                                </div>
+                              </div>
 
                     <div class="row mb-3">
                       <label for="Email" class="col-md-4 col-lg-3 col-form-label">Email</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="email" type="email" class="form-control" id="Email" value="<?php
-                echo $_SESSION["email"];
-                 ?>">
+                        <input name="email" type="email" class="form-control" id="email2" value="<?php echo $email ?>">
                       </div>
+                    </div>
+                    <div class="form-group" hidden>
+                      <label for="name">id</label>
+                      <input type="text" class="form-control" id="id2" value="<?php echo $id ?>">
                     </div>
 
                     <div class="text-center">
-                      <button type="submit" class="btn btn-primary">Save Changes</button>
+                      <button type="button" class="btn btn-primary" onclick="editProfile()">Save Changes</button>
                     </div>
                   </form><!-- End Profile Edit Form -->
-
-                </div>
-
-                <div class="tab-pane fade pt-3" id="profile-settings">
-
-                  <!-- Settings Form -->
-                  <form>
-
-                    <div class="row mb-3">
-                      <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Email Notifications</label>
-                      <div class="col-md-8 col-lg-9">
-                        <div class="form-check">
-                          <input class="form-check-input" type="checkbox" id="changesMade" checked>
-                          <label class="form-check-label" for="changesMade">
-                            Changes made to your account
-                          </label>
-                        </div>
-                        <div class="form-check">
-                          <input class="form-check-input" type="checkbox" id="changesMade" checked>
-                          <label class="form-check-label" for="changesMade">
-                            Test time limit reached
-                          </label>
-                        </div>
-
-                        <div class="form-check">
-                          <input class="form-check-input" type="checkbox" id="securityNotify" checked disabled>
-                          <label class="form-check-label" for="securityNotify">
-                            Security alerts
-                          </label>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="text-center">
-                      <button type="submit" class="btn btn-primary">Save Changes</button>
-                    </div>
-                  </form><!-- End settings Form -->
 
                 </div>
 
