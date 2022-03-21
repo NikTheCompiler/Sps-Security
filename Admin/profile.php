@@ -320,34 +320,6 @@ Secure(3);
                   echo $surname;
                  ?></div>
                   </div>
-
-                  <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Department</div>
-                    <div class="col-lg-9 col-md-8"><?php
-                  switch ($dept){
-                  case 1:
-                      echo"CIT";
-                      break;
-                  case 2:
-                      echo "Monitoring & Alarm Receiving Center";
-                      break;
-                  case 3:
-                      echo "Cash & Valuables Storage Department";
-                      break;
-                  case 4:
-                      echo "Cash Processing Department";
-                      break;
-                  case 5:
-                      echo "Patrol Department";
-                      break;
-                  case 6:
-                      echo"Admin";
-                      break;
-
-                  }
-                 ?>
-                 </div>
-                  </div>
 					          <div class="row">
                     <div class="col-lg-3 col-md-4 label">Position</div>
                     <div class="col-lg-9 col-md-8"><?php
@@ -399,34 +371,7 @@ Secure(3);
                         <input name="surname" type="text" class="form-control" id="surname2" value="<?php echo $surname ?>">
                       </div>
                     </div>
-                    <div class="row mb-3">
-                      <label for="dept" class="col-md-4 col-lg-3 col-form-label">Department</label>
-                      <div class="col-md-8 col-lg-9">
-                        <input name="dept" type="text" disabled class="form-control" id="dept2" value="<?php
-                 switch ($dept){
-                 case 1:
-                    echo "CIT";
-                    break;
-                 case 2:
-                    echo "Monitoring & Alarm Receiving Center";
-                    break;
-                 case 3:
-                    echo "Cash & Valuables Storage Department";
-                    break;
-                 case 4:
-                    echo "Cash Processing Department";
-                    break;
-                 case 5:
-                    echo "Patrol Department";
-                    break;
-                 default:
-                    echo $dept;
-                    break;
-                    }
-                  ?>">
-                      </div>
-                    </div>
-					          <div class="row mb-3">
+					            <div class="row mb-3">
                       <label for="Position" class="col-md-4 col-lg-3 col-form-label">Position</label>
                       <div class="col-md-8 col-lg-9">
                         <input name="position" type="text" disabled class="form-control" id="position2" value="<?php
