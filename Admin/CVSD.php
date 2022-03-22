@@ -23,6 +23,9 @@ Secure(3);
   <link href="https://fonts.gstatic.com" rel="preconnect">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
+  <link href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css" rel="stylesheet">
+  <link href="https://cdn.datatables.net/datetime/1.1.2/css/dataTables.dateTime.min.css" rel="stylesheet">
+
   <!-- Vendor CSS Files -->
   <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
@@ -242,16 +245,18 @@ Secure(3);
 
                 <div class="card-body">
                   <h5 class="card-title">Cash & Valuables Storage Department<span></span></h5>
-					<label for="start">From:</label>
+					<table border="0" cellspacing="5" cellpadding="5">
+        
+  <tbody><tr>
+     <td>Start date:</td>
+    <td><input type="text" id="min" name="min"></td>
+  </tr>
+      <tr>
+            <td>End date:</td>
+            <td><input type="text" id="max" name="max"></td>
+        </tr>
+    </tbody></table>
 
-<input type="date" id="start" name="trip-start"
-       value="2018-07-22"
-       min="2018-01-01" max="2018-12-31">
-	   <label for="start">To:</label>
-
-<input type="date" id="start" name="trip-start"
-       value="2018-07-22"
-       min="2018-01-01" max="2018-12-31">
        <table class="table table-borderless datatable">
          <thead>
            <tr>
@@ -331,6 +336,12 @@ Secure(3);
 
   <!-- Template Main JS File -->
   <script src="../assets/js/main.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+  <script src="https://cdn.datatables.net/datetime/1.1.2/js/dataTables.dateTime.min.js"></script>
+
+  <script src="../assets/js/daterange.js"></script>
 
 </body>
 
