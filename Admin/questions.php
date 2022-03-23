@@ -246,20 +246,20 @@ Secure(3);
 
               <p> <a href="https://github.com/fiduswriter/Simple-DataTables" target="_blank"></a>  <code></code> </p>
 			  
-    <button type="button"  class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#basicModal">Add Category</button></p>
-    <div class="modal fade" id="basicModal" tabindex="-1">
+    <button type="button"  class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#basicModal1">Add Category</button></p>
+    <div class="modal fade" id="basicModal1" tabindex="-1">
                 <div class="modal-dialog " style="max-width: 30%;">
                   <div class="modal-content">
                     <div class="modal-header">
                       <h5 class="modal-title">Add Category</h5>
                     </div>
                     
-                    <form >
+                    <form>
                     <label for="inputText" class="col-sm-3 col-form-label"></span></label>
                     <div class="row mb-3">
                   <label for="inputText" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Name<span style="color: red">*</span></label>
                   <div class="col-sm-8">
-                    <input type="text" required  autocomplete="off" name= "name" id= "name1" class="form-control" >
+                    <input type="text" required  autocomplete="off" name= "qname" id= "cname" class="form-control" >
                   </div>
                 </div>
 
@@ -301,38 +301,38 @@ Secure(3);
                     <div class="row mb-3">
                   <label for="inputText" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Question<span style="color: red">*</span></label>
                   <div class="col-sm-8">
-                    <input type="text" required  autocomplete="off" name= "name" id= "name1" class="form-control" >
+                    <input type="text" required  autocomplete="off" name= "qname" id= "qname" class="form-control" >
                   </div>
                 </div>
                 <div class="row mb-3">
                   <label for="inputEmail" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Choice 1<span style="color: red">*</span></label>
                   <div class="col-sm-8">
-                    <input type="text" required autocomplete="off" name= "surname" id= "surname1"class="form-control">
+                    <input type="text" required autocomplete="off" name= "c1" id= "c1"class="form-control">
                   </div>
                 </div>
                 
                 <div class="row mb-3">
                   <label for="inputPassword" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Choice 2<span style="color: red">*</span></label>
                   <div class="col-sm-8">
-                    <input type="text" required autocomplete="off" name= "username" id= "username1"class="form-control">
+                    <input type="text" required autocomplete="off" name= "c2" id= "c2"class="form-control">
                   </div>
                 </div>
                 <div class="row mb-3">
                   <label for="inputNumber" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Choice 3</label>
                   <div class="col-sm-8">
-                    <input type="email"  autocomplete="off"  name= "email" id= "email1" class="form-control">
+                    <input type="email"  autocomplete="off"  name= "c3" id= "c3" class="form-control">
                   </div>
                 </div>
                 <div class="row mb-3">
                   <label for="inputNumber" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Choice 4</label>
                   <div class="col-sm-8">
-                    <input type="email"  autocomplete="off"  name= "email" id= "email1" class="form-control">
+                    <input type="email"  autocomplete="off"  name= "c4" id= "c4" class="form-control">
                   </div>
                 </div>
                 <div class="row mb-3">
                   <label for="inputPassword" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Answer<span style="color: red">*</span></label>
                   <div class="col-sm-8">
-                    <input type="text" required autocomplete="off" name= "username" id= "username1"class="form-control">
+                    <input type="text" required autocomplete="off" name= "answer" id= "answer"class="form-control">
                   </div>
                 </div>
                 
@@ -340,7 +340,7 @@ Secure(3);
                 <div class="row mb-4">
                       <label class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Department<span style="color: red">*</span></label>
                       <div class="col-sm-8">
-                        <select name= "dept" required class="form-select" id= "dept1" aria-label="Default select example">
+                        <select name= "dept" required class="form-select" id= "dept2" aria-label="Default select example">
                           <option disabled selected value="">Choose Department</option>
                           <option value="1">CIT</option>
                           <option value="2">Monitoring & Alarm Receiving Center</option>
@@ -354,7 +354,7 @@ Secure(3);
                     <div class="row mb-4">
                       <label class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Category<span style="color: red">*</span></label>
                       <div class="col-sm-8">
-                        <select name= "position" required  class="form-select" id= "position1" aria-label="Default select example" >
+                        <select name= "position" required  class="form-select" id= "category" aria-label="Default select example" >
                         <option disabled selected value="">Choose Category </option>
                           <option value="0">Officer</option>
                           <option value="1">Supervisor</option>
@@ -384,9 +384,13 @@ Secure(3);
                     <th scope="col">#</th>
                     <th scope="col">Question</th>
                     <th scope="col">Answer</th>
-					<th scope="col">Options</th>
-                    <th scope="col"></th>
-					<th scope="col"></th>
+					          <th scope="col">Choice 1</th>
+                    <th scope="col">Choice 2</th>
+                    <th scope="col">Choice 3</th>
+                    <th scope="col">Choice 4</th>
+                    <th scope="col">Department</th>
+					          <th scope="col">Category</th>
+                    <th></th>
 
                   </tr>
                 </thead>
@@ -407,7 +411,7 @@ Secure(3);
                     <th scope="row">2</th>
                     <td>Question 2</td>
                     <td>Answer 2</td>
-                    <td>Option 1,Option 2,Option 3</td>
+                    <td>Option 1</td>
                     <td style="color:blue">remove</td>
 					<td style="color:blue">edit</td>
 
@@ -416,7 +420,7 @@ Secure(3);
                     <th scope="row">3</th>
                     <td>Question 3</td>
                     <td>Answer 3</td>
-                    <td>Option 1,Option 2,Option 3,Option 4</td>
+                    <td>Option 1</td>
                     <td style="color:blue">remove</td>
 					<td style="color:blue">edit</td>
 
@@ -425,7 +429,7 @@ Secure(3);
                     <th scope="row">4</th>
                     <td>Question 4</td>
                     <td>Answer 4</td>
-                    <td>Option 1,Option 2</td>
+                    <td>Option 1</td>
                     <td style="color:blue">remove</td>
 					<td style="color:blue">edit</td>
 
@@ -434,7 +438,7 @@ Secure(3);
                     <th scope="row">5</th>
                     <td>Question 5</td>
                     <td>Answer 5</td>
-                    <td>Option 1,Option 2,Option 3,Option 4</td>
+                    <td>Option 1</td>
                     <td style="color:blue">remove</td>
 					<td style="color:blue">edit</td>
 
