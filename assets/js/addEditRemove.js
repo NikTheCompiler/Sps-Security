@@ -305,21 +305,25 @@ var id = row.cells[1].innerHTML;
       var choice2 = document.getElementById("choice2").value;
       var choice3 = document.getElementById("choice3").value;
       var choice4 = document.getElementById("choice4").value;
-      var correctanswer = document.getElementById("correctanswer").value;
+      var correctanswer1 = document.getElementById("correctanswer1").value;
+      var correctanswer2 = document.getElementById("correctanswer2").value;
+      var correctanswer3 = document.getElementById("correctanswer3").value;
+      var correctanswer4 = document.getElementById("correctanswer4").value;
       var dept2 = document.getElementById("dept2").value;
       var category = document.getElementById("category").value;
+      
       
       //var atSymbol = email.indexOf("@");
       //var dot = email.indexOf(".");
       
       
-      if(question==""){
+      if(question == ""){
         alert('Question is required!')
       }
-      else if(choice1==""){
+      else if(choice1 == ""){
         alert('Choice 1 is required!')
       }
-      else if(choice2==""){
+      else if(choice2 == ""){
         alert('Choice 2 is required!')
       }
       /*else if(choice3==""){
@@ -328,23 +332,26 @@ var id = row.cells[1].innerHTML;
       /*else if(choice4==""){
         alert('Choice 4 is required!')
       }*/
-      else if(correctanswer==""){
+      else if((correctanswer1 == "") && (correctanswer2 == "") && (correctanswer3 == "") && (correctanswer4 == "")){
         alert('Correct answer is required!')
       }
-      else if(dept2==""){
-        alert('Department is required!')
+      else if(dept2 == ""){
+        alert('Question Department is required!')
       }
-      else if(category==""){
+      else if(category == ""){
         alert('Question Category is required!')
       }
-
+      else {
         $.post("../php/addQuestion.php", {
             question: question,
             choice1: choice1,
             choice2: choice2,
             choice3: choice3,
             choice4: choice4,
-            correctanswer: correctanswer,
+            correctanswer1: correctanswer1,
+            correctanswer2: correctanswer2,
+            correctanswer3: correctanswer3,
+            correctanswer4: correctanswer4,
             dept2: dept2,
             category: category
             
@@ -364,7 +371,7 @@ var id = row.cells[1].innerHTML;
       
             }
           });
-
+      }
     }
  
 function modalGetData(row)

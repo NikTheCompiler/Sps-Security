@@ -329,11 +329,24 @@ Secure(3);
                     <input type="email"  autocomplete="off" id= "choice4" class="form-control">
                   </div>
                 </div>
-                <div class="row mb-3">
+               <!-- <div class="row mb-3">
                   <label for="inputPassword" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Answer<span style="color: red">*</span></label>
                   <div class="col-sm-8">
                     <input type="text" required autocomplete="off" id= "correctanswer"class="form-control">
-                  </div>
+                 </div>
+                </div> -->
+                <div class="row mb-3">
+                  <label for="thecorrectanswer">&nbsp;&nbsp;&nbsp;&nbsp;Answer<span style="color: red">*</span></label>
+                    <div class="col-sm-8">
+                      <input type="radio" id="correctanswer1" name="Correct_answer1" value="1">
+                      <label for="1">Answer 1</label>
+                      <input type="radio" id="correctanswer2" name="Correct_answer2" value="1">
+                      <label for="2">Answer 2</label>
+                      <input type="radio" id="correctanswer3" name="Correct_answer3" value="1">
+                     <label for="3">Answer 3</label>
+                      <input type="radio" id="correctanswer4" name="Correct_answer4" value="1">
+                     <label for="4">Answer 4</label>
+                    </div>
                 </div>
                 
 
@@ -397,52 +410,84 @@ Secure(3);
 
                 <tbody>
 
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Question 1</td>
-                    <td>Answer 1</td>
-                    <td>Option 1,Option 2</td>
-                    <td style="color:blue">remove</td>
-					<td style="color:blue">edit</td>
+                <?php
+                      include_once('../php/connect.php');
+                      $result = sqlsrv_query($conn, "SELECT * FROM Questions");
 
+                        $i = 0;
+                        while ($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)) {
+                          $i++;
+                          $QID = $row["QID"];
+                          $Ques = $row["Ques"];
+                          $Choice1 = $row["Choice1"];
+                          $Choice2 = $row["Choice2"];
+                          $Choice3 = $row["Choice3"];
+                          $Choice4 = $row["Choice4"];
+                          $CorrectAns = $row["CorrectAns"];
+                          $Dept= $row["Dept"]; //prepei na ginei DeptA gia na doulepsei to switch, j an ginei 
+                                               //DeptA kapoia Departments en polla meala j en ta forei mes ton pinaka j gamiete o pinakas
+                          switch ($Dept){
+                            case 1:
+                                $DeptA = "CIT";
+                                break;
+                            case 2:
+                                $DeptA = "Monitoring & Alarm Receiving Center";
+                                break;
+                            case 3:
+                                $DeptA = "Cash & Valuables Storage Department";
+                                break;
+                            case 4:
+                                $DeptA = "Cash Processing Department";
+                                break;
+                            case 5:
+                                $DeptA = "Patrol Department";
+                                break;
+                          }
+                          $Category = $row["Category"]; // To idio me to DeptA
+                          switch ($Category){
+                            case 1:
+                                $CategoryA = "";
+                                break;
+                            case 2:
+                                $CategoryA = "";
+                                break;
+                            case 3:
+                                $CategoryA = "";
+                                break;
+                            case 4:
+                                $CategoryA = "";
+                                break;
+                            case 5:
+                                $CategoryA = "";
+                                break;
+                            case 6:
+                                $CategoryA = "";
+                                break;
+                          }
+                          echo '
+                          <tr>
+                            <td>' . $i .'</td>
+                            <td>' . $QID .'</td>
+                            <td>' . $Ques . '</td>
+                            <td>' . $Choice1 . '</td>
+                            <td>' . $Choice2 . '</td>
+                            <td>' . $Choice3 . '</td>
+                            <td>' . $Choice4 . '</td>
+                            <td>' . $CorrectAns . '</td>
+                            <td>' . $Dept . '</td>
+                            <td>' . $Category . '</td>
+                            <td class="text-right py-0 align-middle col-sm-3">
+                              <div class="btn-group btn-group-sm col-sm-11" >
+                                <button class="btn btn-info" type="submit"  data-bs-toggle="modal" data-bs-target="#modal-Edit-Question" onclick="modalGetData(this.parentNode.parentNode.parentNode)"></i>Edit</button>
+                                <button class="btn btn-danger" type="submit" onclick="deleteQuestion(this.parentNode.parentNode.parentNode);"></i>Remove</button>
+                              </div>
 
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Question 2</td>
-                    <td>Answer 2</td>
-                    <td>Option 1</td>
-                    <td style="color:blue">remove</td>
-					<td style="color:blue">edit</td>
+                            </td>
+                          </tr>
+                          ';
+                        }
 
-                  </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td>Question 3</td>
-                    <td>Answer 3</td>
-                    <td>Option 1</td>
-                    <td style="color:blue">remove</td>
-					<td style="color:blue">edit</td>
-
-                  </tr>
-                  <tr>
-                    <th scope="row">4</th>
-                    <td>Question 4</td>
-                    <td>Answer 4</td>
-                    <td>Option 1</td>
-                    <td style="color:blue">remove</td>
-					<td style="color:blue">edit</td>
-
-                  </tr>
-                  <tr>
-                    <th scope="row">5</th>
-                    <td>Question 5</td>
-                    <td>Answer 5</td>
-                    <td>Option 1</td>
-                    <td style="color:blue">remove</td>
-					<td style="color:blue">edit</td>
-
-                  </tr>
+                ?>
                 </tbody>
 
               </table>
