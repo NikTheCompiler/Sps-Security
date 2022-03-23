@@ -353,7 +353,7 @@ var id = row.cells[1].innerHTML;
             if (data == 0){
               alert("Failed");
             }
-            else if (data == 0) {
+            else if (data == 1) {
               Swal.fire({
                 icon: 'success',
                 title: 'Question added successfully!',
