@@ -297,6 +297,75 @@ var id = row.cells[1].innerHTML;
         });
       }
     }
+
+    function addQuestion()
+    {
+      var question = document.getElementById("question").value;
+      var choice1 = document.getElementById("choice1").value;
+      var choice2 = document.getElementById("choice2").value;
+      var choice3 = document.getElementById("choice3").value;
+      var choice4 = document.getElementById("choice4").value;
+      var correctanswer = document.getElementById("correctanswer").value;
+      var dept2 = document.getElementById("dept2").value;
+      var category = document.getElementById("category").value;
+      
+      //var atSymbol = email.indexOf("@");
+      //var dot = email.indexOf(".");
+      
+      
+      if(question==""){
+        alert('Question is required!')
+      }
+      else if(choice1==""){
+        alert('Choice 1 is required!')
+      }
+      else if(choice2==""){
+        alert('Choice 2 is required!')
+      }
+      /*else if(choice3==""){
+        alert('Choice 3 is required!')
+      }*/
+      /*else if(choice4==""){
+        alert('Choice 4 is required!')
+      }*/
+      else if(correctanswer==""){
+        alert('Correct answer is required!')
+      }
+      else if(dept2==""){
+        alert('Department is required!')
+      }
+      else if(category==""){
+        alert('Question Category is required!')
+      }
+
+        $.post("../php/addQuestion.php", {
+            question: question,
+            choice1: choice1,
+            choice2: choice2,
+            choice3: choice3,
+            choice4: choice4,
+            correctanswer: correctanswer,
+            dept2: dept2,
+            category: category
+            
+          }) .done(function(data) {
+             
+            if (data == 0){
+              alert("Failed");
+            }
+            else if (data == 0) {
+              Swal.fire({
+                icon: 'success',
+                title: 'Question added successfully!',
+                })
+                .then((result) => {
+                location.reload();             
+              })
+      
+            }
+          });
+
+    }
  
 function modalGetData(row)
 {

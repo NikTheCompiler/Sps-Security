@@ -45,7 +45,8 @@ $params = array($name, $surname,$email , $dept, $type, $username, $password ,$po
     if ($stmt) {  
         echo json_encode($password);
         //header('Location: ../Admin/employees.php');
-    } else {  
+    } 
+    else {  
         echo 0;
         echo "Row insertion failed.\n";  
         die(print_r(sqlsrv_errors(), true));  

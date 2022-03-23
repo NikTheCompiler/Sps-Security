@@ -301,38 +301,38 @@ Secure(3);
                     <div class="row mb-3">
                   <label for="inputText" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Question<span style="color: red">*</span></label>
                   <div class="col-sm-8">
-                    <input type="text" required  autocomplete="off" name= "qname" id= "qname" class="form-control" >
+                    <input type="text" required  autocomplete="off" id= "question" class="form-control" >
                   </div>
                 </div>
                 <div class="row mb-3">
                   <label for="inputEmail" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Choice 1<span style="color: red">*</span></label>
                   <div class="col-sm-8">
-                    <input type="text" required autocomplete="off" name= "c1" id= "c1"class="form-control">
+                    <input type="text" required autocomplete="off" id= "choice1"class="form-control">
                   </div>
                 </div>
                 
                 <div class="row mb-3">
                   <label for="inputPassword" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Choice 2<span style="color: red">*</span></label>
                   <div class="col-sm-8">
-                    <input type="text" required autocomplete="off" name= "c2" id= "c2"class="form-control">
+                    <input type="text" required autocomplete="off" id= "choice2"class="form-control">
                   </div>
                 </div>
                 <div class="row mb-3">
                   <label for="inputNumber" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Choice 3</label>
                   <div class="col-sm-8">
-                    <input type="email"  autocomplete="off"  name= "c3" id= "c3" class="form-control">
+                    <input type="email"  autocomplete="off" id= "choice3" class="form-control">
                   </div>
                 </div>
                 <div class="row mb-3">
                   <label for="inputNumber" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Choice 4</label>
                   <div class="col-sm-8">
-                    <input type="email"  autocomplete="off"  name= "c4" id= "c4" class="form-control">
+                    <input type="email"  autocomplete="off" id= "choice4" class="form-control">
                   </div>
                 </div>
                 <div class="row mb-3">
                   <label for="inputPassword" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Answer<span style="color: red">*</span></label>
                   <div class="col-sm-8">
-                    <input type="text" required autocomplete="off" name= "answer" id= "answer"class="form-control">
+                    <input type="text" required autocomplete="off" id= "correctanswer"class="form-control">
                   </div>
                 </div>
                 
@@ -366,7 +366,7 @@ Secure(3);
                     <h6>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: red">*</span> Indicates a required field</h6>
 
                     <div class="modal-footer">
-                    <button  type="button"  class="btn btn-primary" data-bs-target="#modal" onclick="addQues()" >Add</button>
+                    <button  type="button"  class="btn btn-primary" data-bs-target="#modal" onclick="addQuestion()" >Add</button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
 
                     </div>
@@ -481,9 +481,16 @@ Secure(3);
   <script src="../assets/vendor/chart.js/chart.min.js"></script>
   <script src="../assets/vendor/apexcharts/apexcharts.min.js"></script>
   <script src="../assets/vendor/echarts/echarts.min.js"></script>
-
+  <!-- jQuery -->
+  <script src="../jss/jquery/jquery.min.js"></script>
+  <!-- Bootstrap 4 -->
+  <script src="../jss/bootstrap/js/bootstrap.bundle.min.js"></script>
   <!-- Template Main JS File -->
   <script src="../assets/js/main.js"></script>
+  <script src="../jss/dist/js/adminlte.js"></script>
+
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+  <script src="../assets/js/addEditRemove.js"></script>
 
 </body>
 
