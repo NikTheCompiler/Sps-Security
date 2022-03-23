@@ -4,6 +4,7 @@ include_once('../php/connect.php');
 include_once('../php/security.php');
 Secure(3);
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -244,23 +245,135 @@ Secure(3);
             <div class="card-body">
 
               <p> <a href="https://github.com/fiduswriter/Simple-DataTables" target="_blank"></a>  <code></code> </p>
-			  <select name="cars" id="cars">
-  <option value="volvo">Department 1</option>
-  <option value="saab">SubSection 2</option>
-  <option value="mercedes">SubSection 3</option>
-  <option value="audi">SubSection 4</option>
-  </select>
-  <select name="cars" id="cars">
-  <option value="volvo">SubSection 1</option>
-  <option value="saab">SubSection 2</option>
-  <option value="mercedes">SubSection 3</option>
-  <option value="audi">SubSection 4</option>
-  </select>
-				<p align="right">
-  <button type="button" class="btn btn-primary" >Add Question</button></p>
+			  
+    <button type="button"  class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#basicModal">Add Category</button></p>
+    <div class="modal fade" id="basicModal" tabindex="-1">
+                <div class="modal-dialog " style="max-width: 30%;">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title">Add Category</h5>
+                    </div>
+                    
+                    <form >
+                    <label for="inputText" class="col-sm-3 col-form-label"></span></label>
+                    <div class="row mb-3">
+                  <label for="inputText" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Name<span style="color: red">*</span></label>
+                  <div class="col-sm-8">
+                    <input type="text" required  autocomplete="off" name= "name" id= "name1" class="form-control" >
+                  </div>
+                </div>
 
+                <div class="row mb-4">
+                      <label class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Department<span style="color: red">*</span></label>
+                      <div class="col-sm-8">
+                        <select name= "dept" required class="form-select" id= "dept1" aria-label="Default select example">
+                          <option disabled selected value="">Choose Department</option>
+                          <option value="1">CIT</option>
+                          <option value="2">Monitoring & Alarm Receiving Center</option>
+                          <option value="3">Cash & Valuables Storage Department</option>
+                          <option value="4">Cash Processing Department</option>
+                          <option value="5">Patrol Department</option>
+                        </select>
+                      </div>
+                    </div>
+                    
+                    <h6>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: red">*</span> Indicates a required field</h6>
 
-</p>
+                    <div class="modal-footer">
+                    <button  type="button"  class="btn btn-primary" data-bs-target="#modal" onclick="addCat()" >Add</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+                    </div>
+                    </form>
+                  </div>
+                </div>
+              </div><!-- End Basic Modal-->
+    <button type="button"  class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#basicModal2">Add Question</button></p>
+    <div class="modal fade" id="basicModal2" tabindex="-1">
+                <div class="modal-dialog " style="max-width: 30%;">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title">Add Question</h5>
+                    </div>
+                    
+                    <form >
+                    <label for="inputText" class="col-sm-3 col-form-label"></span></label>
+                    <div class="row mb-3">
+                  <label for="inputText" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Question<span style="color: red">*</span></label>
+                  <div class="col-sm-8">
+                    <input type="text" required  autocomplete="off" name= "name" id= "name1" class="form-control" >
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="inputEmail" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Choice 1<span style="color: red">*</span></label>
+                  <div class="col-sm-8">
+                    <input type="text" required autocomplete="off" name= "surname" id= "surname1"class="form-control">
+                  </div>
+                </div>
+                
+                <div class="row mb-3">
+                  <label for="inputPassword" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Choice 2<span style="color: red">*</span></label>
+                  <div class="col-sm-8">
+                    <input type="text" required autocomplete="off" name= "username" id= "username1"class="form-control">
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="inputNumber" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Choice 3</label>
+                  <div class="col-sm-8">
+                    <input type="email"  autocomplete="off"  name= "email" id= "email1" class="form-control">
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="inputNumber" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Choice 4</label>
+                  <div class="col-sm-8">
+                    <input type="email"  autocomplete="off"  name= "email" id= "email1" class="form-control">
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="inputPassword" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Answer<span style="color: red">*</span></label>
+                  <div class="col-sm-8">
+                    <input type="text" required autocomplete="off" name= "username" id= "username1"class="form-control">
+                  </div>
+                </div>
+                
+
+                <div class="row mb-4">
+                      <label class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Department<span style="color: red">*</span></label>
+                      <div class="col-sm-8">
+                        <select name= "dept" required class="form-select" id= "dept1" aria-label="Default select example">
+                          <option disabled selected value="">Choose Department</option>
+                          <option value="1">CIT</option>
+                          <option value="2">Monitoring & Alarm Receiving Center</option>
+                          <option value="3">Cash & Valuables Storage Department</option>
+                          <option value="4">Cash Processing Department</option>
+                          <option value="5">Patrol Department</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="row mb-4">
+                      <label class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Category<span style="color: red">*</span></label>
+                      <div class="col-sm-8">
+                        <select name= "position" required  class="form-select" id= "position1" aria-label="Default select example" >
+                        <option disabled selected value="">Choose Category </option>
+                          <option value="0">Officer</option>
+                          <option value="1">Supervisor</option>
+                          <option value="2">Manager</option>
+                        </select>
+                      </div>
+                </div>
+
+                    <h6>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: red">*</span> Indicates a required field</h6>
+
+                    <div class="modal-footer">
+                    <button  type="button"  class="btn btn-primary" data-bs-target="#modal" onclick="addQues()" >Add</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+                    </div>
+                    </form>
+                  </div>
+                </div>
+              </div><!-- End Basic Modal-->
 
               <!-- Table with stripped rows -->
               <table class="table datatable">
