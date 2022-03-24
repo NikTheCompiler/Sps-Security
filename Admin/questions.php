@@ -329,25 +329,40 @@ Secure(3);
                     <input type="email"  autocomplete="off" id= "choice4" class="form-control">
                   </div>
                 </div>
-               <!-- <div class="row mb-3">
+              <!-- <div class="row mb-3">
                   <label for="inputPassword" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Answer<span style="color: red">*</span></label>
                   <div class="col-sm-8">
                     <input type="text" required autocomplete="off" id= "correctanswer"class="form-control">
                  </div>
-                </div> -->
-                <div class="row mb-3">
+                </div>                            TEXT BOX CORRECT ANSWER                                                                       --> 
+           <!--    <div class="row mb-3">
                   <label for="thecorrectanswer">&nbsp;&nbsp;&nbsp;&nbsp;Answer<span style="color: red">*</span></label>
                     <div class="col-sm-8">
-                      <input type="radio" id="correctanswer1" name="Correct_answer1" value="1">
-                      <label for="1">Answer 1</label>
-                      <input type="radio" id="correctanswer2" name="Correct_answer2" value="1">
-                      <label for="2">Answer 2</label>
-                      <input type="radio" id="correctanswer3" name="Correct_answer3" value="1">
-                     <label for="3">Answer 3</label>
-                      <input type="radio" id="correctanswer4" name="Correct_answer4" value="1">
-                     <label for="4">Answer 4</label>
+                      <div class="form group" id = "correctanswer">
+                       <input type="radio" name="Correct_answer" value="1">
+                       <label for="1">Answer 1</label>
+                       <input type="radio" name="Correct_answer" value="2">
+                       <label for="2">Answer 2</label>
+                       <input type="radio" name="Correct_answer" value="3">
+                       <label for="3">Answer 3</label>
+                       <input type="radio" name="Correct_answer" value="4">
+                        <label for="4">Answer 4</label>
+                      </div>
                     </div>
-                </div>
+                </div>                                               RADIO BUTTON CORRECT ANSWER                                                                           -->
+
+                <div class="row mb-4">
+                      <label class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Answer<span style="color: red">*</span></label>
+                      <div class="col-sm-8">
+                        <select name= "corrans" required class="form-select" id= "correctanswer" aria-label="Default select example">
+                          <option disabled selected value="">Choose from choices</option>
+                          <option value="1">Choice 1</option>
+                          <option value="2">Choice 2</option>
+                          <option value="3">Choice 3</option>
+                          <option value="4">Choice 4</option>
+                        </select>
+                      </div>
+                    </div>
                 
 
                 <div class="row mb-4">
@@ -395,12 +410,13 @@ Secure(3);
 
                   <tr>
                     <th scope="col">#</th>
+                    <th scope="col">QID</th>
                     <th scope="col">Question</th>
-                    <th scope="col">Answer</th>
 					          <th scope="col">Choice 1</th>
                     <th scope="col">Choice 2</th>
                     <th scope="col">Choice 3</th>
                     <th scope="col">Choice 4</th>
+                    <th scope="col">Answer</th>
                     <th scope="col">Department</th>
 					          <th scope="col">Category</th>
                     <th></th>
@@ -473,7 +489,7 @@ Secure(3);
                             <td>' . $Choice2 . '</td>
                             <td>' . $Choice3 . '</td>
                             <td>' . $Choice4 . '</td>
-                            <td>' . $CorrectAns . '</td>
+                            <td> Choice ' . $CorrectAns . '</td>
                             <td>' . $Dept . '</td>
                             <td>' . $Category . '</td>
                             <td class="text-right py-0 align-middle col-sm-3">

@@ -305,10 +305,10 @@ var id = row.cells[1].innerHTML;
       var choice2 = document.getElementById("choice2").value;
       var choice3 = document.getElementById("choice3").value;
       var choice4 = document.getElementById("choice4").value;
-      var correctanswer1 = document.getElementById("correctanswer1").value;
-      var correctanswer2 = document.getElementById("correctanswer2").value;
-      var correctanswer3 = document.getElementById("correctanswer3").value;
-      var correctanswer4 = document.getElementById("correctanswer4").value;
+      var correctanswer = document.getElementById("correctanswer").value;
+     // var correctanswer2 = document.getElementById("correctanswer2").value;
+      //var correctanswer3 = document.getElementById("correctanswer3").value;
+     // var correctanswer4 = document.getElementById("correctanswer4").value;
       var dept2 = document.getElementById("dept2").value;
       var category = document.getElementById("category").value;
       
@@ -332,8 +332,17 @@ var id = row.cells[1].innerHTML;
       /*else if(choice4==""){
         alert('Choice 4 is required!')
       }*/
-      else if((correctanswer1 == "") && (correctanswer2 == "") && (correctanswer3 == "") && (correctanswer4 == "")){
-        alert('Correct answer is required!')
+      //else if((correctanswer1 == "") && (correctanswer2 == "") && (correctanswer3 == "") && (correctanswer4 == "")){
+       // alert('Correct answer is required!')                                 TO ERROR GIA TO *RADIO BUTTON* CORRECT ANSWER
+      //}
+      else if(correctanswer == ""){
+        alert('Correct Answer is required!')
+      }
+      else if((choice3 == "") && (correctanswer == 3)){
+        alert('u stupid bro? u didnt even fill choice3, and its an answer? .__________. (nik easter egg)')
+      }
+      else if((choice4 == "") && (correctanswer == 4)){
+        alert('u stupid bro? u didnt even fill choice4, and its an answer? .__________. (nik easter egg 2)')
       }
       else if(dept2 == ""){
         alert('Question Department is required!')
@@ -341,6 +350,7 @@ var id = row.cells[1].innerHTML;
       else if(category == ""){
         alert('Question Category is required!')
       }
+
       else {
         $.post("../php/addQuestion.php", {
             question: question,
@@ -348,10 +358,10 @@ var id = row.cells[1].innerHTML;
             choice2: choice2,
             choice3: choice3,
             choice4: choice4,
-            correctanswer1: correctanswer1,
-            correctanswer2: correctanswer2,
-            correctanswer3: correctanswer3,
-            correctanswer4: correctanswer4,
+            correctanswer: correctanswer,
+            //correctanswer2: correctanswer2,
+            //correctanswer3: correctanswer3,
+            //correctanswer4: correctanswer4,
             dept2: dept2,
             category: category
             
