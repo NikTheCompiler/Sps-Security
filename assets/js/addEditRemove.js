@@ -9,11 +9,11 @@ function addUser()
   var username = document.getElementById("username1").value;
   var policecert = document.getElementById("policecert1").value;
   var position = document.getElementById("position1").value;
-  
+
   var atSymbol = email.indexOf("@");
   var dot = email.indexOf(".");
-  
-  
+
+
   if(name==""){
     alert('Name is required!')
   }
@@ -38,7 +38,7 @@ function addUser()
   else if(policecert==""){
     alert('Police Certificate is required!')
   }
-  
+
 
   else{
   $.post("../php/addUser.php", {
@@ -50,10 +50,10 @@ function addUser()
       type: type,
       email: email,
       policecert: policecert
-      
+
     })
     .done(function(data) {
-       
+
       if (data == 0){
         Swal.fire(
           'Failed!',
@@ -75,15 +75,15 @@ function addUser()
           icon: 'success',
           title: 'User added successfully!',
           text: 'Password is: ' + data ,
-          
+
         }).then((result) => {
-          location.reload();             
+          location.reload();
         })
 
       }
     });
   }
-  
+
 }
 
 function editUser()
@@ -97,7 +97,7 @@ function editUser()
   var type = $("#type")[0].value;
   var email=$("#email")[0].value;
   var policecert=$("#policecert")[0].value;
-  
+
   var atSymbol = email.indexOf("@");
   var dot = email.indexOf(".");
 
@@ -136,7 +136,7 @@ function editUser()
       type: type,
       email: email,
       policecert: policecert
-      
+
     })
     .done(function(data) {
       if (data == 1) {
@@ -144,7 +144,7 @@ function editUser()
           icon: 'success',
           title: 'User updated successfully!',
         }).then((result) => {
-          location.reload();             
+          location.reload();
         })
 
       } else if (data == 0){
@@ -182,7 +182,7 @@ function editProfile(){
     name: name,
     surname: surname,
     email: email,
-    
+
     })
     .done(function(data) {
       if (data == 1) {
@@ -190,7 +190,7 @@ function editProfile(){
           icon: 'success',
           title: 'Profile updated successfully!',
         }).then((result) => {
-          location.reload();             
+          location.reload();
         })
 
       } else if (data == 0){
@@ -200,7 +200,7 @@ function editProfile(){
           'error'
         );
       }
-      
+
     });
   }
 }
@@ -228,7 +228,7 @@ var id = row.cells[1].innerHTML;
               'success'
             );
             row.parentNode.removeChild(row);
-          
+
           }else if(data==0) {
             Swal.fire(
               'Failed!',
@@ -263,8 +263,8 @@ var id = row.cells[1].innerHTML;
                   'New generated password: '+ data,
                   'success'
                 );
-                
-              
+
+
               }else if(data==0) {
                 Swal.fire(
                   'Failed!',
@@ -313,7 +313,7 @@ var id = row.cells[1].innerHTML;
           else{
             alert("Something went wrong!")
           }
-          
+
         });
       }
     }
@@ -331,9 +331,9 @@ var id = row.cells[1].innerHTML;
     //  var correctanswer4 = document.getElementById("correctanswer4").value;
       var dept2 = document.getElementById("dept2").value;
       var category = document.getElementById("category").value;
-      
-      
-      
+
+
+
       if(question == ""){
         alert('Question is required!')
       }
@@ -381,9 +381,9 @@ var id = row.cells[1].innerHTML;
             //correctanswer4: correctanswer4,
             dept2: dept2,
             category: category
-            
+
           }) .done(function(data) {
-             
+
             if (data == 0){
               Swal.fire(
                 'Failed!',
@@ -397,13 +397,75 @@ var id = row.cells[1].innerHTML;
                 title: 'Question added successfully!',
                 })
                 .then((result) => {
-                location.reload();             
+                location.reload();
               })
-      
+
             }
           });
       }
     }
+
+    function editQuestion()
+    {
+      var id = $("#id")[0].value;
+      var question = $("#question")[0].value;
+      var choice1 = $("#choice1")[0].value;
+      var choice2 = $("#choice2")[0].value;
+      var choice3 = $("#choice3")[0].value;
+      var choice4 = $("#choice4")[0].value;
+      var correctanswer = $("#correctanswer")[0].value;
+      var dept2 = $("#dept2")[0].value;
+      var category = $("#category")[0].value;
+
+
+      if(question==""){
+        alert('Question is required!')
+      }
+      else if(choice1==""){
+        alert('Choice 1 is required!')
+      }
+      else if(choice2==""){
+        alert('Choice 2 is required!')
+      }
+      else if(dept==""){
+        alert('Department is required!')
+      }
+      else if(correctanswer==""){
+        alert('Correct Answer is required!')
+      }
+      else{
+      $.post("../php/editQuestion.php", {
+          id: id,
+          question: question,
+          choice1: choice1,
+          choice2: choice2,
+          choice3: choice3,
+          choice4: choice4,
+          correctanswer: correctanswer,
+          dept2: dept2,
+          category: category
+
+        })
+        .done(function(data) {
+          if (data == 1) {
+            Swal.fire({
+              icon: 'success',
+              title: 'Question updated successfully!',
+            }).then((result) => {
+              location.reload();
+            })
+
+          } else if (data == 0){
+            Swal.fire(
+              'Failed!',
+              '',
+              'error'
+            );
+          }
+        });
+      }
+    }
+
     function deleteQuestion(row) {
       var id = row.cells[1].innerHTML;
         Swal.fire({
@@ -427,7 +489,7 @@ var id = row.cells[1].innerHTML;
                     'success'
                   );
                   row.parentNode.removeChild(row);
-                
+
                 }else if(data==0) {
                   Swal.fire(
                     'Failed!',
@@ -463,7 +525,7 @@ var id = row.cells[1].innerHTML;
                       'success'
                     );
                     row.parentNode.removeChild(row);
-                  
+
                   }else if(data==0) {
                     Swal.fire(
                     'Failed!',
@@ -475,7 +537,7 @@ var id = row.cells[1].innerHTML;
             }
           });
         }
- 
+
 function modalGetData(row)
 {
   var id = row.cells[1].innerHTML;
@@ -487,8 +549,8 @@ function modalGetData(row)
   var type = row.cells[9].innerHTML;
   var email = row.cells[10].innerHTML;
   var policecert = row.cells[11].innerHTML;
-  
-  
+
+
   document.getElementById("id").value=id;
   document.getElementById("name").value=name;
   document.getElementById("surname").value=surname;

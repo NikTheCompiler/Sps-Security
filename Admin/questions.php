@@ -60,14 +60,14 @@ Secure(3);
                   $id = $_SESSION['UserID'];
                   $sql = "SELECT * FROM Users WHERE UserID = '".$id."'";
                   $result = sqlsrv_query($conn, $sql);
-                  
+
                     while ($row = sqlsrv_fetch_array($result,SQLSRV_FETCH_ASSOC)) {
                       $id = $row["UserID"];
                       $name = $row["name"];
                       $surname = $row["surname"];
                       $position=$row["position"];
-                    
-                  
+
+
                     }
     ?>
 
@@ -245,7 +245,7 @@ Secure(3);
             <div class="card-body">
 
               <p> <a href="https://github.com/fiduswriter/Simple-DataTables" target="_blank"></a>  <code></code> </p>
-              
+
               <ul class="nav nav-tabs nav-tabs-bordered">
 
                 <li class="nav-item">
@@ -261,7 +261,7 @@ Secure(3);
               <div class="tab-content pt-2">
 
               <div class="tab-pane fade show active questions" id="questions">
-            
+
     <button type="button"  class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#basicModal2">Add Question</button></p>
 
     <div class="modal fade" id="basicModal2" tabindex="-1">
@@ -270,7 +270,7 @@ Secure(3);
                     <div class="modal-header">
                       <h5 class="modal-title">Add Question</h5>
                     </div>
-                    
+
                     <form >
                     <label for="inputText" class="col-sm-3 col-form-label"></span></label>
                     <div class="row mb-3">
@@ -285,7 +285,7 @@ Secure(3);
                     <input type="text" required autocomplete="off" id= "choice1"class="form-control">
                   </div>
                 </div>
-                
+
                 <div class="row mb-3">
                   <label for="inputPassword" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Choice 2<span style="color: red">*</span></label>
                   <div class="col-sm-8">
@@ -309,7 +309,7 @@ Secure(3);
                   <div class="col-sm-8">
                     <input type="text" required autocomplete="off" id= "correctanswer"class="form-control">
                  </div>
-                </div>                            TEXT BOX CORRECT ANSWER                                                                       --> 
+                </div>                            TEXT BOX CORRECT ANSWER                                                                       -->
            <!--    <div class="row mb-3">
                   <label for="thecorrectanswer">&nbsp;&nbsp;&nbsp;&nbsp;Answer<span style="color: red">*</span></label>
                     <div class="col-sm-8">
@@ -338,7 +338,7 @@ Secure(3);
                         </select>
                       </div>
                     </div>
-                
+
 
                 <div class="row mb-4">
                       <label class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Department<span style="color: red">*</span></label>
@@ -378,6 +378,100 @@ Secure(3);
                 </div>
               </div><!-- End Basic Modal-->
 
+              <!-- Edit Question Modal-->
+              <div class="modal fade" id="modal-Edit-Question" >
+                <div class="modal-dialog " style="max-width: 30%;">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title">Edit Question</h5>
+                    </div>
+                    <form >
+                    <label for="name" class="col-sm-3 col-form-label"></span></label>
+                    <div class="row mb-3">
+                  <label for="name" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Question<span style="color: red">*</span></label>
+                  <div class="col-sm-8">
+                    <input type="text"  autocomplete="off" class="form-control"  id= "question" value="" >
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="surname" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Choice 1<span style="color: red">*</span></label>
+                  <div class="col-sm-8">
+                    <input type="text" autocomplete="off" class="form-control"   id= "choice1"  value="" >
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="surname" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Choice 2<span style="color: red">*</span></label>
+                  <div class="col-sm-8">
+                    <input type="text" autocomplete="off" class="form-control"   id= "choice2"  value="" >
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="surname" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Choice 3</label>
+                  <div class="col-sm-8">
+                    <input type="text" autocomplete="off" class="form-control"   id= "choice3"  value="" >
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="surname" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Choice 4</label>
+                  <div class="col-sm-8">
+                    <input type="text" autocomplete="off" class="form-control"   id= "choice4"  value="" >
+                  </div>
+                </div>
+
+                    <div class="row mb-4">
+                          <label class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Answer<span style="color: red">*</span></label>
+                          <div class="col-sm-8">
+                            <select name= "corrans" required class="form-select" id= "correctanswer" aria-label="Default select example">
+                              <option disabled selected value="">Choose from choices</option>
+                              <option value="1">Choice 1</option>
+                              <option value="2">Choice 2</option>
+                              <option value="3">Choice 3</option>
+                              <option value="4">Choice 4</option>
+                            </select>
+                          </div>
+                        </div>
+
+
+                    <div class="row mb-4">
+                          <label class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Department<span style="color: red">*</span></label>
+                          <div class="col-sm-8">
+                            <select name= "dept" required class="form-select" id= "dept2" aria-label="Default select example">
+                              <option disabled selected value="">Choose Department</option>
+                              <option value="1">CIT</option>
+                              <option value="2">Monitoring & Alarm Receiving Center</option>
+                              <option value="3">Cash & Valuables Storage Department</option>
+                              <option value="4">Cash Processing Department</option>
+                              <option value="5">Patrol Department</option>
+                            </select>
+                          </div>
+                        </div>
+
+                        <div class="row mb-4">
+                          <label class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Category<span style="color: red">*</span></label>
+                          <div class="col-sm-8">
+                            <select name= "position" required  class="form-select" id= "category" aria-label="Default select example" >
+                            <option disabled selected value="">Choose Category </option>
+                              <option value="0">Officer</option>
+                              <option value="1">Supervisor</option>
+                              <option value="2">Manager</option>
+                            </select>
+                          </div>
+                        </div>
+
+                    <input hidden id="id" name="id"></field>
+
+                    <h6>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: red">*</span> Indicates a required field</h6>
+
+                    <div class="modal-footer">
+                    <button  type="button" class="btn btn-primary" onclick="editQuestion()">Save Changes</button>
+                    <button  type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+
+                    </form>
+                  </div>
+                </div>
+              </div><!-- End Edit_User_Modal-->
+
               <!-- Table with stripped rows -->
               <table class="table datatable">
 
@@ -415,7 +509,7 @@ Secure(3);
                           $Choice3 = $row["Choice3"];
                           $Choice4 = $row["Choice4"];
                           $CorrectAns = $row["CorrectAns"];
-                          $Dept= $row["Dept"]; //prepei na ginei DeptA gia na doulepsei to switch, j an ginei 
+                          $Dept= $row["Dept"]; //prepei na ginei DeptA gia na doulepsei to switch, j an ginei
                                                //DeptA kapoia Departments en polla meala j en ta forei mes ton pinaka j gamiete o pinakas
                           switch ($Dept){
                             case 1:
@@ -468,10 +562,12 @@ Secure(3);
                             <td>' . $DeptA . '</td>
                             <td>' . $Category . '</td>
                             <td class="text-right py-0 align-middle col-sm-3">
-                              <div class="btn-group btn-group-sm col-sm-11" >
-                                <button class="btn btn-info" type="submit"  data-bs-toggle="modal" data-bs-target="#modal-Edit-Question" onclick="modalGetData(this.parentNode.parentNode.parentNode)"></i>Edit</button>
-                                <button class="btn btn-danger" type="submit" onclick="deleteQuestion(this.parentNode.parentNode.parentNode);"></i>Remove</button>
-                              </div>
+
+                            <div class="btn-group btn-group-sm col-sm-11" >
+                              <button class="btn btn-info" type="submit"  data-bs-toggle="modal" data-bs-target="#modal-Edit-Question" onclick="modalGetData(this.parentNode.parentNode.parentNode)"></i>Edit</button>
+                              <button class="btn btn-danger" type="submit" onclick="deleteQuestion(this.parentNode.parentNode.parentNode);"></i>Remove</button>
+                            </div>
+
 
                             </td>
                           </tr>
@@ -487,15 +583,15 @@ Secure(3);
               </div>
 
               <div class="tab-pane fade categories " id="categories">
-                
+
               <button type="button"  class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#basicModal1">Add Category</button></p>
-    <div class="modal fade" id="basicModal1" tabindex="-1">
+              <div class="modal fade" id="basicModal1" tabindex="-1">
                 <div class="modal-dialog " style="max-width: 30%;">
                   <div class="modal-content">
                     <div class="modal-header">
                       <h5 class="modal-title">Add Category</h5>
                     </div>
-                    
+
                     <form>
                     <label for="inputText" class="col-sm-3 col-form-label"></span></label>
                     <div class="row mb-3">
@@ -518,7 +614,7 @@ Secure(3);
                         </select>
                       </div>
                     </div>
-                    
+
                     <h6>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: red">*</span> Indicates a required field</h6>
 
                     <div class="modal-footer">
@@ -530,6 +626,7 @@ Secure(3);
                   </div>
                 </div>
               </div><!-- End Basic Modal-->
+
               <!-- Table with stripped rows -->
               <table class="table datatable">
 
@@ -556,7 +653,7 @@ Secure(3);
                           $i++;
                           $CID = $row["CID"];
                           $Cname = $row["Cname"];
-                          $Dept= $row["Dept"]; //prepei na ginei DeptA gia na doulepsei to switch, j an ginei 
+                          $Dept= $row["Dept"]; //prepei na ginei DeptA gia na doulepsei to switch, j an ginei
                                                //DeptA kapoia Departments en polla meala j en ta forei mes ton pinaka j gamiete o pinakas
                           switch ($Dept){
                             case 1:
@@ -587,12 +684,18 @@ Secure(3);
                                 <button class="btn btn-danger" type="submit" onclick="deleteCategory(this.parentNode.parentNode.parentNode);"></i>Remove</button>
                               </div>
 
+
                             </td>
                           </tr>
                           ';
                         }
 
                 ?>
+                <div class="modal-footer">
+                  <button  type="button" class="btn btn-primary" onclick="editCat()">Save Changes</button>
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+                </div>
                 </tbody>
 
               </table>
@@ -600,7 +703,7 @@ Secure(3);
               <!-- End Table with stripped rows -->
               </div>
             </div>
-            
+
 
         </div>
       </div>
