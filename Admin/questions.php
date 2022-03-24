@@ -390,38 +390,38 @@ Secure(3);
                     <div class="row mb-3">
                   <label for="name" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Question<span style="color: red">*</span></label>
                   <div class="col-sm-8">
-                    <input type="text"  autocomplete="off" class="form-control"  id= "question" value="" >
+                    <input type="text"  autocomplete="off" class="form-control"  id= "question2" value="" >
                   </div>
                 </div>
                 <div class="row mb-3">
                   <label for="surname" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Choice 1<span style="color: red">*</span></label>
                   <div class="col-sm-8">
-                    <input type="text" autocomplete="off" class="form-control"   id= "choice1"  value="" >
+                    <input type="text" autocomplete="off" class="form-control"   id= "choice12"  value="" >
                   </div>
                 </div>
                 <div class="row mb-3">
                   <label for="surname" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Choice 2<span style="color: red">*</span></label>
                   <div class="col-sm-8">
-                    <input type="text" autocomplete="off" class="form-control"   id= "choice2"  value="" >
+                    <input type="text" autocomplete="off" class="form-control"   id= "choice22"  value="" >
                   </div>
                 </div>
                 <div class="row mb-3">
                   <label for="surname" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Choice 3</label>
                   <div class="col-sm-8">
-                    <input type="text" autocomplete="off" class="form-control"   id= "choice3"  value="" >
+                    <input type="text" autocomplete="off" class="form-control"   id= "choice32"  value="" >
                   </div>
                 </div>
                 <div class="row mb-3">
                   <label for="surname" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Choice 4</label>
                   <div class="col-sm-8">
-                    <input type="text" autocomplete="off" class="form-control"   id= "choice4"  value="" >
+                    <input type="text" autocomplete="off" class="form-control"   id= "choice42"  value="" >
                   </div>
                 </div>
 
                     <div class="row mb-4">
                           <label class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Answer<span style="color: red">*</span></label>
                           <div class="col-sm-8">
-                            <select name= "corrans" required class="form-select" id= "correctanswer" aria-label="Default select example">
+                            <select name= "correctans" required class="form-select" id= "correctans" aria-label="Default select example">
                               <option disabled selected value="">Choose from choices</option>
                               <option value="1">Choice 1</option>
                               <option value="2">Choice 2</option>
@@ -435,7 +435,7 @@ Secure(3);
                     <div class="row mb-4">
                           <label class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Department<span style="color: red">*</span></label>
                           <div class="col-sm-8">
-                            <select name= "dept" required class="form-select" id= "dept2" aria-label="Default select example">
+                            <select name= "dept" required class="form-select" id= "dept3" aria-label="Default select example">
                               <option disabled selected value="">Choose Department</option>
                               <option value="1">CIT</option>
                               <option value="2">Monitoring & Alarm Receiving Center</option>
@@ -449,7 +449,7 @@ Secure(3);
                         <div class="row mb-4">
                           <label class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Category<span style="color: red">*</span></label>
                           <div class="col-sm-8">
-                            <select name= "position" required  class="form-select" id= "category" aria-label="Default select example" >
+                            <select name= "position" required  class="form-select" id= "category2" aria-label="Default select example" >
                             <option disabled selected value="">Choose Category </option>
                               <option value="0">Officer</option>
                               <option value="1">Supervisor</option>
@@ -458,7 +458,7 @@ Secure(3);
                           </div>
                         </div>
 
-                    <input hidden id="id" name="id"></field>
+                    <input hidden id="id2" name="id2"></field>
 
                     <h6>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: red">*</span> Indicates a required field</h6>
 
@@ -558,13 +558,15 @@ Secure(3);
                             <td>' . $Choice2 . '</td>
                             <td>' . $Choice3 . '</td>
                             <td>' . $Choice4 . '</td>
-                            <td> Choice ' . $CorrectAns . '</td>
+                            <td hidden>' . $CorrectAns . '</td>
+                            <td>Choice ' . $CorrectAns . '</td>
+                            <td hidden>' . $Dept . '</td>
                             <td>' . $DeptA . '</td>
                             <td>' . $Category . '</td>
                             <td class="text-right py-0 align-middle col-sm-3">
 
                             <div class="btn-group btn-group-sm col-sm-11" >
-                              <button class="btn btn-info" type="submit"  data-bs-toggle="modal" data-bs-target="#modal-Edit-Question" onclick="modalGetData(this.parentNode.parentNode.parentNode)"></i>Edit</button>
+                              <button class="btn btn-info" type="submit"  data-bs-toggle="modal" data-bs-target="#modal-Edit-Question" onclick="modalGetDataQuestion(this.parentNode.parentNode.parentNode)"></i>Edit</button>
                               <button class="btn btn-danger" type="submit" onclick="deleteQuestion(this.parentNode.parentNode.parentNode);"></i>Remove</button>
                             </div>
 
@@ -691,11 +693,7 @@ Secure(3);
                         }
 
                 ?>
-                <div class="modal-footer">
-                  <button  type="button" class="btn btn-primary" onclick="editCat()">Save Changes</button>
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-
-                </div>
+                
                 </tbody>
 
               </table>

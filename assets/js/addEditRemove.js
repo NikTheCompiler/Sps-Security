@@ -407,15 +407,15 @@ var id = row.cells[1].innerHTML;
 
     function editQuestion()
     {
-      var id = $("#id")[0].value;
-      var question = $("#question")[0].value;
-      var choice1 = $("#choice1")[0].value;
-      var choice2 = $("#choice2")[0].value;
-      var choice3 = $("#choice3")[0].value;
-      var choice4 = $("#choice4")[0].value;
-      var correctanswer = $("#correctanswer")[0].value;
-      var dept2 = $("#dept2")[0].value;
-      var category = $("#category")[0].value;
+      var id = $("#id2")[0].value;
+      var question = $("#question2")[0].value;
+      var choice1 = $("#choice12")[0].value;
+      var choice2 = $("#choice22")[0].value;
+      var choice3 = $("#choice32")[0].value;
+      var choice4 = $("#choice42")[0].value;
+      var correctanswer = $("#correctans")[0].value;
+      var dept2 = $("#dept3")[0].value;
+      var category = $("#category2")[0].value;
 
 
       if(question==""){
@@ -427,12 +427,16 @@ var id = row.cells[1].innerHTML;
       else if(choice2==""){
         alert('Choice 2 is required!')
       }
-      else if(dept==""){
-        alert('Department is required!')
-      }
       else if(correctanswer==""){
         alert('Correct Answer is required!')
       }
+      else if(dept2==""){
+        alert('Department is required!')
+      }
+      else if(category==""){
+        alert('Category is required!')
+      }
+      
       else{
       $.post("../php/editQuestion.php", {
           id: id,
@@ -560,4 +564,28 @@ function modalGetData(row)
   document.getElementById("type").value=type;
   document.getElementById("email").value=email;
   document.getElementById("policecert").value=policecert;
+}
+
+function modalGetDataQuestion(row)
+{
+  var id = row.cells[1].innerHTML;
+  var ques = row.cells[2].innerHTML;
+  var c1 = row.cells[3].innerHTML;
+  var c2 = row.cells[4].innerHTML;
+  var c3 = row.cells[5].innerHTML;
+  var c4 = row.cells[6].innerHTML;
+  var ca = row.cells[7].innerHTML;
+  var dept = row.cells[9].innerHTML;
+  var category = row.cells[11].innerHTML;
+
+
+  document.getElementById("id2").value=id;
+  document.getElementById("question2").value=ques;
+  document.getElementById("choice12").value=c1;
+  document.getElementById("choice22").value=c2;
+  document.getElementById("choice32").value=c3;
+  document.getElementById("choice42").value=c4;
+  document.getElementById("correctans").value=ca;
+  document.getElementById("dept3").value=dept;
+  document.getElementById("category2").value=category;
 }
