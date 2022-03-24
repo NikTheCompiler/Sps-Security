@@ -55,7 +55,11 @@ function addUser()
     .done(function(data) {
        
       if (data == 0){
-        alert("Failed");
+        Swal.fire(
+          'Failed!',
+          '',
+          'error'
+        );
       }
       else if(data == 2){
         alert("Username is already used!");
@@ -144,7 +148,11 @@ function editUser()
         })
 
       } else if (data == 0){
-        alert("Failed!");
+        Swal.fire(
+          'Failed!',
+          '',
+          'error'
+        );
       }
     });
   }
@@ -186,7 +194,11 @@ function editProfile(){
         })
 
       } else if (data == 0){
-        alert("Failed!");
+        Swal.fire(
+          'Failed!',
+          '',
+          'error'
+        );
       }
       
     });
@@ -218,7 +230,11 @@ var id = row.cells[1].innerHTML;
             row.parentNode.removeChild(row);
           
           }else if(data==0) {
-            alert(data);
+            Swal.fire(
+              'Failed!',
+              '',
+              'error'
+            );
           }
         });
     }
@@ -250,7 +266,11 @@ var id = row.cells[1].innerHTML;
                 
               
               }else if(data==0) {
-                alert(data);
+                Swal.fire(
+                  'Failed!',
+                  '',
+                  'error'
+                );
               }
             });
         }
@@ -306,15 +326,12 @@ var id = row.cells[1].innerHTML;
       var choice3 = document.getElementById("choice3").value;
       var choice4 = document.getElementById("choice4").value;
       var correctanswer = document.getElementById("correctanswer").value;
-     // var correctanswer2 = document.getElementById("correctanswer2").value;
-      //var correctanswer3 = document.getElementById("correctanswer3").value;
-     // var correctanswer4 = document.getElementById("correctanswer4").value;
+    //  var correctanswer2 = document.getElementById("correctanswer2").value;
+    //   var correctanswer3 = document.getElementById("correctanswer3").value;
+    //  var correctanswer4 = document.getElementById("correctanswer4").value;
       var dept2 = document.getElementById("dept2").value;
       var category = document.getElementById("category").value;
       
-      
-      //var atSymbol = email.indexOf("@");
-      //var dot = email.indexOf(".");
       
       
       if(question == ""){
@@ -368,7 +385,11 @@ var id = row.cells[1].innerHTML;
           }) .done(function(data) {
              
             if (data == 0){
-              alert("Failed");
+              Swal.fire(
+                'Failed!',
+                '',
+                'error'
+              );
             }
             else if (data == 1) {
               Swal.fire({
@@ -383,6 +404,77 @@ var id = row.cells[1].innerHTML;
           });
       }
     }
+    function deleteQuestion(row) {
+      var id = row.cells[1].innerHTML;
+        Swal.fire({
+          title: 'Are you sure?',
+          text: "You won't be able to revert this!",
+          icon: 'warning',
+          showCancelButton: true,
+          reverseButtons: true,
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Confirm'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            $.post("../php/deleteQuestion.php", {
+                id: id,
+              })
+              .done(function(data) {
+                if (data == 1) {
+                  Swal.fire(
+                    'Deleted!',
+                    'The user has been deleted.',
+                    'success'
+                  );
+                  row.parentNode.removeChild(row);
+                
+                }else if(data==0) {
+                  Swal.fire(
+                    'Failed!',
+                    '',
+                    'error'
+                  );
+                }
+              });
+          }
+        });
+      }
+
+      function deleteCategory(row) {
+        var id = row.cells[1].innerHTML;
+          Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            reverseButtons: true,
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Confirm'
+          }).then((result) => {
+            if (result.isConfirmed) {
+              $.post("../php/deleteCategory.php", {
+                  id: id,
+                })
+                .done(function(data) {
+                  if (data == 1) {
+                    Swal.fire(
+                      'Deleted!',
+                      'The user has been deleted.',
+                      'success'
+                    );
+                    row.parentNode.removeChild(row);
+                  
+                  }else if(data==0) {
+                    Swal.fire(
+                    'Failed!',
+                    '',
+                    'error'
+                  );
+                  }
+                });
+            }
+          });
+        }
  
 function modalGetData(row)
 {
