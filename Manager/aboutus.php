@@ -197,12 +197,7 @@ Secure(1);
 
     <div class="pagetitle">
       <h1>About Us</h1>
-      <nav>
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="dashboard.php">Home</a></li>
-          <li class="breadcrumb-item active">About Us</li>
-        </ol>
-      </nav>
+      
     </div>
     <section class="section contact">
 
@@ -214,10 +209,15 @@ Secure(1);
             <div class="col-lg-12">
               <div class="info-box card">
               <img src="https://www.cut.ac.cy/digitalAssets/67/67940_1cut_logo_rgb_english_transparent_large.png" width="600" height="200" />
-                <h3>Who we are</h3>
+                <h3><u>Who we are</u></h3>
                 <p>A group of 4 students located in Cyprus University of Technology created this project.<br>
                    This project was created within the course of the subject CEI_328 and to meet the needs
-                   of SPS Private Security Services LTD.</p>
+                   of SPS Private Security Services LTD.<br>
+                   <u>Team:</u><br>
+                  Nikolaos Karaolis <br>
+                  Thrasos Christou<br>
+                  Andronikos Evaggelou<br>
+                  Kwnstantinos Gerolemou</p>
                    
               </div>
             </div>

@@ -211,7 +211,7 @@ Secure(3);
 
 
       <li class="nav-item">
-        <a class="nav-link " href="profile.php">
+        <a class="nav-link" href="profile.php">
           <i class="bi bi-person"></i>
           <span>Profile</span>
         </a>
@@ -233,13 +233,7 @@ Secure(3);
 
     <div class="pagetitle">
       <h1>Profile</h1>
-      <nav>
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="dashboard.php">Home</a></li>
-          <li class="breadcrumb-item">Users</li>
-          <li class="breadcrumb-item active">Profile</li>
-        </ol>
-      </nav>
+      
     </div><!-- End Page Title -->
 
     <section class="section profile">
@@ -421,21 +415,21 @@ Secure(3);
                     <div class="row mb-3">
                       <label for="pass" class="col-md-4 col-lg-3 col-form-label" required>Current Password </label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="pass" required type="password" class="form-control" id="pass">
+                        <input name="pass" required type="password" class="form-control" id="pass" placeholder="Current Password">
                       </div>
                     </div>
 
                     <div class="row mb-3">
                       <label for="newpass" class="col-md-4 col-lg-3 col-form-label">New Password</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="newpass" required type="password" class="form-control" id="newpass">
+                        <input name="newpass" required type="password" class="form-control" id="newpass" placeholder="New Password">
                       </div>
                     </div>
 
                     <div class="row mb-3">
                       <label for="confirmpass" class="col-md-4 col-lg-3 col-form-label">Re-enter New Password</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="confirmpass" required type="password" class="form-control" id="confirmpass">
+                        <input name="confirmpass" required type="password" class="form-control" id="confirmpass" placeholder="Re-enter New Password">
                       </div>
                     </div>
 

@@ -89,21 +89,21 @@ if (isset($_SESSION['UserID']) && isset($_SESSION['username']))
                     <div class="row mb-3">
                       <label for="pass" class="col-md-1 col-lg-5 col-form-label">Current Password</label>
                       <div class="col-md-1 col-lg-6">
-                        <input name="pass" type="password" class="form-control" id="pass" required>
+                        <input name="pass" type="password" class="form-control" id="pass" placeholder="Current Password" required>
                       </div>
                     </div>
 
                     <div class="row mb-3">
                       <label for="newpass" class="col-md-1 col-lg-5 col-form-label">New Password</label>
                       <div class="col-md-1 col-lg-6">
-                        <input name="newpass" type="password" class="form-control" id="newpass" required>
+                        <input name="newpass" type="password" class="form-control" id="newpass" placeholder="New Password" required>
                       </div>
                     </div>
 
                     <div class="row mb-3">
                       <label for="confirmpass" class="col-md-1 col-lg-5 col-form-label">Re-enter New Password</label>
                       <div class="col-md-1 col-lg-6">
-                        <input name="confirmpass" type="password" class="form-control" id="confirmpass" required>
+                        <input name="confirmpass" type="password" class="form-control" id="confirmpass" placeholder="Re-enter New Password" required>
                       </div>
                     </div>
 
