@@ -331,7 +331,7 @@ Secure(1);
                       <label class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Answer<span style="color: red">*</span></label>
                       <div class="col-sm-8">
                         <select name= "corrans" required class="form-select" id= "correctanswer" aria-label="Default select example">
-                          <option disabled selected value="">Choose from choices</option>
+                          <option disabled selected value="">Choose the correct choice</option>
                           <option value="1">Choice 1</option>
                           <option value="2">Choice 2</option>
                           <option value="3">Choice 3</option>
@@ -440,7 +440,7 @@ Secure(1);
                           <label class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Answer<span style="color: red">*</span></label>
                           <div class="col-sm-8">
                             <select name= "correctans" required class="form-select" id= "correctans" aria-label="Default select example">
-                              <option disabled selected value="">Choose from choices</option>
+                              <option disabled selected value="">Choose the correct choice</option>
                               <option value="1">Choice 1</option>
                               <option value="2">Choice 2</option>
                               <option value="3">Choice 3</option>

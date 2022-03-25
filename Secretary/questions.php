@@ -330,7 +330,7 @@ Secure(2);
                       <label class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Answer<span style="color: red">*</span></label>
                       <div class="col-sm-8">
                         <select name= "corrans" required class="form-select" id= "correctanswer" aria-label="Default select example">
-                          <option disabled selected value="">Choose from choices</option>
+                          <option disabled selected value="">Choose the correct choice</option>
                           <option value="1">Choice 1</option>
                           <option value="2">Choice 2</option>
                           <option value="3">Choice 3</option>
@@ -422,7 +422,7 @@ Secure(2);
                           <label class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Answer<span style="color: red">*</span></label>
                           <div class="col-sm-8">
                             <select name= "correctans" required class="form-select" id= "correctans" aria-label="Default select example">
-                              <option disabled selected value="">Choose from choices</option>
+                              <option disabled selected value="">Choose the correct choice</option>
                               <option value="1">Choice 1</option>
                               <option value="2">Choice 2</option>
                               <option value="3">Choice 3</option>
@@ -662,16 +662,16 @@ Secure(2);
                                 $DeptA = "CIT";
                                 break;
                             case 2:
-                                $DeptA = "MARC";
+                                $DeptA = "Monitoring & Alarm Receiving Center";
                                 break;
                             case 3:
-                                $DeptA = "CVSD";
+                                $DeptA = "Cash & Valuables Storage Department";
                                 break;
                             case 4:
-                                $DeptA = "CPD";
+                                $DeptA = "Cash Processing Department";
                                 break;
                             case 5:
-                                $DeptA = "PD";
+                                $DeptA = "Patrol Department";
                                 break;
                           }
                           echo '
