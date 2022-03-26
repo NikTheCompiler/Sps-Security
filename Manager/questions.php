@@ -275,27 +275,6 @@ Secure(1);
                     <input type="email"  autocomplete="off" id= "choice4" class="form-control">
                   </div>
                 </div>
-              <!-- <div class="row mb-3">
-                  <label for="inputPassword" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Answer<span style="color: red">*</span></label>
-                  <div class="col-sm-8">
-                    <input type="text" required autocomplete="off" id= "correctanswer"class="form-control">
-                 </div>
-                </div>                            TEXT BOX CORRECT ANSWER                                                                       -->
-           <!--    <div class="row mb-3">
-                  <label for="thecorrectanswer">&nbsp;&nbsp;&nbsp;&nbsp;Answer<span style="color: red">*</span></label>
-                    <div class="col-sm-8">
-                      <div class="form group" id = "correctanswer">
-                       <input type="radio" name="Correct_answer" value="1">
-                       <label for="1">Answer 1</label>
-                       <input type="radio" name="Correct_answer" value="2">
-                       <label for="2">Answer 2</label>
-                       <input type="radio" name="Correct_answer" value="3">
-                       <label for="3">Answer 3</label>
-                       <input type="radio" name="Correct_answer" value="4">
-                        <label for="4">Answer 4</label>
-                      </div>
-                    </div>
-                </div>                                               RADIO BUTTON CORRECT ANSWER                                                                           -->
 
                 <div class="row mb-4">
                       <label class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Answer<span style="color: red">*</span></label>

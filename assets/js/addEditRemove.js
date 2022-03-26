@@ -326,9 +326,6 @@ var id = row.cells[1].innerHTML;
       var choice3 = document.getElementById("choice3").value;
       var choice4 = document.getElementById("choice4").value;
       var correctanswer = document.getElementById("correctanswer").value;
-    //  var correctanswer2 = document.getElementById("correctanswer2").value;
-    //   var correctanswer3 = document.getElementById("correctanswer3").value;
-    //  var correctanswer4 = document.getElementById("correctanswer4").value;
       var dept2 = document.getElementById("dept2").value;
       var category = document.getElementById("category").value;
 
@@ -343,23 +340,14 @@ var id = row.cells[1].innerHTML;
       else if(choice2 == ""){
         alert('Choice 2 is required!')
       }
-      /*else if(choice3==""){
-        alert('Choice 3 is required!')
-      }*/
-      /*else if(choice4==""){
-        alert('Choice 4 is required!')
-      }*/
-      //else if((correctanswer1 == "") && (correctanswer2 == "") && (correctanswer3 == "") && (correctanswer4 == "")){
-       // alert('Correct answer is required!')                                 TO ERROR GIA TO *RADIO BUTTON* CORRECT ANSWER
-      //}
       else if(correctanswer == ""){
         alert('Correct Answer is required!')
       }
       else if((choice3 == "") && (correctanswer == 3)){
-        alert('u stupid bro? u didnt even fill choice3, and its an answer? .__________. (nik easter egg)')
+        alert('Choice 3 is required!')
       }
       else if((choice4 == "") && (correctanswer == 4)){
-        alert('u stupid bro? u didnt even fill choice4, and its an answer? .__________. (nik easter egg 2)')
+        alert('Choice 4 is required!')
       }
       else if(dept2 == ""){
         alert('Question Department is required!')
@@ -376,9 +364,6 @@ var id = row.cells[1].innerHTML;
             choice3: choice3,
             choice4: choice4,
             correctanswer: correctanswer,
-            //correctanswer2: correctanswer2,
-            //correctanswer3: correctanswer3,
-            //correctanswer4: correctanswer4,
             dept2: dept2,
             category: category
 
@@ -400,6 +385,13 @@ var id = row.cells[1].innerHTML;
                 location.reload();
               })
 
+            }
+            else if(data == 2) {
+              Swal.fire(
+                'Failed! Question already exists!',
+                '',
+                'error'
+              );
             }
           });
       }
@@ -429,6 +421,12 @@ var id = row.cells[1].innerHTML;
       }
       else if(correctanswer==""){
         alert('Correct Answer is required!')
+      }
+      else if((choice3 == "") && (correctanswer == 3)){
+        alert('Choice 3 is required!')
+      }
+      else if((choice4 == "") && (correctanswer == 4)){
+        alert('Choice 4 is required!')
       }
       else if(dept2==""){
         alert('Department is required!')
