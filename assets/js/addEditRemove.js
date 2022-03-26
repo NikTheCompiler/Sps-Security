@@ -589,3 +589,98 @@ function modalGetDataQuestion(row)
   document.getElementById("dept3").value=dept;
   document.getElementById("category2").value=category;
 }
+
+function addCategory()
+    {
+      var Cname = document.getElementById("Cname").value;
+      var deptCat = document.getElementById("deptCat").value;
+     
+
+      if(Cname == ""){
+        alert('Name is required!')
+      }
+      else if(deptCat == "0"){
+        alert('Dept is required!')
+      }
+
+      else {
+        $.post("../php/addCategory.php", {
+            Cname: Cname,
+            deptCat: deptCat
+          }) .done(function(data) {
+
+            if (data == 0){
+              Swal.fire(
+                'Failed!',
+                '',
+                'error'
+              );
+            }
+            else if (data == 1) {
+              Swal.fire({
+                icon: 'success',
+                title: 'Category added successfully!',
+                })
+                .then((result) => {
+                location.reload();
+              })
+
+            }
+          });
+      }
+    }
+function modalGetDataCategory(row)
+    {
+      var CID = row.cells[1].innerHTML;
+      var Cname = row.cells[2].innerHTML;
+      var Dept = row.cells[3].innerHTML;
+     
+
+    
+    
+      document.getElementById("CIDEdit").value=CID;
+      document.getElementById("CnameEdit").value=Cname;
+      document.getElementById("deptCatEdit").value=Dept;
+
+    }
+function editCategory()
+    {
+      var CID = $("#CIDEdit")[0].value;
+      var Cname = $("#CnameEdit")[0].value;
+      var deptCatEdit = $("#deptCatEdit")[0].value;
+
+
+
+      if(Cname==""){
+        alert('Name is required!')
+      }
+      else if(deptCatEdit==""){
+        alert('Department is required!')
+      }
+
+      
+      else{
+      $.post("../php/editCategory.php", {
+          CID: CID,
+          Cname: Cname,
+          deptCatEdit: deptCatEdit
+        })
+        .done(function(data) {
+          if (data == 1) {
+            Swal.fire({
+              icon: 'success',
+              title: 'Category updated successfully!',
+            }).then((result) => {
+              location.reload();
+            })
+
+          } else if (data == 0){
+            Swal.fire(
+              'Failed!',
+              '',
+              'error'
+            );
+          }
+        });
+      }
+    }

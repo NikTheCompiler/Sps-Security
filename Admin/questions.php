@@ -265,7 +265,7 @@ Secure(3);
     <button type="button"  class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#basicModal2">Add Question</button></p>
 
     <div class="modal fade" id="basicModal2" tabindex="-1">
-                <div class="modal-dialog " style="max-width: 30%;">
+                <div class="modal-dialog " style="max-width: 35%;">
                   <div class="modal-content">
                     <div class="modal-header">
                       <h5 class="modal-title">Add Question</h5>
@@ -380,7 +380,7 @@ Secure(3);
 
               <!-- Edit Question Modal-->
               <div class="modal fade" id="modal-Edit-Question" >
-                <div class="modal-dialog " style="max-width: 30%;">
+                <div class="modal-dialog " style="max-width: 35%;">
                   <div class="modal-content">
                     <div class="modal-header">
                       <h5 class="modal-title">Edit Question</h5>
@@ -586,9 +586,9 @@ Secure(3);
 
               <div class="tab-pane fade categories " id="categories">
 
-              <button type="button"  class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#basicModal1">Add Category</button></p>
-              <div class="modal fade" id="basicModal1" tabindex="-1">
-                <div class="modal-dialog " style="max-width: 30%;">
+              <button type="button"  class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ModalAddCat">Add Category</button></p>
+              <div class="modal fade" id="ModalAddCat" tabindex="-1">
+                <div class="modal-dialog " style="max-width: 35%;">
                   <div class="modal-content">
                     <div class="modal-header">
                       <h5 class="modal-title">Add Category</h5>
@@ -599,15 +599,15 @@ Secure(3);
                     <div class="row mb-3">
                   <label for="inputText" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Name<span style="color: red">*</span></label>
                   <div class="col-sm-8">
-                    <input type="text" required  autocomplete="off" name= "qname" id= "cname" class="form-control" >
+                    <input type="text" required  autocomplete="off" name= "Cname" id= "Cname" class="form-control" >
                   </div>
                 </div>
 
                 <div class="row mb-4">
                       <label class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Department<span style="color: red">*</span></label>
                       <div class="col-sm-8">
-                        <select name= "dept" required class="form-select" id= "dept1" aria-label="Default select example">
-                          <option disabled selected value="">Choose Department</option>
+                        <select name= "dept" required class="form-select" id= "deptCat" aria-label="Default select example">
+                          <option disabled selected value="0">Choose Department</option>
                           <option value="1">CIT</option>
                           <option value="2">Monitoring & Alarm Receiving Center</option>
                           <option value="3">Cash & Valuables Storage Department</option>
@@ -620,14 +620,59 @@ Secure(3);
                     <h6>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: red">*</span> Indicates a required field</h6>
 
                     <div class="modal-footer">
-                    <button  type="button"  class="btn btn-primary" data-bs-target="#modal" onclick="addCat()" >Add</button>
+                    <button  type="button"  class="btn btn-primary" data-bs-target="#ModalAddCat" onclick="addCategory()" >Add</button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
 
                     </div>
                     </form>
                   </div>
                 </div>
-              </div><!-- End Basic Modal-->
+              </div><!-- End Add Category Modal-->
+
+              <!-- Edit Category Modal-->
+              <div class="modal fade" id="ModalEditCat" tabindex="-1">
+                <div class="modal-dialog " style="max-width: 35%;">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title">Edit Category</h5>
+                    </div>
+
+                    <form>
+                    <label for="inputText" class="col-sm-3 col-form-label"></span></label>
+                    <div class="row mb-3">
+                  <label for="inputText" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Name<span style="color: red">*</span></label>
+                  <div class="col-sm-8">
+                    <input type="text" required  autocomplete="off" name= "Cname" id= "CnameEdit"  class="form-control" >
+                  </div>
+                </div>
+
+                <div class="row mb-4">
+                      <label class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Department<span style="color: red">*</span></label>
+                      <div class="col-sm-8">
+                        <select name= "dept" required class="form-select" id= "deptCatEdit"  aria-label="Default select example" >
+                          <option disabled selected value="">Choose Department</option>
+                          <option value="1">CIT</option>
+                          <option value="2">Monitoring & Alarm Receiving Center</option>
+                          <option value="3">Cash & Valuables Storage Department</option>
+                          <option value="4">Cash Processing Department</option>
+                          <option value="5">Patrol Department</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <h6>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: red">*</span> Indicates a required field</h6>
+                    <input hidden id="CIDEdit" name="CID"></field>
+
+                    <div class="modal-footer">
+                    <button  type="button"  class="btn btn-primary" data-bs-target="#ModalEditCat" onclick="editCategory()" >Save Changes</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+                    </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <!-- End Edit Category Modal -->
 
               <!-- Table with stripped rows -->
               <table class="table datatable">
@@ -648,7 +693,7 @@ Secure(3);
 
                 <?php
                       include_once('../php/connect.php');
-                      $result = sqlsrv_query($conn, "SELECT * FROM Questions");
+                      $result = sqlsrv_query($conn, "SELECT * FROM Categories");
 
                         $i = 0;
                         while ($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)) {
@@ -679,10 +724,11 @@ Secure(3);
                             <td>' . $i .'</td>
                             <td>' . $CID .'</td>
                             <td>' . $Cname . '</td>
+                            <td hidden>' . $Dept . '</td>
                             <td>' . $DeptA . '</td>
                             <td class="text-right py-0 align-middle col-sm-3">
                               <div class="btn-group btn-group-sm col-sm-11" >
-                                <button class="btn btn-info" type="submit"  data-bs-toggle="modal" data-bs-target="#modal-Edit-Category" onclick="modalGetData(this.parentNode.parentNode.parentNode)"></i>Edit</button>
+                                <button class="btn btn-info" type="submit"  data-bs-toggle="modal" data-bs-target="#ModalEditCat" onclick="modalGetDataCategory(this.parentNode.parentNode.parentNode)"></i>Edit</button>
                                 <button class="btn btn-danger" type="submit" onclick="deleteCategory(this.parentNode.parentNode.parentNode);"></i>Remove</button>
                               </div>
 
