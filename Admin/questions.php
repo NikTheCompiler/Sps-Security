@@ -262,6 +262,18 @@ Secure(3);
 
               <div class="tab-pane fade show active questions" id="questions">
 
+              <div class="col-sm-2" max width>
+              <select class="form-select" id="ddldept">
+                <option value="all">Select Department</option>
+                <option value="1">CIT</option>
+                <option value="2">Monitoring & Alarm</option>
+                <option value="3">Cash & Valuables Storage Department</option>
+                <option value="4">Cash Processing Department</option>
+                <option value="5">Patrol Department</option>
+              </select>
+            </div>
+            
+  <p align="right">
     <button type="button"  class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#basicModal2">Add Question</button></p>
 
     <div class="modal fade" id="basicModal2" tabindex="-1">
@@ -473,7 +485,7 @@ Secure(3);
               </div><!-- End Edit_User_Modal-->
 
               <!-- Table with stripped rows -->
-              <table class="table datatable">
+              <table class="table datatable" id="tableQuestions">
 
                 <thead>
 
@@ -790,6 +802,42 @@ Secure(3);
 
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
   <script src="../assets/js/addEditRemove.js"></script>
+  <!--Drop down lists -->
+  <script type="text/javascript">
+
+$(document).ready(function () {
+    $("#ddldept").on("change", function () {
+        var dept = $('#ddldept').find("option:selected").val();
+        SearchData(dept)
+    });
+});
+function SearchData(dept) {
+    if (dept.toUpperCase() == 'ALL' ) {
+        $('#tableQuestions tbody tr').show();
+    } else {
+        $('#tableQuestions tbody tr:has(td)').each(function () {
+            var rowdept = $.trim($(this).find('td:eq(9)').text());
+            if (dept.toUpperCase() != 'ALL') {
+                if (rowdept.toUpperCase() == dept.toUpperCase()) {
+                    $(this).show();
+                } else {
+                    $(this).hide();
+                }
+            } else if ($(this).find('td:eq(9)').text() != '' || $(this).find('td:eq(9)').text() != '') {
+                if (dept != 'all') {
+                    if (rowdept.toUpperCase() == dept.toUpperCase()) {
+                        $(this).show();
+                    } else {
+                        $(this).hide();
+                    }
+                }
+                
+            }
+
+        });
+    }
+}
+</script>
 
 </body>
 
