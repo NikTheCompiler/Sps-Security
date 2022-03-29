@@ -331,28 +331,7 @@ Secure(3);
                     <input type="email"  autocomplete="off" id= "choice4" class="form-control">
                   </div>
                 </div>
-              <!-- <div class="row mb-3">
-                  <label for="inputPassword" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Answer<span style="color: red">*</span></label>
-                  <div class="col-sm-8">
-                    <input type="text" required autocomplete="off" id= "correctanswer"class="form-control">
-                 </div>
-                </div>                            TEXT BOX CORRECT ANSWER                                                                       -->
-           <!--    <div class="row mb-3">
-                  <label for="thecorrectanswer">&nbsp;&nbsp;&nbsp;&nbsp;Answer<span style="color: red">*</span></label>
-                    <div class="col-sm-8">
-                      <div class="form group" id = "correctanswer">
-                       <input type="radio" name="Correct_answer" value="1">
-                       <label for="1">Answer 1</label>
-                       <input type="radio" name="Correct_answer" value="2">
-                       <label for="2">Answer 2</label>
-                       <input type="radio" name="Correct_answer" value="3">
-                       <label for="3">Answer 3</label>
-                       <input type="radio" name="Correct_answer" value="4">
-                        <label for="4">Answer 4</label>
-                      </div>
-                    </div>
-                </div>                                               RADIO BUTTON CORRECT ANSWER                                                                           -->
-
+              
                 <div class="row mb-4">
                       <label class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Answer<span style="color: red">*</span></label>
                       <div class="col-sm-8">
@@ -584,7 +563,7 @@ Secure(3);
                             <td class="text-right py-0 align-middle col-sm-3">
 
                             <div class="btn-group btn-group-sm col-sm-11" >
-                              <button class="btn btn-info" type="submit"  data-bs-toggle="modal" data-bs-target="#modal-Edit-Question" onclick="modalGetDataQuestion(this.parentNode.parentNode.parentNode); getState3();"></i>Edit</button>
+                              <button class="btn btn-info" type="submit"  data-bs-toggle="modal" data-bs-target="#modal-Edit-Question" onclick="modalGetDataQuestion(this.parentNode.parentNode.parentNode); getState3(this.parentNode.parentNode.parentNode);"></i>Edit</button>
                               <button class="btn btn-danger" type="submit" onclick="deleteQuestion(this.parentNode.parentNode.parentNode);"></i>Remove</button>
                             </div>
 
@@ -853,7 +832,7 @@ function getState2() {
             if(val[i].selected){
                 str += val[i].value + ','; 
             }
-        }         
+        }
         var str=str.slice(0,str.length -1);
         
 	$.ajax({          
@@ -868,9 +847,11 @@ function getState2() {
 </script>
 <!--EDIT Drop down lists -->
 <script>
-function getState3() {
+function getState3(row) {
         var str='';
         var val=document.getElementById('dept3');
+        var category = row.cells[11].innerHTML;
+        
         for (i=0;i< val.length;i++) { 
           
             if(val[i].selected){
@@ -885,8 +866,13 @@ function getState3() {
         	data:'Qid='+str,
         	success: function(data){
         		$("#category3").html(data);
+            document.getElementById("category3").value=category;
         	}
+  
+  
 	});
+  
+  
 }
 </script>
 
