@@ -327,7 +327,7 @@ var id = row.cells[1].innerHTML;
       var choice4 = document.getElementById("choice4").value;
       var correctanswer = document.getElementById("correctanswer").value;
       var dept2 = document.getElementById("dept2").value;
-      var category = document.getElementById("category").value;
+      var category = document.getElementById("category2").value;
 
 
 
@@ -407,7 +407,7 @@ var id = row.cells[1].innerHTML;
       var choice4 = $("#choice42")[0].value;
       var correctanswer = $("#correctans")[0].value;
       var dept2 = $("#dept3")[0].value;
-      var category = $("#category2")[0].value;
+      var category = $("#category3")[0].value;
 
 
       if(question==""){
@@ -585,7 +585,7 @@ function modalGetDataQuestion(row)
   document.getElementById("choice42").value=c4;
   document.getElementById("correctans").value=ca;
   document.getElementById("dept3").value=dept;
-  document.getElementById("category2").value=category;
+  document.getElementById("category3").value=category;
 }
 
 function addCategory()
