@@ -29,7 +29,7 @@ $(document).ready(function() {
     });
  
     // DataTables initialisation
-    var table = $('#example').DataTable();
+    var table = $('#Grades').DataTable();
  
     // Refilter the table
     $('#min, #max').on('change', function () {

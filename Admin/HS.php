@@ -259,42 +259,49 @@ Secure(3);
        <table class="table table-borderless datatable">
          <thead>
            <tr>
-             <th scope="col">ID</th>
-             <th scope="col">Employee</th>
-             <th scope="col">Grade</th>
-             <th scope="col">Status</th>
+           <th>ID</th>
+             <th>Employee</th>
+             <th>Grade</th>
+             <th>Status</th>
+             <th>Date</th>
            </tr>
          </thead>
          <tbody>
              <?php
                    include_once('../php/connect.php');
-                   $result = sqlsrv_query($conn, "SELECT * FROM Users WHERE type==0 ");
+                   $result = sqlsrv_query($conn, "SELECT * FROM Users JOIN Tests ON Users.UserID=Tests.UserID WHERE type==0 ");
 
-                     $i = 0;
-                     while ($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)) {
-                       $i++;
-                       $id = $row["UserID"];
-                       $name = $row["name"];
-                       $surname = $row["surname"];
-                       $username = $row["username"];
-                       $dept= $row["dept"];
-                       $position=$row["position"];
-                       $type = $row["type"];
-                       $email = $row["email"];
-                       $policecert = $row["policecert"];
-                       echo '
-                       <tr>
-                         <td>' . $id .'</td>
-                         <td>' . $name . ' '.$surname.'</td>
-                         <td hidden>' . $username . '</td>
-                         <td hidden>' . $position . '</td>
-                         <td hidden>' . $type . '</td>
-                         <td hidden>' . $email . '</td>
-                         <td hidden>' . $policecert . '</td>
-
-                       </tr>
-                       ';
+                   $i = 0;
+                   while ($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)) {
+                     $i++;
+                     $id = $row["UserID"];
+                     $name=$row["name"];
+                     $surname=$row["surname"];
+                     $grade=$row["Grade"];
+                     $date=$row["EndsAt"];
+                     if ($grade<=50){
+                      $status = "Bad";
                      }
+                     else if($grade<=65){
+                      $status = "Okay";
+                     }
+                     else if($grade<=85){
+                      $status = "Good";
+                     }
+                     else if($grade<=100){
+                      $status = "Very Good";
+                     }
+                     
+                     echo '
+                     <tr>
+                       <td>' . $id .'</td>
+                       <td>' . $name . ' '.$surname.'</td>
+                       <td>' . $grade . '</td>
+                       <td>' . $status . '</td>
+                       <td>' . $date . '</td>
+                     </tr>
+                     ';
+                   }
 
              ?>
          </tbody>
@@ -334,7 +341,7 @@ Secure(3);
   <script src="../assets/vendor/php-email-form/validate.js"></script>
   <script src="../assets/vendor/quill/quill.min.js"></script>
   <script src="../assets/vendor/tinymce/tinymce.min.js"></script>
-  <script src="../assets/vendor/simple-datatables/simple-datatables.js"></script>
+  
   <script src="../assets/vendor/chart.js/chart.min.js"></script>
   <script src="../assets/vendor/apexcharts/apexcharts.min.js"></script>
   <script src="../assets/vendor/echarts/echarts.min.js"></script>
