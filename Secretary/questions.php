@@ -20,6 +20,7 @@ Secure(2);
   <link href="../assets/img/favicon.png" rel="icon">
   <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
+
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -32,6 +33,8 @@ Secure(2);
   <link href="../assets/vendor/quill/quill.snow.css" rel="stylesheet">
   <link href="../assets/vendor/quill/quill.bubble.css" rel="stylesheet">
   <link href="../assets/vendor/simple-datatables/style.css" rel="stylesheet">
+
+
 
   <!-- Template Main CSS File -->
   <link href="../assets/css/style.css" rel="stylesheet">
@@ -239,7 +242,7 @@ Secure(2);
 
     <section class="section">
       <div class="row">
-        <div class="col-lg-10">
+        <div class="col-lg-12">
 
           <div class="card">
             <div class="card-body">
@@ -262,10 +265,34 @@ Secure(2);
 
               <div class="tab-pane fade show active questions" id="questions">
 
+              <div class="col-sm-2" >
+              <select class="form-select" name="ddldept[]" id="ddldept" onChange="getState();">
+                <option value="all">Select Department</option>
+                <?php
+                $query = "SELECT * FROM Department ORDER BY Qid ASC";
+
+                $statement = sqlsrv_query($conn, $query);
+                
+                while ($row = sqlsrv_fetch_array($statement,SQLSRV_FETCH_ASSOC)) 
+                {  
+                echo '<option value="'.$row["Qid"].'">'.$row["Qname"].'</option>';
+                }
+                ?>
+              </select>
+            </div>
+            
+              <div class="col-sm-2 pt-2" >
+              <select class="form-select" name="ddlcat[]" id="ddlcat" >
+              <option value="all" >Select Category</option>
+                
+              </select>
+              </div>
+            
+  <p align="right">
     <button type="button"  class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#basicModal2">Add Question</button></p>
 
     <div class="modal fade" id="basicModal2" tabindex="-1">
-                <div class="modal-dialog " style="max-width: 30%;">
+                <div class="modal-dialog " style="max-width: 35%;">
                   <div class="modal-content">
                     <div class="modal-header">
                       <h5 class="modal-title">Add Question</h5>
@@ -304,28 +331,7 @@ Secure(2);
                     <input type="email"  autocomplete="off" id= "choice4" class="form-control">
                   </div>
                 </div>
-              <!-- <div class="row mb-3">
-                  <label for="inputPassword" class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Answer<span style="color: red">*</span></label>
-                  <div class="col-sm-8">
-                    <input type="text" required autocomplete="off" id= "correctanswer"class="form-control">
-                 </div>
-                </div>                            TEXT BOX CORRECT ANSWER                                                                       -->
-           <!--    <div class="row mb-3">
-                  <label for="thecorrectanswer">&nbsp;&nbsp;&nbsp;&nbsp;Answer<span style="color: red">*</span></label>
-                    <div class="col-sm-8">
-                      <div class="form group" id = "correctanswer">
-                       <input type="radio" name="Correct_answer" value="1">
-                       <label for="1">Answer 1</label>
-                       <input type="radio" name="Correct_answer" value="2">
-                       <label for="2">Answer 2</label>
-                       <input type="radio" name="Correct_answer" value="3">
-                       <label for="3">Answer 3</label>
-                       <input type="radio" name="Correct_answer" value="4">
-                        <label for="4">Answer 4</label>
-                      </div>
-                    </div>
-                </div>                                               RADIO BUTTON CORRECT ANSWER                                                                           -->
-
+              
                 <div class="row mb-4">
                       <label class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Answer<span style="color: red">*</span></label>
                       <div class="col-sm-8">
@@ -343,13 +349,18 @@ Secure(2);
                 <div class="row mb-4">
                       <label class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Department<span style="color: red">*</span></label>
                       <div class="col-sm-8">
-                        <select name= "dept" required class="form-select" id= "dept2" aria-label="Default select example">
+                        <select name= "dept2[]" required class="form-select" id= "dept2" onChange="getState2();" aria-label="Default select example">
                           <option disabled selected value="">Choose Department</option>
-                          <option value="1">CIT</option>
-                          <option value="2">Monitoring & Alarm Receiving Center</option>
-                          <option value="3">Cash & Valuables Storage Department</option>
-                          <option value="4">Cash Processing Department</option>
-                          <option value="5">Patrol Department</option>
+                          <?php
+                            $query = "SELECT * FROM Department ORDER BY Qid ASC";
+
+                            $statement = sqlsrv_query($conn, $query);
+                
+                            while ($row = sqlsrv_fetch_array($statement,SQLSRV_FETCH_ASSOC)) 
+                            {  
+                              echo '<option value="'.$row["Qid"].'">'.$row["Qname"].'</option>';
+                            }
+                          ?>
                         </select>
                       </div>
                     </div>
@@ -357,11 +368,9 @@ Secure(2);
                     <div class="row mb-4">
                       <label class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Category<span style="color: red">*</span></label>
                       <div class="col-sm-8">
-                        <select name= "position" required  class="form-select" id= "category" aria-label="Default select example" >
-                        <option disabled selected value="">Choose Category </option>
-                          <option value="0">Officer</option>
-                          <option value="1">Supervisor</option>
-                          <option value="2">Manager</option>
+                        <select name= "category2[]" required  class="form-select" id= "category2" aria-label="Default select example" >
+                        <option value="all" >Select Category</option>
+                          
                         </select>
                       </div>
                     </div>
@@ -380,7 +389,7 @@ Secure(2);
 
               <!-- Edit Question Modal-->
               <div class="modal fade" id="modal-Edit-Question" >
-                <div class="modal-dialog " style="max-width: 30%;">
+                <div class="modal-dialog " style="max-width: 35%;">
                   <div class="modal-content">
                     <div class="modal-header">
                       <h5 class="modal-title">Edit Question</h5>
@@ -435,13 +444,18 @@ Secure(2);
                     <div class="row mb-4">
                           <label class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Department<span style="color: red">*</span></label>
                           <div class="col-sm-8">
-                            <select name= "dept" required class="form-select" id= "dept3" aria-label="Default select example">
+                            <select name= "dept" required class="form-select" id= "dept3"  aria-label="Default select example">
                               <option disabled selected value="">Choose Department</option>
-                              <option value="1">CIT</option>
-                              <option value="2">Monitoring & Alarm Receiving Center</option>
-                              <option value="3">Cash & Valuables Storage Department</option>
-                              <option value="4">Cash Processing Department</option>
-                              <option value="5">Patrol Department</option>
+                              <?php
+                            $query = "SELECT * FROM Department ORDER BY Qid ASC";
+
+                            $statement = sqlsrv_query($conn, $query);
+                
+                            while ($row = sqlsrv_fetch_array($statement,SQLSRV_FETCH_ASSOC)) 
+                            {  
+                              echo '<option value="'.$row["Qid"].'">'.$row["Qname"].'</option>';
+                            }
+                          ?>
                             </select>
                           </div>
                         </div>
@@ -449,11 +463,9 @@ Secure(2);
                         <div class="row mb-4">
                           <label class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Category<span style="color: red">*</span></label>
                           <div class="col-sm-8">
-                            <select name= "position" required  class="form-select" id= "category2" aria-label="Default select example" >
-                            <option disabled selected value="">Choose Category </option>
-                              <option value="0">Officer</option>
-                              <option value="1">Supervisor</option>
-                              <option value="2">Manager</option>
+                            <select name= "category3[]" required  class="form-select" id= "category3" aria-label="Default select example" >
+                            <option disabled selected value="">Choose Category</option>
+                              
                             </select>
                           </div>
                         </div>
@@ -473,7 +485,7 @@ Secure(2);
               </div><!-- End Edit_User_Modal-->
 
               <!-- Table with stripped rows -->
-              <table class="table datatable">
+              <table class="table datatable" id="tableQuestions">
 
                 <thead>
 
@@ -509,8 +521,7 @@ Secure(2);
                           $Choice3 = $row["Choice3"];
                           $Choice4 = $row["Choice4"];
                           $CorrectAns = $row["CorrectAns"];
-                          $Dept= $row["Dept"]; //prepei na ginei DeptA gia na doulepsei to switch, j an ginei
-                                               //DeptA kapoia Departments en polla meala j en ta forei mes ton pinaka j gamiete o pinakas
+                          $Dept= $row["Dept"];
                           switch ($Dept){
                             case 1:
                                 $DeptA = "CIT";
@@ -528,26 +539,11 @@ Secure(2);
                                 $DeptA = "PD";
                                 break;
                           }
-                          $Category = $row["Category"]; // To idio me to DeptA
-                          switch ($Category){
-                            case 1:
-                                $CategoryA = "";
-                                break;
-                            case 2:
-                                $CategoryA = "";
-                                break;
-                            case 3:
-                                $CategoryA = "";
-                                break;
-                            case 4:
-                                $CategoryA = "";
-                                break;
-                            case 5:
-                                $CategoryA = "";
-                                break;
-                            case 6:
-                                $CategoryA = "";
-                                break;
+                          $Category = $row["Category"];
+                          $query ="SELECT * FROM Categories WHERE CID IN ($Category)";
+                          $results = sqlsrv_query($conn, $query);
+                          while ($row2 = sqlsrv_fetch_array($results,SQLSRV_FETCH_ASSOC)) {
+                            $CategoryA=$row2["Cname"];
                           }
                           echo '
                           <tr>
@@ -562,11 +558,12 @@ Secure(2);
                             <td>Choice ' . $CorrectAns . '</td>
                             <td hidden>' . $Dept . '</td>
                             <td>' . $DeptA . '</td>
-                            <td>' . $Category . '</td>
+                            <td hidden>' . $Category . '</td>
+                            <td>' . $CategoryA . '</td>
                             <td class="text-right py-0 align-middle col-sm-3">
 
                             <div class="btn-group btn-group-sm col-sm-11" >
-                              <button class="btn btn-info" type="submit"  data-bs-toggle="modal" data-bs-target="#modal-Edit-Question" onclick="modalGetDataQuestion(this.parentNode.parentNode.parentNode)"></i>Edit</button>
+                              <button class="btn btn-info" type="submit"  data-bs-toggle="modal" data-bs-target="#modal-Edit-Question" onclick="modalGetDataQuestion(this.parentNode.parentNode.parentNode); getState3(this.parentNode.parentNode.parentNode);"></i>Edit</button>
                               <button class="btn btn-danger" type="submit" onclick="deleteQuestion(this.parentNode.parentNode.parentNode);"></i>Remove</button>
                             </div>
 
@@ -585,7 +582,7 @@ Secure(2);
               </div>
 
               <div class="tab-pane fade categories " id="categories">
-
+              <p align="right">
               <button type="button"  class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ModalAddCat">Add Category</button></p>
               <div class="modal fade" id="ModalAddCat" tabindex="-1">
                 <div class="modal-dialog " style="max-width: 35%;">
@@ -782,14 +779,151 @@ Secure(2);
   <script src="../assets/vendor/echarts/echarts.min.js"></script>
   <!-- jQuery -->
   <script src="../jss/jquery/jquery.min.js"></script>
+  
+  
   <!-- Bootstrap 4 -->
   <script src="../jss/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../jss/bootstrap/js/bootstrap.js"></script>
+  <script src="../jss/bootstrap/js/bootstrap.min.js"></script>
+  
   <!-- Template Main JS File -->
   <script src="../assets/js/main.js"></script>
   <script src="../jss/dist/js/adminlte.js"></script>
 
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
   <script src="../assets/js/addEditRemove.js"></script>
+  
+  <!--Drop down lists -->
+
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"
+    type="text/javascript"></script>
+<!--FILTERS Drop down lists -->
+<script>
+function getState() {
+  
+        var str='';
+        var val=document.getElementById('ddldept');
+        for (i=0;i< val.length;i++) { 
+          
+            if(val[i].selected){
+                str += val[i].value + ','; 
+            }
+        }         
+        var str=str.slice(0,str.length -1);
+        
+	$.ajax({          
+        	type: "GET",
+        	url: "../php/ddldept.php",
+        	data:'Qid='+str,
+        	success: function(data){
+        		$("#ddlcat").html(data);
+        	}
+	});
+}
+</script>
+
+<!--ADD Drop down lists -->
+<script>
+function getState2() {
+        var str='';
+        var val=document.getElementById('dept2');
+        for (i=0;i< val.length;i++) { 
+          
+            if(val[i].selected){
+                str += val[i].value + ','; 
+            }
+        }
+        var str=str.slice(0,str.length -1);
+        
+	$.ajax({          
+        	type: "GET",
+        	url: "../php/ddldept2.php",
+        	data:'Qid='+str,
+        	success: function(data){
+        		$("#category2").html(data);
+        	}
+	});
+}
+</script>
+<!--EDIT Drop down lists -->
+<script>
+function getState3(row) {
+        var str='';
+        var val=document.getElementById('dept3');
+        var category = row.cells[11].innerHTML;
+        
+        for (i=0;i< val.length;i++) { 
+          
+            if(val[i].selected){
+                str += val[i].value + ','; 
+            }
+        }         
+        var str=str.slice(0,str.length -1);
+        
+	$.ajax({          
+        	type: "GET",
+        	url: "../php/ddldept2.php",
+        	data:'Qid='+str,
+        	success: function(data){
+        		$("#category3").html(data);
+            document.getElementById("category3").value=category;
+        	}
+  
+  
+	});
+  
+  
+}
+</script>
+
+<!--END Drop down lists -->
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#ddldept,#ddlcat").on("change", function () {
+            var dept= $('#ddldept').find("option:selected").val();
+            var cat = $('#ddlcat').find("option:selected").val();
+            SearchData(dept, cat)
+        });
+    });
+    function SearchData(dept, cat) {
+        if (dept.toUpperCase() == 'ALL' ) {
+            $('#tableQuestions tbody tr').show();
+        } 
+        else {
+            $('#tableQuestions tbody tr:has(td)').each(function () {
+                var rowdept = $.trim($(this).find('td:eq(9)').text());
+                var rowcat = $.trim($(this).find('td:eq(11)').text());
+                if (dept.toUpperCase() != 'ALL' && cat.toUpperCase() != 'ALL') {
+                    if (rowdept.toUpperCase() == dept.toUpperCase() && rowcat == cat) {
+                        $(this).show();
+                    } else {
+                        $(this).hide();
+                    }
+                } else if ($(this).find('td:eq(9)').text() != '' || $(this).find('td:eq(9)').text() != '') {
+                    if (dept != 'all') {
+                        if (rowdept.toUpperCase() == dept.toUpperCase()) {
+                            $(this).show();
+                        } else {
+                            $(this).hide();
+                        }
+                    }
+                    if (cat != 'all') {
+                        if (rowcat == cat) {
+                            $(this).show();
+                        }
+                        else {
+                            $(this).hide();
+                        }
+                    }
+                }
+ 
+            });
+        }
+    }
+</script>
+
+
 
 </body>
 

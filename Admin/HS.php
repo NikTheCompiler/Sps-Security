@@ -268,7 +268,7 @@ Secure(3);
          <tbody>
              <?php
                    include_once('../php/connect.php');
-                   $result = sqlsrv_query($conn, "SELECT * FROM Users WHERE dept='6' ");
+                   $result = sqlsrv_query($conn, "SELECT * FROM Users WHERE type==0 ");
 
                      $i = 0;
                      while ($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)) {
