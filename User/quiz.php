@@ -149,12 +149,7 @@ Secure(0);
         </a>
       </li><!-- End Dashboard Nav -->
 
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="quiz.php">
-          <i class="bi bi-card-checklist"></i>
-          <span>Quiz</span>
-        </a>
-      </li><!-- End Dashboard Nav -->
+      
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="grades.php">
@@ -217,7 +212,7 @@ function countdown( elementName, minutes, seconds )
     {
         msLeft = endTime - (+new Date);
         if ( msLeft < 1000 ) {
-            element.innerHTML = "Time is up!";
+          window.location.href = 'dashboard.php';
         } else {
             time = new Date( msLeft );
             hours = time.getUTCHours();

@@ -65,6 +65,7 @@ Secure(0);
                       $name = $row["name"];
                       $surname = $row["surname"];
                       $position=$row["position"];
+                      $dept=$row["dept"];
                     
                   
                     }
@@ -74,7 +75,7 @@ Secure(0);
     <nav class="header-nav ms-auto">
       <ul class="d-flex align-items-center">
 
-
+      <input hidden type="text"  name= "deptv" id= "deptv" class="form-control" value="<?php echo $dept ?>">
         <li class="nav-item dropdown pe-3">
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
@@ -150,12 +151,7 @@ Secure(0);
         </a>
       </li><!-- End Dashboard Nav -->
 
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="quiz.php">
-          <i class="bi bi-card-checklist"></i>
-          <span>Quiz</span>
-        </a>
-      </li><!-- End Dashboard Nav -->
+      
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="grades.php">
@@ -198,9 +194,9 @@ h1 {
 <center><h1>QUIZ 1</h1>
 <text>Tries:1</text><center>
 <text>Time:10 minutes</text><center>
-<text>Test will be available on: 20 December 2021 12:00</text><center><br>
+<text>Test will be available on: 20 December 2021 00:00</text><center><br>
 
-<center><button type="button" class="btn btn-primary">Start QUIZ</button><center>
+<center><button type="button" class="btn btn-primary" onclick="startQuiz()" >Start QUIZ</button><center>
 
 
 </div>
@@ -230,9 +226,52 @@ h1 {
   <script src="../assets/vendor/chart.js/chart.min.js"></script>
   <script src="../assets/vendor/apexcharts/apexcharts.min.js"></script>
   <script src="../assets/vendor/echarts/echarts.min.js"></script>
+  <!-- jQuery -->
+  <script src="../jss/jquery/jquery.min.js"></script>
+  
+  
+  <!-- Bootstrap 4 -->
+  <script src="../jss/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../jss/bootstrap/js/bootstrap.js"></script>
+  <script src="../jss/bootstrap/js/bootstrap.min.js"></script>
+  
+  <!-- Template Main JS File -->
+  <script src="../assets/js/main.js"></script>
+  <script src="../jss/dist/js/adminlte.js"></script>
+
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
   <!-- Template Main JS File -->
   <script src="../assets/js/main.js"></script>
+  <script>
+
+  function startQuiz(){
+    var dept=document.getElementById("deptv").value;
+    Swal.fire({
+    title: 'Are you ready?',
+    text: "You will have 10 minutes to finish the quiz!" ,
+    icon: 'warning',
+    showCancelButton: true,
+    reverseButtons: true,
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Confirm'
+    }).then((result) =>{
+      if (result.isConfirmed) {
+      window.location.href = 'quiz.php';
+      
+      $.post("../php/randomiseQuestions.php", {
+          dept: dept,
+        })
+        .done(function(data) {
+          if (data != 1) {
+            alert(data)
+          }
+        });
+      }
+    });
+  }
+  </script>
+
 
 </body>
 
