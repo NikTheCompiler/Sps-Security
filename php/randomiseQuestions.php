@@ -2,7 +2,7 @@
 include_once('connect.php');
 
 $dept = $_POST['dept'];
-$arr=array(4);
+$arr = array(4);
 $i=0;
 $sql="SELECT * FROM Questions  ";
 $ques = sqlsrv_query($conn,$sql);
