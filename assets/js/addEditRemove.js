@@ -487,7 +487,7 @@ var id = row.cells[1].innerHTML;
                 if (data == 1) {
                   Swal.fire(
                     'Deleted!',
-                    'The user has been deleted.',
+                    'The Question has been deleted.',
                     'success'
                   );
                   row.parentNode.removeChild(row);
@@ -523,7 +523,7 @@ var id = row.cells[1].innerHTML;
                   if (data == 1) {
                     Swal.fire(
                       'Deleted!',
-                      'The user has been deleted.',
+                      'The Category has been deleted.',
                       'success'
                     );
                     row.parentNode.removeChild(row);

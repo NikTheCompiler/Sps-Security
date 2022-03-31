@@ -444,7 +444,7 @@ Secure(3);
                     <div class="row mb-4">
                           <label class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Department<span style="color: red">*</span></label>
                           <div class="col-sm-8">
-                            <select name= "dept" required class="form-select" id= "dept3"  aria-label="Default select example">
+                            <select name= "dept3[]" required class="form-select" id= "dept3"  aria-label="Default select example">
                               <option disabled selected value="">Choose Department</option>
                               <?php
                             $query = "SELECT * FROM Department ORDER BY Qid ASC";

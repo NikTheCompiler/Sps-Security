@@ -210,7 +210,7 @@ Secure(1);
 
     <section class="section">
       <div class="row">
-        <div class="col-lg-10">
+        <div class="col-lg-12">
 
           <div class="card">
             <div class="card-body">
@@ -228,9 +228,9 @@ Secure(1);
               <div class="tab-content pt-2">
 
               <div class="tab-pane fade show active questions" id="questions">
-
-    <button type="button"  class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#basicModal2">Add Question</button></p>
-
+              <p align="right">
+    <button type="button"  class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#basicModal2" onclick="getState2()">Add Question</button></p>
+    
     <div class="modal fade" id="basicModal2" tabindex="-1">
                 <div class="modal-dialog " style="max-width: 30%;">
                   <div class="modal-content">
@@ -289,30 +289,20 @@ Secure(1);
                 <div class="row mb-4">
                       <label class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Department<span style="color: red">*</span></label>
                       <div class="col-sm-8">
-                        <select name= "dept" required class="form-select" id= "dept2" aria-label="Default select example">
-                          <option value= <?php echo $dept ?> >
+                        <select name= "dept2[]" required class="form-select" id= "dept2" aria-label="Default select example">
+                          <option disabled value="">Select Department</option>
                               <?php
-                                include_once('../php/connect.php');
-                                $sessiondept = $dept;
-                                switch ($sessiondept){
-                                  case 1:
-                                      echo "CIT";
-                                      break;
-                                  case 2:
-                                      echo "Monitoring & Alarm Receiving Center";
-                                      break;
-                                  case 3:
-                                      echo "Cash & Valuables Storage Department";
-                                      break;
-                                  case 4:
-                                      echo "Cash Processing Department";
-                                      break;
-                                  case 5:
-                                      echo "Patrol Department";
-                                      break;
-                                }
-                              ?>
-                            </option>
+                            $sessiondept = $dept;
+                            $query = "SELECT * FROM Department WHERE Qid='".$sessiondept."'";
+
+                            $statement = sqlsrv_query($conn, $query);
+                            
+                            while ($row = sqlsrv_fetch_array($statement,SQLSRV_FETCH_ASSOC)) 
+                            {  
+                              echo '<option value="'.$row["Qid"].'">'.$row["Qname"].'</option>';
+                            }
+                          ?>
+                            
                         </select>
                       </div>
                     </div>
@@ -320,11 +310,9 @@ Secure(1);
                     <div class="row mb-4">
                       <label class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Category<span style="color: red">*</span></label>
                       <div class="col-sm-8">
-                        <select name= "position" required  class="form-select" id= "category" aria-label="Default select example" >
+                        <select name= "category2[]" required  class="form-select" id= "category2" aria-label="Default select example" >
                         <option disabled selected value="">Choose Category </option>
-                          <option value="0">Officer</option>
-                          <option value="1">Supervisor</option>
-                          <option value="2">Manager</option>
+                          
                         </select>
                       </div>
                     </div>
@@ -398,30 +386,20 @@ Secure(1);
                     <div class="row mb-4">
                           <label class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Department<span style="color: red">*</span></label>
                           <div class="col-sm-8">
-                            <select name= "dept" required class="form-select" id= "dept3" aria-label="Default select example">
-                              <option value= <?php echo $dept ?> >
-                                  <?php
-                                    include_once('../php/connect.php');
-                                    $sessiondept = $dept;
-                                    switch ($sessiondept){
-                                      case 1:
-                                          echo "CIT";
-                                          break;
-                                      case 2:
-                                          echo "Monitoring & Alarm Receiving Center";
-                                          break;
-                                      case 3:
-                                          echo "Cash & Valuables Storage Department";
-                                          break;
-                                      case 4:
-                                          echo "Cash Processing Department";
-                                          break;
-                                      case 5:
-                                          echo "Patrol Department";
-                                          break;
-                                    }
-                                  ?>
-                                </option>
+                            <select name= "dept3[]" required class="form-select" id= "dept3" aria-label="Default select example">
+                            <option disabled value="">Select Department</option>
+                            <?php
+                            $sessiondept = $dept;
+                            $query = "SELECT * FROM Department WHERE Qid='".$sessiondept."'";
+
+                            $statement = sqlsrv_query($conn, $query);
+                            
+                            while ($row = sqlsrv_fetch_array($statement,SQLSRV_FETCH_ASSOC)) 
+                            {  
+                              echo '<option value="'.$row["Qid"].'">'.$row["Qname"].'</option>';
+                            }
+                          ?>
+                            </option>
                             </select>
                           </div>
                         </div>
@@ -429,11 +407,9 @@ Secure(1);
                         <div class="row mb-4">
                           <label class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Category<span style="color: red">*</span></label>
                           <div class="col-sm-8">
-                            <select name= "position" required  class="form-select" id= "category2" aria-label="Default select example" >
+                            <select name= "category3[]" required  class="form-select" id= "category3" aria-label="Default select example" >
                             <option disabled selected value="">Choose Category </option>
-                              <option value="0">Officer</option>
-                              <option value="1">Supervisor</option>
-                              <option value="2">Manager</option>
+                              
                             </select>
                           </div>
                         </div>
@@ -459,7 +435,7 @@ Secure(1);
 
                   <tr>
                     <th scope="col">#</th>
-                    <th scope="col">QID</th>
+                    
                     <th scope="col">Question</th>
 					          <th scope="col">Choice 1</th>
                     <th scope="col">Choice 2</th>
@@ -509,31 +485,16 @@ Secure(1);
                                 $DeptA = "PD";
                                 break;
                           }
-                          $Category = $row["Category"]; // To idio me to DeptA
-                          switch ($Category){
-                            case 1:
-                                $CategoryA = "";
-                                break;
-                            case 2:
-                                $CategoryA = "";
-                                break;
-                            case 3:
-                                $CategoryA = "";
-                                break;
-                            case 4:
-                                $CategoryA = "";
-                                break;
-                            case 5:
-                                $CategoryA = "";
-                                break;
-                            case 6:
-                                $CategoryA = "";
-                                break;
+                          $Category = $row["Category"]; 
+                          $query ="SELECT * FROM Categories WHERE CID IN ($Category)";
+                          $results = sqlsrv_query($conn, $query);
+                          while ($row2 = sqlsrv_fetch_array($results,SQLSRV_FETCH_ASSOC)) {
+                            $CategoryA=$row2["Cname"];
                           }
                           echo '
                           <tr>
                             <td>' . $i .'</td>
-                            <td>' . $QID .'</td>
+                            <td hidden>' . $QID .'</td>
                             <td>' . $Ques . '</td>
                             <td>' . $Choice1 . '</td>
                             <td>' . $Choice2 . '</td>
@@ -543,11 +504,12 @@ Secure(1);
                             <td>Choice ' . $CorrectAns . '</td>
                             <td hidden>' . $Dept . '</td>
                             <td>' . $DeptA . '</td>
-                            <td>' . $Category . '</td>
+                            <td hidden>' . $Category . '</td>
+                            <td>' . $CategoryA . '</td>
                             <td class="text-right py-0 align-middle col-sm-3">
 
                             <div class="btn-group btn-group-sm col-sm-11" >
-                              <button class="btn btn-info" type="submit"  data-bs-toggle="modal" data-bs-target="#modal-Edit-Question" onclick="modalGetDataQuestion(this.parentNode.parentNode.parentNode)"></i>Edit</button>
+                              <button class="btn btn-info" type="submit"  data-bs-toggle="modal" data-bs-target="#modal-Edit-Question" onclick="modalGetDataQuestion(this.parentNode.parentNode.parentNode); getState3(this.parentNode.parentNode.parentNode);"></i>Edit</button>
                               <button class="btn btn-danger" type="submit" onclick="deleteQuestion(this.parentNode.parentNode.parentNode);"></i>Remove</button>
                             </div>
 
@@ -607,6 +569,8 @@ Secure(1);
   <script src="../jss/jquery/jquery.min.js"></script>
   <!-- Bootstrap 4 -->
   <script src="../jss/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../jss/bootstrap/js/bootstrap.js"></script>
+  <script src="../jss/bootstrap/js/bootstrap.min.js"></script>
   <!-- Template Main JS File -->
   <script src="../assets/js/main.js"></script>
   <script src="../jss/dist/js/adminlte.js"></script>
@@ -614,6 +578,62 @@ Secure(1);
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
   <script src="../assets/js/addEditRemove.js"></script>
 
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js" type="text/javascript"></script>
+
+  <!--ADD Drop down lists -->
+<script>
+function getState2() {
+        var str='';
+        var val=document.getElementById('dept2');
+        for (i=0;i< val.length;i++) { 
+          
+            if(val[i].selected){
+                str += val[i].value + ','; 
+            }
+        }
+        var str=str.slice(0,str.length -1);
+        
+	$.ajax({          
+        	type: "GET",
+        	url: "../php/ddldept2.php",
+        	data:'Qid='+str,
+        	success: function(data){
+        		$("#category2").html(data);
+        	}
+	});
+}
+</script>
+
+<!--EDIT Drop down lists -->
+<script>
+function getState3(row) {
+        var str='';
+        var val=document.getElementById('dept3');
+        var category = row.cells[11].innerHTML;
+
+        for (i=0;i< val.length;i++) { 
+          
+            if(val[i].selected){
+                str += val[i].value + ','; 
+            }
+        }         
+        var str=str.slice(0,str.length -1);
+        
+	$.ajax({          
+        	type: "GET",
+        	url: "../php/ddldept2.php",
+        	data:'Qid='+str,
+        	success: function(data){
+        		$("#category3").html(data);
+            document.getElementById("category3").value=category;
+        	}
+  
+  
+	});
+  
+  
+}
+</script>
 </body>
 
 </html>

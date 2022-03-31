@@ -241,7 +241,16 @@ Secure(2);
             <div class="card-body">
 
               <p> <a href="https://github.com/fiduswriter/Simple-DataTables" target="_blank"></a>  <code></code> </p>
-
+              <div class="col-sm-2">
+              <select class="form-select" id="ddldept">
+                <option value="all">Select Department</option>
+                <option value="1">CIT</option>
+                <option value="2">Monitoring & Alarm</option>
+                <option value="3">Cash & Valuables Storage Department</option>
+                <option value="4">Cash Processing Department</option>
+                <option value="5">Patrol Department</option>
+              </select>
+              </div>
 				<!-- Basic Modal -->
 				<p align="right">
               <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#basicModal" >
@@ -441,7 +450,7 @@ Secure(2);
 			<p align="right">
 
               <!-- Table with stripped rows -->
-              <table class="table datatable">
+              <table class="table datatable" id="table11">
 
                 <thead>
 
@@ -582,6 +591,42 @@ Secure(2);
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
   <script src="../assets/js/addEditRemove.js"></script>
 
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+  <script type="text/javascript">
+
+    $(document).ready(function () {
+        $("#ddldept").on("change", function () {
+            var dept = $('#ddldept').find("option:selected").val();
+            SearchData(dept)
+        });
+    });
+    function SearchData(dept) {
+        if (dept.toUpperCase() == 'ALL' ) {
+            $('#table11 tbody tr').show();
+        } else {
+            $('#table11 tbody tr:has(td)').each(function () {
+                var rowdept = $.trim($(this).find('td:eq(5)').text());
+                if (dept.toUpperCase() != 'ALL') {
+                    if (rowdept.toUpperCase() == dept.toUpperCase()) {
+                        $(this).show();
+                    } else {
+                        $(this).hide();
+                    }
+                } else if ($(this).find('td:eq(5)').text() != '' || $(this).find('td:eq(5)').text() != '') {
+                    if (dept != 'all') {
+                        if (rowdept.toUpperCase() == dept.toUpperCase()) {
+                            $(this).show();
+                        } else {
+                            $(this).hide();
+                        }
+                    }
+                    
+                }
+ 
+            });
+        }
+    }
+</script>
 
 
 </body>
