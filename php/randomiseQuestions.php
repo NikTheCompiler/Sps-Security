@@ -12,25 +12,15 @@ while ($row = sqlsrv_fetch_array($ques,SQLSRV_FETCH_ASSOC)) {
     $i=$i+1;
 }
 
-// $rand_keys = array_rand($arr, 2);
-// echo $arr[$rand_keys[0]] . "\n";
-// echo $arr[$rand_keys[1]] . "\n";
-// $i=0;
+$rand_keys = array_rand($arr, 3);
+ $i=0;
 
-// while($i<2){
-//     echo $arr[$rand_keys[$i]] . "\n";
-//     $i=$i+1;
+while($i<3){
+    echo $arr[$rand_keys[$i]] . "\n";
+    $i=$i+1;
 
-// }
+}
 
-$previous = null;
-    do {
-        $prefix = $arr[array_rand($arr,2)];
-    } while ($prefix === $previous && count($arr) > 1);
-    $previous = $prefix;
-    echo $prefix ;
-    echo $arr[$rand_keys[0]] . "\n";
-    echo $arr[$rand_keys[1]] . "\n";
 
 ?>
 
