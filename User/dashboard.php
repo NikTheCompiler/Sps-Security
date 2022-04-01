@@ -180,7 +180,7 @@ Secure(0);
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>  Test</h1>
+      <h1>  Quiz</h1>
 
     </div><!-- End Page Title -->
 <style>
@@ -190,8 +190,8 @@ h1 {
   margin-top: 0px;
 }
 </style>
-<form class=" bg-white px-4" action="">
-<center><h1>QUIZ 1</h1>
+<div class=" bg-white px-4" action="" id="que">
+<center><h1>QUIZ</h1>
 <text>Tries:1</text><center>
 <text>Time:10 minutes</text><center>
 <text>Test will be available on: 20 December 2021 00:00</text><center><br>
@@ -257,14 +257,15 @@ h1 {
     confirmButtonText: 'Confirm'
     }).then((result) =>{
       if (result.isConfirmed) {
-      window.location.href = 'quiz.php';
+      // window.location.href = 'quiz.php';
       
       $.post("../php/randomiseQuestions.php", {
           dept: dept,
         })
         .done(function(data) {
           if (data != 1) {
-            alert(data)
+            $("#que").html(data);
+            
           }
         });
       }

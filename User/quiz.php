@@ -233,13 +233,13 @@ countdown( "ten-countdown", 10, 0 );
 
 
 
-	<div class="row col-5">
+	<div class="row col-5" id="que">
   <h4 class="fw-bold text-center mt-3"></h4>
   <form class=" bg-white px-4" action="">
     <p class="fw-bold">Question 1</p>
     <div class="form-check mb-2">
       <input class="form-check-input" type="radio" name="exampleForm" id="radioExample1" />
-      <label class="form-check-label" for="radioExample1">
+      <label class="form-check-label" for="radioExample1" >
         Option 1
       </label>
     </div>
@@ -256,44 +256,10 @@ countdown( "ten-countdown", 10, 0 );
       </label>
     </div>
   </form>
-  <div class="text-end">
-    <button type="button" class="btn btn-primary">Submit</button>
-  </div>
+  
 </div>
 
-<div class="row col-5">
-  <h4 class="fw-bold text-center mt-3"></h4>
-  <form class="bg-white px-4" action="">
-    <p class="fw-bold">Choose one or more options</p>
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-      <label class="form-check-label" for="flexCheckDefault">
-        Option 1
-      </label>
-    </div>
 
-    <!-- Checked checkbox -->
-    <div class="form-check">
-
-      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault2" />
-      <label class="form-check-label" for="flexCheckDefault2">
-        Option 2
-      </label>
-    </div>
-
-    <!-- Checked checkbox -->
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault3" />
-      <label class="form-check-label" for="flexCheckDefault3">
-        Option 3
-      </label>
-    </div>
-  </form>
-  <div class=" text-end">
-    <button type="button" class="btn btn-primary">Submit</button>
-  </div>
-
-</div>
 
   </main><!-- End #main -->
 
