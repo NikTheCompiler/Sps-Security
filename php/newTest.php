@@ -1,7 +1,7 @@
 <?php
 include_once('connect.php');
 $UserID = $_POST["UserID"];
-$Date = $_POST["Date"];
+$Date = $_POST["date"];
 
 $addTest = "INSERT INTO Tests
         ( UserID,
@@ -12,7 +12,12 @@ $addTest = "INSERT INTO Tests
   
 $params = array($UserID, $Date);
 $questionquery = sqlsrv_query($conn, $addTest, $params);
-$res = sqlsrv_query($conn, "SELECT TestID FROM Tests WHERE UserID = ? AND Date = ?", $params);
-$TestID = sqlsrv_fetch_array($res, SQLSRV_FETCH_ASSOC)
-echo $TestID["TestID"];
+
+$res = sqlsrv_query($conn, "SELECT TestID FROM Tests WHERE UserID = '".$UserID."' AND Date = '".$Date."' ");
+while ($TestID = sqlsrv_fetch_array($res, SQLSRV_FETCH_ASSOC)){
+        echo $TestID["TestID"];
+
+}
+
+
 ?>

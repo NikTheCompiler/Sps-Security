@@ -88,12 +88,13 @@ while($i<3){
 
 
 ?>
-<center><button type="button" class="btn btn-primary" onclick="submitAnswers()"  >Sumbit Answers</button><center>
+<center><button type="button" class="btn btn-primary" onclick="submitAnswers()">Submit Answers</button><center>
+<input hidden type="text"  name= "deptv" id= "testid" class="form-control" value="<?php echo $TestID ?>">
 
 <script>
   function submitAnswers()
   {
-    var TestID = $TestID;
+    var TestID =document.getElementById("testid").value;
     var userAns;
     var qid;
     var grade = 0;
@@ -117,7 +118,7 @@ while($i<3){
           Swal.fire({
             icon: 'success',
             title: 'You have submited your answers!',
-            text: 'Your grade is '+ grade '/' + $i-1,
+            text: 'Your grade is '+ grade '/' + $i-1
             })
             .then((result) => {
               location.reload();  

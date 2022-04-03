@@ -76,6 +76,7 @@ Secure(0);
       <ul class="d-flex align-items-center">
 
       <input hidden type="text"  name= "deptv" id= "deptv" class="form-control" value="<?php echo $dept ?>">
+      <input hidden type="text"  name= "deptv" id= "idv" class="form-control" value="<?php echo $id ?>">
         <li class="nav-item dropdown pe-3">
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
@@ -244,18 +245,11 @@ h1 {
   <!-- Template Main JS File -->
   <script src="../assets/js/main.js"></script>
   <script>
-  function newTest(){
-    var UserID = $id;
-    var today = new Date();
-    var Date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-    $.post("../php/newTest.php",{
-      UserID: UserID,
-      Date: Date
-    })
-  }
-
+  
   function startQuiz(){
+    var TestID;
     var dept=document.getElementById("deptv").value;
+    var UserID = document.getElementById("idv").value;
     Swal.fire({
     title: 'Are you ready?',
     text: "You will have 10 minutes to finish the quiz!" ,
@@ -264,12 +258,21 @@ h1 {
     reverseButtons: true,
     cancelButtonColor: '#d33',
     confirmButtonText: 'Confirm'
+
     }).then((result) =>{
       if (result.isConfirmed) {
-      // window.location.href = 'quiz.php';
-      var TestID = newTest();
-      
-      $.post("../php/randomiseQuestions.php", {
+        
+        var today = new Date();
+        var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+        $.post("../php/newTest.php",{
+           UserID: UserID,
+           date: date
+        })
+        .done(function(data) {
+        if (data != 1) {
+        TestID=data;
+        alert(TestID);
+        $.post("../php/randomiseQuestions.php", {
           dept: dept,
           TestID: TestID
         })
@@ -277,8 +280,15 @@ h1 {
           if (data != 1) {
             $("#que").html(data);
             
+            
           }
         });
+      
+        }
+      
+      });
+      
+      
       }
     });
   }
