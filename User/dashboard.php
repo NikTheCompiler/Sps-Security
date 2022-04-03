@@ -244,6 +244,15 @@ h1 {
   <!-- Template Main JS File -->
   <script src="../assets/js/main.js"></script>
   <script>
+  function newTest(){
+    var UserID = $id;
+    var today = new Date();
+    var Date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+    $.post("../php/newTest.php",{
+      UserID: UserID,
+      Date: Date
+    })
+  }
 
   function startQuiz(){
     var dept=document.getElementById("deptv").value;
@@ -258,9 +267,11 @@ h1 {
     }).then((result) =>{
       if (result.isConfirmed) {
       // window.location.href = 'quiz.php';
+      var TestID = newTest();
       
       $.post("../php/randomiseQuestions.php", {
           dept: dept,
+          TestID: TestID
         })
         .done(function(data) {
           if (data != 1) {
@@ -271,6 +282,7 @@ h1 {
       }
     });
   }
+
   </script>
 
 
