@@ -82,6 +82,9 @@ if (isset($_SESSION['UserID']) && isset($_SESSION['username']))
                       if($_SESSION['LoginError']=='3'){
                         echo '<p class="login-box-msg" style="color: red;">Current password is wrong!</p>';
                       }
+                      if($_SESSION['LoginError']=='4'){
+                        echo '<p class="login-box-msg" style="color: red;">Password must be at least 5 characters!</p>';
+                      }
                       unset($_SESSION['LoginError']);
                     }
         

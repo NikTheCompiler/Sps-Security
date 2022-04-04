@@ -19,9 +19,14 @@ $user = $_SESSION["username"];
 $sql1 = "SELECT * FROM Users WHERE username='".$user."'";
 $req =  sqlsrv_query($conn, $sql1) or die(print_r(sqlsrv_errors(),true));
 $row = sqlsrv_fetch_array($req, SQLSRV_FETCH_ASSOC);
-
+if(strlen($new)<5){
+    $_SESSION['LoginError'] = "4";
+    header('Location: ../Newuser.php');
+    exit();
+}
 if ($pass==""){
-    echo 3;
+    $_SESSION['LoginError'] = "3";
+    header('Location: ../Newuser.php');
     exit();
 }
 if($row['password']== $pass){
@@ -85,18 +90,18 @@ if ($new==$confirmpass){
     }
     else{
         $_SESSION['LoginError'] = "1";
-        header('Location: ../newuser.php');
+        header('Location: ../Newuser.php');
     }
 
 }
 else{
     $_SESSION['LoginError'] = "2";
-    header('Location: ../newuser.php');
+    header('Location: ../Newuser.php');
 }
 }
 else{
     $_SESSION['LoginError'] = "3";
-    header('Location: ../newuser.php');
+    header('Location: ../Newuser.php');
 }
 
 ?>

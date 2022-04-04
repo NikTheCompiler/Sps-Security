@@ -15,28 +15,60 @@ function addUser()
 
 
   if(name==""){
-    alert('Name is required!')
+    Swal.fire(
+      'Name is required!',
+      '',
+      'error'
+    );
   }
   else if(surname==""){
-    alert('Surname is required!')
+    Swal.fire(
+      'Surname is required!',
+      '',
+      'error'
+    );
   }
   else if(position==""){
-    alert('Position is required!')
+    Swal.fire(
+      'Position is required!',
+      '',
+      'error'
+    );
   }
   else if(username==""||username.length<5){
-    alert('Username is required and must be at least 5 characters long!')
+    Swal.fire(
+      'Username is required and must be at least 5 characters long!',
+      '',
+      'error'
+    );
   }
   else if(email!="" && (atSymbol < 1||dot <= atSymbol + 2||dot === email.length - 1)){
-    alert('Wrong email format!')
+    Swal.fire(
+      'Wrong email format!',
+      '',
+      'error'
+    );
   }
   else if(dept==""){
-    alert('Department is required!')
+    Swal.fire(
+      'Department is required!',
+      '',
+      'error'
+    );
   }
   else if(type==""){
-    alert('Type is required!')
+    Swal.fire(
+      'Type is required!',
+      '',
+      'error'
+    );
   }
   else if(policecert==""){
-    alert('Police Certificate is required!')
+    Swal.fire(
+      'Police Certificate is required!',
+      '',
+      'error'
+    );
   }
 
 
@@ -62,13 +94,26 @@ function addUser()
         );
       }
       else if(data == 2){
-        alert("Username is already used!");
+        Swal.fire(
+          'Username is already used!',
+          '',
+          'error'
+        );
       }
       else if(data == 3){
-        alert("Username and email are already used!");
+        Swal.fire(
+          'Username and email are already used!',
+          '',
+          'error'
+        );
+
       }
       else if(data == 4){
-        alert("This email is already used!");
+        Swal.fire(
+          'This email is already used!',
+          '',
+          'error'
+        );
       }
       else if (data !=2) {
         Swal.fire({
@@ -102,29 +147,62 @@ function editUser()
   var dot = email.indexOf(".");
 
   if(name==""){
-    alert('Name is required!')
+    Swal.fire(
+      'Name is required!',
+      '',
+      'error'
+    );
   }
   else if(surname==""){
-    alert('Surname is required!')
+    Swal.fire(
+      'Surname is required!',
+      '',
+      'error'
+    );
   }
   else if(position==""){
-    alert('Position is required!')
+    Swal.fire(
+      'Position is required!',
+      '',
+      'error'
+    );
   }
   else if(username==""||username.length<5){
-    alert('Username is required and must be at least 5 characters long!')
+    Swal.fire(
+      'Username is required and must be at least 5 characters long!',
+      '',
+      'error'
+    );
   }
   else if(email!="" && (atSymbol < 1||dot <= atSymbol + 2||dot === email.length - 1)){
-    alert('Wrong email format!')
+    Swal.fire(
+      'Wrong email format!',
+      '',
+      'error'
+    );
   }
   else if(dept==""){
-    alert('Department is required!')
+    Swal.fire(
+      'Department is required!',
+      '',
+      'error'
+    );
   }
   else if(type==""){
-    alert('Type is required!')
+    Swal.fire(
+      'Type is required!',
+      '',
+      'error'
+    );
   }
   else if(policecert==""){
-    alert('Police Certificate is required!')
+    Swal.fire(
+      'Police Certificate is required!',
+      '',
+      'error'
+    );
   }
+
   else{
   $.post("../php/editUser.php", {
       id: id,
@@ -168,13 +246,26 @@ function editProfile(){
   var dot = email.indexOf(".");
 
   if(name==""){
-    alert('Name is required!')
+    Swal.fire(
+      'Name is required!',
+      '',
+      'error'
+    );
   }
   else if(surname==""){
-    alert('Surname is required!')
+    Swal.fire(
+      'Surname is required!',
+      '',
+      'error'
+    );
   }
   else if(email!="" && (atSymbol < 1||dot <= atSymbol + 2||dot === email.length - 1)){
-    alert('Wrong email format!')
+    Swal.fire(
+      'Wrong email format!',
+      '',
+      'error'
+    );
+
   }
   else{
   $.post("../php/editProfile.php", {
@@ -283,13 +374,32 @@ var id = row.cells[1].innerHTML;
       var newpass = document.getElementById("newpass").value;
       var confirmpass = document.getElementById("confirmpass").value;
       if (pass==""){
-        alert("Current password is required!")
+        Swal.fire(
+          'Current password is required!',
+          '',
+          'error'
+        );
       }
       else if(newpass==""){
-        alert("New password is required")
+        Swal.fire(
+          'New password is required!',
+          '',
+          'error'
+        );
       }
       else if(newpass!=confirmpass){
-        alert("New password and confirm password don't match!")
+        Swal.fire(
+          'New password and confirm password do not match!',
+          '',
+          'error'
+        );
+      }
+      else if (newpass.length<5){
+        Swal.fire(
+          'New password must be at least 5 characters!',
+          '',
+          'error'
+        );
       }
       else{
       $.post("../php/passwordchange.php", {
@@ -308,10 +418,19 @@ var id = row.cells[1].innerHTML;
             })
 
           } else if (data == 0){
-            alert("Wrong current password!");
+            Swal.fire(
+              'Wrong current password!',
+              '',
+              'error'
+            );
+            
           }
           else{
-            alert("Something went wrong!")
+            Swal.fire(
+              'Something went wrong!',
+              '',
+              'error'
+            );
           }
 
         });
@@ -332,28 +451,62 @@ var id = row.cells[1].innerHTML;
 
 
       if(question == ""){
-        alert('Question is required!')
+        Swal.fire(
+          'Question is required!',
+          '',
+          'error'
+        );
+        
       }
       else if(choice1 == ""){
-        alert('Choice 1 is required!')
+        Swal.fire(
+          'Choice 1 is required!',
+          '',
+          'error'
+        );
+        
       }
       else if(choice2 == ""){
-        alert('Choice 2 is required!')
+        Swal.fire(
+          'Choice 2 is required!',
+          '',
+          'error'
+        );
       }
       else if(correctanswer == ""){
-        alert('Correct Answer is required!')
+        Swal.fire(
+          'Correct Answer is required!',
+          '',
+          'error'
+        );
       }
       else if((choice3 == "") && (correctanswer == 3)){
-        alert('Choice 3 is required!')
+        Swal.fire(
+          'Choice 3 is required!',
+          '',
+          'error'
+        );
       }
       else if((choice4 == "") && (correctanswer == 4)){
-        alert('Choice 4 is required!')
+        Swal.fire(
+          'Choice 4 is required!',
+          '',
+          'error'
+        );
       }
       else if(dept2 == ""){
-        alert('Question Department is required!')
+        Swal.fire(
+          'Question Department is required!',
+          '',
+          'error'
+        );
       }
       else if(category == ""){
-        alert('Question Category is required!')
+        Swal.fire(
+          'Question Category is required!',
+          '',
+          'error'
+        );
       }
 
       else {
@@ -388,7 +541,7 @@ var id = row.cells[1].innerHTML;
             }
             else if(data == 2) {
               Swal.fire(
-                'Failed! Question already exists!',
+                'Question already exists!',
                 '',
                 'error'
               );
@@ -410,29 +563,63 @@ var id = row.cells[1].innerHTML;
       var category = $("#category3")[0].value;
 
 
-      if(question==""){
-        alert('Question is required!')
+      if(question == ""){
+        Swal.fire(
+          'Question is required!',
+          '',
+          'error'
+        );
+        
       }
-      else if(choice1==""){
-        alert('Choice 1 is required!')
+      else if(choice1 == ""){
+        Swal.fire(
+          'Choice 1 is required!',
+          '',
+          'error'
+        );
+        
       }
-      else if(choice2==""){
-        alert('Choice 2 is required!')
+      else if(choice2 == ""){
+        Swal.fire(
+          'Choice 2 is required!',
+          '',
+          'error'
+        );
       }
-      else if(correctanswer==""){
-        alert('Correct Answer is required!')
+      else if(correctanswer == ""){
+        Swal.fire(
+          'Correct Answer is required!',
+          '',
+          'error'
+        );
       }
       else if((choice3 == "") && (correctanswer == 3)){
-        alert('Choice 3 is required!')
+        Swal.fire(
+          'Choice 3 is required!',
+          '',
+          'error'
+        );
       }
       else if((choice4 == "") && (correctanswer == 4)){
-        alert('Choice 4 is required!')
+        Swal.fire(
+          'Choice 4 is required!',
+          '',
+          'error'
+        );
       }
-      else if(dept2==""){
-        alert('Department is required!')
+      else if(dept2 == ""){
+        Swal.fire(
+          'Question Department is required!',
+          '',
+          'error'
+        );
       }
-      else if(category==""){
-        alert('Category is required!')
+      else if(category == ""){
+        Swal.fire(
+          'Question Category is required!',
+          '',
+          'error'
+        );
       }
       
       else{
@@ -595,10 +782,18 @@ function addCategory()
      
 
       if(Cname == ""){
-        alert('Name is required!')
+        Swal.fire(
+          'Name is required!',
+          '',
+          'error'
+        );
       }
       else if(deptCat == "0"){
-        alert('Dept is required!')
+        Swal.fire(
+          'Dept is required!',
+          '',
+          'error'
+        );
       }
 
       else {
@@ -650,10 +845,18 @@ function editCategory()
 
 
       if(Cname==""){
-        alert('Name is required!')
+        Swal.fire(
+          'Name is required!',
+          '',
+          'error'
+        );
       }
       else if(deptCatEdit==""){
-        alert('Department is required!')
+        Swal.fire(
+          'Department is required!',
+          '',
+          'error'
+        );
       }
 
       
