@@ -18,7 +18,7 @@ if(isset($_POST) && !empty($_POST['username']) && !empty($_POST['password']))
 
     $_SESSION['type']=$row['type'];
 
-    if($password !== $row['password'])
+    if($password != $row['password'])
         {
         $_SESSION['LoginError'] = "1";
         header('Location: ../login.php');

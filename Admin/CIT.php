@@ -283,7 +283,7 @@ Secure(3);
                        $name=$row["name"];
                        $surname=$row["surname"];
                        $grade=$row["Grade"];
-                       $date=$row["EndsAt"];
+                       $date=$row["Date"];
                        if ($grade<=50){
                         $status = "Bad";
                        }

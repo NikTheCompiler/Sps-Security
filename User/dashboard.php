@@ -271,22 +271,19 @@ h1 {
         .done(function(data) {
         if (data != 1) {
         TestID=data;
-        alert(TestID);
-        $.post("../php/randomiseQuestions.php", {
-          dept: dept,
-          TestID: TestID
-        })
-        .done(function(data) {
-          if (data != 1) {
-            $("#que").html(data);
-            
-            
-          }
-        });
+          $.post("../php/randomiseQuestions.php", {
+            dept: dept,
+            TestID: TestID
+          })
+            .done(function(data) {
+              if (data != 1) {
+                $("#que").html(data);
+              }
+            });
       
         }
       
-      });
+        });
       
       
       }

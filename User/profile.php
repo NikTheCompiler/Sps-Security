@@ -157,12 +157,6 @@ Secure(0);
         </a>
       </li><!-- End Dashboard Nav -->
 
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="quiz.php">
-          <i class="bi bi-card-checklist"></i>
-          <span>Quiz</span>
-        </a>
-      </li><!-- End Dashboard Nav -->
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="grades.php">

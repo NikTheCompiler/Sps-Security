@@ -3,23 +3,23 @@ session_start();
 include_once('connect.php');
 $UserAns = $_POST['userAns'];
 $QID = $_POST['qid'];
-$TestID =$_POST['TestID']
+$TestID =$_POST['tid'];
 
 $addUserAns = "INSERT INTO UserAns
         ( QID,
-         UserAns,
-         TestID
+         TestID,
+         UserAns
          )  
         VALUES   
         (?, ?, ?)";  
   
-$params = array($QID, $UserAns,$TestID);
+$params = array($QID,$TestID,$UserAns);
 $questionquery = sqlsrv_query($conn, $addUserAns, $params);
 
-$res = sqlsrv_query($conn,"SELECT CorrectAns FROM Questions WHERE QID = ?",$QID);
+$res = sqlsrv_query($conn,"SELECT CorrectAns FROM Questions WHERE QID = '".$QID."'",);
 $correctAns = sqlsrv_fetch_array($res, SQLSRV_FETCH_ASSOC);
 
-if ($UserAns == $correctAns["CorrectAns"])
+if ($UserAns != $correctAns["CorrectAns"])
 {
     echo 1;
 } else

@@ -490,7 +490,7 @@ Secure(3);
                 <thead>
 
                   <tr>
-                    <th scope="col">#</th>
+                    
                     <th scope="col">QID</th>
                     <th scope="col">Question</th>
 					          <th scope="col">Choice 1</th>
@@ -547,7 +547,7 @@ Secure(3);
                           }
                           echo '
                           <tr>
-                            <td>' . $i .'</td>
+                            <td hidden>' . $i .'</td>
                             <td>' . $QID .'</td>
                             <td>' . $Ques . '</td>
                             <td>' . $Choice1 . '</td>

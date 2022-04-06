@@ -16,7 +16,7 @@ $questionquery = sqlsrv_query($conn, $addTest, $params);
 $res = sqlsrv_query($conn, "SELECT TestID FROM Tests WHERE UserID = '".$UserID."' AND Date = '".$Date."' ");
 while ($TestID = sqlsrv_fetch_array($res, SQLSRV_FETCH_ASSOC)){
         echo $TestID["TestID"];
-
+ 
 }
 
 
