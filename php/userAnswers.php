@@ -5,7 +5,12 @@ $UserAns = $_POST['userAns'];
 $QID = $_POST['qid'];
 $TestID =$_POST['tid'];
 
-$addUserAns = "INSERT INTO UserAns
+$checktest = sqlsrv_query($conn,"SELECT * FROM UserAns WHERE TestID = '".$TestID."' AND QID = '".$QID."' ");
+$executechecktest = sqlsrv_fetch_array($checktest, SQLSRV_FETCH_ASSOC);
+
+if($executechecktest == 0)
+{
+    $addUserAns = "INSERT INTO UserAns
         ( QID,
          TestID,
          UserAns
@@ -13,10 +18,18 @@ $addUserAns = "INSERT INTO UserAns
         VALUES   
         (?, ?, ?)";  
   
-$params = array($QID,$TestID,$UserAns);
-$questionquery = sqlsrv_query($conn, $addUserAns, $params);
+    $params = array($QID,$TestID,$UserAns);
+    $questionquery = sqlsrv_query($conn, $addUserAns, $params);
 
-$res = sqlsrv_query($conn,"SELECT CorrectAns FROM Questions WHERE QID = '".$QID."'",);
+}
+
+else
+{
+    $updaterow = sqlsrv_prepare($conn, "UPDATE UserAns SET UserAns = ? WHERE TestID = '".$TestID."' AND QID = '".$QID."' ",array($UserAns));
+    sqlsrv_execute($updaterow);
+}
+
+$res = sqlsrv_query($conn,"SELECT CorrectAns FROM Questions WHERE QID = '".$QID."'");
 $correctAns = sqlsrv_fetch_array($res, SQLSRV_FETCH_ASSOC);
 
 if ($UserAns != $correctAns["CorrectAns"])
