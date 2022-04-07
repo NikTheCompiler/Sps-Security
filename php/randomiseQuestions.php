@@ -1,4 +1,5 @@
 <?php
+session_start();
 include_once('connect.php');
 
 $TestID = $_POST['TestID'];
@@ -18,11 +19,18 @@ $rand_keys = array_rand($arr, 3);
  $Ans = array(4);
  $i=0;
  ?>
+ 
+ <center>
+<h1> Time Left:</h1>
+</center>
+<center>
+<h2 id="ten-countdown" ></h2>
+</center>
 <?php
 while($i<3){
   
 ?>
-    
+
   <h4 class="fw-bold text-center mt-3"></h4>
   <form class=" bg-white px-4" action="" method="post">
     <p class="fw-bold">Question <?php echo $i+1?>.
@@ -41,6 +49,7 @@ while($i<3){
     ?>
     <input hidden type="text"  name= "qid" id= "qid<?php echo $i+1?>>" class="form-control" value="<?php echo $qid ?>">
     <input hidden type="text"  name= "tid" id= "tid" class="form-control" value="<?php echo $TestID ?>">
+    <input hidden type="text"  name= "uid" id= "uid" class="form-control" value="<?php echo $_SESSION["UserID"]?>">
     <form>
     <div class="form-check mb-2">
       <input class="form-check-input" type="radio" name="exampleForm" value=1 id="c1" name="c1" onclick="setAns(value,<?php echo $qid ?>)" />
@@ -74,8 +83,39 @@ while($i<3){
   ?>
 
 <center><button type="button" class="btn btn-primary" onclick="submitAnswers()">Submit Answers</button><center>
-<input hidden type="text"  name= "deptv" id= "testid" class="form-control" value="<?php echo $TestID ?>">
 
+<script>
+function countdown( elementName, minutes, seconds )
+{
+    var element, endTime, hours, mins, msLeft, time;
+
+    function twoDigits( n )
+    {
+        return (n <= 9 ? "0" + n : n);
+    }
+
+    function updateTimer()
+    {
+        msLeft = endTime - (+new Date);
+        if ( msLeft < 1000 ) {
+          submitAnswers2();
+        } else {
+            time = new Date( msLeft );
+            hours = time.getUTCHours();
+            mins = time.getUTCMinutes();
+            element.innerHTML = (hours ? hours + ':' + twoDigits( mins ) : mins) + ':' + twoDigits( time.getUTCSeconds() );
+            setTimeout( updateTimer, time.getUTCMilliseconds() + 500 );
+        }
+    }
+
+    element = document.getElementById( elementName );
+    endTime = (+new Date) + 1000 * (60*minutes + seconds) + 500;
+    updateTimer();
+}
+
+countdown( "ten-countdown", 10, 0 );
+
+</script>
 <script>
 function setAns(ans,id)
   {
@@ -87,68 +127,78 @@ function setAns(ans,id)
       userAns: userAns,
       qid: qid,
       tid: tid
-      }).done(function(data) {
-      if (data == 1){
-        grade = grade+1;
-        alert(grade);
-        }
-      else{
-        grade=grade+0;
-        alert(grade);
-      }
-      });
-      
-      
+      })
 
   }
 </script>
 
 <script>
-  // function submitAnswers()
-  // {
-  //   var TestID =document.getElementById("testid").value;
-  //   var userAns;
-  //   var qid;
-  //   var grade = 0;
-  //   $i = 0;
-  //   while ($i < 3){
-  //     userAns = $Ans[$i];
-  //     qid = $arr[$i];
-  //     $.post("../php/userAnswers.php", {
-  //     userAns: userAns,
-  //     qid:  qid,
-  //     TestID: TestID
-  //     }).done(function(data) {
+  function submitAnswers()
+  {
+    var uid = document.getElementById("uid").value;
+    var TestID =document.getElementById("tid").value;
+    var grade = 69;
+    Swal.fire({
+    title: 'Are you sure?',
+    text: "You won't be able to revert it!" ,
+    icon: 'warning',
+    showCancelButton: true,
+    reverseButtons: true,
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Confirm'
 
-  //     if (data == 1){
-  //       grade += 1;
-  //       }
-  //     })
-  //   }
-  //   updateGrade().done(function(data){
-  //     if (data == 1){
-  //         Swal.fire({
-  //           icon: 'success',
-  //           title: 'You have submited your answers!',
-  //           text: 'Your grade is '+ grade '/' + $i-1
-  //           })
-  //           .then((result) => {
-  //             location.reload();  
-  //           })
-  //         }
-  //     })
-  //   function updateGrade()
-  //   {
-  //     $.post("../php/updateGrade.php",{
-  //       TestID: TestID,
-  //       grade: grade
-  //     })
-  //   }
-  // }
+    }).then((result) =>{
+      if (result.isConfirmed) {
+        $.post("../php/updateGrade.php", {
+        uid:uid,
+        TestID: TestID
+        })
+        .done(function(data) {
+          grade=data;
+          if (grade !=69){
+            Swal.fire({
+              icon: 'success',
+              title: 'You have submitted your answers!',
+              text: 'Your grade is '+ grade * 5 + '/100'
+              })
+              .then((result) => {
+                location.reload();  
+              })
+            }
+        })
+      }
+    });
+  }
+  
+</script>
+<script>
+  function submitAnswers2()
+  {
+    var uid = document.getElementById("uid").value;
+    var TestID =document.getElementById("tid").value;
+    var grade = 69;
+        $.post("../php/updateGrade.php", {
+        uid:uid,
+        TestID: TestID
+        })
+        .done(function(data) {
+          grade=data;
+          if (grade !=69){
+            Swal.fire({
+              icon: 'success',
+              title: 'You have submitted your answers!',
+              text: 'Your grade is '+ grade * 5 + '/100'
+              })
+              .then((result) => {
+                location.reload();  
+              })
+            }
+        })
+  }
   
 </script>
 
-<script src="../jss/jquery/jquery.min.js"></script>
+
 
 
 

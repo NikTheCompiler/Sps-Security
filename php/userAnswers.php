@@ -29,15 +29,6 @@ else
     sqlsrv_execute($updaterow);
 }
 
-$res = sqlsrv_query($conn,"SELECT CorrectAns FROM Questions WHERE QID = '".$QID."'");
-$correctAns = sqlsrv_fetch_array($res, SQLSRV_FETCH_ASSOC);
 
-if ($UserAns != $correctAns["CorrectAns"])
-{
-    echo 1;
-} else
-{
-    echo 0;
-}
 
 ?>
