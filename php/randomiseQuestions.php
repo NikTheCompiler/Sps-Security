@@ -6,7 +6,7 @@ $TestID = $_POST['TestID'];
 $dept = $_POST['dept'];
 $arr = array(4);
 $i=0;
-$sql="SELECT * FROM Questions  ";
+$sql="SELECT * FROM Questions WHERE Dept='".$dept."' OR Dept=6 ";
 $ques = sqlsrv_query($conn,$sql);
 
 while ($row = sqlsrv_fetch_array($ques,SQLSRV_FETCH_ASSOC)) {
