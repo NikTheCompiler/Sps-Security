@@ -155,7 +155,7 @@ Secure(0);
       
 
       <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="grades.php">
+        <a class="nav-link collapsed" href="grades.php">
           <i class="bi bi-calculator"></i><span>Grades</span><i ></i>
         </a>
 
