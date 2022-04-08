@@ -33,7 +33,7 @@ Secure(3);
   <link href="../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
   <link href="../assets/vendor/quill/quill.snow.css" rel="stylesheet">
   <link href="../assets/vendor/quill/quill.bubble.css" rel="stylesheet">
-  <link href="../assets/vendor/simple-datatables/style.css" rel="stylesheet">
+  
 
   <!-- Template Main CSS File -->
   <link href="../assets/css/style.css" rel="stylesheet">
@@ -256,7 +256,7 @@ Secure(3);
             <td><input type="text" id="max" name="max"></td>
         </tr>
     </tbody></table>
-       <table class="table table-borderless datatable">
+       <table class="display nowrap" id="Grades" style="width:100%">
          <thead>
            <tr>
            <th>ID</th>
@@ -269,7 +269,7 @@ Secure(3);
          <tbody>
              <?php
                    include_once('../php/connect.php');
-                   $result = sqlsrv_query($conn, "SELECT * FROM Users JOIN Tests ON Users.UserID=Tests.UserID WHERE type==0 ");
+                   $result = sqlsrv_query($conn, "SELECT * FROM Users JOIN Tests ON Users.UserID=Tests.UserID WHERE type=0 ");
 
                    $i = 0;
                    while ($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)) {
@@ -277,8 +277,8 @@ Secure(3);
                      $id = $row["UserID"];
                      $name=$row["name"];
                      $surname=$row["surname"];
-                     $grade=$row["Grade"];
-                     $date=$row["Date"];
+                     $grade=5*$row["Grade"];
+                     $date = $row['Date']->format('Y/m/d');
                      if ($grade<=50){
                       $status = "Bad";
                      }

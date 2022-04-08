@@ -610,6 +610,7 @@ Secure(3);
                           <option value="3">Cash & Valuables Storage Department</option>
                           <option value="4">Cash Processing Department</option>
                           <option value="5">Patrol Department</option>
+                          <option value="6">Health & Safety</option>
                         </select>
                       </div>
                     </div>
@@ -653,6 +654,7 @@ Secure(3);
                           <option value="3">Cash & Valuables Storage Department</option>
                           <option value="4">Cash Processing Department</option>
                           <option value="5">Patrol Department</option>
+                          <option value="6">Health & Safety</option>
                         </select>
                       </div>
                     </div>
