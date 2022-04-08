@@ -2,7 +2,7 @@
 session_start();
 include_once('../php/connect.php');
 include_once('../php/security.php');
-Secure(3);
+Secure(1);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,7 +11,7 @@ Secure(3);
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Cash Processing Department</title>
+  <title>CIT</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -23,9 +23,9 @@ Secure(3);
   <link href="https://fonts.gstatic.com" rel="preconnect">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
+
   <link href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css" rel="stylesheet">
   <link href="https://cdn.datatables.net/datetime/1.1.2/css/dataTables.dateTime.min.css" rel="stylesheet">
-  
   <!-- Vendor CSS Files -->
   <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
@@ -68,6 +68,7 @@ Secure(3);
                       $name = $row["name"];
                       $surname = $row["surname"];
                       $position=$row["position"];
+                      $dept=$row["dept"];
                     
                   
                     }
@@ -141,86 +142,53 @@ Secure(3);
 
   </header><!-- End Header -->
 
-  <!-- ======= Sidebar ======= -->
-  <aside id="sidebar" class="sidebar">
+    <!-- ======= Sidebar ======= -->
+    <aside id="sidebar" class="sidebar">
 
-    <ul class="sidebar-nav" id="sidebar-nav">
+<ul class="sidebar-nav" id="sidebar-nav">
 
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="dashboard.php">
-          <i class="bi bi-grid"></i>
-          <span>Dashboard</span>
-        </a>
-      </li><!-- End Dashboard Nav --> 
-      <li class="nav-item"> 
-        <a class="nav-link" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-layout-text-window-reverse"></i><span>Departments</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="tables-nav" class="nav-content collapse show" data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="CIT.php" >
-              <i class="bi bi-circle"></i><span>CIT</span>
-            </a>
-          </li>
-          <li>
-            <a href="MARC.php">
-              <i class="bi bi-circle"></i><span>Monitoring & Alarm Receiving Center</span>
-            </a>
-          </li>
-          <li>
-            <a href="CVSD.php">
-              <i class="bi bi-circle"></i><span>Cash & Valuables Storage Department</span>
-            </a>
-          </li>
-          <li>
-            <a href="CPD.php" class="active">
-              <i class="bi bi-circle"></i><span>Cash Processing Department</span>
-            </a>
-          </li>
-          <li>
-            <a href="PD.php">
-              <i class="bi bi-circle"></i><span>Patrol Department</span>
-            </a>
-          </li>
-          <li>
-            <a href="HS.php">
-              <i class="bi bi-circle"></i><span>Health & Safety</span>
-            </a>
-          </li>
-        </ul>
-      </li><!-- End Tables Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="employees.php">
-          <i class="bi bi-layout-text-sidebar"></i>
-          <span>Employees</span>
-        </a>
-      </li><!-- End Dashboard Nav -->
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="questions.php">
-          <i class="bi bi-question-lg"></i>
-          <span>Questions</span>
-        </a>
-      </li><!-- End Dashboard Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="profile.php">
-          <i class="bi bi-person"></i>
-          <span>Profile</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="aboutus.php">
-          <i class="bi bi-bank"></i>
-          <span>About Us</span>
-        </a>
-      </li><!-- End Profile Page Nav -->
+  <li class="nav-item">
+    <a class="nav-link collapsed" href="dashboard.php">
+      <i class="bi bi-grid"></i>
+      <span>Dashboard</span>
+    </a>
+  </li><!-- End Dashboard Nav -->
+  <li class="nav-item">
+    <a class="nav-link " href="Grades.php">
+      <i class="bi bi-calculator"></i>
+      <span>Grades</span>
+    </a>
+  </li><!-- End Dashboard Nav -->
+  <li class="nav-item">
+    <a class="nav-link collapsed" href="employees.php">
+      <i class="bi bi-layout-text-sidebar"></i>
+      <span>Employees</span>
+    </a>
+  </li><!-- End Dashboard Nav -->
+  <li class="nav-item">
+    <a class="nav-link collapsed" href="questions.php">
+      <i class="bi bi-question-lg"></i>
+      <span>Questions</span>
+    </a>
+  </li><!-- End Dashboard Nav -->
+  <li class="nav-item">
+    <a class="nav-link collapsed" href="profile.php">
+      <i class="bi bi-person"></i>
+      <span>Profile</span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link collapsed" href="aboutus.php">
+      <i class="bi bi-bank"></i>
+      <span>About Us</span>
+    </a>
+  </li><!-- End Profile Page Nav -->
 
 
 
-    </ul>
+</ul>
 
-  </aside><!-- End Sidebar-->
+</aside><!-- End Sidebar-->
 
   <main id="main" class="main">
 
@@ -244,24 +212,28 @@ Secure(3);
                 </div>
 
                 <div class="card-body">
-                  <h5 class="card-title">Cash Processing Department<span></span></h5>
 
-                  <table border="0" cellspacing="5" cellpadding="5">
+
+                  <h5 class="card-title">CIT<span></span></h5>
+                  
+<table border="0" cellspacing="5" cellpadding="5">
         
-        <tbody><tr>
-           <td>Start date:</td>
-          <td><input type="text" id="min" name="min"></td>
-        </tr>
-            <tr>
-                  <td>End date:</td>
-                  <td><input type="text" id="max" name="max"></td>
-              </tr>
-          </tbody></table>
+  <tbody>
+    <tr>
+      <td>Start date:</td>
+      <td><input type="text" id="min" name="min"></td>
+    </tr>
+    <tr>
+      <td>End date:</td>
+      <td><input type="text" id="max" name="max"></td>
+    </tr>
+    </tbody>
+</table>
 
        <table class="display nowrap" id="Grades" style="width:100%">
          <thead>
            <tr>
-           <th>ID</th>
+             <th>ID</th>
              <th>Employee</th>
              <th>Grade</th>
              <th>Status</th>
@@ -271,41 +243,43 @@ Secure(3);
          <tbody>
              <?php
                    include_once('../php/connect.php');
-                   $result = sqlsrv_query($conn, "SELECT * FROM Users JOIN Tests ON Users.UserID=Tests.UserID WHERE dept='4'AND type=0 ");
+                   $result = sqlsrv_query($conn, "SELECT * FROM Users JOIN Tests ON Users.UserID=Tests.UserID WHERE dept=$dept AND type=0 ");
 
-                   $i = 0;
-                   while ($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)) {
-                     $i++;
-                     $id = $row["UserID"];
-                     $name=$row["name"];
-                     $surname=$row["surname"];
-                     $grade=5*$row["Grade"];
-                     $date = $row['Date']->format('Y/m/d');
-                     if ($grade<=50){
-                      $status = "Bad";
+                     $i = 0;
+                     while ($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)) {
+                       $i++;
+                       $id = $row["UserID"];
+                       $name=$row["name"];
+                       $surname=$row["surname"];
+                       $grade=5*$row["Grade"];
+                       $date = $row['Date']->format('Y/m/d');
+                       if ($grade<=50){
+                        $status = "Bad";
+                       }
+                       else if($grade<=65){
+                        $status = "Okay";
+                       }
+                       else if($grade<=85){
+                        $status = "Good";
+                       }
+                       else if($grade<=100){
+                        $status = "Very Good";
+                       }
+                       
+                       echo '
+                       <tr>
+                         <td>' . $id .'</td>
+                         <td>' . $name . ' '.$surname.'</td>
+                         <td>' . $grade . '</td>
+                         <td>' . $status . '</td>
+                         <td>' . $date . '</td>
+                       </tr>
+                       ';
                      }
-                     else if($grade<=65){
-                      $status = "Okay";
-                     }
-                     else if($grade<=85){
-                      $status = "Good";
-                     }
-                     else if($grade<=100){
-                      $status = "Very Good";
-                     }
-                     
-                     echo '
-                     <tr>
-                       <td>' . $id .'</td>
-                       <td>' . $name . ' '.$surname.'</td>
-                       <td>' . $grade . '</td>
-                       <td>' . $status . '</td>
-                       <td>' . $date . '</td>
-                     </tr>
-                     ';
-                   }
 
              ?>
+             
+             
          </tbody>
        </table>
 
@@ -313,6 +287,7 @@ Secure(3);
 
               </div>
             </div><!-- End Department 1 -->
+
 
 </div>
 
@@ -350,6 +325,8 @@ Secure(3);
   <script src="https://cdn.datatables.net/datetime/1.1.2/js/dataTables.dateTime.min.js"></script>
 
   <script src="../assets/js/daterange.js"></script>
+
+  
 
 </body>
 

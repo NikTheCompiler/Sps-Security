@@ -172,7 +172,7 @@ Secure(1);
         </a>
       </li><!-- End Dashboard Nav -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="questions.php">
+        <a class="nav-link" href="questions.php">
           <i class="bi bi-question-lg"></i>
           <span>Questions</span>
         </a>

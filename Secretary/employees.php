@@ -100,21 +100,27 @@ Secure(2);
                 echo " ";
                 echo $surname; ?></h6>
               <span><?php
-                switch ($position){
-                  case 0:
-                      echo "Officer";
-                      break;
-                  case 1:
-                      echo "Supervisor";
-                      break;
-                  case 2:
-                      echo "Manager";
-                      break;
-                  default:
-                      echo $position;
-                      break;
-                }
-                 ?></span>
+              switch ($position){
+                case 0:
+                    echo "Officer";
+                    break;
+                case 1:
+                    echo "Supervisor";
+                    break;
+                case 2:
+                    echo "Manager";
+                    break;
+                case 3:
+                    echo "Admin";
+                    break;
+                case 4:
+                  echo "Secretary";
+                    break;    
+                default:
+                    echo $position;
+                    break;
+              }
+               ?></span>
             </li>
             <li>
               <hr class="dropdown-divider">
@@ -161,39 +167,39 @@ Secure(2);
         <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
             <a href="CIT.php">
-              <i class="bi bi-circle-fill"></i><span>CIT</span>
+              <i class="bi bi-circle"></i><span>CIT</span>
             </a>
           </li>
           <li>
             <a href="MARC.php">
-              <i class="bi bi-circle-fill"></i><span>Monitoring & Alarm Receiving Center</span>
+              <i class="bi bi-circle"></i><span>Monitoring & Alarm Receiving Center</span>
             </a>
           </li>
           <li>
             <a href="CVSD.php">
-              <i class="bi bi-circle-fill"></i><span>Cash & Valuables Storage Department</span>
+              <i class="bi bi-circle"></i><span>Cash & Valuables Storage Department</span>
             </a>
           </li>
           <li>
             <a href="CPD.php">
-              <i class="bi bi-circle-fill"></i><span>Cash Processing Department</span>
+              <i class="bi bi-circle"></i><span>Cash Processing Department</span>
             </a>
           </li>
           <li>
             <a href="PD.php">
-              <i class="bi bi-circle-fill"></i><span>Patrol Department</span>
+              <i class="bi bi-circle"></i><span>Patrol Department</span>
             </a>
           </li>
           <li>
             <a href="HS.php">
-              <i class="bi bi-circle-fill"></i><span>Health & Safety</span>
+              <i class="bi bi-circle"></i><span>Health & Safety</span>
             </a>
           </li>
         </ul>
       </li><!-- End Tables Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="employees.php">
+        <a class="nav-link" href="employees.php">
           <i class="bi bi-layout-text-sidebar"></i>
           <span>Employees</span>
         </a>

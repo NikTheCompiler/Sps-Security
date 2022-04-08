@@ -36,55 +36,23 @@ if ($new==$confirmpass){
     if (sqlsrv_query($conn,$sql)){
       if($_SESSION['type']== $admin)
       {
-          $_SESSION['surname'] = $row['surname'];
-          $_SESSION['name'] = $row['name'];
-          $_SESSION['email'] = $row['email'];
-          $_SESSION['dept'] = $row['dept'];
-          $_SESSION['username'] = $user;
-          $_SESSION['position'] = $row['position'];
           $_SESSION['UserID'] = $row['UserID'];
-          $_SESSION['newuser'] = $row['newuser'];
-          
           header('Location: ../Admin/dashboard.php');
         }
 
       else if($_SESSION['type']==$secretary)
       {
-          $_SESSION['surname'] = $row['surname'];
-          $_SESSION['name'] = $row['name'];
-          $_SESSION['email'] = $row['email'];
-          $_SESSION['dept'] = $row['dept'];
-          $_SESSION['username'] = $user;
-          $_SESSION['position'] = $row['position'];
           $_SESSION['UserID'] = $row['UserID'];
-          $_SESSION['newuser'] = $row['newuser'];
-          
           header('Location: ../Secretary/dashboard.php');
       }
       else if($_SESSION['type']== $manager)
       {
-          $_SESSION['surname'] = $row['surname'];
-          $_SESSION['name'] = $row['name'];
-          $_SESSION['email'] = $row['email'];
-          $_SESSION['dept'] = $row['dept'];
-          $_SESSION['username'] = $user;
-          $_SESSION['position'] = $row['position'];
           $_SESSION['UserID'] = $row['UserID'];
-          $_SESSION['newuser'] = $row['newuser'];
-          
           header('Location: ../Manager/dashboard.php');
       }
       else
       {
-          $_SESSION['surname'] = $row['surname'];
-          $_SESSION['name'] = $row['name'];
-          $_SESSION['email'] = $row['email'];
-          $_SESSION['dept'] = $row['dept'];
-          $_SESSION['username'] = $user;
-          $_SESSION['position'] = $row['position'];
           $_SESSION['UserID'] = $row['UserID'];
-          $_SESSION['newuser'] = $row['newuser'];
-          
           header('Location: ../User/dashboard.php');
       }
     }

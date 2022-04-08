@@ -28,65 +28,30 @@ if(isset($_POST) && !empty($_POST['username']) && !empty($_POST['password']))
         {
           if ($row['newuser'] == '0')
           {
-                $_SESSION['surname'] = $row['surname'];
-                $_SESSION['name'] = $row['name'];
-                $_SESSION['email'] = $row['email'];
-                $_SESSION['dept'] = $row['dept'];
                 $_SESSION['username'] = $username;
-                $_SESSION['position'] = $row['position'];
                 $_SESSION['UserID'] = $row['UserID'];
-                $_SESSION['newuser'] = $row['newuser'];
-                $_SESSION['password'] = $password;
             header('Location: ../NewUser.php');
           }
           else {
             if($_SESSION['type']== $admin){
-                $_SESSION['surname'] = $row['surname'];
-                $_SESSION['name'] = $row['name'];
-                $_SESSION['email'] = $row['email'];
-                $_SESSION['dept'] = $row['dept'];
-                $_SESSION['username'] = $username;
-                $_SESSION['position'] = $row['position'];
+              $_SESSION['username'] = $username;
                 $_SESSION['UserID'] = $row['UserID'];
-                $_SESSION['newuser'] = $row['newuser'];
-                $_SESSION['password'] = $password;
                 header('Location: ../Admin/dashboard.php');
               }
             
             else if($_SESSION['type']==$secretary){
-                $_SESSION['surname'] = $row['surname'];
-                $_SESSION['name'] = $row['name'];
-                $_SESSION['email'] = $row['email'];
-                $_SESSION['dept'] = $row['dept'];
-                $_SESSION['username'] = $username;
-                $_SESSION['position'] = $row['position'];
+              $_SESSION['username'] = $username;
                 $_SESSION['UserID'] = $row['UserID'];
-                $_SESSION['newuser'] = $row['newuser'];
-                $_SESSION['password'] = $password;
                 header('Location: ../Secretary/dashboard.php');
             }
             else if($_SESSION['type']== $manager){
-                $_SESSION['surname'] = $row['surname'];
-                $_SESSION['name'] = $row['name'];
-                $_SESSION['email'] = $row['email'];
-                $_SESSION['dept'] = $row['dept'];
-                $_SESSION['username'] = $username;
-                $_SESSION['position'] = $row['position'];
+              $_SESSION['username'] = $username;
                 $_SESSION['UserID'] = $row['UserID'];
-                $_SESSION['newuser'] = $row['newuser'];
-                $_SESSION['password'] = $password;
                 header('Location: ../Manager/dashboard.php');
             }
             else if($_SESSION['type']== $user){
-                $_SESSION['surname'] = $row['surname'];
-                $_SESSION['name'] = $row['name'];
-                $_SESSION['email'] = $row['email'];
-                $_SESSION['dept'] = $row['dept'];
-                $_SESSION['username'] = $username;
-                $_SESSION['position'] = $row['position'];
+              $_SESSION['username'] = $username;
                 $_SESSION['UserID'] = $row['UserID'];
-                $_SESSION['newuser'] = $row['newuser'];
-                $_SESSION['password'] = $password;
                 header('Location: ../User/dashboard.php');
             }
           }

@@ -152,7 +152,7 @@ Secure(0);
       
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="grades.php">
+        <a class="nav-link" href="grades.php">
           <i class="bi bi-calculator"></i><span>Grades</span><i ></i>
         </a>
 

@@ -115,6 +115,9 @@ Secure(2);
                 case 3:
                     echo "Admin";
                     break;
+                case 4:
+                  echo "Secretary";
+                    break;    
                 default:
                     echo $position;
                     break;
@@ -166,32 +169,32 @@ Secure(2);
         <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
             <a href="CIT.php">
-              <i class="bi bi-circle-fill"></i><span>CIT</span>
+              <i class="bi bi-circle"></i><span>CIT</span>
             </a>
           </li>
           <li>
             <a href="MARC.php">
-              <i class="bi bi-circle-fill"></i><span>Monitoring & Alarm Receiving Center</span>
+              <i class="bi bi-circle"></i><span>Monitoring & Alarm Receiving Center</span>
             </a>
           </li>
           <li>
             <a href="CVSD.php">
-              <i class="bi bi-circle-fill"></i><span>Cash & Valuables Storage Department</span>
+              <i class="bi bi-circle"></i><span>Cash & Valuables Storage Department</span>
             </a>
           </li>
           <li>
             <a href="CPD.php">
-              <i class="bi bi-circle-fill"></i><span>Cash Processing Department</span>
+              <i class="bi bi-circle"></i><span>Cash Processing Department</span>
             </a>
           </li>
           <li>
             <a href="PD.php">
-              <i class="bi bi-circle-fill"></i><span>Patrol Department</span>
+              <i class="bi bi-circle"></i><span>Patrol Department</span>
             </a>
           </li>
           <li>
             <a href="HS.php">
-              <i class="bi bi-circle-fill"></i><span>Health & Safety</span>
+              <i class="bi bi-circle"></i><span>Health & Safety</span>
             </a>
           </li>
         </ul>
@@ -204,7 +207,7 @@ Secure(2);
         </a>
       </li><!-- End Dashboard Nav -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="questions.php">
+        <a class="nav-link" href="questions.php">
           <i class="bi bi-question-lg"></i>
           <span>Questions</span>
         </a>

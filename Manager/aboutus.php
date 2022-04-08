@@ -180,7 +180,7 @@ Secure(1);
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link collapsed" href="aboutus.php">
+        <a class="nav-link" href="aboutus.php">
           <i class="bi bi-bank"></i>
           <span>About Us</span>
         </a>

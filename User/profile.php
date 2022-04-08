@@ -166,7 +166,7 @@ Secure(0);
       </li><!-- End Tables Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="profile.php">
+        <a class="nav-link" href="profile.php">
           <i class="bi bi-person"></i>
           <span>Profile</span>
         </a>

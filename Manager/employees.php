@@ -162,7 +162,7 @@ Secure(1);
         </a>
       </li><!-- End Dashboard Nav -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="employees.php">
+        <a class="nav-link" href="employees.php">
           <i class="bi bi-layout-text-sidebar"></i>
           <span>Employees</span>
         </a>
