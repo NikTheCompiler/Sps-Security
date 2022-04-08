@@ -33,7 +33,7 @@ Secure(3);
   <link href="../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
   <link href="../assets/vendor/quill/quill.snow.css" rel="stylesheet">
   <link href="../assets/vendor/quill/quill.bubble.css" rel="stylesheet">
-  <link href="../assets/vendor/simple-datatables/style.css" rel="stylesheet">
+  
 
   <!-- Template Main CSS File -->
   <link href="../assets/css/style.css" rel="stylesheet">
@@ -250,17 +250,19 @@ Secure(3);
                   
 <table border="0" cellspacing="5" cellpadding="5">
         
-  <tbody><tr>
-     <td>Start date:</td>
-    <td><input type="text" id="min" name="min"></td>
-  </tr>
-      <tr>
-            <td>End date:</td>
-            <td><input type="text" id="max" name="max"></td>
-        </tr>
-    </tbody></table>
+  <tbody>
+    <tr>
+      <td>Start date:</td>
+      <td><input type="text" id="min" name="min"></td>
+    </tr>
+    <tr>
+      <td>End date:</td>
+      <td><input type="text" id="max" name="max"></td>
+    </tr>
+    </tbody>
+</table>
 
-       <table class="table table-borderless datatable" id="Grades">
+       <table class="display nowrap" id="Grades" style="width:100%">
          <thead>
            <tr>
              <th>ID</th>
@@ -269,7 +271,6 @@ Secure(3);
              <th>Status</th>
              <th>Date</th>
            </tr>
-           
          </thead>
          <tbody>
              <?php
@@ -282,8 +283,8 @@ Secure(3);
                        $id = $row["UserID"];
                        $name=$row["name"];
                        $surname=$row["surname"];
-                       $grade=$row["Grade"];
-                       $date=$row["Date"];
+                       $grade=5*$row["Grade"];
+                       $date = $row['Date']->format('Y/m/d');
                        if ($grade<=50){
                         $status = "Bad";
                        }
@@ -309,6 +310,7 @@ Secure(3);
                      }
 
              ?>
+             
              
          </tbody>
        </table>
@@ -355,6 +357,8 @@ Secure(3);
   <script src="https://cdn.datatables.net/datetime/1.1.2/js/dataTables.dateTime.min.js"></script>
 
   <script src="../assets/js/daterange.js"></script>
+
+  
 
 </body>
 

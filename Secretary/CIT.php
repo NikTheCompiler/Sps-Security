@@ -33,7 +33,7 @@ Secure(2);
   <link href="../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
   <link href="../assets/vendor/quill/quill.snow.css" rel="stylesheet">
   <link href="../assets/vendor/quill/quill.bubble.css" rel="stylesheet">
-  <link href="../assets/vendor/simple-datatables/style.css" rel="stylesheet">
+  
 
   <!-- Template Main CSS File -->
   <link href="../assets/css/style.css" rel="stylesheet">
@@ -95,21 +95,24 @@ Secure(2);
                 echo " ";
                 echo $surname; ?></h6>
               <span><?php
-                switch ($position){
-                  case 0:
-                      echo "Officer";
-                      break;
-                  case 1:
-                      echo "Supervisor";
-                      break;
-                  case 2:
-                      echo "Manager";
-                      break;
-                  default:
-                      echo $position;
-                      break;
-                }
-                 ?></span>
+              switch ($position){
+                case 0:
+                    echo "Officer";
+                    break;
+                case 1:
+                    echo "Supervisor";
+                    break;
+                case 2:
+                    echo "Manager";
+                    break;
+                case 3:
+                    echo "Admin";
+                    break;
+                default:
+                    echo $position;
+                    break;
+              }
+               ?></span>
             </li>
             <li>
               <hr class="dropdown-divider">
@@ -149,7 +152,7 @@ Secure(2);
           <span>Dashboard</span>
         </a>
       </li><!-- End Dashboard Nav -->
-      <li class="nav-item">
+      <li class="nav-item"> 
         <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-layout-text-window-reverse"></i><span>Departments</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
@@ -241,59 +244,74 @@ Secure(2);
                 </div>
 
                 <div class="card-body">
+
+
                   <h5 class="card-title">CIT<span></span></h5>
-                  <table border="0" cellspacing="5" cellpadding="5">
+                  
+<table border="0" cellspacing="5" cellpadding="5">
         
-        <tbody><tr>
-           <td>Start date:</td>
-          <td><input type="text" id="min" name="min"></td>
-        </tr>
-            <tr>
-                  <td>End date:</td>
-                  <td><input type="text" id="max" name="max"></td>
-              </tr>
-          </tbody></table>
-       <table class="table table-borderless datatable">
+  <tbody>
+    <tr>
+      <td>Start date:</td>
+      <td><input type="text" id="min" name="min"></td>
+    </tr>
+    <tr>
+      <td>End date:</td>
+      <td><input type="text" id="max" name="max"></td>
+    </tr>
+    </tbody>
+</table>
+
+       <table class="display nowrap" id="Grades" style="width:100%">
          <thead>
            <tr>
-             <th scope="col">ID</th>
-             <th scope="col">Employee</th>
-             <th scope="col">Grade</th>
-             <th scope="col">Status</th>
+             <th>ID</th>
+             <th>Employee</th>
+             <th>Grade</th>
+             <th>Status</th>
+             <th>Date</th>
            </tr>
          </thead>
          <tbody>
              <?php
                    include_once('../php/connect.php');
-                   $result = sqlsrv_query($conn, "SELECT * FROM Users WHERE dept='1' AND type=0 ");
+                   $result = sqlsrv_query($conn, "SELECT * FROM Users JOIN Tests ON Users.UserID=Tests.UserID WHERE dept='1' AND type=0 ");
 
                      $i = 0;
                      while ($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)) {
                        $i++;
                        $id = $row["UserID"];
-                       $name = $row["name"];
-                       $surname = $row["surname"];
-                       $username = $row["username"];
-                       $dept= $row["dept"];
-                       $position=$row["position"];
-                       $type = $row["type"];
-                       $email = $row["email"];
-                       $policecert = $row["policecert"];
+                       $name=$row["name"];
+                       $surname=$row["surname"];
+                       $grade=5*$row["Grade"];
+                       $date = $row['Date']->format('Y/m/d');
+                       if ($grade<=50){
+                        $status = "Bad";
+                       }
+                       else if($grade<=65){
+                        $status = "Okay";
+                       }
+                       else if($grade<=85){
+                        $status = "Good";
+                       }
+                       else if($grade<=100){
+                        $status = "Very Good";
+                       }
+                       
                        echo '
                        <tr>
                          <td>' . $id .'</td>
                          <td>' . $name . ' '.$surname.'</td>
-                         <td hidden>' . $username . '</td>
-                         <td hidden>' . $position . '</td>
-                         <td hidden>' . $type . '</td>
-                         <td hidden>' . $email . '</td>
-                         <td hidden>' . $policecert . '</td>
-
+                         <td>' . $grade . '</td>
+                         <td>' . $status . '</td>
+                         <td>' . $date . '</td>
                        </tr>
                        ';
                      }
 
              ?>
+             
+             
          </tbody>
        </table>
 
@@ -301,6 +319,7 @@ Secure(2);
 
               </div>
             </div><!-- End Department 1 -->
+
 
 </div>
 
@@ -332,13 +351,14 @@ Secure(2);
 
   <!-- Template Main JS File -->
   <script src="../assets/js/main.js"></script>
-
   <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
   <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
   <script src="https://cdn.datatables.net/datetime/1.1.2/js/dataTables.dateTime.min.js"></script>
 
   <script src="../assets/js/daterange.js"></script>
+
+  
 
 </body>
 
