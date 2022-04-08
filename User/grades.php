@@ -215,7 +215,7 @@ Secure(0);
             <td>' . $i .'</td>
             <td>' . $tid .'</td>
             <td>' . date_format($date, 'Y-m-d') . '</td>
-            <td>' . $grade . '</td>
+            <td>' . $grade*5 . '/100</td>
 
           </tr>
           ';
