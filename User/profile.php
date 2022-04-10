@@ -237,12 +237,6 @@ Secure(0);
                   <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">Overview</button>
                 </li>
 
-
-                <li class="nav-item">
-                  <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit">Edit Profile</button>
-                </li>
-
-
                 <li class="nav-item">
                   <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-change-password">Change Password</button>
                 </li>
@@ -327,94 +321,6 @@ Secure(0);
 
                 </div>
 
-                <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
-                
-                  <!-- Profile Edit Form -->
-                  
-                  <form>
-                  <h5 class="card-title">Change Details</h5>
-                  
-                    <div class="row mb-3">
-                      <label for="name" class="col-md-4 col-lg-3 col-form-label">Name</label>
-                      <div class="col-md-8 col-lg-9">
-                        <input name="name" type="text" class="form-control" autocomplete="off" id="name2" value="<?php echo $name ?>">
-                      </div>
-                    </div>
-                    <div class="row mb-3">
-                      <label for="surname" class="col-md-4 col-lg-3 col-form-label">Surname</label>
-                      <div class="col-md-8 col-lg-9">
-                        <input name="surname" type="text" class="form-control" autocomplete="off" id="surname2" value="<?php echo $surname ?>">
-                      </div>
-                    </div>
-                    <div class="row mb-3">
-                      <label for="dept" class="col-md-4 col-lg-3 col-form-label">Department</label>
-                      <div class="col-md-8 col-lg-9">
-                        <input name="dept" type="text" disabled class="form-control" id="dept2" value="<?php
-                 switch ($dept){
-                 case 1:
-                    echo "CIT";
-                    break;
-                 case 2:
-                    echo "Monitoring & Alarm Receiving Center";
-                    break;
-                 case 3:
-                    echo "Cash & Valuables Storage Department";
-                    break;
-                 case 4:
-                    echo "Cash Processing Department";
-                    break;
-                 case 5:
-                    echo "Patrol Department";
-                    break;
-                 default:
-                    echo $dept;
-                    break;
-                    }
-                  ?>">
-                      </div>
-                    </div>
-					          <div class="row mb-3">
-                      <label for="Position" class="col-md-4 col-lg-3 col-form-label">Position</label>
-                      <div class="col-md-8 col-lg-9">
-                        <input name="position" type="text" disabled class="form-control" id="position2" value="<?php
-                      switch ($position){
-                         case 0:
-                    echo "Officer";
-                    break;
-                   case 1:
-                    echo "Supervisor";
-                    break;
-                    case 2:
-                    echo "Manager";
-                    break;
-                   case 3:
-                    echo "Admin";
-                    break;
-                   default:
-                    echo $position;
-                    break;
-                    }
-                     ?>">
-                      </div>
-                    </div>
-
-                    <div class="row mb-3">
-                      <label for="Email" class="col-md-4 col-lg-3 col-form-label">Email</label>
-                      <div class="col-md-8 col-lg-9">
-                        <input name="email" type="email" class="form-control" autocomplete="" id="email2" value="<?php echo $email ?>">
-                      </div>
-                    </div>
-                    <div class="form-group" hidden>
-                      <label for="name">id</label>
-                      <input type="text" class="form-control" id="id2" value="<?php echo $id ?>">
-                    </div>
-
-                    <div class="text-center">
-                      <button type="button" class="btn btn-primary" onclick="editProfile()">Save Changes</button>
-                    </div>
-                  </form><!-- End Profile Edit Form -->
-
-                </div>
 
                 <div class="tab-pane fade pt-3" id="profile-change-password">
                   <!-- Change Password Form -->
