@@ -11,7 +11,7 @@ Secure(2);
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>HS</title>
+  <title>Health & Safety</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -262,11 +262,13 @@ Secure(2);
        <table class="display nowrap" id="Grades" style="width:100%">
          <thead>
            <tr>
+           <th>#</th>
            <th>ID</th>
              <th>Employee</th>
              <th>Grade</th>
-             <th>Status</th>
              <th>Date</th>
+             <th>Status</th>
+             
            </tr>
          </thead>
          <tbody>
@@ -284,24 +286,35 @@ Secure(2);
                      $date = $row['Date']->format('Y/m/d');
                      if ($grade<=50){
                       $status = "Bad";
+                      $data1="<span class="."'badge rounded-pill bg-danger even-larger-badge'".">";
+                      $data2="</span> ";
                      }
                      else if($grade<=65){
                       $status = "Okay";
+                      $data1="<span class="."'badge rounded-pill bg-warning even-larger-badge'".">";
+                      $data2="</span> ";
                      }
                      else if($grade<=85){
                       $status = "Good";
+                      $data1="<span class="."'badge rounded-pill bg-success even-larger-badge'".">";
+                      $data2="</span> ";
                      }
                      else if($grade<=100){
                       $status = "Very Good";
+                      $data1="<span class="."'badge rounded-pill bg-success even-larger-badge'".">";
+                      $data2="</span> ";
                      }
                      
                      echo '
                      <tr>
+                     <td>' . $i .'</td>
                        <td>' . $id .'</td>
                        <td>' . $name . ' '.$surname.'</td>
                        <td>' . $grade . '</td>
-                       <td>' . $status . '</td>
                        <td>' . $date . '</td>
+                       <td class="text-right py-0 align-middle col-sm-1">' . $data1 . '' . $status . ' ' . $data2 . '</td>
+                       
+
                      </tr>
                      ';
                    }

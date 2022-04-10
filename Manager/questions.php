@@ -217,17 +217,8 @@ Secure(1);
 
               <p> <a href="https://github.com/fiduswriter/Simple-DataTables" target="_blank"></a>  <code></code> </p>
 
-              <ul class="nav nav-tabs nav-tabs-bordered">
+              
 
-                <li class="nav-item">
-                  <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#questions">Questions</button>
-                </li>
-
-              </ul>
-
-              <div class="tab-content pt-2">
-
-              <div class="tab-pane fade show active questions" id="questions">
               <p align="right">
     <button type="button"  class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#basicModal2" onclick="getState2()">Add Question</button></p>
     
@@ -524,13 +515,6 @@ Secure(1);
 
               </table>
 
-              <!-- End Table with stripped rows -->
-              </div>
-
-              
-
-              <!-- End Table with stripped rows -->
-              </div>
             </div>
 
 
