@@ -311,7 +311,7 @@ Secure(2);
                      <td>' . $i .'</td>
                        <td>' . $id .'</td>
                        <td>' . $name . ' '.$surname.'</td>
-                       <td>' . $grade . '</td>
+                       <td>' . $grade . '/100</td>
                        <td>' . $date . '</td>
                        <td class="text-right py-0 align-middle col-sm-1">' . $data1 . '' . $status . ' ' . $data2 . '</td>
                        

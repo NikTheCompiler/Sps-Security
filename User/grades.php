@@ -207,7 +207,7 @@ Secure(0);
           $i++;
           $tid = $row["TestID"];
           $date = $row["Date"];
-          $grade = $row["Grade"];
+          $grade = 5*$row["Grade"];
 
           echo '
           <tr>
@@ -215,7 +215,7 @@ Secure(0);
             <td>' . $i .'</td>
             <td>' . $tid .'</td>
             <td>' . date_format($date, 'Y-m-d') . '</td>
-            <td>' . $grade*5 . '/100</td>
+            <td>' . $grade . '/100</td>
 
           </tr>
           ';
