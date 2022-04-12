@@ -707,6 +707,7 @@ var id = row.cells[1].innerHTML;
                   id: id,
                 })
                 .done(function(data) {
+                  alert(id);
                   if (data == 1) {
                     Swal.fire(
                       'Deleted!',
