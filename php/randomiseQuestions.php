@@ -4,10 +4,11 @@ include_once('connect.php');
 
 $TestID = $_POST['TestID'];
 $dept = $_POST['dept'];
-$arr = array(4);
 $i=0;
 $sql="SELECT * FROM Questions WHERE Dept='".$dept."' OR Dept=6 ";
 $ques = sqlsrv_query($conn,$sql);
+$arrsize=sqlsrv_fetch($ques);
+$arr = array($arrsize);
 
 while ($row = sqlsrv_fetch_array($ques,SQLSRV_FETCH_ASSOC)) {
     $arr[$i]=$row["QID"];
@@ -15,8 +16,8 @@ while ($row = sqlsrv_fetch_array($ques,SQLSRV_FETCH_ASSOC)) {
     $i=$i+1;
 }
 
-$rand_keys = array_rand($arr, 3);
- $Ans = array(4);
+$rand_keys = array_rand($arr, 20);
+ $Ans = array(20);
  $i=0;
  ?>
  
@@ -27,7 +28,7 @@ $rand_keys = array_rand($arr, 3);
 <h2 id="ten-countdown" ></h2>
 </center>
 <?php
-while($i<3){
+while($i<20){
   
 ?>
 

@@ -3,6 +3,7 @@ session_start();
 include_once('../php/connect.php');
 include_once('../php/security.php');
 Secure(0);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -69,6 +70,7 @@ Secure(0);
                     
                   
                     }
+
     ?>
 
 
@@ -193,11 +195,25 @@ h1 {
 </style>
 <div class=" bg-white px-4" action="" id="que">
 <center><h1>QUIZ</h1>
-<text>Tries:1</text><center>
-<text>Time:10 minutes</text><center>
-<text>Test will be available on: 20 December 2021 00:00</text><center><br>
 
-<center><button type="button" class="btn btn-primary" onclick="startQuiz()" >Start QUIZ</button><center>
+  <?php 
+    $UserID=$_SESSION["UserID"]; 
+    $res = sqlsrv_query($conn, "SELECT TestID FROM Tests WHERE UserID = '".$UserID."' AND MONTH(Date)=MONTH(Getdate()) AND YEAR(Date)=YEAR(Getdate()) ");
+    $result=sqlsrv_fetch($res);
+    if($result==0){
+      echo "<h5>Tries:1</h5><center>";
+      echo"<h5>Time:10 minutes</h5><center>";
+      echo "<h4 id='available'>Test is available!</h4><center><br>";
+    }
+    else{
+      echo "<h4 id='unavailable'>Test will be available next month!</h4><center><br>";
+    }
+  
+  ?>
+
+
+
+<center><button type="button" class="btn btn-primary" onclick="startQuiz()" <?php if ($result > '0'){ ?> disabled <?php   } ?> >Start QUIZ</button><center>
 
 
 </div>
@@ -281,6 +297,13 @@ h1 {
               }
             });
       
+        }
+        else{
+          Swal.fire(
+          'Failed!',
+          '',
+          'error'
+        );
         }
       
         });

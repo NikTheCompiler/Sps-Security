@@ -185,6 +185,9 @@ h1, h2, h3, h4, h5, h6 {
 .badge.even-larger-badge {
   width: 100px;
 }
+html {
+  overflow-y: scroll; 
+}
 
 .bg-secondary-light {
   background-color: #e2e3e5;
