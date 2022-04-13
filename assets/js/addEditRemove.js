@@ -120,11 +120,21 @@ function addUser()
           icon: 'success',
           title: 'User added successfully!',
           text: 'Password is: ' + data ,
+          confirmButtonText: 'Copy Password',
+          showCancelButton: true,
 
         }).then((result) => {
-          location.reload();
-        })
+          data=data.replace('"','');
+          data=data.replace('"','');
+          data=data.trim();
 
+          if (result.isConfirmed) {
+            navigator.clipboard.writeText(data);
+          }
+          location.reload();
+            
+          
+        })
       }
     });
   }
@@ -349,11 +359,25 @@ var id = row.cells[1].innerHTML;
             })
             .done(function(data) {
               if (data != 1) {
-                Swal.fire(
-                  'Generated!',
-                  'New generated password: '+ data,
-                  'success'
-                );
+                Swal.fire({
+                  icon: 'success',
+                  title: 'Generated!',
+                  text: 'New generated password: ' + data ,
+                  confirmButtonText: 'Copy Password',
+                  showCancelButton: true,
+        
+                }).then((result) => {
+                  data=data.replace('"','');
+                  data=data.replace('"','');
+                  data=data.trim();
+        
+                  if (result.isConfirmed) {
+                    navigator.clipboard.writeText(data);
+                  }
+                  location.reload();
+                    
+                  
+                })
 
 
               }else if(data==0) {
