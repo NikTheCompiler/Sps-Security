@@ -5,7 +5,7 @@ include ("connect.php");
 if(isset($_POST) && !empty($_POST['username']) && !empty($_POST['password']))
     {
     $username = $_POST["username"];
-    $password  = $_POST["password"];
+    $password1  = $_POST["password"];
     $admin=3;
     $secretary=2;
     $manager=1;
@@ -15,7 +15,7 @@ if(isset($_POST) && !empty($_POST['username']) && !empty($_POST['password']))
     $sql = "SELECT * FROM Users WHERE username='".$username."'";
     $req =  sqlsrv_query($conn, $sql) or die(print_r(sqlsrv_errors(),true));
     $row = sqlsrv_fetch_array($req, SQLSRV_FETCH_ASSOC);
-
+    $password = hash("sha256", $password1);
     $_SESSION['type']=$row['type'];
 
     if($password != $row['password'])

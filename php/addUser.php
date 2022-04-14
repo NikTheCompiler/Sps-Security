@@ -11,7 +11,8 @@ include_once('passgenerator.php');
     $policecert = $_POST['policecert'];
     $position = $_POST['position'];
     $newuser = 0;
-    $password = $pass;
+    $password1 = $pass;
+    $password = hash("sha256", $password1);
     $mail=0;
 
 if($email!=""||$email!=null){
@@ -43,7 +44,7 @@ $params = array($name, $surname,$email , $dept, $type, $username, $password ,$po
     /* Prepare and execute the query. */
     $stmt = sqlsrv_query($conn, $tsql, $params);  
     if ($stmt) {  
-        echo json_encode($password);
+        echo json_encode($password1);
         //header('Location: ../Admin/employees.php');
     } 
     else {  
