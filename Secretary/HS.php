@@ -2,6 +2,7 @@
 session_start();
 include_once('../php/connect.php');
 include_once('../php/security.php');
+
 Secure(2);
 ?>
 <!DOCTYPE html>
@@ -11,7 +12,7 @@ Secure(2);
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Health & Safety</title>
+  <title>CIT</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -23,9 +24,9 @@ Secure(2);
   <link href="https://fonts.gstatic.com" rel="preconnect">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
+
   <link href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css" rel="stylesheet">
   <link href="https://cdn.datatables.net/datetime/1.1.2/css/dataTables.dateTime.min.css" rel="stylesheet">
-
   <!-- Vendor CSS Files -->
   <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
@@ -108,9 +109,6 @@ Secure(2);
                 case 3:
                     echo "Admin";
                     break;
-                case 4:
-                  echo "Secretary";
-                    break;    
                 default:
                     echo $position;
                     break;
@@ -161,7 +159,7 @@ Secure(2);
         </a>
         <ul id="tables-nav" class="nav-content collapse show" data-bs-parent="#sidebar-nav">
           <li>
-            <a href="CIT.php" >
+            <a href="CIT.php" class="active">
               <i class="bi bi-circle"></i><span>CIT</span>
             </a>
           </li>
@@ -186,7 +184,7 @@ Secure(2);
             </a>
           </li>
           <li>
-            <a href="HS.php" class="active">
+            <a href="HS.php">
               <i class="bi bi-circle"></i><span>Health & Safety</span>
             </a>
           </li>
@@ -235,40 +233,37 @@ Secure(2);
             <div class="col-12">
               <div class="card recent-sales">
 
-                <div class="filter">
-
-                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-
-
-                    <li><a class="dropdown-item" href="#">Today</a></li>
-                    <li><a class="dropdown-item" href="#">This Month</a></li>
-                    <li><a class="dropdown-item" href="#">This Year</a></li>
-                  </ul>
-                </div>
 
                 <div class="card-body">
-                  <h5 class="card-title">Health & Safety<span></span></h5>
-					<table border="0" cellspacing="5" cellpadding="5">
+
+
+                  <h5 class="card-title">CIT<span></span></h5>
+                  
+<table border="0" cellspacing="5" cellpadding="5">
         
-  <tbody><tr>
-     <td>Start date:</td>
-    <td><input type="text" id="min" name="min"></td>
-  </tr>
-      <tr>
-            <td>End date:</td>
-            <td><input type="text" id="max" name="max"></td>
-        </tr>
-    </tbody></table>
+  <tbody>
+    <tr>
+      <td>Start date:</td>
+      <td><input type="text" id="min" name="min"></td>
+    </tr>
+    <tr>
+      <td>End date:</td>
+      <td><input type="text" id="max" name="max"></td>
+    </tr>
+    </tbody>
+</table>
+
        <table class="display nowrap" id="Grades" style="width:100%">
          <thead>
            <tr>
-           <th>#</th>
-           <th>ID</th>
+             <th>#</th>
+             <th>ID</th>
              <th>Employee</th>
              <th>Grade</th>
              <th>Date</th>
+             <th hidden>Date</th>
              <th>Status</th>
-             
+             <th>Report</th>
            </tr>
          </thead>
          <tbody>
@@ -276,68 +271,101 @@ Secure(2);
                    include_once('../php/connect.php');
                    $result = sqlsrv_query($conn, "SELECT * FROM Users JOIN Tests ON Users.UserID=Tests.UserID WHERE type=0 ");
 
-                   $i = 0;
-                   while ($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)) {
-                     $i++;
-                     $id = $row["UserID"];
-                     $name=$row["name"];
-                     $surname=$row["surname"];
-                     $grade=5*$row["Grade"];
-                     $date = $row['Date']->format('Y/m/d');
-                     if ($grade<=50){
-                      $status = "Bad";
-                      $data1="<span class="."'badge rounded-pill bg-danger even-larger-badge'".">";
-                      $data2="</span> ";
-                     }
-                     else if($grade<=65){
-                      $status = "Okay";
-                      $data1="<span class="."'badge rounded-pill bg-warning even-larger-badge'".">";
-                      $data2="</span> ";
-                     }
-                     else if($grade<=85){
-                      $status = "Good";
-                      $data1="<span class="."'badge rounded-pill bg-success even-larger-badge'".">";
-                      $data2="</span> ";
-                     }
-                     else if($grade<=100){
-                      $status = "Very Good";
-                      $data1="<span class="."'badge rounded-pill bg-success even-larger-badge'".">";
-                      $data2="</span> ";
-                     }
-                     
-                     echo '
-                     <tr>
-                     <td>' . $i .'</td>
-                       <td>' . $id .'</td>
-                       <td>' . $name . ' '.$surname.'</td>
-                       <td>' . $grade . '/100</td>
-                       <td>' . $date . '</td>
-                       <td class="text-right py-0 align-middle col-sm-1">' . $data1 . '' . $status . ' ' . $data2 . '</td>
+                     $i = 0;
+                     while ($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)) {
+                       $i++;
+                       $testId = $row["TestID"];
+                       $id = $row["UserID"];
+                       $name=$row["name"];
+                       $surname=$row["surname"];
+                       $grade=5*$row["Grade"];
+                       $date = $row['Date']->format('Y/m/d');
+                       if ($grade<=50){
+                        $status = "Bad";
+                        $data1="<span class="."'badge rounded-pill bg-danger even-larger-badge'".">";
+                        $data2="</span> ";
+                       }
+                       else if($grade<=65){
+                        $status = "Okay";
+                        $data1="<span class="."'badge rounded-pill bg-warning even-larger-badge'".">";
+                        $data2="</span> ";
+                       }
+                       else if($grade<=85){
+                        $status = "Good";
+                        $data1="<span class="."'badge rounded-pill bg-success even-larger-badge'".">";
+                        $data2="</span> ";
+                       }
+                       else if($grade<=100){
+                        $status = "Very Good";
+                        $data1="<span class="."'badge rounded-pill bg-success even-larger-badge'".">";
+                        $data2="</span> ";
+                       }
                        
-
-                     </tr>
-                     ';
-                   }
+                       echo '
+                       <tr>
+                         <td>' . $i .'</td>
+                         <td>' . $id .'</td>
+                         <td>' . $name . ' '.$surname.'</td>
+                         <td>' . $grade . '/100</td>
+                         <td>' . $date . '</td>
+                         <td hidden>' . $testId . '</td>
+                         <td class="text-right py-0 align-middle col-sm-1">' . $data1 . '' . $status . ' ' . $data2 . '</td>
+                         <td class="text-right py-0 align-middle col-sm-1">
+                          <div class="btn-group btn-group-sm col-sm-11" >
+                          <button class="btn btn-info" type="submit"  data-bs-toggle="modal" data-bs-target="#reportModal" onclick="getReportData(this.parentNode.parentNode.parentNode)"></i>Get Report</button>
+                          </div>
+                        </td>
+                         
+                       </tr>
+                       ';
+                     }
 
              ?>
+          
+             
+             
          </tbody>
        </table>
+
                 </div>
 
               </div>
             </div><!-- End Department 1 -->
 
 
-
-
-
-
-
-
 </div>
+
+
+<!-- Report Modal -->
+
+<div class="modal fade" id="reportModal" >
+                <div class="modal-dialog " style="max-width: 60%;">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      
+                      <label  for="name5" id="names">Report for Test of: <?php echo $name.' '.$surname?></label>
+                      
+                      <h6 value='' id='date'></h6>
+                      
+                    </div>
+                    <table class="display nowrap" id="Report" style="width:100%">
+
+                  </table>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+                    </div>
+                  </div>
+                  
+                </div>
+              </div>
+              <!-- End Report_Modal-->   
+
 
   </main><!-- End #main -->
 
+
+  
   <!-- ======= Footer ======= -->
   <footer id="footer" class="footer">
 
@@ -370,6 +398,8 @@ Secure(2);
   <script src="https://cdn.datatables.net/datetime/1.1.2/js/dataTables.dateTime.min.js"></script>
 
   <script src="../assets/js/daterange.js"></script>
+  <script src="../assets/js/report.js"></script>
+  
 
 </body>
 

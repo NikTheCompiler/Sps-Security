@@ -298,8 +298,9 @@ Secure(2);
                     options: {
                       scales: {
                         y: {
-                          beginAtZero: true
-                        }
+                          beginAtZero: true,
+                          suggestedMax: 100
+                        },
                       }
                     }
                   });

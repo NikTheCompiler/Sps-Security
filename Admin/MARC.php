@@ -2,6 +2,7 @@
 session_start();
 include_once('../php/connect.php');
 include_once('../php/security.php');
+
 Secure(3);
 ?>
 <!DOCTYPE html>
@@ -11,7 +12,7 @@ Secure(3);
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Monitoring & Alarm Receiving Center</title>
+  <title>CIT</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -158,12 +159,12 @@ Secure(3);
         </a>
         <ul id="tables-nav" class="nav-content collapse show" data-bs-parent="#sidebar-nav">
           <li>
-            <a href="CIT.php" >
+            <a href="CIT.php" class="active">
               <i class="bi bi-circle"></i><span>CIT</span>
             </a>
           </li>
           <li>
-            <a href="MARC.php" class="active">
+            <a href="MARC.php">
               <i class="bi bi-circle"></i><span>Monitoring & Alarm Receiving Center</span>
             </a>
           </li>
@@ -232,32 +233,27 @@ Secure(3);
             <div class="col-12">
               <div class="card recent-sales">
 
-                <div class="filter">
-
-                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-
-
-                    <li><a class="dropdown-item" href="#">Today</a></li>
-                    <li><a class="dropdown-item" href="#">This Month</a></li>
-                    <li><a class="dropdown-item" href="#">This Year</a></li>
-                  </ul>
-                </div>
 
                 <div class="card-body">
-                  <h5 class="card-title">Monitoring & Alarm Receiving Center<span></span></h5>
-                  <table border="0" cellspacing="5" cellpadding="5">
-        
-        <tbody><tr>
-           <td>Start date:</td>
-          <td><input type="text" id="min" name="min"></td>
-        </tr>
-            <tr>
-                  <td>End date:</td>
-                  <td><input type="text" id="max" name="max"></td>
-              </tr>
-          </tbody></table>
 
-          <table class="display nowrap" id="Grades" style="width:100%">
+
+                  <h5 class="card-title">CIT<span></span></h5>
+                  
+<table border="0" cellspacing="5" cellpadding="5">
+        
+  <tbody>
+    <tr>
+      <td>Start date:</td>
+      <td><input type="text" id="min" name="min"></td>
+    </tr>
+    <tr>
+      <td>End date:</td>
+      <td><input type="text" id="max" name="max"></td>
+    </tr>
+    </tbody>
+</table>
+
+       <table class="display nowrap" id="Grades" style="width:100%">
          <thead>
            <tr>
              <th>#</th>
@@ -265,6 +261,7 @@ Secure(3);
              <th>Employee</th>
              <th>Grade</th>
              <th>Date</th>
+             <th hidden>Date</th>
              <th>Status</th>
              <th>Report</th>
            </tr>
@@ -313,7 +310,7 @@ Secure(3);
                          <td>' . $date . '</td>
                          <td hidden>' . $testId . '</td>
                          <td class="text-right py-0 align-middle col-sm-1">' . $data1 . '' . $status . ' ' . $data2 . '</td>
-                         <td class="text-right py-0 align-middle col-sm-3">
+                         <td class="text-right py-0 align-middle col-sm-1">
                           <div class="btn-group btn-group-sm col-sm-11" >
                           <button class="btn btn-info" type="submit"  data-bs-toggle="modal" data-bs-target="#reportModal" onclick="getReportData(this.parentNode.parentNode.parentNode)"></i>Get Report</button>
                           </div>
@@ -334,7 +331,10 @@ Secure(3);
 
               </div>
             </div><!-- End Department 1 -->
+
+
 </div>
+
 
 <!-- Report Modal -->
 
@@ -342,18 +342,30 @@ Secure(3);
                 <div class="modal-dialog " style="max-width: 60%;">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h5 class="modal-title">Report for Test of:  </h5>
+                      
+                      <label  for="name5" id="names">Report for Test of: <?php echo $name.' '.$surname?></label>
+                      
+                      <h6 value='' id='date'></h6>
+                      
                     </div>
                     <table class="display nowrap" id="Report" style="width:100%">
 
                   </table>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+                    </div>
                   </div>
+                  
                 </div>
               </div>
               <!-- End Report_Modal-->   
 
+
   </main><!-- End #main -->
 
+
+  
   <!-- ======= Footer ======= -->
   <footer id="footer" class="footer">
 
@@ -380,7 +392,6 @@ Secure(3);
 
   <!-- Template Main JS File -->
   <script src="../assets/js/main.js"></script>
-
   <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
   <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
@@ -388,6 +399,7 @@ Secure(3);
 
   <script src="../assets/js/daterange.js"></script>
   <script src="../assets/js/report.js"></script>
+  
 
 </body>
 

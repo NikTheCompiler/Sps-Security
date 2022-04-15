@@ -245,7 +245,7 @@ Secure(3);
             <div class="card-body">
 
               <p> <a href="https://github.com/fiduswriter/Simple-DataTables" target="_blank"></a>  <code></code> </p>
-              <div class="col-sm-2">
+              <div hidden class="col-sm-2">
               <select class="form-select" id="ddldept">
                 <option value="all">Select Department</option>
                 <option value="1">CIT</option>

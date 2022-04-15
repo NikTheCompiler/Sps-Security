@@ -1,23 +1,24 @@
-<!-- Report Modal -->
-
 <?php
-  include_once('../php/connect.php');
+  include_once('connect.php');
 
   $UserID=$_POST['id'];
   $TestID=$_POST['testID'];
-  $result = sqlsrv_query($conn, "SELECT 'Name' FROM Users JOIN Tests ON Users.UserID=Tests.UserID WHERE TestID = '".$TestID."'");
-  $Name = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC);
 
-  $result = sqlsrv_query($conn, "SELECT 'Surname' FROM Users JOIN Tests ON Users.UserID=Tests.UserID WHERE TestID = '".$TestID."'");
-  $Surname = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC);
+  $result = sqlsrv_query($conn, "SELECT * FROM Questions JOIN UserAns ON UserAns.QID=Questions.QID JOIN Categories ON Categories.CID=Questions.Category WHERE TestID='".$TestID."'");
 
-  $result = sqlsrv_query($conn, "SELECT 'Date' FROM Users JOIN Tests ON Users.UserID=Tests.UserID WHERE TestID = '".$TestID."'");
-  $Date = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC);
-
-
-  $result = sqlsrv_query($conn, "SELECT * FROM Questions JOIN UserAns ON Questions.QID=UsersAns.QID WHERE TestID = '".$TestID."'");
-
-  echo '
+  ?>
+  <?php
+                  
+                  $sql = "SELECT * FROM Users WHERE UserID = '".$UserID."'";
+                  $result2 = sqlsrv_query($conn, $sql);
+                  
+                    while ($row2 = sqlsrv_fetch_array($result2,SQLSRV_FETCH_ASSOC)) {
+                      $name = $row2["name"];
+                      $surname = $row2["surname"];
+                    
+                  
+                    }
+    ?>
   <thead>
     <tr>
       <th>#</th>
@@ -25,16 +26,17 @@
       <th>Question Category</th>
       <th>Employee Answer</th>
       <th>Correct Answer</th>
+      <th>Result</th>
 
     </tr>
   </thead>
-<tbody>';
-
+<tbody>
+<?php
   $i = 0;
-  while ($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)) {
+  while ($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC) ) {
     $i++;
     $Ques = $row["Ques"];
-    $Category = $row["Category"];
+    $Category = $row["Cname"];
     $UserAns=$row["UserAns"];
     $CorrectAns=$row["CorrectAns"];
     $Choice1=$row["Choice1"];
@@ -70,20 +72,28 @@
           $UserAnswer = $Choice4;
           break;
     }
+    if($CorrectAns==$UserAns){
+      $res="Correct";
+    }
+    else{
+      $res="False";
+    }
 
-
-    
-    echo '
+  
+     echo'
       <tr>
         <td>' . $i .'</td>
         <td>' . $Ques .'</td>
         <td>' . $Category .'</td>
         <td>' . $UserAnswer . '</td>
-        <td>' . $CorrectAnswer . '</td>                                    
+        <td>' . $CorrectAnswer . '</td>
+        <td>' . $res . '</td>                                  
       </tr>
-    </tbody>
-    ';
+    </tbody>';
+   
   }
+  ?>
+  
 
 ?>
 

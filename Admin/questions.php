@@ -265,7 +265,7 @@ Secure(3);
 
               <div class="tab-pane fade show active questions" id="questions">
 
-              <div class="col-sm-2" >
+              <div hidden class="col-sm-2" >
               <select class="form-select" name="ddldept[]" id="ddldept" onChange="getState();">
                 <option value="all">Select Department</option>
                 <?php
@@ -281,7 +281,7 @@ Secure(3);
               </select>
             </div>
             
-              <div class="col-sm-2 pt-2" >
+              <div hidden class="col-sm-2 pt-2" >
               <select class="form-select" name="ddlcat[]" id="ddlcat" >
               <option value="all" >Select Category</option>
                 

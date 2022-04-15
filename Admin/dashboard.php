@@ -301,8 +301,9 @@ Secure(3);
                     options: {
                       scales: {
                         y: {
-                          beginAtZero: true
-                        }
+                          beginAtZero: true,
+                          suggestedMax: 100
+                        },
                       }
                     }
                   });

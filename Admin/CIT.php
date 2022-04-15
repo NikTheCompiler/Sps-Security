@@ -233,16 +233,6 @@ Secure(3);
             <div class="col-12">
               <div class="card recent-sales">
 
-                <div class="filter">
-
-                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-
-
-                    <li><a class="dropdown-item" href="#">Today</a></li>
-                    <li><a class="dropdown-item" href="#">This Month</a></li>
-                    <li><a class="dropdown-item" href="#">This Year</a></li>
-                  </ul>
-                </div>
 
                 <div class="card-body">
 
@@ -271,6 +261,7 @@ Secure(3);
              <th>Employee</th>
              <th>Grade</th>
              <th>Date</th>
+             <th hidden>Date</th>
              <th>Status</th>
              <th>Report</th>
            </tr>
@@ -319,7 +310,7 @@ Secure(3);
                          <td>' . $date . '</td>
                          <td hidden>' . $testId . '</td>
                          <td class="text-right py-0 align-middle col-sm-1">' . $data1 . '' . $status . ' ' . $data2 . '</td>
-                         <td class="text-right py-0 align-middle col-sm-3">
+                         <td class="text-right py-0 align-middle col-sm-1">
                           <div class="btn-group btn-group-sm col-sm-11" >
                           <button class="btn btn-info" type="submit"  data-bs-toggle="modal" data-bs-target="#reportModal" onclick="getReportData(this.parentNode.parentNode.parentNode)"></i>Get Report</button>
                           </div>
@@ -351,16 +342,21 @@ Secure(3);
                 <div class="modal-dialog " style="max-width: 60%;">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h5 class="modal-title">Report for Test of:  </h5>
-                      <h5  value='' id = 'name5' class="modal-title"></h5>
-
-                      <h5 class="modal-title" value='' id='date5'></h5>
+                      
+                      <label  for="name5" >Report for Test of: <?php echo $name.' '.$surname?></label>
+                      
+                      <h6 value='' id='date'></h6>
                       
                     </div>
                     <table class="display nowrap" id="Report" style="width:100%">
 
                   </table>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+                    </div>
                   </div>
+                  
                 </div>
               </div>
               <!-- End Report_Modal-->   
