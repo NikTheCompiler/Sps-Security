@@ -256,67 +256,77 @@ Secure(3);
             <td><input type="text" id="max" name="max"></td>
         </tr>
     </tbody></table>
-       <table class="display nowrap" id="Grades" style="width:100%">
+
+    <table class="display nowrap" id="Grades" style="width:100%">
          <thead>
            <tr>
-           <th>#</th>
-           <th>ID</th>
+             <th>#</th>
+             <th>ID</th>
              <th>Employee</th>
              <th>Grade</th>
              <th>Date</th>
              <th>Status</th>
-             
+             <th>Report</th>
            </tr>
          </thead>
          <tbody>
              <?php
                    include_once('../php/connect.php');
-                   $result = sqlsrv_query($conn, "SELECT * FROM Users JOIN Tests ON Users.UserID=Tests.UserID WHERE type=0 ");
+                   $result = sqlsrv_query($conn, "SELECT * FROM Users JOIN Tests ON Users.UserID=Tests.UserID WHERE  type=0 ");
 
-                   $i = 0;
-                   while ($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)) {
-                     $i++;
-                     $id = $row["UserID"];
-                     $name=$row["name"];
-                     $surname=$row["surname"];
-                     $grade=5*$row["Grade"];
-                     $date = $row['Date']->format('Y/m/d');
-                     if ($grade<=50){
-                      $status = "Bad";
-                      $data1="<span class="."'badge rounded-pill bg-danger even-larger-badge'".">";
-                      $data2="</span> ";
-                     }
-                     else if($grade<=65){
-                      $status = "Okay";
-                      $data1="<span class="."'badge rounded-pill bg-warning even-larger-badge'".">";
-                      $data2="</span> ";
-                     }
-                     else if($grade<=85){
-                      $status = "Good";
-                      $data1="<span class="."'badge rounded-pill bg-success even-larger-badge'".">";
-                      $data2="</span> ";
-                     }
-                     else if($grade<=100){
-                      $status = "Very Good";
-                      $data1="<span class="."'badge rounded-pill bg-success even-larger-badge'".">";
-                      $data2="</span> ";
-                     }
-                     
-                     echo '
-                     <tr>
-                     <td>' . $i .'</td>
-                       <td>' . $id .'</td>
-                       <td>' . $name . ' '.$surname.'</td>
-                       <td>' . $grade . '/100</td>
-                       <td>' . $date . '</td>
-                       <td class="text-right py-0 align-middle col-sm-1">' . $data1 . '' . $status . ' ' . $data2 . '</td>
+                     $i = 0;
+                     while ($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)) {
+                       $i++;
+                       $testId = $row["TestID"];
+                       $id = $row["UserID"];
+                       $name=$row["name"];
+                       $surname=$row["surname"];
+                       $grade=5*$row["Grade"];
+                       $date = $row['Date']->format('Y/m/d');
+                       if ($grade<=50){
+                        $status = "Bad";
+                        $data1="<span class="."'badge rounded-pill bg-danger even-larger-badge'".">";
+                        $data2="</span> ";
+                       }
+                       else if($grade<=65){
+                        $status = "Okay";
+                        $data1="<span class="."'badge rounded-pill bg-warning even-larger-badge'".">";
+                        $data2="</span> ";
+                       }
+                       else if($grade<=85){
+                        $status = "Good";
+                        $data1="<span class="."'badge rounded-pill bg-success even-larger-badge'".">";
+                        $data2="</span> ";
+                       }
+                       else if($grade<=100){
+                        $status = "Very Good";
+                        $data1="<span class="."'badge rounded-pill bg-success even-larger-badge'".">";
+                        $data2="</span> ";
+                       }
                        
-
-                     </tr>
-                     ';
-                   }
+                       echo '
+                       <tr>
+                         <td>' . $i .'</td>
+                         <td>' . $id .'</td>
+                         <td>' . $name . ' '.$surname.'</td>
+                         <td>' . $grade . '/100</td>
+                         <td>' . $date . '</td>
+                         <td hidden>' . $testId . '</td>
+                         <td class="text-right py-0 align-middle col-sm-1">' . $data1 . '' . $status . ' ' . $data2 . '</td>
+                         <td class="text-right py-0 align-middle col-sm-3">
+                          <div class="btn-group btn-group-sm col-sm-11" >
+                          <button class="btn btn-info" type="submit"  data-bs-toggle="modal" data-bs-target="#reportModal" onclick="getReportData(this.parentNode.parentNode.parentNode)"></i>Get Report</button>
+                          </div>
+                        </td>
+                         
+                       </tr>
+                       ';
+                     }
 
              ?>
+          
+             
+             
          </tbody>
        </table>
                 </div>
@@ -332,6 +342,22 @@ Secure(3);
 
 
 </div>
+
+<!-- Report Modal -->
+
+<div class="modal fade" id="reportModal" >
+                <div class="modal-dialog " style="max-width: 60%;">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title">Report for Test of:  </h5>
+                    </div>
+                    <table class="display nowrap" id="Report" style="width:100%">
+
+                  </table>
+                  </div>
+                </div>
+              </div>
+              <!-- End Report_Modal-->   
 
   </main><!-- End #main -->
 
@@ -367,6 +393,7 @@ Secure(3);
   <script src="https://cdn.datatables.net/datetime/1.1.2/js/dataTables.dateTime.min.js"></script>
 
   <script src="../assets/js/daterange.js"></script>
+  <script src="../assets/js/report.js"></script>
 
 </body>
 

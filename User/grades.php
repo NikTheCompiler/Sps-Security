@@ -222,8 +222,9 @@ Secure(0);
             <td>' . $tid .'</td>
             <td>' . date_format($date, 'Y-m-d') . '</td>
             <td>' . $grade . '/100</td>
-
+            
           </tr>
+          
           ';
         }
 
