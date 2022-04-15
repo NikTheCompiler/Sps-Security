@@ -247,7 +247,7 @@ Secure(2);
             <div class="card-body">
 
               <p> <a href="https://github.com/fiduswriter/Simple-DataTables" target="_blank"></a>  <code></code> </p>
-              <div class="col-sm-2">
+              <div  hidden class="col-sm-2">
               <select class="form-select" id="ddldept">
                 <option value="all">Select Department</option>
                 <option value="1">CIT</option>
@@ -474,7 +474,7 @@ Secure(2);
                 <tbody>
                 <?php
                       include_once('../php/connect.php');
-                      $result = sqlsrv_query($conn, "SELECT * FROM Users WHERE type = 1 or type=2 or type=0 ");
+                      $result = sqlsrv_query($conn, "SELECT * FROM Users WHERE type = 1 or type=0 ");
 
                         $i = 0;
                         while ($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)) {

@@ -292,8 +292,18 @@ h1 {
             TestID: TestID
           })
             .done(function(data) {
-              if (data != 1) {
+              
+              if (data != 0) {
                 $("#que").html(data);
+              }
+              else if(data==0){
+                Swal.fire(
+                  'Not enough questions for the quiz!',
+                  '',
+                  'error'
+                );
+                
+
               }
             });
       

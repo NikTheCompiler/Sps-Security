@@ -159,7 +159,7 @@ Secure(2);
         </a>
         <ul id="tables-nav" class="nav-content collapse show" data-bs-parent="#sidebar-nav">
           <li>
-            <a href="CIT.php" class="active">
+            <a href="CIT.php" >
               <i class="bi bi-circle"></i><span>CIT</span>
             </a>
           </li>
@@ -169,7 +169,7 @@ Secure(2);
             </a>
           </li>
           <li>
-            <a href="CVSD.php">
+            <a href="CVSD.php" class="active">
               <i class="bi bi-circle"></i><span>Cash & Valuables Storage Department</span>
             </a>
           </li>

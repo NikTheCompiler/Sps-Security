@@ -196,9 +196,10 @@ Secure(0);
 
   <tr>
     <th scope="col">#</th>
-    <th scope="col">TestID</th>
+    <th scope="col">Employee</th>
     <th scope="col">Date</th>
     <th scope="col">Grade</th>
+    <th scope="col">Status</th>
   </tr>
 </thead>
 
@@ -214,14 +215,35 @@ Secure(0);
           $tid = $row["TestID"];
           $date = $row["Date"];
           $grade = 5*$row["Grade"];
+          if ($grade<=50){
+            $status = "Bad";
+            $data1="<span class="."'badge rounded-pill bg-danger even-larger-badge'".">";
+            $data2="</span> ";
+           }
+           else if($grade<=65){
+            $status = "Okay";
+            $data1="<span class="."'badge rounded-pill bg-warning even-larger-badge'".">";
+            $data2="</span> ";
+           }
+           else if($grade<=85){
+            $status = "Good";
+            $data1="<span class="."'badge rounded-pill bg-success even-larger-badge'".">";
+            $data2="</span> ";
+           }
+           else if($grade<=100){
+            $status = "Very Good";
+            $data1="<span class="."'badge rounded-pill bg-success even-larger-badge'".">";
+            $data2="</span> ";
+           }
 
           echo '
           <tr>
 
             <td>' . $i .'</td>
-            <td>' . $tid .'</td>
-            <td>' . date_format($date, 'Y-m-d') . '</td>
+            <td>' . $name .''.' '.'' . $surname .'</td>
+            <td>' . date_format($date, 'd-m-Y') . '</td>
             <td>' . $grade . '/100</td>
+            <td class="text-right py-0 align-middle col-sm-1">' . $data1 . '' . $status . ' ' . $data2 . '</td>
             
           </tr>
           

@@ -24,7 +24,7 @@ $pass = hash("sha256", $pass1);
 $new = hash("sha256", $new1);
 $confirmpass = hash("sha256", $confirmpass1);
 
-if(strlen($new)<5){
+if(strlen($new1)<5){
     $_SESSION['LoginError'] = "4";
     header('Location: ../Newuser.php');
     exit();

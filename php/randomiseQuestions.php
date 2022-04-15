@@ -16,6 +16,16 @@ while ($row = sqlsrv_fetch_array($ques,SQLSRV_FETCH_ASSOC)) {
     $i=$i+1;
 }
 
+ if(sizeof($arr)<20){
+  $id = trim($TestID);
+
+  $sqldel="DELETE FROM Tests WHERE TestID='".$id."'";
+  $delt = sqlsrv_query($conn,$sqldel);
+  
+   echo 0;
+   exit;
+ }
+
 $rand_keys = array_rand($arr, 20);
  $Ans = array(20);
  $i=0;

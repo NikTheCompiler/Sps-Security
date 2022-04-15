@@ -159,12 +159,12 @@ Secure(2);
         </a>
         <ul id="tables-nav" class="nav-content collapse show" data-bs-parent="#sidebar-nav">
           <li>
-            <a href="CIT.php" class="active">
+            <a href="CIT.php" >
               <i class="bi bi-circle"></i><span>CIT</span>
             </a>
           </li>
           <li>
-            <a href="MARC.php">
+            <a href="MARC.php" class="active">
               <i class="bi bi-circle"></i><span>Monitoring & Alarm Receiving Center</span>
             </a>
           </li>
