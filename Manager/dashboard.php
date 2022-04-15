@@ -65,7 +65,8 @@ Secure(1);
                       $name = $row["name"];
                       $surname = $row["surname"];
                       $position=$row["position"];
-                      $dept=$row["dept"];
+                      $department=$row["dept"];
+                    
                   
                     }
     ?>
@@ -200,22 +201,98 @@ Secure(1);
 
         <!-- Left side columns -->
 
+
+			  </div>
+          </div>
+        </div>
+<!-- Bar Chart -->
 <div class="col-lg-12">
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Average grade of each Period of Tests</h5>
+              <h5 class="card-title">Average grade of each Category of Questions</h5>
+              <?php 
+              $talabels = array();
+              $sql = " SELECT DISTINCT Categories.Cname
+                       FROM Questions
+                       JOIN UserAns 
+                       ON Questions.QID=UserAns.QID
+                       JOIN Categories
+                       ON Questions.Category=Categories.CID
+                       WHERE Questions.Dept= $department
+                      ";
 
-              <!-- Bar Chart -->
-              <canvas id="barChart" style="max-height: 400px;"></canvas>
+              $result = sqlsrv_query($conn, $sql);
+              $i = 0;
+              while ($row = sqlsrv_fetch_array($result,SQLSRV_FETCH_ASSOC)) {
+
+                $talabels[$i] = $row['Cname'];
+                $i++;
+             }
+             
+             ksort($talabels);
+             $data = json_encode($talabels);
+             $_SESSION['labelss'] = $talabels;
+              ?>
+              <?php
+                 $talabelsdame = $_SESSION['labelss'];
+                 $sql = " SELECT  Questions.QID, Questions.CorrectAns, Questions.Category, UserAns.UserAns, Categories.CID, Categories.Cname
+                 FROM Questions
+                 JOIN UserAns 
+                 ON Questions.QID=UserAns.QID
+                 JOIN Categories
+                 ON Questions.Category=Categories.CID
+                 WHERE Questions.Dept= $department
+                  ";
+                $result = sqlsrv_query($conn, $sql);
+
+                $i = 0;
+                $index = 0;
+                $size = sizeof($talabelsdame);
+                $datatwnlabels = array(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+                $count = array(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+            
+                while ($row = sqlsrv_fetch_array($result,SQLSRV_FETCH_ASSOC)) {
+
+                  $counter = 0;
+                  
+                  for($i=0; $i<$size; $i++){
+                    if($row['Cname'] == $talabelsdame[$i]){
+                      $index = $i;
+                      $count[$index]++;
+                      
+                    }
+                  }
+
+                      if($row['CorrectAns'] == $row['UserAns']){
+                        $datatwnlabels[$index] =  $datatwnlabels[$index] + 1;
+                      }
+
+                    $i ++;
+                  }
+
+                  for($i=0; $i<$size; $i++){
+                  $apantisi = ($datatwnlabels[$i] / $count[$i]) * 100;
+                  $datatwnlabels[$i] =  $apantisi;
+                  }
+
+                ksort($datatwnlabels);
+                ksort($count);
+               
+            
+              $apotelesmata = json_encode($datatwnlabels);
+              ?>
+              <canvas id="chart" style="max-height: 400px;"></canvas>
               <script>
+                var datalabel = <?php echo $data ?>;
+                var dataapotelesmata = <?php echo $apotelesmata ?>;
                 document.addEventListener("DOMContentLoaded", () => {
-                  new Chart(document.querySelector('#barChart'), {
+                  new Chart(document.querySelector('#chart'), {
                     type: 'bar',
                     data: {
-                      labels: ['Period 1', 'Period 2', 'Period 3', 'Period 4'],
+                      labels:  datalabel,
                       datasets: [{
                         label: 'Average grades',
-                        data: [65, 59, 80, 81, 56, 55, 40],
+                        data: dataapotelesmata,
                         backgroundColor: [
                           'rgba(255, 99, 132, 0.2)',
                           'rgba(255, 159, 64, 0.2)',
@@ -239,19 +316,21 @@ Secure(1);
                     },
                     options: {
                       scales: {
-                        y: {
-                          beginAtZero: true
-                        }
+                        y: [{
+
+                          stacked: true,
+                          ticks: {
+                              min: 0,
+                              stepSize: 1000,
+                          }
+
+                          }]
                       }
                     }
                   });
                 });
               </script>
               <!-- End Bar Chart -->
-			  </div>
-          </div>
-        </div>
-
 
 
 
@@ -262,13 +341,27 @@ Secure(1);
               </div>
             </div><!-- End Reports -->
 
-            <!-- Today Recent Tests -->
+            <!-- Recent Tests -->
             <div class="col-12">
               <div class="card recent-sales">
+
+                <div class="filter">
+                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                    <li class="dropdown-header text-start">
+                      <h6>Filter</h6>
+                    </li>
+
+                    <li><a class="dropdown-item" href="#">Today</a></li>
+                    <li><a class="dropdown-item" href="#">This Month</a></li>
+                    <li><a class="dropdown-item" href="#">This Year</a></li>
+                  </ul>
+                </div>
+
                 <div class="card-body">
                   <h5 class="card-title">Recent Tests <span>| Today</span></h5>
 
-                  <table class="table datatable">
+                  <table class="table table-borderless datatable">
                     <thead>
                       <tr>
                         <th scope="col">ID</th>
@@ -279,70 +372,41 @@ Secure(1);
                       </tr>
                     </thead>
                     <tbody>
-                    <?php
-                   include_once('../php/connect.php');
-                   $currentdate=date("Y-m-d");
-                   $result = sqlsrv_query($conn, "SELECT * FROM Users JOIN Tests ON Users.UserID=Tests.UserID WHERE type=0 AND dept='".$dept."' AND Date='".$currentdate."' ");
-
-                     $i = 0;
-                     while ($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)) {
-                        $i++;
-                        $id = $row["UserID"];
-                        $name=$row["name"];
-                        $surname=$row["surname"];
-                        $dept=$row["dept"];
-                        $grade=5*$row["Grade"];
-                        $date = $row['Date']->format('Y/m/d');
-                        if ($grade<=50){
-                          $status = "Bad";
-                          $data1="<span class="."'badge rounded-pill bg-danger even-larger-badge'".">";
-                          $data2="</span> ";
-                        }
-                        else if($grade<=65){
-                          $status = "Okay";
-                          $data1="<span class="."'badge rounded-pill bg-warning even-larger-badge'".">";
-                          $data2="</span> ";
-                        }
-                        else if($grade<=85){
-                          $status = "Good";
-                          $data1="<span class="."'badge rounded-pill bg-success even-larger-badge'".">";
-                          $data2="</span> ";
-                        }
-                        else if($grade<=100){
-                          $status = "Very Good";
-                          $data1="<span class="."'badge rounded-pill bg-success even-larger-badge'".">";
-                          $data2="</span> ";
-                        }
-                        switch ($dept){
-                          case 1:
-                              $deptA = "CIT";
-                              break;
-                          case 2:
-                              $deptA = "Monitoring & Alarm Receiving Center";
-                              break;
-                          case 3:
-                              $deptA = "Cash & Valuables Storage Department";
-                              break;
-                          case 4:
-                              $deptA = "Cash Processing Department";
-                              break;
-                          case 5:
-                              $deptA = "Patrol Department";
-                              break;
-                        }
-                        
-                        echo '
-                        <tr>
-                          <td>' . $id .'</td>
-                          <td>' . $name . ' '.$surname.'</td>
-                          <td>' . $deptA . '</td>
-                          <td>' . $grade . '/100</td>
-                          <td class="text-right py-0 align-middle col-sm-1">' . $data1 . '' . $status . ' ' . $data2 . '</td>
-                        </tr>
-                        ';
-                     }
-
-                    ?>
+                      <tr>
+                        <th scope="row"><a href="#">2457</a></th>
+                        <td>Brandon Jacob</td>
+                        <td>Department 1</a></td>
+                        <td>92</td>
+                        <td><span class="badge bg-success">Πολύ Καλό</span></td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><a href="#">2147</a></th>
+                        <td>Bridie Kessler</td>
+                        <td>Department 3</a></td>
+                        <td>59</td>
+                        <td><span class="badge bg-success">Μέτριο</span></td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><a href="#">2049</a></th>
+                        <td>Ashleigh Langosh</td>
+                        <td>Department 6</a></td>
+                        <td>65</td>
+                        <td><span class="badge bg-success">Μέτριο</span></td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><a href="#">2644</a></th>
+                        <td>Angus Grady</td>
+                        <td>Department 2</a></td>
+                        <td>45</td>
+                        <td><span class="badge bg-danger">Αποτυχία</span></td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><a href="#">2644</a></th>
+                        <td>Raheem Lehner</td>
+                        <td>Department 1</a></td>
+                        <td>70</td>
+                        <td><span class="badge bg-success">Καλό</span></td>
+                      </tr>
                     </tbody>
                   </table>
 
@@ -350,7 +414,79 @@ Secure(1);
 
               </div>
             </div><!-- End Recent Tests -->
+<!-- Department 1 -->
+            <div class="col-12">
+              <div class="card recent-sales">
 
+                <div class="filter">
+                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                    <li class="dropdown-header text-start">
+                      <h6>Filter</h6>
+                    </li>
+
+                    <li><a class="dropdown-item" href="#">Today</a></li>
+                    <li><a class="dropdown-item" href="#">This Month</a></li>
+                    <li><a class="dropdown-item" href="#">This Year</a></li>
+                  </ul>
+                </div>
+
+                <div class="card-body">
+                  <h5 class="card-title">Department 1 <span>| Today</span></h5>
+
+                  <table class="table table-borderless datatable">
+                    <thead>
+                      <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Employee</th>
+
+                        <th scope="col">Grade</th>
+                        <th scope="col">Status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row"><a href="#">2457</a></th>
+                        <td>Brandon Jacob</td>
+
+                        <td>92</td>
+                        <td><span class="badge bg-success">Πολύ Καλό</span></td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><a href="#">2147</a></th>
+                        <td>Bridie Kessler</td>
+
+                        <td>59</td>
+                        <td><span class="badge bg-success">Μέτριο</span></td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><a href="#">2049</a></th>
+                        <td>Ashleigh Langosh</td>
+
+                        <td>65</td>
+                        <td><span class="badge bg-success">Μέτριο</span></td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><a href="#">2644</a></th>
+                        <td>Angus Grady</td>
+
+                        <td>45</td>
+                        <td><span class="badge bg-danger">Αποτυχία</span></td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><a href="#">2644</a></th>
+                        <td>Raheem Lehner</td>
+
+                        <td>70</td>
+                        <td><span class="badge bg-success">Καλό</span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+                </div>
+
+              </div>
+            </div><!-- End Department 1 -->
 
 
           </div>
