@@ -4,7 +4,7 @@
   $UserID=$_POST['id'];
   $TestID=$_POST['testID'];
 
-  $result = sqlsrv_query($conn, "SELECT * FROM Questions JOIN UserAns ON UserAns.QID=Questions.QID JOIN Categories ON Categories.CID=Questions.Category WHERE TestID='".$TestID."'");
+  $result = sqlsrv_query($conn, "SELECT * FROM Questions JOIN UserAns ON UserAns.QID=Questions.QID JOIN Categories ON Categories.CID=Questions.Category WHERE TestID='".$TestID."' ORDER BY Category ASC");
 
   ?>
   <?php
@@ -74,9 +74,11 @@
     }
     if($CorrectAns==$UserAns){
       $res="Correct";
+      $color="style='color:green'";
     }
     else{
       $res="False";
+      $color="style='color:red'";
     }
 
   
@@ -86,8 +88,8 @@
         <td>' . $Ques .'</td>
         <td>' . $Category .'</td>
         <td>' . $UserAnswer . '</td>
-        <td>' . $CorrectAnswer . '</td>
-        <td>' . $res . '</td>                                  
+        <td >' . $CorrectAnswer . '</td>
+        <td '.$color.'>' . $res . '</td>                                  
       </tr>
     </tbody>';
    
