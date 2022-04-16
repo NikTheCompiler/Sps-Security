@@ -237,7 +237,7 @@ Secure(3);
 
         <!-- Left side columns -->
 
-<div class="col-lg-12">
+<div class="col-lg-9">
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">Average grade for each Department in the last 2 months</h5>
@@ -313,12 +313,56 @@ Secure(3);
 			  </div>
           </div>
         </div>
+        <!-- Table without test -->
+        <div class="col-lg-3">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Employees without a test in the last 2 months</h5>
+              <table id="table1" class="datatable">
+              
+                    <thead>
+                      <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Employee</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    <?php
+                   include_once('../php/connect.php');
+                   $currentdate=date("Y-m-d");
+                   $cmonth=date('m');
+                   $newDate = date('m', strtotime('-1 month'));
+                   $newDateYear=date('Y', strtotime('-1 month'));
+                   $cyear=date('Y');
+                   $result = sqlsrv_query($conn, "SELECT * FROM Users WHERE type=0 AND UserID NOT IN (SELECT  Users.UserID FROM Users JOIN Tests ON Users.UserID=Tests.UserID WHERE type=0 AND MONTH(Date) BETWEEN '".$newDate."' AND '".$cmonth."' AND YEAR(Date) BETWEEN '".$newDateYear."' AND '".$cyear."') ");
 
+                     $i = 0;
+                     while ($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)) {
+                        $i++;
+                        $id = $row["UserID"];
+                        $name=$row["name"];
+                        $surname=$row["surname"];
+                        
+                        
+                        echo '
+                        <tr>
+                          <td>' . $id .'</td>
+                          <td>'.''.'' . $name . ' '.$surname.'</td>
+                        </tr>
+                        ';
+                     }
+
+                    ?>
+                    </tbody>
+                  </table>
+			  </div>
+          </div>
+        </div>
+                     <!-- End Table without test -->
 
                 </div>
 
-              </div>
-            </div><!-- End Reports -->
+              
 
             <!-- Today Recent Tests -->
             <div class="col-12">
@@ -437,13 +481,29 @@ Secure(3);
   <script src="../assets/vendor/php-email-form/validate.js"></script>
   <script src="../assets/vendor/quill/quill.min.js"></script>
   <script src="../assets/vendor/tinymce/tinymce.min.js"></script>
-  <script src="../assets/vendor/simple-datatables/simple-datatables.js"></script>
+  <script src="../assets/vendor/simple-datatables/simple-datatables2.js"></script>
   <script src="../assets/vendor/chart.js/chart.min.js"></script>
   <script src="../assets/vendor/apexcharts/apexcharts.min.js"></script>
   <script src="../assets/vendor/echarts/echarts.min.js"></script>
 
   <!-- Template Main JS File -->
   <script src="../assets/js/main.js"></script>
+  <script>
+    window.addEventListener('DOMContentLoaded', event => {
+    // Simple-DataTables
+    // https://github.com/fiduswriter/Simple-DataTables/wiki
+
+    const datatablesSimple = document.getElementById('table1');
+    if (datatablesSimple) {
+        new simpleDatatables.DataTable(datatablesSimple, {
+         perPage: 5
+         });
+
+       
+    }
+});
+</script>
+  
 
 </body>
 

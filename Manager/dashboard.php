@@ -202,11 +202,9 @@ Secure(1);
         <!-- Left side columns -->
 
 
-			  </div>
-          </div>
-        </div>
+			  
 <!-- Bar Chart -->
-<div class="col-lg-12">
+<div class="col-lg-9">
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">Percentage of correct answers each Category of Questions</h5>
@@ -248,10 +246,17 @@ Secure(1);
                 $i = 0;
                 $index = 0;
                 $size = sizeof($talabelsdame);
-                $datatwnlabels = array(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
-                $count = array(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+                $datatwnlabels = array();
+                $count = array();
             
+                $o = 0;
+                  for($o=0; $o<$size; $o++)
+                  {
+                    $datatwnlabels[$o] = 0;
+                    $count[$o] = 0;
+                  }
                 while ($row = sqlsrv_fetch_array($result,SQLSRV_FETCH_ASSOC)) {
+                  
 
                   $counter = 0;
                   
@@ -327,14 +332,61 @@ Secure(1);
               </script>
               <!-- End Bar Chart -->
 
-
-
-
-
                 </div>
 
               </div>
             </div><!-- End Reports -->
+<!-- Table without test -->
+<div class="col-lg-3">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Employees without a test in the last 2 months</h5>
+              <table class="datatable">
+                    <thead>
+                      <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Employee</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    <?php
+                   include_once('../php/connect.php');
+                   $currentdate=date("Y-m-d");
+                   $cmonth=date('m');
+                   $newDate = date('m', strtotime('-1 month'));
+                   $newDateYear=date('Y', strtotime('-1 month'));
+                   $cyear=date('Y');
+                   $result = sqlsrv_query($conn, "SELECT * FROM Users WHERE type=0 AND dept='".$department."' AND UserID NOT IN (SELECT  Users.UserID FROM Users JOIN Tests ON Users.UserID=Tests.UserID WHERE type=0 AND MONTH(Date) BETWEEN '".$newDate."' AND '".$cmonth."' AND YEAR(Date) BETWEEN '".$newDateYear."' AND '".$cyear."') ");
+
+                     $i = 0;
+                     while ($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)) {
+                        $i++;
+                        $id = $row["UserID"];
+                        $name=$row["name"];
+                        $surname=$row["surname"];
+                        
+                        
+                        echo '
+                        <tr>
+                          <td>' . $id .'</td>
+                          <td>' . $name . ' '.$surname.'</td>
+                        </tr>
+                        ';
+                     }
+
+                    ?>
+                    </tbody>
+                  </table>
+			  </div>
+          </div>
+        </div>
+                     <!-- End Table without test -->
+
+            </div>
+          </div>
+        </div>
+
+      
 
             <!-- Recent Tests -->
             <div class="col-12">
@@ -453,7 +505,7 @@ Secure(1);
   <script src="../assets/vendor/php-email-form/validate.js"></script>
   <script src="../assets/vendor/quill/quill.min.js"></script>
   <script src="../assets/vendor/tinymce/tinymce.min.js"></script>
-  <script src="../assets/vendor/simple-datatables/simple-datatables.js"></script>
+  <script src="../assets/vendor/simple-datatables/simple-datatables2.js"></script>
   <script src="../assets/vendor/chart.js/chart.min.js"></script>
   <script src="../assets/vendor/apexcharts/apexcharts.min.js"></script>
   <script src="../assets/vendor/echarts/echarts.min.js"></script>
