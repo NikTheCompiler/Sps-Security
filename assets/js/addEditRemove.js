@@ -843,6 +843,13 @@ function addCategory()
               })
 
             }
+            else if(data == 2) {
+              Swal.fire(
+                'Category already exists!',
+                '',
+                'error'
+              );
+            }
           });
       }
     }

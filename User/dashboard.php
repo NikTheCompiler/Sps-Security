@@ -213,7 +213,7 @@ h1 {
 
 
 
-<center><button type="button" class="btn btn-primary" onclick="startQuiz()" <?php if ($result > '0'){ ?> disabled <?php   } ?> >Start QUIZ</button><center>
+<center><button type="button" class="btn btn-primary" onclick="startQuiz()" <?php if ($result > '0'){ ?> disabled <?php   } ?> >Start QUIZ</button><center><br>
 
 
 </div>

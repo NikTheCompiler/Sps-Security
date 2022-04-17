@@ -291,6 +291,7 @@ Secure(3);
                           <option value="0">Officer</option>
                           <option value="1">Supervisor</option>
                           <option value="2">Manager</option>
+                          <option value="4">Secretary</option>
                         </select>
                       </div>
                 </div>
@@ -385,6 +386,7 @@ Secure(3);
                           <option value="0">Officer</option>
                           <option value="1">Supervisor</option>
                           <option value="2">Manager</option>
+                          <option value="4">Secretary</option>
                         </select>
                       </div>
                 </div>
@@ -500,6 +502,9 @@ Secure(3);
                             case 5:
                                 $deptA = "Patrol Department";
                                 break;
+                            case 6:
+                                $deptA = "Health & Safety";
+                                break;
                           }
 
                           $position=$row["position"];
@@ -513,6 +518,9 @@ Secure(3);
                             case 2:
                                 $positionA = "Manager";
                                 break;
+                            case 4:
+                                $positionA = "Secretary";
+                                break;    
 
                           }
                           $type = $row["type"];

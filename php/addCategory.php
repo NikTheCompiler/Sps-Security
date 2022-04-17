@@ -6,7 +6,7 @@ $Dept = $_POST['deptCat'];
 
 
 
-$checkq = sqlsrv_query($conn, "SELECT * FROM Categories WHERE Cname='".$Cname."'");
+$checkq = sqlsrv_query($conn, "SELECT * FROM Categories WHERE Cname='".$Cname."' and Dept='".$Dept."'");
 $qu=sqlsrv_fetch($checkq);
 if($qu == 0) {
     $addcategory = "INSERT INTO Categories
@@ -25,6 +25,10 @@ $params = array($Cname, $Dept);
     } 
     else {  
         echo 0;  
-    }  
+    }
+
 }
+if($qu != 0){
+    echo 2;   
+}  
 ?>
