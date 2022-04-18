@@ -7,8 +7,7 @@ $dept = $_POST['dept'];
 $i=0;
 $sql="SELECT * FROM Questions WHERE Dept='".$dept."' OR Dept=6 ";
 $ques = sqlsrv_query($conn,$sql);
-$arrsize=sqlsrv_fetch($ques);
-$arr = array($arrsize);
+$arr = array();
 
 while ($row = sqlsrv_fetch_array($ques,SQLSRV_FETCH_ASSOC)) {
     $arr[$i]=$row["QID"];
