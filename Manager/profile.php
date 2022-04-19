@@ -298,8 +298,11 @@ Secure(1);
           case 5:
               echo "Patrol Department";
               break;
-          case 6:
+          case 7:
               echo"Admin";
+              break;
+          case 6:
+              echo"Health & Safety";
               break;
 
           }
@@ -377,6 +380,9 @@ Secure(1);
                           case 5:
                               echo "Patrol Department";
                               break;
+                         case 6:
+                              echo"Health & Safety";
+                              break;
                           default:
                               echo $dept;
                               break;
@@ -430,7 +436,7 @@ Secure(1);
                 <div class="tab-pane fade pt-3" id="profile-change-password">
                   <!-- Change Password Form -->
                   <form >
-
+                  <h5 class="card-title">Change Password</h5>
                     <div class="row mb-3">
                       <label for="pass" class="col-md-4 col-lg-3 col-form-label" required>Current Password </label>
                       <div class="col-md-8 col-lg-9">

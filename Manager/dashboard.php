@@ -356,8 +356,13 @@ Secure(1);
                    $newDate = date('m', strtotime('-1 month'));
                    $newDateYear=date('Y', strtotime('-1 month'));
                    $cyear=date('Y');
-                   $result = sqlsrv_query($conn, "SELECT * FROM Users WHERE type=0 AND dept='".$department."' AND UserID NOT IN (SELECT  Users.UserID FROM Users JOIN Tests ON Users.UserID=Tests.UserID WHERE type=0 AND MONTH(Date) BETWEEN '".$newDate."' AND '".$cmonth."' AND YEAR(Date) BETWEEN '".$newDateYear."' AND '".$cyear."') ");
 
+                   if($department==6){
+                    $result = sqlsrv_query($conn, "SELECT * FROM Users WHERE type=0  AND UserID NOT IN (SELECT  Users.UserID FROM Users JOIN Tests ON Users.UserID=Tests.UserID WHERE type=0 AND MONTH(Date) BETWEEN '".$newDate."' AND '".$cmonth."' AND YEAR(Date) BETWEEN '".$newDateYear."' AND '".$cyear."') ");
+                  }
+                  else{
+                    $result = sqlsrv_query($conn, "SELECT * FROM Users WHERE type=0 AND dept='".$department."' AND UserID NOT IN (SELECT  Users.UserID FROM Users JOIN Tests ON Users.UserID=Tests.UserID WHERE type=0 AND MONTH(Date) BETWEEN '".$newDate."' AND '".$cmonth."' AND YEAR(Date) BETWEEN '".$newDateYear."' AND '".$cyear."') ");
+                  }
                      $i = 0;
                      while ($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)) {
                         $i++;
@@ -409,7 +414,13 @@ Secure(1);
                   <?php
                    include_once('../php/connect.php');
                    $currentdate=date("Y-m-d");
-                   $result = sqlsrv_query($conn, "SELECT * FROM Users JOIN Tests ON Users.UserID=Tests.UserID WHERE type=0 AND dept='".$department."' AND Date='".$currentdate."' ");
+                   if($department==6){
+                    $result = sqlsrv_query($conn, "SELECT * FROM Users JOIN Tests ON Users.UserID=Tests.UserID WHERE type=0 AND Date='".$currentdate."' ");
+                   }
+                   else {
+                    $result = sqlsrv_query($conn, "SELECT * FROM Users JOIN Tests ON Users.UserID=Tests.UserID WHERE type=0 AND dept='".$department."' AND Date='".$currentdate."' ");
+                   }
+                   
 
                      $i = 0;
                      while ($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)) {

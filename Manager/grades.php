@@ -238,6 +238,7 @@ Secure(1);
              <th>Grade</th>
              <th>Date</th>
              <th hidden>Date</th>
+             <th >Department</th>
              <th>Status</th>
              <th>Report</th>
            </tr>
@@ -245,7 +246,13 @@ Secure(1);
          <tbody>
              <?php
                    include_once('../php/connect.php');
-                   $result = sqlsrv_query($conn, "SELECT * FROM Users JOIN Tests ON Users.UserID=Tests.UserID WHERE dept=$dept AND type=0 ");
+                   if($dept==6){
+                    $result = sqlsrv_query($conn, "SELECT * FROM Users JOIN Tests ON Users.UserID=Tests.UserID WHERE type=0 ");
+                  }
+                  else{
+                    $result = sqlsrv_query($conn, "SELECT * FROM Users JOIN Tests ON Users.UserID=Tests.UserID WHERE dept=$dept AND type=0 ");
+                  }
+                   
 
                      $i = 0;
                      while ($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)) {
@@ -256,6 +263,24 @@ Secure(1);
                        $surname=$row["surname"];
                        $grade=5*$row["Grade"];
                        $date = $row['Date']->format('Y/m/d');
+                       $dept=$row["dept"];
+                       switch ($dept){
+                        case 1:
+                            $deptA = "CIT";
+                            break;
+                        case 2:
+                            $deptA = "Monitoring & Alarm Receiving Center";
+                            break;
+                        case 3:
+                            $deptA = "Cash & Valuables Storage Department";
+                            break;
+                        case 4:
+                            $deptA = "Cash Processing Department";
+                            break;
+                        case 5:
+                            $deptA = "Patrol Department";
+                            break;
+                      }
                        if ($grade<=50){
                         $status = "Bad";
                         $data1="<span class="."'badge rounded-pill bg-danger even-larger-badge'".">";
@@ -285,6 +310,7 @@ Secure(1);
                          <td>' . $grade . '/100</td>
                          <td>' . $date . '</td>
                          <td hidden>' . $testId . '</td>
+                         <td>' . $deptA . '</td>
                          <td class="text-right py-0 align-middle col-sm-1">' . $data1 . '' . $status . ' ' . $data2 . '</td>
                          <td class="text-right py-0 align-middle col-sm-1">
                           <div class="btn-group btn-group-sm col-sm-11" >

@@ -294,6 +294,10 @@ Secure(3);
                   <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-change-password">Change Password</button>
                 </li>
 
+                <li class="nav-item">
+                  <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-backup">Backup/Restore</button>
+                </li>
+
               </ul>
               <div class="tab-content pt-2">
 
@@ -411,7 +415,7 @@ Secure(3);
                 <div class="tab-pane fade pt-3" id="profile-change-password">
                   <!-- Change Password Form -->
                   <form >
-
+                  <h5 class="card-title">Change Password</h5>
                     <div class="row mb-3">
                       <label for="pass" class="col-md-4 col-lg-3 col-form-label" required>Current Password </label>
                       <div class="col-md-8 col-lg-9">
@@ -437,6 +441,32 @@ Secure(3);
                       <button type="button" class="btn btn-primary" onclick="changePass()">Change Password</button>
                     </div>
                   </form><!-- End Change Password Form -->
+
+                </div>
+
+                <div class="tab-pane fade pt-3" id="profile-backup">
+                  <!-- Backup Form -->
+                  <form >
+                  <h5 class="card-title">Backup/Restore</h5>
+
+                  <label  class="col-md-4 col-lg-3 col-form-label">Backup:</label>
+
+                    <div class="text-center py-0 align-middle col-sm-3">
+
+                    <form >
+                      <button type="button" class="btn btn-primary" onclick="Backup()">Backup</button>
+                    </form>
+                    </div>
+                    
+                    <br>
+                    
+                    <label  class="col-md-4 col-lg-3 col-form-label">Restore:</label>
+
+                    <div class="text-center py-0 align-middle col-sm-3">
+                      <button type="button" class="btn btn-primary" onclick="Restore()">Restore</button>
+                    </div>
+
+                  </form><!-- End Backup Form -->
 
                 </div>
 
@@ -485,7 +515,7 @@ Secure(3);
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
   <script src="../assets/js/addEditRemove.js"></script>
-
+  
 </body>
 
 </html>

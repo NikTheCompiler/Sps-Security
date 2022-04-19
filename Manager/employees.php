@@ -265,26 +265,36 @@ Secure(1);
                       <label class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Department<span style="color: red">*</span></label>
                       <div class="col-sm-8">
                         <select name= "dept" required class="form-select" id= "dept1" aria-label="Default select example">
-                        <option value= <?php echo $dept ?> >
+                        <option disabled selected value="">Choose Department </option>
+                        <option value= <?php echo $dept ?> 
                             <?php
                               include_once('../php/connect.php');
                               $sessiondept = $dept;
                               switch ($sessiondept){
                                 case 1:
-                                    echo "CIT";
+                                    echo ">CIT";
                                     break;
                                 case 2:
-                                    echo "Monitoring & Alarm Receiving Center";
+                                    echo ">Monitoring & Alarm Receiving Center";
                                     break;
                                 case 3:
-                                    echo "Cash & Valuables Storage Department";
+                                    echo ">Cash & Valuables Storage Department";
                                     break;
                                 case 4:
-                                    echo "Cash Processing Department";
+                                    echo ">Cash Processing Department";
                                     break;
                                 case 5:
-                                    echo "Patrol Department";
+                                    echo ">Patrol Department";
                                     break;
+                              }
+                              if($sessiondept==6){
+                                echo "Choose Department < hidden/option>
+                                <option value='1'>CIT</option>
+                                <option value='2'>Monitoring & Alarm Receiving Center</option>
+                                <option value='3'>Cash & Valuables Storage Department</option>
+                                <option value='4'>Cash Processing Department</option>
+                                <option value='5'>Patrol Department</option>
+                                <option value='6'>Health & Safety</option> ";
                               }
                             ?>
                           </option>
@@ -376,26 +386,35 @@ Secure(1);
                       <div class="col-sm-8">
                         <select id= "dept" autocomplete="off" class="form-select" aria-label="Default select example">
                           <option disabled selected value="">Choose Department </option>
-                          <option value= <?php echo $dept ?> >
+                          <option value= <?php echo $dept ?> 
                             <?php
                               include_once('../php/connect.php');
                               $sessiondept = $dept;
                               switch ($sessiondept){
                                 case 1:
-                                    echo "CIT";
+                                  echo ">CIT";
                                     break;
                                 case 2:
-                                    echo "Monitoring & Alarm Receiving Center";
+                                    echo ">Monitoring & Alarm Receiving Center";
                                     break;
                                 case 3:
-                                    echo "Cash & Valuables Storage Department";
+                                    echo ">Cash & Valuables Storage Department";
                                     break;
                                 case 4:
-                                    echo "Cash Processing Department";
+                                    echo ">Cash Processing Department";
                                     break;
                                 case 5:
-                                    echo "Patrol Department";
+                                    echo ">Patrol Department";
                                     break;
+                              }
+                              if($sessiondept==6){
+                                echo "Choose Department < hidden/option>
+                                <option value='1'>CIT</option>
+                                <option value='2'>Monitoring & Alarm Receiving Center</option>
+                                <option value='3'>Cash & Valuables Storage Department</option>
+                                <option value='4'>Cash Processing Department</option>
+                                <option value='5'>Patrol Department</option>
+                                <option value='6'>Health & Safety</option> ";
                               }
                             ?>
                           </option>
@@ -463,7 +482,14 @@ Secure(1);
                 <?php
                       include_once('../php/connect.php');
                       $sessiondept = $dept;
-                      $result = sqlsrv_query($conn, "SELECT * FROM Users WHERE  (type = 0  and dept=$sessiondept)");
+                      
+                      
+                      if($sessiondept==6){
+                        $result = sqlsrv_query($conn, "SELECT * FROM Users WHERE  (type = 0  )");
+                      }
+                      else{
+                        $result = sqlsrv_query($conn, "SELECT * FROM Users WHERE  (type = 0  and dept=$sessiondept)");
+                      }
 
                         $i = 0;
                         while ($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)) {

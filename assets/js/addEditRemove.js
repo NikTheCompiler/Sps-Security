@@ -70,6 +70,13 @@ function addUser()
       'error'
     );
   }
+  else if(dept==6 && type==0){
+    Swal.fire(
+      'You can not add employee in this department!',
+      '',
+      'error'
+    );
+  }
 
 
   else{
@@ -208,6 +215,13 @@ function editUser()
   else if(policecert==""){
     Swal.fire(
       'Police Certificate is required!',
+      '',
+      'error'
+    );
+  }
+  else if(dept==6 && type==0){
+    Swal.fire(
+      'You can not add employee in this department!',
       '',
       'error'
     );
@@ -675,6 +689,13 @@ var id = row.cells[1].innerHTML;
               'error'
             );
           }
+          else if(data == 2) {
+            Swal.fire(
+              'Question already exists!',
+              '',
+              'error'
+            );
+          }
         });
       }
     }
@@ -913,6 +934,69 @@ function editCategory()
               'error'
             );
           }
+          else if(data == 2) {
+            Swal.fire(
+              'Category already exists!',
+              '',
+              'error'
+            );
+          }
         });
       }
     }
+
+    function Backup(){
+      $.post("../php/backup.php", {
+        
+    }).done(function(data){
+      if (data != 0 )
+      {
+        Swal.fire(
+                'Successful backup!',
+                '',
+                'success'
+              );
+      }
+      else if(data==0){
+        Swal.fire(
+                'Failed!',
+                '',
+                'error'
+              );
+      }
+    });
+    }
+
+  function Restore(){
+      Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        reverseButtons: true,
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Confirm'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          $.post("../php/restore.php", {
+        
+          }).done(function(data){
+          if (data != 0 )
+          {
+            Swal.fire(
+                    'Successful Restore!',
+                    '',
+                    'success'
+                  );
+          }
+          else if(data==0){
+            Swal.fire(
+                    'Failed!',
+                    '',
+                    'error'
+                  );
+          }
+        });
+      }
+    });
+  }

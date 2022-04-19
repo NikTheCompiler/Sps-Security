@@ -28,12 +28,18 @@ $dept2 = strip_tags($dept2_input);
 $category_input = $_POST["category"];
 $category = strip_tags($category_input);
 
-
-$stmt = sqlsrv_prepare($conn, "UPDATE Questions SET Ques = ?, Choice1 = ?, Choice2 = ?, Choice3 = ?, Choice4 = ?, CorrectAns = ?, Dept=?, Category = ? WHERE QID = ?",array($question,$choice1,
-$choice2,$choice3,$choice4,$correctanswer,$dept2,$category,$id));
-if (sqlsrv_execute($stmt)){
-    echo 1;
-}else{
-    echo 0;
+$checkq = sqlsrv_query($conn, "SELECT * FROM Questions WHERE Ques='".$question."'");
+$qu=sqlsrv_fetch($checkq);
+if($qu == 0) {
+    $stmt = sqlsrv_prepare($conn, "UPDATE Questions SET Ques = ?, Choice1 = ?, Choice2 = ?, Choice3 = ?, Choice4 = ?, CorrectAns = ?, Dept=?, Category = ? WHERE QID = ?",array($question,$choice1,
+    $choice2,$choice3,$choice4,$correctanswer,$dept2,$category,$id));
+    if (sqlsrv_execute($stmt)){
+        echo 1;
+    }else{
+        echo 0;
+    }
 }
+if($qu != 0){
+    echo 2;   
+} 
 ?>

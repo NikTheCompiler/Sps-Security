@@ -457,8 +457,8 @@ Secure(1);
                           $Choice3 = $row["Choice3"];
                           $Choice4 = $row["Choice4"];
                           $CorrectAns = $row["CorrectAns"];
-                          $Dept= $row["Dept"]; //prepei na ginei DeptA gia na doulepsei to switch, j an ginei
-                                               //DeptA kapoia Departments en polla meala j en ta forei mes ton pinaka j gamiete o pinakas
+                          $Dept= $row["Dept"];
+                          
                           switch ($Dept){
                             case 1:
                                 $DeptA = "CIT";
@@ -474,6 +474,9 @@ Secure(1);
                                 break;
                             case 5:
                                 $DeptA = "PD";
+                                break;
+                            case 6:
+                                $DeptA = "HS";
                                 break;
                           }
                           $Category = $row["Category"]; 

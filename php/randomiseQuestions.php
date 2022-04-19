@@ -26,6 +26,7 @@ while ($row = sqlsrv_fetch_array($ques,SQLSRV_FETCH_ASSOC)) {
  }
 
 $rand_keys = array_rand($arr, 20);
+shuffle($rand_keys);
  $Ans = array(20);
  $i=0;
  ?>
