@@ -28,9 +28,28 @@ $dept2 = strip_tags($dept2_input);
 $category_input = $_POST["category"];
 $category = strip_tags($category_input);
 
-$checkq = sqlsrv_query($conn, "SELECT * FROM Questions WHERE Ques='".$question."'");
-$qu=sqlsrv_fetch($checkq);
-if($qu == 0) {
+$checkq = sqlsrv_query($conn, "SELECT COUNT(QID) FROM Questions WHERE Ques='".$question."' and Dept='".$dept2."'");
+$qu=sqlsrv_fetch_array($checkq,SQLSRV_FETCH_NUMERIC);
+
+if($qu[0]==1){
+    $checkqid = sqlsrv_query($conn, "SELECT QID FROM Questions WHERE Ques='".$question."' and Dept='".$dept2."'");
+    $qid=sqlsrv_fetch_array($checkqid,SQLSRV_FETCH_ASSOC);
+    if($qid["QID"]==$id){
+        $stmt = sqlsrv_prepare($conn, "UPDATE Questions SET Ques = ?, Choice1 = ?, Choice2 = ?, Choice3 = ?, Choice4 = ?, CorrectAns = ?, Dept=?, Category = ? WHERE QID = ?",array($question,$choice1,
+        $choice2,$choice3,$choice4,$correctanswer,$dept2,$category,$id));
+            if (sqlsrv_execute($stmt)){
+                echo 1;
+            }else{
+                echo 0;
+            }
+    }
+    else{
+        echo 2;
+    }
+
+}
+
+else if($qu[0] == 0) {
     $stmt = sqlsrv_prepare($conn, "UPDATE Questions SET Ques = ?, Choice1 = ?, Choice2 = ?, Choice3 = ?, Choice4 = ?, CorrectAns = ?, Dept=?, Category = ? WHERE QID = ?",array($question,$choice1,
     $choice2,$choice3,$choice4,$correctanswer,$dept2,$category,$id));
     if (sqlsrv_execute($stmt)){
@@ -39,7 +58,7 @@ if($qu == 0) {
         echo 0;
     }
 }
-if($qu != 0){
+else if($qu[0] > 1){
     echo 2;   
 } 
 ?>

@@ -13,17 +13,17 @@ include_once('passgenerator.php');
     $newuser = 0;
     $password1 = $pass;
     $password = hash("sha256", $password1);
-    $mail=0;
+    $mail[0]=0;
 
 if($email!=""||$email!=null){
-    $mt = sqlsrv_query($conn, "SELECT * FROM Users WHERE email='".$email."'");
-    $mail=sqlsrv_fetch($mt);
+    $mt = sqlsrv_query($conn, "SELECT COUNT(UserID) FROM Users WHERE email='".$email."'");
+    $mail=sqlsrv_fetch_array($mt,SQLSRV_FETCH_NUMERIC);
 }
 
-$tmt = sqlsrv_query($conn, "SELECT * FROM Users WHERE username='".$username."'");
-$user=sqlsrv_fetch($tmt);
+$tmt = sqlsrv_query($conn, "SELECT COUNT(UserID) FROM Users WHERE username='".$username."'");
+$user=sqlsrv_fetch_array($tmt,SQLSRV_FETCH_NUMERIC);
 
-if($user==0 && $mail==0){
+if($user[0]==0 && $mail[0]==0){
     $tsql = "INSERT INTO Users   
         ( name,   
          surname,
@@ -53,13 +53,13 @@ $params = array($name, $surname,$email , $dept, $type, $username, $password ,$po
         die(print_r(sqlsrv_errors(), true));  
     }  
 }
-else if($user==1 && $mail==0){
+else if($user[0]==1 && $mail[0]==0){
     echo 2;
 }
-else if($user==1 && $mail==1){
+else if($user[0]==1 && $mail[0]==1){
     echo 3;
 }
-else if($user==0 && $mail==1){
+else if($user[0]==0 && $mail[0]==1){
     echo 4;
 }
 

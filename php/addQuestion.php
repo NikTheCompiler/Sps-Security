@@ -10,9 +10,10 @@ $correctanswer = $_POST['correctanswer'];
 $dept2 = $_POST['dept2'];
 $category = $_POST['category'];
 
-$checkq = sqlsrv_query($conn, "SELECT * FROM Questions WHERE Ques='".$question."'");
-$qu=sqlsrv_fetch($checkq);
-if($qu == 0) {
+$checkq = sqlsrv_query($conn, "SELECT COUNT(QID) FROM Questions WHERE Ques='".$question."' AND Dept='".$dept2."' ");
+$qu=sqlsrv_fetch_array($checkq,SQLSRV_FETCH_NUMERIC);
+
+if($qu[0] == 0) {
     $addquestion = "INSERT INTO Questions
         ( Ques,
          Choice1,
@@ -40,7 +41,7 @@ $params = array($question, $choice1, $choice2, $choice3, $choice4, $correctanswe
 
 }
 
-    if($qu != 0){
+    else if($qu[0] > 0){
         echo 2;   
     }  
 ?>

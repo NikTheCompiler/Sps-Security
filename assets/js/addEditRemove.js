@@ -256,6 +256,13 @@ function editUser()
           'error'
         );
       }
+      else if(data == 4){
+        Swal.fire(
+          'This email is already used!',
+          '',
+          'error'
+        );
+      }
     });
   }
 }
@@ -559,7 +566,6 @@ var id = row.cells[1].innerHTML;
             category: category
 
           }) .done(function(data) {
-
             if (data == 0){
               Swal.fire(
                 'Failed!',
