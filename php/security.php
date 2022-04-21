@@ -3,7 +3,7 @@ function Secure($type)
 {
     if (!isset($_SESSION)) {
         //Not Logged In go to Login
-        header('Location: ../login.php');
+        header('Location: ../index.php');
         session_destroy();
 
     } else {
@@ -17,7 +17,7 @@ function Secure($type)
         } else {
             //This is redudant For some reason if Session is set and acctype not set ??
             session_destroy();
-            header('Location: ../login.php');
+            header('Location: ../index.php');
             exit();
             //For testing
             //echo "Not Logged in";

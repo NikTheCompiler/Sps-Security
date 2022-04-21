@@ -281,17 +281,17 @@ Secure(1);
                             $deptA = "Patrol Department";
                             break;
                       }
-                       if ($grade<=50){
+                       if ($grade<50){
                         $status = "Bad";
                         $data1="<span class="."'badge rounded-pill bg-danger even-larger-badge'".">";
                         $data2="</span> ";
                        }
-                       else if($grade<=65){
+                       else if($grade<65){
                         $status = "Okay";
                         $data1="<span class="."'badge rounded-pill bg-warning even-larger-badge'".">";
                         $data2="</span> ";
                        }
-                       else if($grade<=85){
+                       else if($grade<85){
                         $status = "Good";
                         $data1="<span class="."'badge rounded-pill bg-success even-larger-badge'".">";
                         $data2="</span> ";

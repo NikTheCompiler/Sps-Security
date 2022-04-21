@@ -21,7 +21,7 @@ if(isset($_POST) && !empty($_POST['username']) && !empty($_POST['password']))
     if($password != $row['password'])
         {
         $_SESSION['LoginError'] = "1";
-        header('Location: ../login.php');
+        header('Location: ../index.php');
         
         }
     else
@@ -61,7 +61,7 @@ if(isset($_POST) && !empty($_POST['username']) && !empty($_POST['password']))
     }
     else {
       $_SESSION['LoginError'] = "2";
-      header('Location: ../login.php');
+      header('Location: ../index.php');
     
 }
 ?>

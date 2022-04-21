@@ -538,6 +538,9 @@ Secure(3);
                             case 5:
                                 $DeptA = "PD";
                                 break;
+                            case 6:
+                              $DeptA= "HS";
+                              break;
                           }
                           $Category = $row["Category"];
                           $query ="SELECT * FROM Categories WHERE CID IN ($Category)";
@@ -717,6 +720,9 @@ Secure(3);
                             case 5:
                                 $DeptA = "Patrol Department";
                                 break;
+                            case 6:
+                              $DeptA = "Health & Safety";
+                              break;
                           }
                           echo '
                           <tr>

@@ -7,7 +7,7 @@ $dept = $_POST['dept'];
 $i=0;
 $sql="SELECT * FROM Questions WHERE Dept='".$dept."' OR Dept=6 ";
 $ques = sqlsrv_query($conn,$sql);
-$arr = array();
+$arr = array(0);
 
 while ($row = sqlsrv_fetch_array($ques,SQLSRV_FETCH_ASSOC)) {
     $arr[$i]=$row["QID"];
@@ -29,6 +29,22 @@ $rand_keys = array_rand($arr, 20);
 shuffle($rand_keys);
  $Ans = array(20);
  $i=0;
+ $j=0;
+ 
+ $TestID = trim($TestID);
+ for($j=0;$j<20;$j++){
+  $addUserAns = "INSERT INTO UserAns
+  ( QID,
+   TestID,
+   UserAns
+   )  
+  VALUES   
+  (?, ?, ?)";  
+$params = array($arr[$rand_keys[$j]],$TestID,"");
+$questionquery = sqlsrv_query($conn, $addUserAns, $params);
+
+ }
+
  ?>
  
  <center>

@@ -841,7 +841,7 @@ function addCategory()
       }
       else if(deptCat == "0"){
         Swal.fire(
-          'Dept is required!',
+          'Department is required!',
           '',
           'error'
         );

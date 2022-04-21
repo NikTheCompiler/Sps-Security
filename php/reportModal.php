@@ -23,6 +23,7 @@
     <tr>
       <th>#</th>
       <th>Question</th>
+      <th>Question Department</th>
       <th>Question Category</th>
       <th>Employee Answer</th>
       <th>Correct Answer</th>
@@ -43,6 +44,27 @@
     $Choice2=$row["Choice2"];
     $Choice3=$row["Choice3"];
     $Choice4=$row["Choice4"];
+    $dept=$row["Dept"];
+    switch ($dept){
+      case 1:
+          $deptA = "CIT";
+          break;
+      case 2:
+          $deptA = "Monitoring & Alarm Receiving Center";
+          break;
+      case 3:
+          $deptA = "Cash & Valuables Storage Department";
+          break;
+      case 4:
+          $deptA = "Cash Processing Department";
+          break;
+      case 5:
+          $deptA = "Patrol Department";
+          break;
+      case 6:
+        $deptA = "Health & Safety";
+        break;
+    }
     switch ($CorrectAns){
       case 1:
           $CorrectAnswer = $Choice1;
@@ -59,6 +81,8 @@
     }
   
     switch ($UserAns){
+      
+          
       case 1:
           $UserAnswer = $Choice1;
           break;
@@ -71,6 +95,9 @@
       case 4:
           $UserAnswer = $Choice4;
           break;
+      default:
+        $UserAnswer="";
+        break;
     }
     if($CorrectAns==$UserAns){
       $res="Correct";
@@ -86,6 +113,7 @@
       <tr>
         <td>' . $i .'</td>
         <td>' . $Ques .'</td>
+        <td>' . $deptA .'</td>
         <td>' . $Category .'</td>
         <td>' . $UserAnswer . '</td>
         <td >' . $CorrectAnswer . '</td>
