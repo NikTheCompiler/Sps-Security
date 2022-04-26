@@ -447,7 +447,8 @@ Secure(2);
                     <div class="row mb-4">
                           <label class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Department<span style="color: red">*</span></label>
                           <div class="col-sm-8">
-                            <select name= "dept" required class="form-select" id= "dept3"  aria-label="Default select example">
+                          <select name= "dept3[]" required class="form-select" id= "dept3" onChange="getState4();" aria-label="Default select example">
+                             aria-label="Default select example">
                               <option disabled selected value="">Choose Department</option>
                               <?php
                             $query = "SELECT * FROM Department ORDER BY Qid ASC";
@@ -466,10 +467,10 @@ Secure(2);
                         <div class="row mb-4">
                           <label class="col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Category<span style="color: red">*</span></label>
                           <div class="col-sm-8">
-                            <select name= "category3[]" required  class="form-select" id= "category3" aria-label="Default select example" >
-                            <option disabled selected value="">Choose Category</option>
-                              
-                            </select>
+                          <select name= "category3[]" required  class="form-select" id= "category3" aria-label="Default select example" >
+                            <option value="all" >Select Category</option>
+                          
+                          </select>
                           </div>
                         </div>
 
@@ -862,6 +863,34 @@ function getState3(row) {
         var str='';
         var val=document.getElementById('dept3');
         var category = row.cells[11].innerHTML;
+        
+        for (i=0;i< val.length;i++) { 
+          
+            if(val[i].selected){
+                str += val[i].value + ','; 
+            }
+        }         
+        var str=str.slice(0,str.length -1);
+        
+	$.ajax({          
+        	type: "GET",
+        	url: "../php/ddldept2.php",
+        	data:'Qid='+str,
+        	success: function(data){
+        		$("#category3").html(data);
+            document.getElementById("category3").value=category;
+        	}
+  
+  
+	});
+  
+  
+}
+</script>
+<script>
+function getState4() {
+        var str='';
+        var val=document.getElementById('dept3');
         
         for (i=0;i< val.length;i++) { 
           

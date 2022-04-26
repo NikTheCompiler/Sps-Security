@@ -955,7 +955,7 @@ function editCategory()
       $.post("../php/backup.php", {
         
     }).done(function(data){
-      if (data != 0 )
+      if (data == 1 )
       {
         Swal.fire(
                 'Successful backup!',
@@ -963,7 +963,7 @@ function editCategory()
                 'success'
               );
       }
-      else if(data==0){
+      else if(data!=1){
         Swal.fire(
                 'Failed!',
                 '',
@@ -987,7 +987,7 @@ function editCategory()
           $.post("../php/restore.php", {
         
           }).done(function(data){
-          if (data != 0 )
+          if (data == 1 )
           {
             Swal.fire(
                     'Successful Restore!',
