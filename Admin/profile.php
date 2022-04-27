@@ -294,7 +294,7 @@ Secure(3);
                   <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-change-password">Change Password</button>
                 </li>
 
-                <li class="nav-item">
+                <li hidden class="nav-item">
                   <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-backup">Backup/Restore</button>
                 </li>
 
@@ -463,7 +463,7 @@ Secure(3);
                     <label  class="col-md-4 col-lg-3 col-form-label">Restore:</label>
 
                     <div class="text-center py-0 align-middle col-sm-3">
-                      <button type="button" class="btn btn-primary" onclick="Restore()">Restore</button>
+                      <button  type="button" class="btn btn-primary" onclick="Restore()">Restore</button>
                     </div>
 
                   </form><!-- End Backup Form -->

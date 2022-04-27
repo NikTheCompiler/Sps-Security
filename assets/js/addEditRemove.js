@@ -987,6 +987,7 @@ function editCategory()
           $.post("../php/restore.php", {
         
           }).done(function(data){
+            console.log(data);
           if (data == 1 )
           {
             Swal.fire(

@@ -9,7 +9,10 @@ $query="
         FORMAT,
         STATS = 1, 
         MEDIANAME = 'SQLServerBackups',
-        NAME = 'Full Backup of SpsSecurity';";
+        NAME = 'Full Backup of SpsSecurity'
+        
+        BACKUP LOG SpsSecurity TO DISK = 'C:/xampp/htdocs/Sps-Security/Backup/backup-log.bak' 
+        WITH NOFORMAT, NOINIT, NAME = 'backup-log', SKIP, NOREWIND, NOUNLOAD, STATS = 10";
 
 $stmt = sqlsrv_query($conn, $query);
 if ($stmt === false) {

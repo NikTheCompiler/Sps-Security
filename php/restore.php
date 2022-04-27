@@ -1,10 +1,9 @@
 <?php
 include_once('../php/connect.php');
 
-$query = " USE MASTER 
-
-RESTORE DATABASE SpsSecurity FROM DISK = 'C:\xampp\htdocs\Sps-Security\Backup\backup2.bak' WITH REPLACE
-
+$query = " USE MASTER;
+RESTORE DATABASE [SpsSecurity] FROM DISK=N'C:/xampp/htdocs/Sps-Security/Backup/backup.bak'
+WITH REPLACE, RECOVERY
 ";
 
 if ( $stmt = sqlsrv_query($conn, $query) )
