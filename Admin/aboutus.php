@@ -251,7 +251,7 @@ Secure(3);
                   Nikolaos Karaolis <br>
                   Thrasos Christou<br>
                   Andronikos Evaggelou<br>
-                  Kwnstantinos Gerolemou</p>
+                  Konstantinos Gerolemou</p>
                    
               </div>
             </div>
