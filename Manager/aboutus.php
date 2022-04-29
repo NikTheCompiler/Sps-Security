@@ -216,7 +216,7 @@ Secure(1);
                    <u>Team:</u><br>
                   Nikolaos Karaolis <br>
                   Thrasos Christou<br>
-                  Andronikos Evaggelou<br>
+                  Andronikos Evangelou<br>
                   Konstantinos Gerolemou</p>
                    
               </div>
