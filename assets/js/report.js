@@ -22,3 +22,19 @@ function getReportData(row)
 
   
 }
+
+function getPrintReportData(row)
+{
+  
+  var date=row.cells[4].innerHTML;
+  var id = row.cells[1].innerHTML;
+  var testID = row.cells[5].innerHTML;
+
+  
+  document.getElementById("date").innerHTML=date;
+
+  window.open("../php/printReport.php?id="+ id + "&testid=" + testID);
+
+  
+}
+
