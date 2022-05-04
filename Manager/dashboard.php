@@ -207,7 +207,13 @@ Secure(1);
 <div class="col-lg-9">
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Percentage of correct answers each Category of Questions</h5>
+            <div class="d-table-cell w-100">
+                <h5 class="card-title">Percentage of correct answers each Category of Questions in the last 2 months</h5>
+              </div>
+              <div class="d-table-cell align-middle">
+                <button class="btn btn-primary" type="submit" onclick=""></i>Print Report</button>
+              </div>
+              
               <?php 
               $talabels = array();
               $sql = " SELECT DISTINCT Categories.Cname

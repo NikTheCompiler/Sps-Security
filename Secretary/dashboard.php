@@ -237,7 +237,12 @@ Secure(2);
         <div class="col-lg-9">
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Average grade for each Department in the last 2 months</h5>
+            <div class="d-table-cell w-100">
+                <h5 class="card-title">Average grade for each Department in the last 2 months</h5>
+              </div>
+              <div class="d-table-cell align-middle">
+                <button class="btn btn-primary" type="submit" onclick=""></i>Print Report</button>
+              </div>
               <?php 
                 $averagegrades=array(5);
                 $cmonth=date('m');
