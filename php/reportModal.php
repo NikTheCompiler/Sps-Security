@@ -112,7 +112,7 @@
      echo'
       <tr>
         <td style="width:5%">' . $i .'</td>
-        <td style="width:40%">' . $Ques .'</td>
+        <td style="width:45%">' . $Ques .'</td>
         <td style="width:10%">' . $deptA .'</td>
         <td style="width:10%">' . $Category .'</td>
         <td style="width:10%">' . $UserAnswer . '</td>
