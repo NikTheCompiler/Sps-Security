@@ -111,12 +111,12 @@
   
      echo'
       <tr>
-        <td>' . $i .'</td>
-        <td>' . $Ques .'</td>
-        <td>' . $deptA .'</td>
-        <td>' . $Category .'</td>
-        <td>' . $UserAnswer . '</td>
-        <td >' . $CorrectAnswer . '</td>
+        <td style="width:5%">' . $i .'</td>
+        <td style="width:40%">' . $Ques .'</td>
+        <td style="width:10%">' . $deptA .'</td>
+        <td style="width:10%">' . $Category .'</td>
+        <td style="width:10%">' . $UserAnswer . '</td>
+        <td style="width:10%">' . $CorrectAnswer . '</td>
         <td '.$color.'>' . $res . '</td>                                  
       </tr>
     </tbody>';

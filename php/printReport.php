@@ -72,9 +72,13 @@ $pdf->setTextShadow(array('enabled'=>true, 'depth_w'=>0.2, 'depth_h'=>0.2, 'colo
 
 $result = sqlsrv_query($conn, "SELECT * FROM Questions JOIN UserAns ON UserAns.QID=Questions.QID JOIN Categories ON Categories.CID=Questions.Category WHERE TestID='".$testid."' ORDER BY Category ASC");
 // Set some content to print
+$number = sqlsrv_query($conn,"SELECT Grade,Date FROM Tests WHERE TestID='".$testid."' ");
 
-
+$nu=sqlsrv_fetch_array($number,SQLSRV_FETCH_ASSOC);
+$n=$nu["Grade"];
+$f=20-$n;
 $i = 0;
+$date=$nu['Date']->format('d/m/Y');
   while ($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC) ) {
     
     $i++;
@@ -151,27 +155,33 @@ $i = 0;
     }
 
   
-     $table.="
+     $table.='
       <tr>
-        <td> $i </td>
-        <td> $Ques </td>
-        <td> $deptA </td>
-        <td> $Category</td>
-        <td> $UserAnswer </td>
-        <td >$CorrectAnswer </td>
-        <td >$res </td>                          
+        <td style="width:5%">' . $i .'</td>
+        <td style="width:32%"> '.$Ques.' </td>
+        <td> '.$deptA .'</td>
+        <td> '.$Category.'</td>
+        <td> '.$UserAnswer .'</td>
+        <td >'.$CorrectAnswer.' </td>
+        <td >'.$res.' </td>                          
       </tr>
-    </tbody>";
+    </tbody>';
    
   }
+
+  if($table==""){ $table="<tr><td>Questions not found!</td></tr></tbody>";}
+
+  if($n==NULL){$n=0;}
+
   $html = <<<EOD
+  <strong>  Report for Test of Employee: $name $surname on $date</strong><br><br>
   <font size="11" face="Courier New" >
   <table  width="100%">
   <thead>
       <tr>
-        <th style="width:10%">#</th>
-        <th style="width:10%">Question</th>
-        <th style="width:10%">Question Department</th>
+        <th style="width:5%">#</th>
+        <th style="width:32%">Question</th>
+        <th>Question Department</th>
         <th>Question Category</th>
         <th>Employee Answer</th>
         <th>Correct Answer</th>
@@ -180,10 +190,14 @@ $i = 0;
       </tr>
     </thead>
   <tbody>
-  </table>
   $table
+  </table>
+  <br><br>
+  <strong>Correct Answers: $n<br>False Answers: $f </strong>
   EOD;
+
   
+
 // Print text using writeHTMLCell()
 $pdf->writeHTMLCell(0, 0, '', '', $html, 0, 1, 0, true, '', true);
 
