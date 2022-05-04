@@ -552,6 +552,7 @@ Secure(1);
                                 <button class="btn btn-info" type="submit"  data-bs-toggle="modal" data-bs-target="#modal-Edit-User" onclick="modalGetData(this.parentNode.parentNode.parentNode)"></i>Edit</button>
                                 
                                 <button class="btn btn-dark" type="submit"  onclick="generatePass(this.parentNode.parentNode.parentNode);"></i>Generate Pass</button>
+                                <button class="btn btn-primary" type="submit" onclick=""></i>Print Report</button>
                               </div>
 
                             </td>
