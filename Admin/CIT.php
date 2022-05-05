@@ -72,6 +72,9 @@ Secure(3);
                     
                   
                     }
+
+                  $scale= sqlsrv_query($conn,"SELECT * FROM Scale WHERE id=1");
+                  $scaleinfo = sqlsrv_fetch_array($scale,SQLSRV_FETCH_ASSOC);
     ?>
 
 
@@ -237,7 +240,58 @@ Secure(3);
                 <div class="card-body">
 
 
-                  <h5 class="card-title">CIT<span></span></h5>
+                  
+                <div class="d-table-cell w-100">
+                  <h5 class="card-title">CIT<span></span></h5> 
+                </div>
+                <div class="d-table-cell align-middle">
+                  <button class="btn btn-primary" type="submit" data-bs-toggle="modal" data-bs-target="#scalemodal" onclick=""></i>Change Scale</button>
+                </div>
+                <div class="modal fade" id="scalemodal" tabindex="-1">
+                <div class="modal-dialog " style="max-width: 30%;">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title">Change Scale</h5>
+                    </div>
+                
+                    <form >
+                    <label for="inputText" class="col-sm-3 col-form-label"></span></label>
+                    <div class="row mb-3">
+                  <label for="inputText" class="col-sm-5 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Bad < <?php echo $scaleinfo["Bad"];?>%<span style="color: red">*</span></label>
+                  <div class="col-sm-6">
+                    <input type="text" required  autocomplete="off" name= "bad" id= "bad" class="form-control" value="<?php echo $scaleinfo["Bad"];?>">
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="inputEmail" class="col-sm-5 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Okay <?php echo $scaleinfo["Bad"];?>% - <?php echo $scaleinfo["Okay"];?>%<span style="color: red">*</span></label>
+                  <div class="col-sm-6">
+                    <input type="text" required autocomplete="off" name= "okay" id= "okay"class="form-control" value="<?php echo $scaleinfo["Okay"];?>">
+                  </div>
+                </div>
+                
+                <div class="row mb-3">
+                  <label for="inputPassword" class="col-sm-5 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Good <?php echo $scaleinfo["Okay"];?> - <?php echo $scaleinfo["Good"];?>%<span style="color: red">*</span></label>
+                  <div class="col-sm-6">
+                    <input type="text" required autocomplete="off" name= "good" id= "good"class="form-control" value="<?php echo $scaleinfo["Good"];?>">
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="inputNumber" class="col-sm-5 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Very Good <?php echo $scaleinfo["Good"];?>% - <?php echo $scaleinfo["VeryGood"];?>%<span style="color: red">*</span></label>
+                  <div class="col-sm-6">
+                    <input type="text"  autocomplete="off"  name= "vgood" id= "vgood" class="form-control" value="<?php echo $scaleinfo["VeryGood"];?>">
+                  </div>
+                </div>
+
+                    <h6>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: red">*</span> Indicates a required field</h6>
+
+                    <div class="modal-footer">
+                    <button  type="button"  class="btn btn-primary" data-bs-target="#modal" onclick="changeScale()" >Change</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                    </form>
+                  </div>
+                </div>
+              </div><!-- End Basic Modal-->
                   
 <table border="0" cellspacing="5" cellpadding="5">
         
@@ -280,22 +334,22 @@ Secure(3);
                        $surname=$row["surname"];
                        $grade=5*$row["Grade"];
                        $date = $row['Date']->format('Y/m/d');
-                       if ($grade<50){
+                       if ($grade<$scaleinfo["Bad"]){
                         $status = "Bad";
                         $data1="<span class="."'badge rounded-pill bg-danger even-larger-badge'".">";
                         $data2="</span> ";
                        }
-                       else if($grade<65){
+                       else if($grade<$scaleinfo["Okay"]){
                         $status = "Okay";
                         $data1="<span class="."'badge rounded-pill bg-warning even-larger-badge'".">";
                         $data2="</span> ";
                        }
-                       else if($grade<85){
+                       else if($grade<$scaleinfo["Good"]){
                         $status = "Good";
                         $data1="<span class="."'badge rounded-pill bg-success even-larger-badge'".">";
                         $data2="</span> ";
                        }
-                       else if($grade<=100){
+                       else if($grade<=$scaleinfo["VeryGood"]){
                         $status = "Very Good";
                         $data1="<span class="."'badge rounded-pill bg-success even-larger-badge'".">";
                         $data2="</span> ";
@@ -390,6 +444,7 @@ Secure(3);
   <script src="../assets/vendor/chart.js/chart.min.js"></script>
   <script src="../assets/vendor/apexcharts/apexcharts.min.js"></script>
   <script src="../assets/vendor/echarts/echarts.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
   <!-- Template Main JS File -->
   <script src="../assets/js/main.js"></script>
@@ -400,6 +455,7 @@ Secure(3);
 
   <script src="../assets/js/daterange.js"></script>
   <script src="../assets/js/report.js"></script>
+  <script src="../assets/js/addEditRemove.js"></script>
   
 
 </body>

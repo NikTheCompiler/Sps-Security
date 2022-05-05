@@ -1007,3 +1007,134 @@ function editCategory()
       }
     });
   }
+
+  function changeScale()
+    {
+      var bad = $("#bad")[0].value;
+      var okay = $("#okay")[0].value;
+      var good = $("#good")[0].value;
+      var vgood = $("#vgood")[0].value;
+      bad = parseInt(bad);
+      okay = parseInt(okay);
+      good = parseInt(good);
+      vgood = parseInt(vgood);
+      if(bad == ""){
+        Swal.fire(
+          'Bad scale is required!',
+          '',
+          'error'
+        );
+        
+      }
+      else if(okay == ""){
+        Swal.fire(
+          'Okay scale is required!',
+          '',
+          'error'
+        );
+        
+      }
+      else if(good == ""){
+        Swal.fire(
+          'Good scale is required!',
+          '',
+          'error'
+        );
+      }
+      else if(vgood == ""){
+        Swal.fire(
+          'Very Good scale is required!',
+          '',
+          'error'
+        );
+      }
+      else if(bad < 1|| bad>100){
+        Swal.fire(
+          'The number can not be below 1 and above 100',
+          '',
+          'error'
+        );
+        
+      }
+      else if(okay < 1|| okay>100){
+        Swal.fire(
+          'The number can not be below 1 and above 100',
+          '',
+          'error'
+        );
+        
+      }
+      else if(good < 1|| good>100){
+        Swal.fire(
+          'The number can not be below 1 and above 100',
+          '',
+          'error'
+        );
+      }
+      else if(vgood < 1|| vgood>100){
+        Swal.fire(
+          'The number can not be below 1 and above 100',
+          '',
+          'error'
+        );
+      }
+      else if(bad >= okay || bad >= good || bad > vgood ){
+        Swal.fire(
+          'Wrong Numbering!',
+          '',
+          'error'
+        );
+        
+      }
+      else if(okay >= good || okay >= vgood|| okay <= bad){
+        Swal.fire(
+          'Wrong Numbering!',
+          '',
+          'error'
+        );
+        
+      }
+      else if(good >= vgood || good <= bad || good <= okay){
+        Swal.fire(
+          'Wrong Numbering!',
+          '',
+          'error'
+        );
+      }
+      else if(vgood <= bad|| vgood <= okay || vgood <= good){
+        Swal.fire(
+          'Wrong Numbering!',
+          '',
+          'error'
+        );
+      }
+      
+      else{
+      $.post("../php/changeScale.php", {
+          bad: bad,
+          okay: okay,
+          good: good,
+          vgood: vgood
+
+        })
+        .done(function(data) {
+          if (data == 1) {
+            Swal.fire({
+              icon: 'success',
+              title: 'Scale updated successfully!',
+            }).then((result) => {
+              location.reload();
+            })
+
+          } else if (data == 0){
+            Swal.fire(
+              'Failed!',
+              '',
+              'error'
+            );
+          }
+         
+        });
+      }
+    }
+
