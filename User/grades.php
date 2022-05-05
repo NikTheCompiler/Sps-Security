@@ -68,6 +68,9 @@ Secure(0);
                     
                   
                     }
+
+                    $scale= sqlsrv_query($conn,"SELECT * FROM Scale WHERE id=1");
+                  $scaleinfo = sqlsrv_fetch_array($scale,SQLSRV_FETCH_ASSOC);
     ?>
 
 
@@ -215,22 +218,22 @@ Secure(0);
           $tid = $row["TestID"];
           $date = $row["Date"];
           $grade = 5*$row["Grade"];
-          if ($grade<50){
+          if ($grade<$scaleinfo["Bad"]){
             $status = "Bad";
             $data1="<span class="."'badge rounded-pill bg-danger even-larger-badge'".">";
             $data2="</span> ";
            }
-           else if($grade<65){
+           else if($grade<$scaleinfo["Okay"]){
             $status = "Okay";
             $data1="<span class="."'badge rounded-pill bg-warning even-larger-badge'".">";
             $data2="</span> ";
            }
-           else if($grade<85){
+           else if($grade<$scaleinfo["Good"]){
             $status = "Good";
             $data1="<span class="."'badge rounded-pill bg-success even-larger-badge'".">";
             $data2="</span> ";
            }
-           else if($grade<=100){
+           else if($grade<=$scaleinfo["VeryGood"]){
             $status = "Very Good";
             $data1="<span class="."'badge rounded-pill bg-success even-larger-badge'".">";
             $data2="</span> ";
