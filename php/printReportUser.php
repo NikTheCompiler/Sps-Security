@@ -21,17 +21,8 @@ require('../tcpdf/tcpdf.php');
                     
                   
                     }
-$sql5 = "SELECT * FROM Tests WHERE UserID = '".$id."' ORDER BY Date";
-$result5 = sqlsrv_query($conn, $sql5);
 
-    while ($row5 = sqlsrv_fetch_array($result5,SQLSRV_FETCH_ASSOC)) {
-        $i++;
-    $testid = $row5["TestID"];
-    $date = $row5["Date"]->format('Y/m/d');
-    $grade = $row5["Grade"] * 5;
     
-
-    }
 // Instantiation of FPDF class
 $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
 
@@ -86,6 +77,15 @@ $pdf->AddPage();
 // set text shadow effect
 $pdf->setTextShadow(array('enabled'=>true, 'depth_w'=>0.2, 'depth_h'=>0.2, 'color'=>array(196,196,196), 'opacity'=>1, 'blend_mode'=>'Normal'));
 
+$sql5 = "SELECT * FROM Tests WHERE UserID = '".$id."' ORDER BY Date";
+$result5 = sqlsrv_query($conn, $sql5);
+
+    while ($row5 = sqlsrv_fetch_array($result5,SQLSRV_FETCH_ASSOC)) {
+        $i++;
+    $testid = $row5["TestID"];
+    $date = $row5["Date"]->format('Y/m/d');
+    $grade = $row5["Grade"] * 5;
+    
 
      $table.='
       <tr>
@@ -116,7 +116,7 @@ $pdf->setTextShadow(array('enabled'=>true, 'depth_w'=>0.2, 'depth_h'=>0.2, 'colo
   </table>
   <br><br>
   EOD;
-
+}
   
 
 // Print text using writeHTMLCell()
