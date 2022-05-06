@@ -227,7 +227,7 @@ function setAns(ans,id)
 
 
 <?php 
-session_start();
+
 $username=$_SESSION['username'];
 
     date_default_timezone_set('Europe/Riga');
