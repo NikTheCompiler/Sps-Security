@@ -38,3 +38,28 @@ function getPrintReportData(row)
   
 }
 
+function getUserPrintReportData(row)
+{
+
+  var id = row.cells[1].innerHTML;
+ 
+  $.post("../php/checkforuserreport.php", {
+    id: id,
+  }).done(function(data){
+    
+    if (data = 0 )
+    {
+      Swal.fire(
+        'No tests for this User',
+        '',
+        'error'
+      );
+    }
+    else if(data = 1)
+    {
+      window.open("../php/printReportUser.php?id="+ id );
+    }
+  });
+
+}
+
