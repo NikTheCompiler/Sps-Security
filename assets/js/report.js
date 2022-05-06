@@ -46,8 +46,7 @@ function getUserPrintReportData(row)
   $.post("../php/checkforuserreport.php", {
     id: id,
   }).done(function(data){
-    
-    if (data = 0 )
+    if (data == 0 )
     {
       Swal.fire(
         'No tests for this User',
@@ -55,7 +54,7 @@ function getUserPrintReportData(row)
         'error'
       );
     }
-    else if(data = 1)
+    else if(data == 1)
     {
       window.open("../php/printReportUser.php?id="+ id );
     }
