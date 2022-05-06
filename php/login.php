@@ -1,6 +1,9 @@
 <?php
 session_start();
 include ("connect.php");
+date_default_timezone_set('Europe/Riga');
+$today = date("F j, Y, g:i a");
+
 
 if(isset($_POST) && !empty($_POST['username']) && !empty($_POST['password']))
     {
@@ -61,7 +64,13 @@ if(isset($_POST) && !empty($_POST['username']) && !empty($_POST['password']))
     }
     else {
       $_SESSION['LoginError'] = "2";
-      header('Location: ../index.php');
-    
-}
+      header('Location: ../index.php');  
+    }
+
+    $log  = "User: ".$_SERVER['REMOTE_ADDR'].' - '.$today.PHP_EOL.
+    "Attempt to LOG IN: ".($req?'Success':'Failed').PHP_EOL.
+    "User: ".$username.PHP_EOL.
+    "-------------------------".PHP_EOL;
+    //Save string to log, use FILE_APPEND to append.
+    file_put_contents('../logs/log_'.date("j.n.Y").'.log', $log, FILE_APPEND);
 ?>

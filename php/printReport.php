@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once('connect.php');
 ob_end_clean();
 
@@ -6,6 +7,11 @@ require('../tcpdf/tcpdf.php');
   $id=$_GET["id"];
   $testid=$_GET["testid"];
   $table="";
+
+  $username=$_SESSION['username'];
+
+    date_default_timezone_set('Europe/Riga');
+    $today = date("F j, Y, g:i a");
 
   $sql = "SELECT * FROM Users WHERE UserID = '".$id."'";
                   $result2 = sqlsrv_query($conn, $sql);
@@ -208,4 +214,11 @@ $pdf->writeHTMLCell(0, 0, '', '', $html, 0, 1, 0, true, '', true);
 
 
 $pdf->Output('TestReport.pdf');
+
+$log  = "User: ".$_SERVER['REMOTE_ADDR'].' - '.$today.PHP_EOL.
+    "Attempt to PRINT REPORT for USER '$name $surname': ".($number?'Success':'Failed').PHP_EOL.
+    "User: ".$username.PHP_EOL.
+    "-------------------------".PHP_EOL;
+    //Save string to log, use FILE_APPEND to append.
+    file_put_contents('../logs/log_'.date("j.n.Y").'.log', $log, FILE_APPEND);
 ?>

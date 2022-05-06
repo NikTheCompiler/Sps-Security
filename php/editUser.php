@@ -28,6 +28,10 @@ $email = strip_tags($email_input);
 $policecert_input = $_POST["policecert"];
 $policecert = strip_tags($policecert_input);
 
+$username=$_SESSION['username'];
+
+    date_default_timezone_set('Europe/Riga');
+    $today = date("F j, Y, g:i a");
 
 $stmt = sqlsrv_prepare($conn, "UPDATE Users SET name = ?, surname = ?, email = ?, dept = ?, type = ?, username = ?, policecert=?, position = ? WHERE UserID = ?",array($name,$surname,
 $email,$dept,$type,$username,$policecert,$position,$id));
@@ -36,4 +40,11 @@ if (sqlsrv_execute($stmt)){
 }else{
     echo 0;
 }
+
+$log  = "User: ".$_SERVER['REMOTE_ADDR'].' - '.$today.PHP_EOL.
+    "Attempt to EDIT USER with name '$name $surname': ".($stmt?'Success':'Failed').PHP_EOL.
+    "User: ".$username.PHP_EOL.
+    "-------------------------".PHP_EOL;
+    //Save string to log, use FILE_APPEND to append.
+    file_put_contents('../logs/log_'.date("j.n.Y").'.log', $log, FILE_APPEND);
 ?>

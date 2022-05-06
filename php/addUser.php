@@ -1,4 +1,5 @@
 <?php
+session_start(); 
 include_once('connect.php');
 include_once('passgenerator.php');
 
@@ -14,6 +15,11 @@ include_once('passgenerator.php');
     $password1 = $pass;
     $password = hash("sha256", $password1);
     $mail[0]=0;
+
+    $usernamelog=$_SESSION['username'];
+
+    date_default_timezone_set('Europe/Riga');
+    $today = date("F j, Y, g:i a");
 
 if($email!=""||$email!=null){
     $mt = sqlsrv_query($conn, "SELECT COUNT(UserID) FROM Users WHERE email='".$email."'");
@@ -63,4 +69,10 @@ else if($user[0]==0 && $mail[0]==1){
     echo 4;
 }
 
+$log  = "User: ".$_SERVER['REMOTE_ADDR'].' - '.$today.PHP_EOL.
+    "Attempt to ADD USER with name '$name $surname': ".($stmt?'Success':'Failed').PHP_EOL.
+    "User: ".$usernamelog.PHP_EOL.
+    "-------------------------".PHP_EOL;
+    //Save string to log, use FILE_APPEND to append.
+    file_put_contents('../logs/log_'.date("j.n.Y").'.log', $log, FILE_APPEND);
 ?>
