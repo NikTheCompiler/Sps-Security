@@ -89,7 +89,7 @@ $average = 0;
     $i++;
     $j++;
     $testid = $row5["TestID"];
-    $date = $row5["Date"]->format('Y/m/d');
+    $date = $row5["Date"]->format('d/m/Y');
     $grade = $row5["Grade"] * 5;
     $sum = $sum + $row5["Grade"] * 5;
     $average = $sum / $j;
@@ -97,7 +97,7 @@ $average = 0;
      $table.='
       <tr>
         <td style="width:5%">' . $i .'</td>
-        <td style="width:32%"> '.$testid.' </td>
+        <td style="width:20%"> '.$testid.' </td>
         <td> '.$date .'</td>
         <td> '.$grade.'/100</td>                      
       </tr>
@@ -109,11 +109,11 @@ $average = 0;
   $html = <<<EOD
   <strong>  Report for User: $name $surname </strong><br><br>
   <font size="11" face="Courier New" >
-  <table  width="100%">
+  <table border="1" align="center" width="100%">
   <thead>
       <tr>
-        <th style="width:5%">#</th>
-        <th style="width:32%">Test ID</th>
+        <th align="center" style="width:5%">#</th>
+        <th align="center" style="width:20%">Test ID</th>
         <th>Date</th>
         <th>Grade</th>
       </tr>

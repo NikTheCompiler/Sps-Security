@@ -68,10 +68,13 @@ var context = canvas.getContext('2d');
 
 download.addEventListener("click", function() {
   // only jpeg is supported by jsPDF
-  var imgData = canvas.toDataURL("image/jpeg", 1.0);
-  var pdf = new jsPDF();
+  var imgData = canvas.toDataURL("image/png", 1.0);
+  data.append('image',imgData);
+  // var pdf = new jsPDF();
 
-  pdf.addImage(imgData, 'JPEG', 0, 0);
-  pdf.save("download.pdf");
+  window.open("../php/printReportUser.php?" );
+
+  // pdf.addImage(imgData, 'png', 0, 0);
+  // pdf.save("download.pdf");
 }, false);
 

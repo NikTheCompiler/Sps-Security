@@ -8,6 +8,7 @@ Secure(1);
 <html lang="en">
 
 <head>
+  
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
@@ -66,6 +67,7 @@ Secure(1);
                       $surname = $row["surname"];
                       $position=$row["position"];
                       $department=$row["dept"];
+                      $department1=json_encode($department);
                     
                   
                     }
@@ -214,7 +216,7 @@ Secure(1);
                 <h5 class="card-title">Percentage of correct answers each Category of Questions in the last 2 months</h5>
               </div>
               <div class="d-table-cell align-middle">
-                <button class="btn btn-primary" type="submit" onclick=""></i>Print Report</button>
+                <button class="btn btn-primary" type="submit" onclick="getPrintChartData();"></i>Print Report</button>
               </div>
               
               <?php 
@@ -300,7 +302,7 @@ Secure(1);
                 var datalabel = <?php echo $data ?>;
                 var dataapotelesmata = <?php echo $apotelesmata ?>;
                 document.addEventListener("DOMContentLoaded", () => {
-                  new Chart(document.querySelector('#chart'), {
+                  new Chart(document.querySelector("#chart"), {
                     type: 'bar',
                     data: {
                       labels:  datalabel,
@@ -532,7 +534,15 @@ Secure(1);
 
   <!-- Template Main JS File -->
   <script src="../assets/js/main.js"></script>
+<script>
+  function getPrintChartData(row)
+{
 
+  var dept = <?php echo $department1?>;
+      window.open("../php/printManager.php?dept="+ dept );
+
+}
+  </script>
 </body>
 
 </html>
