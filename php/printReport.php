@@ -164,13 +164,13 @@ $date=$nu['Date']->format('d/m/Y');
   
      $table.='
       <tr>
-        <td style="width:5%">' . $i .'</td>
+        <td align="center" style="width:5%">' . $i .'</td>
         <td style="width:32%"> '.$Ques.' </td>
-        <td> '.$deptA .'</td>
-        <td> '.$Category.'</td>
-        <td> '.$UserAnswer .'</td>
-        <td >'.$CorrectAnswer.' </td>
-        <td >'.$res.' </td>                          
+        <td align="center"> '.$deptA .'</td>
+        <td align="center"> '.$Category.'</td>
+        <td align="center"> '.$UserAnswer .'</td>
+        <td align="center">'.$CorrectAnswer.' </td>
+        <td align="center">'.$res.' </td>                          
       </tr>
     </tbody>';
    
@@ -183,16 +183,16 @@ $date=$nu['Date']->format('d/m/Y');
   $html = <<<EOD
   <strong>  Report for Test of Employee: $name $surname on $date</strong><br><br>
   <font size="11" face="Courier New" >
-  <table  width="100%">
+  <table border="1" width="100%">
   <thead>
       <tr>
-        <th style="width:5%">#</th>
-        <th style="width:32%">Question</th>
-        <th>Question Department</th>
-        <th>Question Category</th>
-        <th>Employee Answer</th>
-        <th>Correct Answer</th>
-        <th>Result</th>
+        <th align="center" style="width:5%">#</th>
+        <th align="center" style="width:32%">Question</th>
+        <th align="center">Question Department</th>
+        <th align="center">Question Category</th>
+        <th align="center">Employee Answer</th>
+        <th align="center">Correct Answer</th>
+        <th align="center">Result</th>
   
       </tr>
     </thead>
