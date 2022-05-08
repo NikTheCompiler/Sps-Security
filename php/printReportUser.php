@@ -83,6 +83,7 @@ $result5 = sqlsrv_query($conn, $sql5);
 
 $j = 0;
 $sum = 0;
+$average = 0;
 
     while ($row5 = sqlsrv_fetch_array($result5,SQLSRV_FETCH_ASSOC)) {
     $i++;
@@ -90,7 +91,7 @@ $sum = 0;
     $testid = $row5["TestID"];
     $date = $row5["Date"]->format('Y/m/d');
     $grade = $row5["Grade"] * 5;
-    $sum = + $row5["Grade"] * 5;
+    $sum = $sum + $row5["Grade"] * 5;
     $average = $sum / $j;
 
      $table.='
