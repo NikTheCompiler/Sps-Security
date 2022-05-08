@@ -552,7 +552,7 @@ Secure(1);
                                 <button class="btn btn-info" type="submit"  data-bs-toggle="modal" data-bs-target="#modal-Edit-User" onclick="modalGetData(this.parentNode.parentNode.parentNode)"></i>Edit</button>
                                 
                                 <button class="btn btn-dark" type="submit"  onclick="generatePass(this.parentNode.parentNode.parentNode);"></i>Generate Pass</button>
-                                <button class="btn btn-primary" type="submit" onclick=""></i>Print Report</button>
+                                <button class="btn btn-primary" type="submit"   onclick="getUserPrintReportData(this.parentNode.parentNode.parentNode)"></i>Print Report</button>
                               </div>
 
                             </td>
@@ -612,6 +612,8 @@ Secure(1);
 
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
   <script src="../assets/js/addEditRemove.js"></script>
+  <script src="../assets/js/daterange.js"></script>
+  <script src="../assets/js/report.js"></script>
 
 
 
