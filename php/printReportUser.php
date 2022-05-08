@@ -33,7 +33,8 @@ $pdf->SetTitle('User Report');
 $pdf->SetSubject('User Report');
 
 // set default header data
-$pdf->SetHeaderData(PDF_HEADER_LOGO, 18, 'SPS PRIVATE SECURITY SERVICES LTD', "6 Theotokis Street, 1055 Nicosia \nP.O.Box 27339,1644 Nicosia, Cyprus\nCompany: +357 22 265200\nwww.spssecurity.com.cy");
+$pdf->SetHeaderData(PDF_HEADER_LOGO, 18, 'SPS PRIVATE SECURITY SERVICES LTD                                                            '.date("d/m/Y").'', 
+"6 Theotokis Street, 1055 Nicosia \nP.O.Box 27339,1644 Nicosia, Cyprus\nCompany: +357 22 265200\nwww.spssecurity.com.cy");
 
 // set header and footer fonts
 $pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
@@ -131,7 +132,7 @@ $pdf->writeHTMLCell(0, 0, '', '', $html, 0, 1, 0, true, '', true);
 $pdf->Output('TestReport.pdf');
 
 $log  = "User: ".$_SERVER['REMOTE_ADDR'].' - '.$today.PHP_EOL.
-    "Attempt to PRINT REPORT for USER '$name $surname': ".($number?'Success':'Failed').PHP_EOL.
+    "Attempt to PRINT REPORT USER for USER '$name $surname': ".($result5?'Success':'Failed').PHP_EOL.
     "User: ".$username.PHP_EOL.
     "-------------------------".PHP_EOL;
     //Save string to log, use FILE_APPEND to append.
