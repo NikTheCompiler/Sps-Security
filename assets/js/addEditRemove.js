@@ -10,8 +10,8 @@ function addUser()
   var policecert = document.getElementById("policecert1").value;
   var position = document.getElementById("position1").value;
 
-  var atSymbol = email.indexOf("@");
-  var dot = email.indexOf(".");
+
+  var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
 
 
   if(name==""){
@@ -42,7 +42,7 @@ function addUser()
       'error'
     );
   }
-  else if(email!="" && (atSymbol < 1||dot <= atSymbol + 2||dot === email.length - 1)){
+  else if(emailPattern.test(email)==false){
     Swal.fire(
       'Wrong email format!',
       '',
@@ -160,8 +160,7 @@ function editUser()
   var email=$("#email")[0].value;
   var policecert=$("#policecert")[0].value;
 
-  var atSymbol = email.indexOf("@");
-  var dot = email.indexOf(".");
+  var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
 
   if(name==""){
     Swal.fire(
@@ -191,7 +190,7 @@ function editUser()
       'error'
     );
   }
-  else if(email!="" && (atSymbol < 1||dot <= atSymbol + 2||dot === email.length - 1)){
+  else if(emailPattern.test(email)==false){
     Swal.fire(
       'Wrong email format!',
       '',
@@ -273,8 +272,7 @@ function editProfile(){
   var surname = $("#surname2")[0].value;
   var email=$("#email2")[0].value;
 
-  var atSymbol = email.indexOf("@");
-  var dot = email.indexOf(".");
+  var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
 
   if(name==""){
     Swal.fire(
@@ -290,7 +288,7 @@ function editProfile(){
       'error'
     );
   }
-  else if(email!="" && (atSymbol < 1||dot === email.length - 1)){
+  else if(emailPattern.test(email)==false){
     Swal.fire(
       'Wrong email format!',
       '',
