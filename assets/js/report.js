@@ -62,19 +62,12 @@ function getUserPrintReportData(row)
 
 }
 
-var canvas = document.getElementById('barChart');
-var context = canvas.getContext('2d');
 
 
 download.addEventListener("click", function() {
-  // only jpeg is supported by jsPDF
-  var imgData = canvas.toDataURL("image/png", 1.0);
-  data.append('image',imgData);
-  // var pdf = new jsPDF();
+ 
 
-  window.open("../php/printReportUser.php?" );
+  window.open("../php/printChart.php" );
 
-  // pdf.addImage(imgData, 'png', 0, 0);
-  // pdf.save("download.pdf");
 }, false);
 

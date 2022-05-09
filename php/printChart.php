@@ -4,7 +4,6 @@ require_once('connect.php');
 ob_end_clean();
 
 require('../tcpdf/tcpdf.php');
-  $image=$_GET['image'];
   $table="";
 
   $username=$_SESSION['username'];
@@ -12,15 +11,6 @@ require('../tcpdf/tcpdf.php');
     date_default_timezone_set('Europe/Riga');
     $today = date("F j, Y, g:i a");
 
-  $sql = "SELECT * FROM Users WHERE UserID = '".$id."'";
-                  $result2 = sqlsrv_query($conn, $sql);
-                  
-                    while ($row2 = sqlsrv_fetch_array($result2,SQLSRV_FETCH_ASSOC)) {
-                      $name = $row2["name"];
-                      $surname = $row2["surname"];
-                    
-                  
-                    }
 // Instantiation of FPDF class
 $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
 
@@ -76,9 +66,54 @@ $pdf->AddPage();
 // set text shadow effect
 $pdf->setTextShadow(array('enabled'=>true, 'depth_w'=>0.2, 'depth_h'=>0.2, 'color'=>array(196,196,196), 'opacity'=>1, 'blend_mode'=>'Normal'));
 
-$pdf->Image($image, '', '', 40, 40, '', '', 'T', false, 300, '', false, false, 1, false, false, false);
+$averagegrades=array();
+$cmonth=date('m');
+$newDate = date('m', strtotime('-1 month'));
+$newDateYear=date('Y', strtotime('-1 month'));
+$cyear=date('Y');
+
+for($i=1;$i<6;$i++){
+  $sql="SELECT Grade FROM Users JOIN Tests ON Users.UserID=Tests.UserID WHERE dept='".$i."' AND type=0 AND MONTH(Date) BETWEEN '".$newDate."' AND '".$cmonth."' AND YEAR(Date) BETWEEN '".$newDateYear."' AND '".$cyear."' ";
+  $qsum = sqlsrv_query($conn,$sql);
+  $sum=0;
+  $j=0;
+  while ($gradesarr = sqlsrv_fetch_array($qsum,SQLSRV_FETCH_ASSOC)) {
+    $sum=$sum+5*$gradesarr["Grade"];
+    $j=$j+1;
+  }
+  if($j==0){
+    $j=1;
+  }
+  (int)$averagegrades[$i-1]=(int)$sum/(int)$j;
+  $sum=0;
+}
+
+                  $k=0;
+                  while($k<sizeof($averagegrades) ){
+                      $table.='
+                      <tr nobr="true">
+                      <td> </td>
+                      <td>'.(int)$averagegrades[$k].'%</td>
+                      </tr>';
+                      $k++;
+                  }
+
+              $html = <<<EOD
+
+                  <table border="1" cellpadding="2" cellspacing="2" align="center">
+                  <tr nobr="true">
+                  <th colspan="2">NON-BREAKING ROWS</th>
+                  </tr>
+                  $table
+                  
+                </table>
+              EOD;
 
 
+
+              $pdf->writeHTML($html, true, 0, true, 0);
+
+              
 // ---------------------------------------------------------
 
 // Close and output PDF document
@@ -88,7 +123,7 @@ $pdf->Image($image, '', '', 40, 40, '', '', 'T', false, 300, '', false, false, 1
 $pdf->Output('TestReport.pdf');
 
 $log  = "User: ".$_SERVER['REMOTE_ADDR'].' - '.$today.PHP_EOL.
-    "Attempt to PRINT REPORT for USER '$name $surname': ".($number?'Success':'Failed').PHP_EOL.
+    "Attempt to PRINT ADMIN CHART: ".($qsum?'Success':'Failed').PHP_EOL.
     "User: ".$username.PHP_EOL.
     "-------------------------".PHP_EOL;
     //Save string to log, use FILE_APPEND to append.
