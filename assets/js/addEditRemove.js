@@ -290,7 +290,7 @@ function editProfile(){
       'error'
     );
   }
-  else if(email!="" && (atSymbol < 1||dot <= atSymbol + 2||dot === email.length - 1)){
+  else if(email!="" && (atSymbol < 1||dot === email.length - 1)){
     Swal.fire(
       'Wrong email format!',
       '',

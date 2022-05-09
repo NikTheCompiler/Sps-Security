@@ -86,23 +86,25 @@ for($i=1;$i<6;$i++){
   }
   (int)$averagegrades[$i-1]=(int)$sum/(int)$j;
   $sum=0;
-}
+}$depts=["CIT","Monitoring & Alarm Receiving Center","Cash & Valuables Storage Department","Cash Processing Department","Patrol Department"];
 
                   $k=0;
                   while($k<sizeof($averagegrades) ){
                       $table.='
                       <tr nobr="true">
-                      <td> </td>
+                      <td>'.$depts[$k].' </td>
                       <td>'.(int)$averagegrades[$k].'%</td>
                       </tr>';
                       $k++;
                   }
+                  
 
               $html = <<<EOD
 
                   <table border="1" cellpadding="2" cellspacing="2" align="center">
                   <tr nobr="true">
-                  <th colspan="2">NON-BREAKING ROWS</th>
+                  <th colspan="2">Average grade for each Department in the last 2 months
+                  </th>
                   </tr>
                   $table
                   
