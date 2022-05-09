@@ -532,12 +532,13 @@ Secure(2);
                             <td hidden>' . $type . '</td>
                             <td hidden>' . $email . '</td>
                             <td hidden>' . $policecert . '</td>
-                            <td class="text-right py-0 align-middle col-sm-3">
+                            <td class="text-right py-0 align-middle col-sm-4">
                               <div class="btn-group btn-group-sm col-sm-11" >
                                 <button class="btn btn-info" type="submit"  data-bs-toggle="modal" data-bs-target="#modal-Edit-User" onclick="modalGetData(this.parentNode.parentNode.parentNode)"></i>Edit</button>
                                 
                                 <button class="btn btn-dark" type="submit"  onclick="generatePass(this.parentNode.parentNode.parentNode);"></i>Generate Pass</button>
                                 <button class="btn btn-primary" type="submit"   onclick="getUserPrintReportData(this.parentNode.parentNode.parentNode)"></i>Print Report</button>
+                                <button class="btn btn-success" type="submit"   onclick=""></i>Extract to Excel</button>
                               </div>
 
                             </td>
