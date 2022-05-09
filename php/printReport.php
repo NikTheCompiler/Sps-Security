@@ -7,6 +7,13 @@ require('../tcpdf/tcpdf.php');
   $id=$_GET["id"];
   $testid=$_GET["testid"];
   $table="";
+  $categories=array(0,0,0,0,0,0,0,0,0,0);
+  $p=0;
+  $numberquestions=array(0,0,0,0,0,0,0,0);
+  $correct=array(0,0,0,0,0,0,0,0,0,0,0);
+  $tablecategories="";
+  $counter=0;
+  $l=0;
 
   $username=$_SESSION['username'];
 
@@ -160,8 +167,24 @@ $date=$nu['Date']->format('d/m/Y');
       $res="False";
       $color="style='color:red'";
     }
+    
+    if($categories[$p]==0){
+      $categories[$p]=$Category;
+      $counter++;
+    }
+    else if($categories[$p]!=$Category){
+      $p++;
+    }
+    if($res=="Correct"){
+      $correct[$p]++;
+      $numberquestions[$p]++;
+    }
+    else if ($res=="False"){$numberquestions[$p]++;}
+    
 
-  
+    
+    
+
      $table.='
       <tr>
         <td align="center" style="width:5%">' . $i .'</td>
@@ -170,12 +193,15 @@ $date=$nu['Date']->format('d/m/Y');
         <td align="center"> '.$Category.'</td>
         <td align="center"> '.$UserAnswer .'</td>
         <td align="center">'.$CorrectAnswer.' </td>
-        <td align="center">'.$res.' </td>                          
+        <td align="center">'.$res.' </td>                           
       </tr>
     </tbody>';
    
   }
 
+  for( $l=0;$l<$counter;$l++){
+    $tablecategories.='<strong><br>'.$categories[$l].': '.$correct[$l].'/'.$numberquestions[$l].'</strong>';
+  }
   if($table==""){ $table="<tr><td>Questions not found!</td></tr></tbody>";}
 
   if($n==NULL){$n=0;}
@@ -201,6 +227,7 @@ $date=$nu['Date']->format('d/m/Y');
   </table>
   <br><br>
   <strong>Correct Answers: $n<br>False Answers: $f </strong>
+  $tablecategories
   EOD;
 
   

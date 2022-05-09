@@ -146,7 +146,7 @@ $pdf->setTextShadow(array('enabled'=>true, 'depth_w'=>0.2, 'depth_h'=>0.2, 'colo
 
                   $k=0;
                   while($k<sizeof($data) && $k<sizeof($apotelesmata) ){
-                      $table.='</tr>
+                      $table.='
                       <tr br="true">
                       <td>'.$data["$k"].'</td>
                       <td>'.(int)$apotelesmata["$k"].'%</td>
@@ -157,8 +157,9 @@ $pdf->setTextShadow(array('enabled'=>true, 'depth_w'=>0.2, 'depth_h'=>0.2, 'colo
               $html = <<<EOD
 
                 <table border="1" cellpadding="2" cellspacing="2" align="center">
-                <tr br="true">
+                <tr nobr="true">
                 <th colspan="2">Percentage of correct answers each Category of Questions in the last 2 months</th>
+                </tr>
                 $table
                 
                

@@ -244,7 +244,7 @@ Secure(2);
                 <h5 class="card-title">Average grade for each Department in the last 2 months</h5>
               </div>
               <div class="d-table-cell align-middle">
-                <button class="btn btn-primary" type="submit" onclick=""></i>Print Report</button>
+                <button class="btn btn-primary" id = "download"></i>Print Report</button>
               </div>
               <?php 
                 $averagegrades=array(5);
@@ -499,6 +499,7 @@ Secure(2);
 
   <!-- Template Main JS File -->
   <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/report.js"></script>
 
 </body>
 
