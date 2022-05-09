@@ -532,7 +532,7 @@ Secure(2);
                             <td hidden>' . $type . '</td>
                             <td hidden>' . $email . '</td>
                             <td hidden>' . $policecert . '</td>
-                            <td class="text-right py-0 align-middle col-sm-4">
+                            <td class="text-right py-0 align-middle col-sm-5">
                               <div class="btn-group btn-group-sm col-sm-11" >
                                 <button class="btn btn-info" type="submit"  data-bs-toggle="modal" data-bs-target="#modal-Edit-User" onclick="modalGetData(this.parentNode.parentNode.parentNode)"></i>Edit</button>
                                 

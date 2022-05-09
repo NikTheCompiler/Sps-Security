@@ -42,7 +42,7 @@ function addUser()
       'error'
     );
   }
-  else if(emailPattern.test(email)==false){
+  else if(email!="" && emailPattern.test(email)==false ){
     Swal.fire(
       'Wrong email format!',
       '',
@@ -190,7 +190,7 @@ function editUser()
       'error'
     );
   }
-  else if(emailPattern.test(email)==false){
+  else if(email!="" && emailPattern.test(email)==false){
     Swal.fire(
       'Wrong email format!',
       '',
@@ -288,7 +288,7 @@ function editProfile(){
       'error'
     );
   }
-  else if(emailPattern.test(email)==false){
+  else if(email!="" && emailPattern.test(email)==false){
     Swal.fire(
       'Wrong email format!',
       '',
