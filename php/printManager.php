@@ -18,8 +18,8 @@ $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8',
 // set document information
 $pdf->SetCreator('SPS PRIVATE SECURITY SERVICES LTD');
 $pdf->SetAuthor('SPS PRIVATE SECURITY SERVICES LTD');
-$pdf->SetTitle('Test Report');
-$pdf->SetSubject('Test Report');
+$pdf->SetTitle('Manager Chart');
+$pdf->SetSubject('Manager Chart');
 
 // set default header data
 $pdf->SetHeaderData(PDF_HEADER_LOGO, 18, 'SPS PRIVATE SECURITY SERVICES LTD                                                            '.date("d/m/Y").'', 
@@ -174,7 +174,7 @@ $pdf->setTextShadow(array('enabled'=>true, 'depth_w'=>0.2, 'depth_h'=>0.2, 'colo
 // This method has several options, check the source code documentation for more information.
 
 
-$pdf->Output('TestReport.pdf');
+$pdf->Output('ManagerChart.pdf');
 
 $log  = "User: ".$_SERVER['REMOTE_ADDR'].' - '.$today.PHP_EOL.
     "Attempt to PRINT MANAGER CHART: ".($result?'Success':'Failed').PHP_EOL.

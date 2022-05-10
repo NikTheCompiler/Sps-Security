@@ -134,7 +134,7 @@ $pdf->writeHTMLCell(0, 0, '', '', $html, 0, 1, 0, true, '', true);
 // This method has several options, check the source code documentation for more information.
 
 
-$pdf->Output('TestReport.pdf');
+$pdf->Output('UserReport.pdf');
 
 $log  = "User: ".$_SERVER['REMOTE_ADDR'].' - '.$today.PHP_EOL.
     "Attempt to PRINT REPORT USER for USER '$name $surname': ".($result5?'Success':'Failed').PHP_EOL.

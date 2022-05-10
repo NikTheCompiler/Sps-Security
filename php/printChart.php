@@ -17,8 +17,8 @@ $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8',
 // set document information
 $pdf->SetCreator('SPS PRIVATE SECURITY SERVICES LTD');
 $pdf->SetAuthor('SPS PRIVATE SECURITY SERVICES LTD');
-$pdf->SetTitle('Test Report');
-$pdf->SetSubject('Test Report');
+$pdf->SetTitle('Admin Chart');
+$pdf->SetSubject('Admin Chart');
 
 // set default header data
 $pdf->SetHeaderData(PDF_HEADER_LOGO, 18, 'SPS PRIVATE SECURITY SERVICES LTD                                                            '.date("d/m/Y").'', 
@@ -122,7 +122,7 @@ for($i=1;$i<6;$i++){
 // This method has several options, check the source code documentation for more information.
 
 
-$pdf->Output('TestReport.pdf');
+$pdf->Output('AdminChart.pdf');
 
 $log  = "User: ".$_SERVER['REMOTE_ADDR'].' - '.$today.PHP_EOL.
     "Attempt to PRINT ADMIN CHART: ".($qsum?'Success':'Failed').PHP_EOL.
