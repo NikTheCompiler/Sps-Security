@@ -4,8 +4,23 @@ function getReportData(row)
   var date = row.cells[4].innerHTML;
   var id = row.cells[1].innerHTML;
   var testID = row.cells[5].innerHTML;
-  window.open("../php/reportModal.php?id="+ id + "&testID=" + testID );
   
+  $.post("../php/checktestquestions.php", {
+    testID: testID  
+  }).done(function(data){
+    if (data == 0 )
+  {
+    Swal.fire(
+      'Questions not found',
+      '',
+      'error'
+    );
+  }
+  else if(data == 1)
+  {
+    window.open("../php/reportModal.php?id="+ id + "&testID=" + testID );  }
+});
+
 }
 
 function getPrintReportData(row)
