@@ -71,3 +71,11 @@ download.addEventListener("click", function() {
 
 }, false);
 
+
+function exportUserExcel(row)
+{
+  var id = row.cells[1].innerHTML;
+  var name = row.cells[2].innerHTML;
+  var surname = row.cells[3].innerHTML;
+  window.open("../php/loaduserexceltable.php?id="+ id + "&name=" + name + "&surname=" + surname);
+}

@@ -538,7 +538,7 @@ Secure(2);
                                 
                                 <button class="btn btn-dark" type="submit"  onclick="generatePass(this.parentNode.parentNode.parentNode);"></i>Generate Pass</button>
                                 <button class="btn btn-primary" type="submit"   onclick="getUserPrintReportData(this.parentNode.parentNode.parentNode)"></i>Print Report</button>
-                                <button class="btn btn-success" type="submit"   onclick=""></i>Extract to Excel</button>
+                                <button class="btn btn-success" type="submit"   onclick="exportUserExcel(this.parentNode.parentNode.parentNode)"></i>Extract to Excel</button>
                               </div>
 
                             </td>
