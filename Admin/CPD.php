@@ -392,6 +392,7 @@ Secure(3);
   <script src="../assets/vendor/chart.js/chart.min.js"></script>
   <script src="../assets/vendor/apexcharts/apexcharts.min.js"></script>
   <script src="../assets/vendor/echarts/echarts.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
   <!-- Template Main JS File -->
   <script src="../assets/js/main.js"></script>
