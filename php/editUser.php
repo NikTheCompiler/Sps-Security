@@ -28,7 +28,7 @@ $email = strip_tags($email_input);
 $policecert_input = $_POST["policecert"];
 $policecert = strip_tags($policecert_input);
 
-$username=$_SESSION['username'];
+$usernamelog=$_SESSION['username'];
 
     date_default_timezone_set('Europe/Riga');
     $today = date("F j, Y, g:i a");
@@ -43,7 +43,7 @@ if (sqlsrv_execute($stmt)){
 
 $log  = "User: ".$_SERVER['REMOTE_ADDR'].' - '.$today.PHP_EOL.
     "Attempt to EDIT USER with name '$name $surname': ".($stmt?'Success':'Failed').PHP_EOL.
-    "User: ".$username.PHP_EOL.
+    "User: ".$usernamelog.PHP_EOL.
     "-------------------------".PHP_EOL;
     //Save string to log, use FILE_APPEND to append.
     file_put_contents('../logs/log_'.date("j.n.Y").'.log', $log, FILE_APPEND);
