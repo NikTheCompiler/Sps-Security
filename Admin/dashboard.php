@@ -343,7 +343,8 @@ Secure(3);
                    $newDate = date('m', strtotime('-1 month'));
                    $newDateYear=date('Y', strtotime('-1 month'));
                    $cyear=date('Y');
-                   $result = sqlsrv_query($conn, "SELECT * FROM Users WHERE type=0 AND UserID NOT IN (SELECT  Users.UserID FROM Users JOIN Tests ON Users.UserID=Tests.UserID WHERE type=0 AND MONTH(Date) BETWEEN '".$newDate."' AND '".$cmonth."' AND YEAR(Date) BETWEEN '".$newDateYear."' AND '".$cyear."') ");
+                   $result = sqlsrv_query($conn, "SELECT * FROM Users WHERE type=0 AND UserID 
+                   NOT IN (SELECT  Users.UserID FROM Users JOIN Tests ON Users.UserID=Tests.UserID WHERE type=0 AND MONTH(Date) BETWEEN '".$newDate."' AND '".$cmonth."' AND YEAR(Date) BETWEEN '".$newDateYear."' AND '".$cyear."') ");
 
                      $i = 0;
                      while ($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)) {

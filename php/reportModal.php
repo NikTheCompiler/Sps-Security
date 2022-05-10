@@ -1,22 +1,19 @@
 <?php
 session_start();
-  include_once('connect.php');
+include_once('connect.php');
 
-  $UserID=$_POST['id'];
-  $TestID=$_POST['testID'];
+  $UserID=$_GET['id'];
+  $TestID=$_GET['testID'];
 
   $username=$_SESSION['username'];
 
-    date_default_timezone_set('Europe/Riga');
-    $today = date("F j, Y, g:i a");
-
-$sql2 = "SELECT * FROM Users WHERE UserID = '".$UserID."'";
-$result3 = sqlsrv_query($conn, $sql2);
-$row2 = sqlsrv_fetch_array($result3,SQLSRV_FETCH_ASSOC);
-$name=$row2["name"];
-$surname=$row2["surname"];
+        date_default_timezone_set('Europe/Riga');
+        $today = date("F j, Y, g:i a");
 
   $result = sqlsrv_query($conn, "SELECT * FROM Questions JOIN UserAns ON UserAns.QID=Questions.QID JOIN Categories ON Categories.CID=Questions.Category WHERE TestID='".$TestID."' ORDER BY Category ASC");
+  $testdate = sqlsrv_query($conn, "SELECT Date FROM Tests WHERE TestID='".$TestID."'");
+  $testdate=sqlsrv_fetch_array($testdate,SQLSRV_FETCH_ASSOC);
+  $testdate=$testdate["Date"]->format('d/m/Y');
 
   ?>
   <?php
@@ -31,6 +28,20 @@ $surname=$row2["surname"];
                   
                     }
     ?>
+<?php
+    $query ="SELECT COUNT(QID) FROM UserAns WHERE TestID = '".$TestID."' ";
+    $results = sqlsrv_query($conn, $query);
+    $results=sqlsrv_fetch_array($results,SQLSRV_FETCH_NUMERIC);
+
+    if($results[0] == 0)
+    {
+      echo"<center><h1><br>No Questions found for the User: $name $surname </h1></center>";
+      goto a;
+    }
+    
+    ?>
+    <strong>  Report for Test of Employee: <?php echo $name." ". $surname." on ".$testdate;?> </strong>
+    <table class="table datatable" id="tabletest">
   <thead>
     <tr>
       <th>#</th>
@@ -140,8 +151,21 @@ $surname=$row2["surname"];
   "-------------------------".PHP_EOL;
   //Save string to log, use FILE_APPEND to append.
   file_put_contents('../logs/log_'.date("j.n.Y").'.log', $log, FILE_APPEND);
-
   ?>
+  
+  <center><button  class="btn btn-success"  onclick="ExportToExcel('xlsx')">Export results to excel</button></center>
+  <script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
+  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <?php a: ?>
+  <script>
+function ExportToExcel(type, fn, dl) {
+  var elt = document.getElementById('tabletest');
+  var wb = XLSX.utils.table_to_book(elt, { sheet: "sheet1" });
+  return dl ?
+    XLSX.write(wb, { bookType: type, bookSST: true, type: 'base64' }):
+    XLSX.writeFile(wb, fn || ('TestReport.' + (type || 'xlsx')));
+}
+</script>
   
 
 

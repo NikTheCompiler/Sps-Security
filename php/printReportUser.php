@@ -104,12 +104,10 @@ $average = 0;
     </tbody>';
    
 
- // if($table==""){ $table="<tr><td>Tests for this employee not found!</td></tr></tbody>";}
-
   $html = <<<EOD
   <strong>  Report for User: $name $surname </strong><br><br>
   <font size="11" face="Courier New" >
-  <table border="1" align="center" width="100%">
+  <table border="1" align="center"  width="130%">
   <thead>
       <tr>
         <th align="center" style="width:5%">#</th>

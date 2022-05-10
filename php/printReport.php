@@ -88,6 +88,18 @@ $result = sqlsrv_query($conn, "SELECT * FROM Questions JOIN UserAns ON UserAns.Q
 // Set some content to print
 $number = sqlsrv_query($conn,"SELECT Grade,Date FROM Tests WHERE TestID='".$testid."' ");
 
+
+    $query ="SELECT COUNT(QID) FROM UserAns WHERE TestID = '".$testid."' ";
+    $results = sqlsrv_query($conn, $query);
+    $results=sqlsrv_fetch_array($results,SQLSRV_FETCH_NUMERIC);
+
+    if($results[0] == 0)
+    {
+      echo"<center><h1><br>No Questions found for the User: $name $surname </h1></center>";
+      exit;
+    }
+    
+
 $nu=sqlsrv_fetch_array($number,SQLSRV_FETCH_ASSOC);
 $n=$nu["Grade"];
 $f=20-$n;

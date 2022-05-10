@@ -243,14 +243,19 @@ Secure(1);
              $_SESSION['labelss'] = $talabels;
               ?>
               <?php
+                $cmonth=date('m');
+                $newDate = date('m', strtotime('-1 month'));
+                $newDateYear=date('Y', strtotime('-1 month'));
+                $cyear=date('Y');
                  $talabelsdame = $_SESSION['labelss'];
-                 $sql = " SELECT  Questions.QID, Questions.CorrectAns, Questions.Category, UserAns.UserAns, Categories.CID, Categories.Cname
+                 $sql = " SELECT  Questions.QID, Questions.CorrectAns, Questions.Category, UserAns.UserAns, Categories.CID, Categories.Cname 
                  FROM Questions
                  JOIN UserAns 
                  ON Questions.QID=UserAns.QID
                  JOIN Categories
                  ON Questions.Category=Categories.CID
                  WHERE Questions.Dept= $department
+                 AND TestID  IN(SELECT  TestID FROM Tests WHERE MONTH(Date) BETWEEN '".$newDate."' AND '".$cmonth."' AND YEAR(Date) BETWEEN '".$newDateYear."' AND '".$cyear."') 
                   ";
                 $result = sqlsrv_query($conn, $sql);
 

@@ -15,7 +15,20 @@ $result2 = sqlsrv_query($conn, $sql);
   
   }
   ?>
- 
+  <?php
+    $query ="SELECT COUNT(*) FROM Tests WHERE UserID = '".$id."' ";
+    $results = sqlsrv_query($conn, $query);
+    $results=sqlsrv_fetch_array($results,SQLSRV_FETCH_NUMERIC);
+
+    if($results[0] == 0)
+    {
+      echo"<center><h1><br>No Tests found for the User: $name $surname </h1></center>";
+      exit;
+    }
+    
+    ?>
+
+ <center><h3><br>Report for the User: <?php echo $name . " " .$surname ?></h3></center>
   <table class="table datatable" id="tableuser">
 
   <thead>
@@ -61,22 +74,11 @@ echo"
     </tbody>
     
   </table>
-  <?php
-    $query ="SELECT COUNT(*) FROM Tests WHERE UserID = '".$id."' ";
-    $results = sqlsrv_query($conn, $query);
-    $results=sqlsrv_fetch_array($results,SQLSRV_FETCH_NUMERIC);
-
-    if($results[0] == 0)
-    {
-      echo"No Tests for this User";
-      goto a;
-    }
-    
-    ?>
+  
     <br>
-  <button onclick="ExportToExcel('xlsx')">Export results to excel</button>
+  <center><button  class="btn btn-success"  onclick="ExportToExcel('xlsx')">Export results to excel</button></center>
   <script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
-  <?php a: ?>
+  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <script>
 function ExportToExcel(type, fn, dl) {
   var elt = document.getElementById('tableuser');

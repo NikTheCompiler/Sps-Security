@@ -366,9 +366,8 @@ Secure(3);
                          <td class="text-right py-0 align-middle col-sm-1">' . $data1 . '' . $status . ' ' . $data2 . '</td>
                          <td class="text-right py-0 align-middle col-sm-1">
                           <div class="btn-group btn-group-sm col-sm-11" >
-                          <button class="btn btn-info" type="submit"  data-bs-toggle="modal" data-bs-target="#reportModal" onclick="getReportData(this.parentNode.parentNode.parentNode)"></i>Get Report</button>
+                          <button class="btn btn-info" type="submit"  onclick="getReportData(this.parentNode.parentNode.parentNode)"></i>Get Report</button>
                           <button class="btn btn-primary" type="submit"   onclick="getPrintReportData(this.parentNode.parentNode.parentNode)"></i>Print Report</button>
-                          <button class="btn btn-success" type="submit"   onclick=""></i>Extract to Excel</button>
                           </div>
                         </td>
                          
