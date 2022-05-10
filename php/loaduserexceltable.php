@@ -22,7 +22,7 @@ $result2 = sqlsrv_query($conn, $sql);
 
     if($results[0] == 0)
     {
-      echo"<center><h1><br>No Tests found for the User: $name $surname </h1></center>";
+      echo 1;
       exit;
     }
     
