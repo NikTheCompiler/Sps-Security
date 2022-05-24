@@ -7,6 +7,8 @@ $Dept = $_POST['deptCat'];
 
 $username=$_SESSION['username'];
 
+$categoryquery=0;
+
 date_default_timezone_set('Europe/Riga');
 $today = date("F j, Y, g:i a");
 

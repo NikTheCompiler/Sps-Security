@@ -17,6 +17,8 @@ include_once('passgenerator.php');
     $mail[0]=0;
 
     $usernamelog=$_SESSION['username'];
+    
+    $stmt=0;
 
     date_default_timezone_set('Europe/Riga');
     $today = date("F j, Y, g:i a");

@@ -28,6 +28,8 @@ $dept2 = strip_tags($dept2_input);
 $category_input = $_POST["category"];
 $category = strip_tags($category_input);
 
+$stmt=0;
+
 $username=$_SESSION['username'];
 
     date_default_timezone_set('Europe/Riga');

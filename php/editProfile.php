@@ -13,6 +13,7 @@ $surname = strip_tags($surname_input);
 $email_input = $_POST["email"];
 $email = strip_tags($email_input);
 
+
 $username=$_SESSION['username'];
 
     date_default_timezone_set('Europe/Riga');

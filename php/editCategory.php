@@ -10,6 +10,8 @@ $Cname=strip_tags($Cname_input);
 $deptCat_input = $_POST["deptCatEdit"];
 $deptCat = strip_tags($deptCat_input);
 
+$stmt=0;
+
 $username=$_SESSION['username'];
 
     date_default_timezone_set('Europe/Riga');

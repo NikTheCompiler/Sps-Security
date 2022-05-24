@@ -564,6 +564,7 @@ var id = row.cells[1].innerHTML;
             category: category
 
           }) .done(function(data) {
+            console.log(data);
             if (data == 0){
               Swal.fire(
                 'Failed!',
